@@ -1,0 +1,292 @@
+[
+  {
+    "id": "ibm-power",
+    "name": "IBM Power",
+    "category": "Infrastructure",
+    "subcategory": "Power Systems",
+    "description": "Enterprise-grade servers for mission-critical workloads",
+    "use_cases": ["SAP", "Oracle", "High-transaction databases", "AI workloads", "Mission-critical applications"],
+    "strengths": ["Reliability", "Performance", "SAP certification", "RAS features", "Vertical scaling"],
+    "keywords": ["power", "power10", "power11", "servers", "enterprise", "mission-critical", "sap", "oracle"]
+  },
+  {
+    "id": "ibm-power-virtual-server",
+    "name": "IBM Power Virtual Server",
+    "category": "Cloud",
+    "subcategory": "Power as a Service",
+    "description": "IBM Power in the cloud with flexible consumption",
+    "use_cases": ["SAP migration", "Disaster recovery", "Dev/test environments", "Hybrid cloud", "Workload modernization"],
+    "strengths": ["Cloud flexibility", "Power performance", "Quick provisioning", "Pay-as-you-go", "Hybrid integration"],
+    "keywords": ["power", "cloud", "virtual server", "powervs", "paas", "sap", "hybrid"]
+  },
+  {
+    "id": "ibm-cloud",
+    "name": "IBM Cloud",
+    "category": "Cloud",
+    "subcategory": "Public Cloud",
+    "description": "Enterprise cloud platform with global reach",
+    "use_cases": ["Application hosting", "Data analytics", "AI/ML workloads", "Hybrid cloud", "Multi-cloud"],
+    "strengths": ["Security", "Compliance", "Global network", "Enterprise support", "Hybrid capabilities"],
+    "keywords": ["cloud", "iaas", "paas", "public cloud", "hybrid", "multi-cloud"]
+  },
+  {
+    "id": "ibm-cloud-vpc",
+    "name": "IBM Cloud VPC",
+    "category": "Cloud",
+    "subcategory": "Virtual Private Cloud",
+    "description": "Isolated cloud network infrastructure",
+    "use_cases": ["Secure workloads", "Network isolation", "Hybrid connectivity", "Multi-tier applications"],
+    "strengths": ["Security", "Network control", "Scalability", "Integration"],
+    "keywords": ["vpc", "network", "cloud", "security", "isolation"]
+  },
+  {
+    "id": "ibm-cloud-kubernetes",
+    "name": "IBM Cloud Kubernetes Service",
+    "category": "Cloud",
+    "subcategory": "Container Platform",
+    "description": "Managed Kubernetes for containerized applications",
+    "use_cases": ["Microservices", "Cloud-native apps", "DevOps", "Container orchestration"],
+    "strengths": ["Managed service", "Security", "Integration", "Scalability"],
+    "keywords": ["kubernetes", "containers", "k8s", "cloud-native", "microservices"]
+  },
+  {
+    "id": "ibm-cloud-object-storage",
+    "name": "IBM Cloud Object Storage",
+    "category": "Storage",
+    "subcategory": "Object Storage",
+    "description": "Scalable, durable object storage",
+    "use_cases": ["Backup", "Archive", "Data lakes", "Content delivery", "AI/ML datasets"],
+    "strengths": ["Durability", "Scalability", "Cost-effective", "Global access"],
+    "keywords": ["storage", "object", "s3", "backup", "archive", "data lake"]
+  },
+  {
+    "id": "ibm-storage-flashsystem",
+    "name": "IBM Storage FlashSystem",
+    "category": "Storage",
+    "subcategory": "Enterprise Storage",
+    "description": "High-performance all-flash storage arrays",
+    "use_cases": ["Databases", "Virtual machines", "AI workloads", "Mission-critical apps"],
+    "strengths": ["Performance", "Reliability", "Cyber resilience", "Data reduction"],
+    "keywords": ["storage", "flash", "san", "enterprise", "performance", "nvme"]
+  },
+  {
+    "id": "ibm-storage-defender",
+    "name": "IBM Storage Defender",
+    "category": "Security",
+    "subcategory": "Data Protection",
+    "description": "Cyber resilience for storage infrastructure",
+    "use_cases": ["Ransomware protection", "Data recovery", "Compliance", "Backup validation"],
+    "strengths": ["Threat detection", "Immutable copies", "Fast recovery", "Compliance"],
+    "keywords": ["security", "ransomware", "backup", "recovery", "cyber resilience"]
+  },
+  {
+    "id": "red-hat-openshift",
+    "name": "Red Hat OpenShift",
+    "category": "Platform",
+    "subcategory": "Container Platform",
+    "description": "Enterprise Kubernetes platform",
+    "use_cases": ["Application modernization", "Hybrid cloud", "DevOps", "Microservices", "Multi-cloud"],
+    "strengths": ["Developer productivity", "Security", "Hybrid deployment", "Automation"],
+    "keywords": ["openshift", "kubernetes", "containers", "platform", "hybrid", "devops"]
+  },
+  {
+    "id": "red-hat-ansible",
+    "name": "Red Hat Ansible Automation Platform",
+    "category": "Automation",
+    "subcategory": "IT Automation",
+    "description": "Enterprise automation platform",
+    "use_cases": ["Infrastructure automation", "Configuration management", "Orchestration", "DevOps"],
+    "strengths": ["Simplicity", "Agentless", "Scalability", "Integration"],
+    "keywords": ["ansible", "automation", "orchestration", "configuration", "devops"]
+  },
+  {
+    "id": "red-hat-enterprise-linux",
+    "name": "Red Hat Enterprise Linux",
+    "category": "Platform",
+    "subcategory": "Operating System",
+    "description": "Enterprise Linux operating system",
+    "use_cases": ["Server workloads", "Cloud infrastructure", "Containers", "Edge computing"],
+    "strengths": ["Stability", "Security", "Support", "Ecosystem"],
+    "keywords": ["rhel", "linux", "operating system", "os", "enterprise"]
+  },
+  {
+    "id": "watsonx-ai",
+    "name": "watsonx.ai",
+    "category": "AI",
+    "subcategory": "AI Platform",
+    "description": "Enterprise AI studio for foundation models",
+    "use_cases": ["Generative AI", "Model training", "AI applications", "NLP", "ML workflows"],
+    "strengths": ["Foundation models", "Enterprise governance", "Hybrid deployment", "Transparency"],
+    "keywords": ["ai", "watsonx", "machine learning", "generative ai", "llm", "foundation models"]
+  },
+  {
+    "id": "watsonx-data",
+    "name": "watsonx.data",
+    "category": "Data",
+    "subcategory": "Data Lakehouse",
+    "description": "Open lakehouse for AI and analytics",
+    "use_cases": ["Data lakes", "Analytics", "AI data prep", "Multi-cloud data", "Data governance"],
+    "strengths": ["Open formats", "Query federation", "Cost optimization", "Governance"],
+    "keywords": ["data", "lakehouse", "analytics", "watsonx", "data lake", "governance"]
+  },
+  {
+    "id": "watsonx-governance",
+    "name": "watsonx.governance",
+    "category": "AI",
+    "subcategory": "AI Governance",
+    "description": "AI governance and risk management",
+    "use_cases": ["AI compliance", "Model monitoring", "Risk management", "Bias detection", "Explainability"],
+    "strengths": ["Compliance", "Transparency", "Risk mitigation", "Lifecycle management"],
+    "keywords": ["governance", "ai", "compliance", "risk", "ethics", "watsonx"]
+  },
+  {
+    "id": "cloud-pak-data",
+    "name": "IBM Cloud Pak for Data",
+    "category": "Data",
+    "subcategory": "Data Platform",
+    "description": "Unified data and AI platform",
+    "use_cases": ["Data integration", "Data governance", "Analytics", "AI/ML", "Data catalog"],
+    "strengths": ["Integration", "Governance", "Hybrid deployment", "Comprehensive"],
+    "keywords": ["data", "platform", "integration", "governance", "analytics", "ai"]
+  },
+  {
+    "id": "db2",
+    "name": "IBM Db2",
+    "category": "Data",
+    "subcategory": "Database",
+    "description": "Enterprise relational database",
+    "use_cases": ["Transactional workloads", "Data warehousing", "Analytics", "Mission-critical apps"],
+    "strengths": ["Performance", "Reliability", "AI integration", "Hybrid deployment"],
+    "keywords": ["database", "db2", "sql", "relational", "transactional"]
+  },
+  {
+    "id": "ibm-guardium",
+    "name": "IBM Guardium",
+    "category": "Security",
+    "subcategory": "Data Security",
+    "description": "Data security and compliance platform",
+    "use_cases": ["Data protection", "Compliance", "Threat detection", "Database security", "Audit"],
+    "strengths": ["Comprehensive coverage", "Compliance automation", "Real-time monitoring", "Analytics"],
+    "keywords": ["security", "data protection", "compliance", "database security", "audit"]
+  },
+  {
+    "id": "ibm-qradar",
+    "name": "IBM QRadar",
+    "category": "Security",
+    "subcategory": "SIEM",
+    "description": "Security information and event management",
+    "use_cases": ["Threat detection", "Security analytics", "Compliance", "Incident response", "SOC"],
+    "strengths": ["AI-powered", "Comprehensive visibility", "Threat intelligence", "Automation"],
+    "keywords": ["security", "siem", "threat detection", "analytics", "compliance", "soc"]
+  },
+  {
+    "id": "ibm-verify",
+    "name": "IBM Security Verify",
+    "category": "Security",
+    "subcategory": "Identity & Access",
+    "description": "Identity and access management",
+    "use_cases": ["SSO", "MFA", "Identity governance", "Access management", "Zero trust"],
+    "strengths": ["AI-powered", "User experience", "Comprehensive", "Cloud-native"],
+    "keywords": ["identity", "access", "iam", "sso", "mfa", "authentication"]
+  },
+  {
+    "id": "ibm-turbonomic",
+    "name": "IBM Turbonomic",
+    "category": "Observability",
+    "subcategory": "Application Resource Management",
+    "description": "AI-powered application resource management",
+    "use_cases": ["Cost optimization", "Performance assurance", "Resource allocation", "Cloud optimization"],
+    "strengths": ["Automation", "Real-time decisions", "Multi-cloud", "ROI"],
+    "keywords": ["optimization", "cost", "performance", "automation", "cloud", "finops"]
+  },
+  {
+    "id": "ibm-instana",
+    "name": "IBM Instana",
+    "category": "Observability",
+    "subcategory": "APM",
+    "description": "Automated application performance monitoring",
+    "use_cases": ["Microservices monitoring", "APM", "Distributed tracing", "Real-time observability"],
+    "strengths": ["Automation", "Real-time", "Context", "Ease of use"],
+    "keywords": ["observability", "apm", "monitoring", "microservices", "tracing", "performance"]
+  },
+  {
+    "id": "ibm-apptio",
+    "name": "IBM Apptio",
+    "category": "FinOps",
+    "subcategory": "Technology Business Management",
+    "description": "Technology business management platform",
+    "use_cases": ["IT financial management", "Cloud cost management", "Budgeting", "Chargeback", "FinOps"],
+    "strengths": ["Financial visibility", "Cost allocation", "Planning", "Optimization"],
+    "keywords": ["finops", "cost management", "budgeting", "financial", "tbm"]
+  },
+  {
+    "id": "cloud-pak-integration",
+    "name": "IBM Cloud Pak for Integration",
+    "category": "Integration",
+    "subcategory": "Integration Platform",
+    "description": "Comprehensive integration platform",
+    "use_cases": ["API management", "Application integration", "Messaging", "Event streaming", "Data integration"],
+    "strengths": ["Comprehensive", "Hybrid deployment", "Containerized", "Scalability"],
+    "keywords": ["integration", "api", "messaging", "events", "middleware"]
+  },
+  {
+    "id": "ibm-api-connect",
+    "name": "IBM API Connect",
+    "category": "Integration",
+    "subcategory": "API Management",
+    "description": "Complete API lifecycle management",
+    "use_cases": ["API creation", "API security", "API monetization", "Developer portal", "Analytics"],
+    "strengths": ["Comprehensive", "Security", "Scalability", "Developer experience"],
+    "keywords": ["api", "gateway", "management", "integration", "microservices"]
+  },
+  {
+    "id": "ibm-business-automation",
+    "name": "IBM Business Automation",
+    "category": "Automation",
+    "subcategory": "Business Process",
+    "description": "Intelligent business process automation",
+    "use_cases": ["Workflow automation", "Document processing", "Decision automation", "RPA", "Process mining"],
+    "strengths": ["AI-powered", "Low-code", "Integration", "Scalability"],
+    "keywords": ["automation", "workflow", "bpm", "rpa", "process", "document"]
+  },
+  {
+    "id": "ibm-sterling-supply-chain",
+    "name": "IBM Sterling Supply Chain",
+    "category": "Supply Chain",
+    "subcategory": "Supply Chain Management",
+    "description": "AI-powered supply chain solutions",
+    "use_cases": ["Order management", "Inventory optimization", "Supply chain visibility", "B2B integration"],
+    "strengths": ["Visibility", "AI insights", "Integration", "Scalability"],
+    "keywords": ["supply chain", "logistics", "inventory", "order management", "b2b"]
+  },
+  {
+    "id": "ibm-linuxone",
+    "name": "IBM LinuxONE",
+    "category": "Infrastructure",
+    "subcategory": "Enterprise Linux",
+    "description": "Enterprise Linux server for mission-critical workloads",
+    "use_cases": ["Consolidation", "Security-critical apps", "High-volume transactions", "Cloud infrastructure"],
+    "strengths": ["Security", "Scalability", "Consolidation", "Reliability"],
+    "keywords": ["linuxone", "mainframe", "linux", "enterprise", "consolidation", "security"]
+  },
+  {
+    "id": "ibm-consulting",
+    "name": "IBM Consulting",
+    "category": "Services",
+    "subcategory": "Professional Services",
+    "description": "Strategic consulting and implementation services",
+    "use_cases": ["Digital transformation", "Cloud migration", "AI implementation", "Strategy", "Change management"],
+    "strengths": ["Expertise", "Industry knowledge", "Global reach", "Comprehensive"],
+    "keywords": ["consulting", "services", "implementation", "strategy", "transformation"]
+  },
+  {
+    "id": "ibm-technology-lifecycle-services",
+    "name": "IBM Technology Lifecycle Services",
+    "category": "Services",
+    "subcategory": "Support Services",
+    "description": "Comprehensive technology support and maintenance",
+    "use_cases": ["Infrastructure support", "Maintenance", "Optimization", "Modernization"],
+    "strengths": ["Expertise", "Proactive support", "Global coverage", "Flexibility"],
+    "keywords": ["support", "services", "maintenance", "lifecycle", "managed services"]
+  }
+]

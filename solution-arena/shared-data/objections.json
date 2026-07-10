@@ -1,0 +1,62 @@
+[
+  {
+    "trigger": "AWS",
+    "objection": "We already use AWS extensively. Why should we consider IBM solutions when AWS has similar offerings?",
+    "type": "vendor_lockin"
+  },
+  {
+    "trigger": "Azure",
+    "objection": "We're heavily invested in Microsoft Azure. How does IBM integrate with our existing Azure infrastructure?",
+    "type": "vendor_lockin"
+  },
+  {
+    "trigger": "GCP",
+    "objection": "We've standardized on Google Cloud Platform. Why add another vendor to our stack?",
+    "type": "vendor_lockin"
+  },
+  {
+    "trigger": "cost",
+    "objection": "IBM solutions seem expensive. How can we justify the additional cost to our leadership team?",
+    "type": "cost_concern"
+  },
+  {
+    "trigger": "complexity",
+    "objection": "You're recommending multiple IBM products. Won't this add complexity to our environment?",
+    "type": "complexity_concern"
+  },
+  {
+    "trigger": "Snowflake",
+    "objection": "We already use Snowflake for our data platform. Why would we need IBM Cloud Pak for Data?",
+    "type": "vendor_lockin"
+  },
+  {
+    "trigger": "Tableau",
+    "objection": "Our teams are trained on Tableau. How does IBM's analytics stack compare?",
+    "type": "vendor_lockin"
+  },
+  {
+    "trigger": "On-Prem",
+    "objection": "We have significant on-premises infrastructure. Can IBM solutions work in a hybrid environment?",
+    "type": "technical_concern"
+  },
+  {
+    "trigger": "multi_product",
+    "objection": "You've recommended several IBM products. How do they work together, and won't this be difficult to implement?",
+    "type": "complexity_concern"
+  },
+  {
+    "trigger": "implementation",
+    "objection": "How long will it take to implement these solutions? We need quick wins.",
+    "type": "timeline_concern"
+  },
+  {
+    "trigger": "support",
+    "objection": "What kind of support does IBM provide? Our team is small and we need hands-on help.",
+    "type": "support_concern"
+  },
+  {
+    "trigger": "competition",
+    "objection": "We've been looking at competitors like Datadog and Splunk. What makes IBM different?",
+    "type": "competitive_concern"
+  }
+]

@@ -1,0 +1,854 @@
+[
+  {
+    "id": "scenario-power-001",
+    "title": "SAP Migration to Cloud",
+    "difficulty": "intermediate",
+    "estimatedTime": "4-5 minutes",
+    "company": "GlobalManufacturing Inc",
+    "industry": "Manufacturing",
+    "size": "Enterprise",
+    "revenue": "$2.5B",
+    "employees": 8500,
+    "brief": "GlobalManufacturing runs SAP ERP on aging on-premises infrastructure. They need to modernize while maintaining performance and reliability. Current environment includes 12 Power7 servers running AIX with SAP ECC. They're evaluating cloud options but concerned about performance, licensing, and migration complexity. Budget approved for 3-year cloud transformation.",
+    "currentEnvironment": {
+      "infrastructure": ["12x IBM Power7 servers", "AIX 7.1", "Legacy SAN storage"],
+      "applications": ["SAP ECC", "Custom ABAP applications", "Oracle databases"],
+      "challenges": ["End of support approaching", "High maintenance costs", "Limited scalability", "No disaster recovery"]
+    },
+    "businessGoals": [
+      "Modernize SAP infrastructure",
+      "Reduce total cost of ownership",
+      "Improve disaster recovery capabilities",
+      "Enable future S/4HANA migration"
+    ],
+    "constraints": {
+      "budget": "Moderate - approved 3-year investment",
+      "timeline": "12-18 months for migration",
+      "compliance": "SOX, ISO 27001",
+      "technical": "Must maintain SAP performance SLAs"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "type": "priorities",
+        "step": 1,
+        "title": "Identify Customer Priorities",
+        "question": "Select ALL business outcomes that matter most to this customer:",
+        "options": [
+          {
+            "id": "reduce-costs",
+            "text": "Reduce infrastructure costs",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "improve-ai",
+            "text": "Improve AI readiness",
+            "correct": false,
+            "weight": 0
+          },
+          {
+            "id": "modernize-apps",
+            "text": "Modernize legacy applications",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "cyber-resilience",
+            "text": "Increase cyber resilience",
+            "correct": false,
+            "weight": 0
+          },
+          {
+            "id": "compliance",
+            "text": "Meet compliance requirements",
+            "correct": true,
+            "weight": 8
+          },
+          {
+            "id": "reduce-downtime",
+            "text": "Reduce downtime",
+            "correct": true,
+            "weight": 9
+          },
+          {
+            "id": "dev-productivity",
+            "text": "Improve developer productivity",
+            "correct": false,
+            "weight": 0
+          },
+          {
+            "id": "disaster-recovery",
+            "text": "Improve disaster recovery",
+            "correct": true,
+            "weight": 10
+          }
+        ],
+        "feedback": {
+          "correct": "Excellent! You identified the key priorities: cost reduction, modernization, compliance, uptime, and disaster recovery.",
+          "partial": "Good start, but review the business goals more carefully. Focus on infrastructure modernization and operational improvements.",
+          "incorrect": "Review the scenario brief and business goals. This customer needs infrastructure modernization, not AI or developer tools."
+        }
+      },
+      {
+        "id": "q2",
+        "type": "technology-selection",
+        "step": 2,
+        "title": "Recommend IBM Technologies",
+        "question": "Select ALL IBM technologies you would recommend for this scenario:",
+        "options": [
+          {
+            "id": "ibm-power",
+            "text": "IBM Power",
+            "correct": false,
+            "weight": 0,
+            "reasoning": "On-prem Power doesn't address cloud modernization goals"
+          },
+          {
+            "id": "ibm-power-virtual-server",
+            "text": "IBM Power Virtual Server",
+            "correct": true,
+            "weight": 15,
+            "reasoning": "Perfect for SAP migration - maintains Power performance in cloud"
+          },
+          {
+            "id": "ibm-cloud",
+            "text": "IBM Cloud",
+            "correct": true,
+            "weight": 10,
+            "reasoning": "Foundation platform for Power Virtual Server and other services"
+          },
+          {
+            "id": "ibm-storage-flashsystem",
+            "text": "IBM Storage FlashSystem",
+            "correct": false,
+            "weight": 0,
+            "reasoning": "Not needed - cloud storage is included with PowerVS"
+          },
+          {
+            "id": "red-hat-openshift",
+            "text": "Red Hat OpenShift",
+            "correct": false,
+            "weight": 0,
+            "reasoning": "Not applicable for SAP on Power workloads"
+          },
+          {
+            "id": "cloud-pak-data",
+            "text": "IBM Cloud Pak for Data",
+            "correct": false,
+            "weight": 0,
+            "reasoning": "Not needed for this SAP infrastructure migration"
+          },
+          {
+            "id": "watsonx-ai",
+            "text": "watsonx.ai",
+            "correct": false,
+            "weight": 0,
+            "reasoning": "AI is not a current priority for this customer"
+          },
+          {
+            "id": "watsonx-data",
+            "text": "watsonx.data",
+            "correct": false,
+            "weight": 0,
+            "reasoning": "Not applicable for SAP transactional workloads"
+          },
+          {
+            "id": "ibm-guardium",
+            "text": "IBM Guardium",
+            "correct": false,
+            "weight": 3,
+            "reasoning": "Could help with compliance but not essential for initial migration"
+          },
+          {
+            "id": "ibm-qradar",
+            "text": "IBM QRadar",
+            "correct": false,
+            "weight": 3,
+            "reasoning": "Security monitoring is valuable but not core to migration"
+          },
+          {
+            "id": "ibm-turbonomic",
+            "text": "IBM Turbonomic",
+            "correct": true,
+            "weight": 8,
+            "reasoning": "Excellent for optimizing cloud costs and performance"
+          },
+          {
+            "id": "ibm-instana",
+            "text": "IBM Instana",
+            "correct": false,
+            "weight": 2,
+            "reasoning": "Limited value for traditional SAP monitoring"
+          },
+          {
+            "id": "ibm-apptio",
+            "text": "IBM Apptio",
+            "correct": false,
+            "weight": 4,
+            "reasoning": "Useful for financial management but not critical"
+          },
+          {
+            "id": "ibm-consulting",
+            "text": "IBM Consulting",
+            "correct": true,
+            "weight": 10,
+            "reasoning": "Critical for successful SAP migration to cloud"
+          },
+          {
+            "id": "ibm-technology-lifecycle-services",
+            "text": "IBM Technology Lifecycle Services",
+            "correct": true,
+            "weight": 7,
+            "reasoning": "Ongoing support for Power Virtual Server environment"
+          },
+          {
+            "id": "ibm-linuxone",
+            "text": "IBM LinuxONE",
+            "correct": false,
+            "weight": 0,
+            "reasoning": "Not applicable - customer runs AIX/SAP on Power"
+          }
+        ],
+        "feedback": {
+          "excellent": "Perfect! Power Virtual Server is ideal for SAP migration, with Turbonomic for optimization and Consulting for implementation.",
+          "good": "Good selections, but consider the complete solution: PowerVS for SAP, Turbonomic for cost optimization, and Consulting for migration expertise.",
+          "needs-improvement": "Review the scenario - this is an SAP on Power migration. Power Virtual Server should be your primary recommendation."
+        }
+      },
+      {
+        "id": "q3",
+        "type": "architecture",
+        "step": 3,
+        "title": "Architecture Decisions",
+        "question": "Where should the SAP workload run?",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "power-onprem",
+            "text": "IBM Power on-premises",
+            "correct": false,
+            "reasoning": "Doesn't address cloud modernization goals"
+          },
+          {
+            "id": "power-virtual-server",
+            "text": "IBM Power Virtual Server",
+            "correct": true,
+            "reasoning": "Best fit - maintains Power performance with cloud benefits"
+          },
+          {
+            "id": "ibm-cloud-vpc",
+            "text": "IBM Cloud VPC (x86)",
+            "correct": false,
+            "reasoning": "Would require SAP re-platforming and potential performance issues"
+          },
+          {
+            "id": "aws",
+            "text": "AWS",
+            "correct": false,
+            "reasoning": "Loses Power optimization and IBM's SAP expertise"
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "architecture",
+        "step": 3,
+        "title": "Storage Strategy",
+        "question": "Which storage strategy fits best for SAP on Power Virtual Server?",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "cloud-storage",
+            "text": "IBM Cloud Object Storage",
+            "correct": false,
+            "reasoning": "Object storage not suitable for SAP database workloads"
+          },
+          {
+            "id": "powervs-storage",
+            "text": "Power Virtual Server integrated storage",
+            "correct": true,
+            "reasoning": "Optimized for Power workloads with high performance"
+          },
+          {
+            "id": "flashsystem",
+            "text": "IBM Storage FlashSystem (on-prem)",
+            "correct": false,
+            "reasoning": "Defeats purpose of cloud migration"
+          },
+          {
+            "id": "third-party",
+            "text": "Third-party cloud storage",
+            "correct": false,
+            "reasoning": "Not integrated with Power Virtual Server"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "type": "justification",
+        "step": 4,
+        "title": "Solution Justification",
+        "question": "Why did you choose IBM Power Virtual Server? Select the BEST reasons:",
+        "options": [
+          {
+            "id": "high-reliability",
+            "text": "High reliability and RAS features",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "sap-certified",
+            "text": "SAP certified platform",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "ai-acceleration",
+            "text": "AI acceleration capabilities",
+            "correct": false,
+            "weight": 0
+          },
+          {
+            "id": "better-than-gpu",
+            "text": "Better performance than GPUs",
+            "correct": false,
+            "weight": 0
+          },
+          {
+            "id": "transaction-performance",
+            "text": "High transaction performance for SAP",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "cloud-flexibility",
+            "text": "Cloud flexibility with Power performance",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "aix-compatibility",
+            "text": "Maintains AIX compatibility",
+            "correct": true,
+            "weight": 8
+          },
+          {
+            "id": "lowest-cost",
+            "text": "Lowest cost option available",
+            "correct": false,
+            "weight": 0
+          }
+        ]
+      },
+      {
+        "id": "q6",
+        "type": "objection",
+        "step": 5,
+        "title": "Handle Customer Objection",
+        "objection": "We've been looking at AWS for our SAP migration. Why should we consider IBM Power Virtual Server instead?",
+        "question": "Select the BEST response:",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "ibm-better",
+            "text": "IBM is simply better than AWS for all workloads",
+            "correct": false,
+            "score": 0,
+            "reasoning": "Too generic and not credible"
+          },
+          {
+            "id": "power-performance",
+            "text": "Power Virtual Server maintains your existing Power/AIX environment while adding cloud benefits. You avoid costly re-platforming, maintain SAP performance, and get flexible consumption. AWS would require x86 migration with performance and compatibility risks.",
+            "correct": true,
+            "score": 10,
+            "reasoning": "Addresses specific technical and business benefits"
+          },
+          {
+            "id": "cheaper",
+            "text": "IBM Power Virtual Server is cheaper than AWS",
+            "correct": false,
+            "score": 2,
+            "reasoning": "Cost alone isn't the differentiator and may not be true"
+          },
+          {
+            "id": "sap-only",
+            "text": "AWS doesn't support SAP workloads",
+            "correct": false,
+            "score": 0,
+            "reasoning": "Factually incorrect - AWS does support SAP"
+          }
+        ]
+      },
+      {
+        "id": "q7",
+        "type": "cross-sell",
+        "step": 6,
+        "title": "Cross-Sell Opportunity",
+        "question": "Which additional IBM solution would create the MOST value after the SAP migration?",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "instana",
+            "text": "IBM Instana - Application performance monitoring",
+            "correct": false,
+            "score": 3,
+            "reasoning": "Limited value for traditional SAP monitoring"
+          },
+          {
+            "id": "turbonomic",
+            "text": "IBM Turbonomic - Continuous cost and performance optimization",
+            "correct": true,
+            "score": 10,
+            "reasoning": "Perfect for optimizing cloud costs and ensuring performance"
+          },
+          {
+            "id": "guardium",
+            "text": "IBM Guardium - Database security and compliance",
+            "correct": false,
+            "score": 6,
+            "reasoning": "Valuable but not the highest priority post-migration"
+          },
+          {
+            "id": "watsonx",
+            "text": "watsonx.ai - AI and machine learning platform",
+            "correct": false,
+            "score": 2,
+            "reasoning": "Not aligned with current priorities"
+          }
+        ]
+      }
+    ],
+    "scoringBreakdown": {
+      "businessUnderstanding": {
+        "questions": ["q1"],
+        "maxScore": 10
+      },
+      "powerPositioning": {
+        "questions": ["q2", "q3", "q5"],
+        "maxScore": 15
+      },
+      "cloudPositioning": {
+        "questions": ["q2", "q4"],
+        "maxScore": 10
+      },
+      "portfolioKnowledge": {
+        "questions": ["q2", "q7"],
+        "maxScore": 10
+      },
+      "objectionHandling": {
+        "questions": ["q6"],
+        "maxScore": 10
+      }
+    },
+    "idealSolution": {
+      "primary": ["IBM Power Virtual Server", "IBM Cloud"],
+      "supporting": ["IBM Turbonomic", "IBM Consulting", "IBM Technology Lifecycle Services"],
+      "summary": "Power Virtual Server provides the ideal path for SAP migration, maintaining Power performance and AIX compatibility while gaining cloud benefits. Turbonomic ensures ongoing optimization, and Consulting ensures successful migration."
+    }
+  },
+  {
+    "id": "scenario-cloud-002",
+    "title": "Financial Services Hybrid Cloud",
+    "difficulty": "advanced",
+    "estimatedTime": "5-6 minutes",
+    "company": "SecureBank Financial",
+    "industry": "Financial Services",
+    "size": "Enterprise",
+    "revenue": "$8.2B",
+    "employees": 15000,
+    "brief": "SecureBank operates critical banking applications across on-premises data centers and AWS. They face increasing security threats, compliance complexity, and rising cloud costs. Core banking runs on IBM Power with Db2, while digital channels run on AWS. They need unified security, better cost management, and want to modernize without disrupting operations.",
+    "currentEnvironment": {
+      "infrastructure": ["IBM Power9 (core banking)", "AWS (digital channels)", "VMware on-prem", "Multiple data centers"],
+      "applications": ["Core banking (Power/Db2)", "Mobile banking (AWS)", "Customer portal (AWS)", "Risk management systems"],
+      "challenges": ["Security silos", "Rising AWS costs", "Compliance complexity", "Limited observability"]
+    },
+    "businessGoals": [
+      "Enhance security posture across hybrid environment",
+      "Reduce cloud costs by 30%",
+      "Improve compliance automation",
+      "Modernize digital channels"
+    ],
+    "constraints": {
+      "budget": "High - board-approved security and modernization initiative",
+      "timeline": "18-24 months phased approach",
+      "compliance": "PCI-DSS, SOC 2, GDPR, regional banking regulations",
+      "technical": "Zero downtime for core banking"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "type": "priorities",
+        "step": 1,
+        "title": "Identify Customer Priorities",
+        "question": "Select ALL business outcomes that matter most:",
+        "options": [
+          {
+            "id": "reduce-costs",
+            "text": "Reduce infrastructure costs",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "improve-ai",
+            "text": "Improve AI readiness",
+            "correct": false,
+            "weight": 3
+          },
+          {
+            "id": "modernize-apps",
+            "text": "Modernize legacy applications",
+            "correct": true,
+            "weight": 8
+          },
+          {
+            "id": "cyber-resilience",
+            "text": "Increase cyber resilience",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "compliance",
+            "text": "Meet compliance requirements",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "reduce-downtime",
+            "text": "Reduce downtime",
+            "correct": true,
+            "weight": 9
+          },
+          {
+            "id": "dev-productivity",
+            "text": "Improve developer productivity",
+            "correct": false,
+            "weight": 4
+          },
+          {
+            "id": "observability",
+            "text": "Improve observability and monitoring",
+            "correct": true,
+            "weight": 8
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "technology-selection",
+        "step": 2,
+        "title": "Recommend IBM Technologies",
+        "question": "Select ALL IBM technologies you would recommend:",
+        "options": [
+          {
+            "id": "ibm-power",
+            "text": "IBM Power",
+            "correct": true,
+            "weight": 8,
+            "reasoning": "Already in use for core banking - maintain and optimize"
+          },
+          {
+            "id": "ibm-power-virtual-server",
+            "text": "IBM Power Virtual Server",
+            "correct": true,
+            "weight": 7,
+            "reasoning": "DR and dev/test for Power workloads"
+          },
+          {
+            "id": "ibm-cloud",
+            "text": "IBM Cloud",
+            "correct": true,
+            "weight": 10,
+            "reasoning": "Hybrid cloud platform with strong security"
+          },
+          {
+            "id": "ibm-storage-flashsystem",
+            "text": "IBM Storage FlashSystem",
+            "correct": true,
+            "weight": 6,
+            "reasoning": "High-performance storage for core banking"
+          },
+          {
+            "id": "red-hat-openshift",
+            "text": "Red Hat OpenShift",
+            "correct": true,
+            "weight": 10,
+            "reasoning": "Modernize digital channels with hybrid deployment"
+          },
+          {
+            "id": "ibm-guardium",
+            "text": "IBM Guardium",
+            "correct": true,
+            "weight": 10,
+            "reasoning": "Critical for database security and compliance"
+          },
+          {
+            "id": "ibm-qradar",
+            "text": "IBM QRadar",
+            "correct": true,
+            "weight": 10,
+            "reasoning": "Unified security monitoring across hybrid environment"
+          },
+          {
+            "id": "ibm-turbonomic",
+            "text": "IBM Turbonomic",
+            "correct": true,
+            "weight": 10,
+            "reasoning": "Essential for cost optimization across clouds"
+          },
+          {
+            "id": "ibm-instana",
+            "text": "IBM Instana",
+            "correct": true,
+            "weight": 8,
+            "reasoning": "Observability for digital channels"
+          },
+          {
+            "id": "watsonx-ai",
+            "text": "watsonx.ai",
+            "correct": false,
+            "weight": 2,
+            "reasoning": "Not a current priority"
+          },
+          {
+            "id": "db2",
+            "text": "IBM Db2",
+            "correct": true,
+            "weight": 7,
+            "reasoning": "Already in use - optimize and secure"
+          },
+          {
+            "id": "ibm-consulting",
+            "text": "IBM Consulting",
+            "correct": true,
+            "weight": 9,
+            "reasoning": "Complex hybrid transformation needs expertise"
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "architecture",
+        "step": 3,
+        "title": "Security Architecture",
+        "question": "What's the best approach for unified security monitoring?",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "qradar-only",
+            "text": "IBM QRadar for all environments",
+            "correct": true,
+            "reasoning": "Provides unified SIEM across hybrid infrastructure"
+          },
+          {
+            "id": "aws-security",
+            "text": "AWS Security Hub for AWS, separate tools for on-prem",
+            "correct": false,
+            "reasoning": "Creates security silos"
+          },
+          {
+            "id": "multiple-tools",
+            "text": "Best-of-breed tools for each environment",
+            "correct": false,
+            "reasoning": "Increases complexity and gaps"
+          },
+          {
+            "id": "no-change",
+            "text": "Keep existing security tools",
+            "correct": false,
+            "reasoning": "Doesn't address security silos problem"
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "architecture",
+        "step": 3,
+        "title": "Application Modernization",
+        "question": "How should digital channels be modernized?",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "openshift-hybrid",
+            "text": "Red Hat OpenShift across IBM Cloud and AWS",
+            "correct": true,
+            "reasoning": "Enables hybrid deployment with consistent platform"
+          },
+          {
+            "id": "aws-only",
+            "text": "Keep everything on AWS EKS",
+            "correct": false,
+            "reasoning": "Misses hybrid cloud benefits and IBM integration"
+          },
+          {
+            "id": "ibm-cloud-only",
+            "text": "Migrate everything to IBM Cloud",
+            "correct": false,
+            "reasoning": "Too disruptive and ignores existing AWS investment"
+          },
+          {
+            "id": "no-containers",
+            "text": "Keep traditional VM-based architecture",
+            "correct": false,
+            "reasoning": "Doesn't modernize applications"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "type": "justification",
+        "step": 4,
+        "title": "Solution Justification",
+        "question": "Why recommend this hybrid cloud approach? Select BEST reasons:",
+        "options": [
+          {
+            "id": "unified-security",
+            "text": "Unified security with QRadar across all environments",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "cost-optimization",
+            "text": "Turbonomic optimizes costs across hybrid infrastructure",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "compliance",
+            "text": "Guardium automates compliance for financial regulations",
+            "correct": true,
+            "weight": 10
+          },
+          {
+            "id": "openshift-portability",
+            "text": "OpenShift provides application portability",
+            "correct": true,
+            "weight": 9
+          },
+          {
+            "id": "power-reliability",
+            "text": "Power maintains core banking reliability",
+            "correct": true,
+            "weight": 8
+          },
+          {
+            "id": "cheapest",
+            "text": "IBM is the cheapest option",
+            "correct": false,
+            "weight": 0
+          },
+          {
+            "id": "eliminate-aws",
+            "text": "Eliminates need for AWS",
+            "correct": false,
+            "weight": 0
+          }
+        ]
+      },
+      {
+        "id": "q6",
+        "type": "objection",
+        "step": 5,
+        "title": "Handle Customer Objection",
+        "objection": "This seems like a lot of IBM products. Won't this add complexity and increase costs?",
+        "question": "Select the BEST response:",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "integrated",
+            "text": "These solutions are integrated and address your specific challenges: QRadar unifies security, Turbonomic reduces costs across clouds, Guardium automates compliance, and OpenShift modernizes apps. Each solves a critical problem you identified, and they work together to reduce overall complexity.",
+            "correct": true,
+            "score": 10,
+            "reasoning": "Addresses concerns with specific value and integration"
+          },
+          {
+            "id": "trust-us",
+            "text": "Trust us, IBM knows what's best for financial services",
+            "correct": false,
+            "score": 0,
+            "reasoning": "Dismissive and not credible"
+          },
+          {
+            "id": "phase-approach",
+            "text": "We can phase the implementation over time",
+            "correct": false,
+            "score": 4,
+            "reasoning": "Doesn't address the complexity concern"
+          },
+          {
+            "id": "reduce-products",
+            "text": "You're right, let's just focus on one product",
+            "correct": false,
+            "score": 2,
+            "reasoning": "Doesn't solve their multi-faceted challenges"
+          }
+        ]
+      },
+      {
+        "id": "q7",
+        "type": "cross-sell",
+        "step": 6,
+        "title": "Cross-Sell Opportunity",
+        "question": "After initial implementation, which solution adds the MOST value?",
+        "multipleChoice": false,
+        "options": [
+          {
+            "id": "watsonx-ai",
+            "text": "watsonx.ai - Add AI capabilities for fraud detection",
+            "correct": true,
+            "score": 10,
+            "reasoning": "Natural next step for financial services with security foundation"
+          },
+          {
+            "id": "apptio",
+            "text": "IBM Apptio - Financial management for IT",
+            "correct": false,
+            "score": 6,
+            "reasoning": "Useful but Turbonomic already provides cost optimization"
+          },
+          {
+            "id": "storage-defender",
+            "text": "IBM Storage Defender - Ransomware protection",
+            "correct": false,
+            "score": 7,
+            "reasoning": "Valuable but QRadar already provides threat detection"
+          },
+          {
+            "id": "api-connect",
+            "text": "IBM API Connect - API management",
+            "correct": false,
+            "score": 5,
+            "reasoning": "Not a priority given current challenges"
+          }
+        ]
+      }
+    ],
+    "scoringBreakdown": {
+      "businessUnderstanding": {
+        "questions": ["q1"],
+        "maxScore": 10
+      },
+      "powerPositioning": {
+        "questions": ["q2", "q5"],
+        "maxScore": 10
+      },
+      "cloudPositioning": {
+        "questions": ["q2", "q4"],
+        "maxScore": 10
+      },
+      "portfolioKnowledge": {
+        "questions": ["q2", "q3", "q7"],
+        "maxScore": 15
+      },
+      "objectionHandling": {
+        "questions": ["q6"],
+        "maxScore": 10
+      }
+    },
+    "idealSolution": {
+      "primary": ["IBM QRadar", "IBM Turbonomic", "IBM Guardium", "Red Hat OpenShift", "IBM Cloud"],
+      "supporting": ["IBM Power", "IBM Instana", "IBM Consulting"],
+      "summary": "A comprehensive hybrid cloud solution with unified security (QRadar), cost optimization (Turbonomic), compliance automation (Guardium), and application modernization (OpenShift), while maintaining Power for core banking."
+    }
+  }
+]
