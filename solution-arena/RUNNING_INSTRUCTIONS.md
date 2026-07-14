@@ -48,15 +48,15 @@ This will install:
 In the **backend terminal**, run:
 
 ```bash
-node server.js
+npm start
 ```
 
 You should see:
 
 ```
 🚀 Solution Arena Backend Server
-📡 Server running on http://localhost:5000
-✅ API endpoints available at http://localhost:5000/
+📡 Server running on http://localhost:3001
+✅ API endpoints available at http://localhost:3001/
 
 Available routes:
   GET  /scenario/random
@@ -65,6 +65,8 @@ Available routes:
   POST /evaluate/products
   POST /evaluate/response
   POST /objections/generate
+  POST /scoring/evaluate
+  GET  /scoring/leaderboard
 ```
 
 **✅ Backend is ready when you see this output!**
@@ -143,7 +145,7 @@ You should see the **Solution Arena** home page with:
 Test the backend is working:
 
 ```bash
-curl http://localhost:5000/health
+curl http://localhost:3001/health
 ```
 
 Expected response:
@@ -174,10 +176,10 @@ In the backend terminal, press: `Ctrl + C`
 
 ### Port Already in Use
 
-**Backend (Port 5000):**
+**Backend (Port 3001):**
 ```bash
-# Find process using port 5000
-lsof -i :5000
+# Find process using port 3001
+lsof -i :3001
 
 # Kill the process
 kill -9 <PID>
@@ -208,7 +210,7 @@ npm install
 
 ### API Connection Errors
 
-1. Verify backend is running on port 5000
+1. Verify backend is running on port 3001
 2. Check browser console for CORS errors
 3. Ensure both servers are running simultaneously
 4. Try refreshing the browser page
@@ -255,7 +257,7 @@ npm install
 ```bash
 cd solution-arena/backend
 npm install
-node server.js
+npm start
 ```
 
 ### Terminal 2 (Frontend):
@@ -276,7 +278,7 @@ http://localhost:5173
 
 You'll know everything is working when:
 
-1. ✅ Backend terminal shows "Server running on http://localhost:5000"
+1. ✅ Backend terminal shows "Server running on http://localhost:3001"
 2. ✅ Frontend terminal shows "Local: http://localhost:5173/"
 3. ✅ Browser loads the home page without errors
 4. ✅ Clicking "Start Scenario" loads a company scenario
@@ -293,7 +295,7 @@ If you encounter issues:
 
 1. Check both terminals for error messages
 2. Verify Node.js version: `node --version` (should be v16+)
-3. Ensure ports 5000 and 5173 are available
+3. Ensure ports 3001 and 5173 are available
 4. Review the troubleshooting section above
 5. Check browser console (F12) for JavaScript errors
 

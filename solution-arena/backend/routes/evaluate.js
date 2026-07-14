@@ -30,8 +30,12 @@ router.post('/products', (req, res) => {
       return res.status(404).json({ error: 'Scenario not found' });
     }
     
-    // Get ideal products based on pain points
-    const idealProducts = getIdealProducts(scenario.pain_points);
+    // Get ideal products based on pain points or challenges
+    // Support both old format (pain_points) and new format (currentEnvironment.challenges)
+    const painPoints = scenario.pain_points ||
+                      (scenario.currentEnvironment && scenario.currentEnvironment.challenges) ||
+                      [];
+    const idealProducts = getIdealProducts(painPoints);
     
     // Evaluate selection
     const evaluation = evaluateProductSelection(selectedProducts, idealProducts);

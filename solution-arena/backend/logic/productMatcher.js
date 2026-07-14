@@ -29,6 +29,11 @@ const painPointToProduct = {
  * @returns {Array} - Array of ideal product names
  */
 function getIdealProducts(painPoints) {
+  // Handle null/undefined painPoints
+  if (!painPoints || !Array.isArray(painPoints)) {
+    return [];
+  }
+  
   const idealProductsSet = new Set();
   
   painPoints.forEach(painPoint => {

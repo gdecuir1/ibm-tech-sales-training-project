@@ -221,6 +221,8 @@ GET /scoring/leaderboard
 - Returns top performers (mock data)
 ```
 
+**Note:** Backend server runs on port 3001 (not 5000)
+
 #### Enhanced Data Structure
 ```json
 {

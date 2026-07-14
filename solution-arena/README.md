@@ -49,10 +49,10 @@ Both modes help interns:
 ```bash
 cd backend
 npm install
-node server.js
+npm start
 ```
 
-Backend will run on: **http://localhost:5000**
+Backend will run on: **http://localhost:3001**
 
 ### Frontend Setup
 
@@ -68,7 +68,7 @@ Frontend will run on: **http://localhost:5173**
 
 ## 🎮 How to Use
 
-1. **Start the Backend**: Navigate to the `backend` folder and run `node server.js`
+1. **Start the Backend**: Navigate to the `backend` folder and run `npm start`
 2. **Start the Frontend**: In a separate terminal, navigate to the `frontend` folder and run `npm run dev`
 3. **Open Browser**: Go to `http://localhost:5173`
 4. **Begin Training**: Click "Start Scenario" and follow the workflow
@@ -190,7 +190,7 @@ Frontend will run on: **http://localhost:5173**
 ## 🛠️ Troubleshooting
 
 **Backend won't start:**
-- Ensure port 5000 is available
+- Ensure port 3001 is available
 - Check Node.js version (v16+)
 - Run `npm install` in backend folder
 
@@ -202,7 +202,7 @@ Frontend will run on: **http://localhost:5173**
 **API errors:**
 - Ensure backend is running first
 - Check console for error messages
-- Verify backend is on port 5000
+- Verify backend is on port 3001
 
 ## 📖 Documentation
 
