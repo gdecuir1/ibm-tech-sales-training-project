@@ -38,115 +38,142 @@ export default function MissionConsole({ currentStep = 0, score = 0, timerSecond
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Mission Console Top Bar */}
-      <header className="bg-console-surface border-b border-console-text-dim/20 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Left: Logo/Title */}
+    <div className="min-h-screen flex flex-col relative">
+      {/* Etched Console Header - No Box, Just Hairline and Glow */}
+      <header className="sticky top-0 z-50 backdrop-blur-sm">
+        {/* Subtle top glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-console-bg via-transparent to-transparent pointer-events-none" />
+        
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-6">
+          <div className="flex items-center justify-between mb-8">
+            {/* Left: Minimal Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-ibm-blue rounded-full animate-pulse" />
-              <h1 className="text-lg font-semibold tracking-console text-console-text">
-                SOLUTION ARENA
+              <div className="w-1.5 h-1.5 bg-ibm-blue rounded-full animate-glow-pulse" />
+              <h1 className="text-sm tracking-wide text-console-text-dim uppercase">
+                IBM DealSprint
               </h1>
             </div>
 
-            {/* Center: Progress Rail */}
-            <div className="hidden md:flex items-center gap-2">
-              {STEP_NAMES.map((name, index) => (
-                <div key={name} className="flex items-center">
-                  <motion.div
-                    className={`relative flex flex-col items-center group cursor-default`}
-                    initial={false}
-                  >
-                    {/* Step Segment */}
-                    <div className="flex items-center gap-1">
-                      <motion.div
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
-                          index < currentStep
-                            ? 'bg-ibm-green w-12'
-                            : index === currentStep
-                            ? 'bg-ibm-blue w-12'
-                            : 'bg-console-text-dim/30 w-12'
-                        }`}
-                        initial={false}
-                        animate={{
-                          scaleX: index === currentStep ? [1, 1.1, 1] : 1,
-                        }}
-                        transition={{ duration: 0.4 }}
-                      />
-                    </div>
-                    
-                    {/* Step Label (on hover) */}
-                    <div className="absolute top-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="bg-console-surface-light px-2 py-1 rounded text-xs font-mono whitespace-nowrap border border-console-text-dim/20">
-                        {index + 1}. {name}
-                      </div>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Connector */}
-                  {index < STEP_NAMES.length - 1 && (
-                    <div className={`h-0.5 w-2 ${
-                      index < currentStep ? 'bg-ibm-green/50' : 'bg-console-text-dim/20'
-                    }`} />
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Right: Timer & Score */}
-            <div className="flex items-center gap-4">
+            {/* Right: Timer & Score - No Boxes */}
+            <div className="flex items-center gap-8">
               {/* Timer */}
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-console-surface-light rounded-lg border border-console-text-dim/20">
+              <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-console-text-dim" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="font-mono text-sm text-console-text">
+                <span className="text-base text-console-text">
                   {formatTime(timerSeconds)}
                 </span>
               </div>
 
-              {/* Score Ticker */}
+              {/* Score Ticker - Glowing Text */}
               <motion.div
-                className="flex items-center gap-2 px-3 py-1.5 bg-ibm-blue/10 rounded-lg border border-ibm-blue/30"
-                animate={score !== displayScore ? { scale: [1, 1.05, 1] } : {}}
+                className="flex items-center gap-2"
+                animate={score !== displayScore ? { scale: [1, 1.1, 1] } : {}}
                 transition={{ duration: 0.2 }}
               >
                 <svg className="w-4 h-4 text-ibm-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
-                <span className="font-mono text-sm font-semibold text-ibm-blue">
+                <span
+                  className="text-lg font-semibold text-ibm-blue"
+                  style={{ textShadow: '0 0 20px rgba(15, 98, 254, 0.5)' }}
+                >
                   {displayScore}
                 </span>
               </motion.div>
             </div>
           </div>
 
-          {/* Mobile Progress Indicator */}
-          <div className="md:hidden pb-3">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono text-console-text-dim">
-                Step {currentStep + 1} of {STEP_NAMES.length}
+          {/* Etched Progress Rail - Integrated into Background */}
+          <div className="hidden md:block relative">
+            {/* Base etched line */}
+            <div className="relative h-px">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-console-text-dim/30 to-transparent" />
+              
+              {/* Progress glow overlay */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-ibm-blue/40 to-transparent"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: (currentStep + 1) / STEP_NAMES.length }}
+                transition={{ duration: 0.4 }}
+                style={{ transformOrigin: 'left' }}
+              />
+            </div>
+
+            {/* Step Nodes */}
+            <div className="absolute inset-0 flex justify-between items-center -mt-1">
+              {STEP_NAMES.map((name, index) => (
+                <motion.div
+                  key={name}
+                  className="relative group cursor-default"
+                  initial={false}
+                >
+                  {/* Node */}
+                  <motion.div
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index < currentStep
+                        ? 'bg-ibm-green'
+                        : index === currentStep
+                        ? 'bg-ibm-blue'
+                        : 'bg-console-text-dim/40'
+                    }`}
+                    animate={
+                      index === currentStep
+                        ? {
+                            scale: [1, 1.5, 1],
+                            boxShadow: [
+                              '0 0 0px rgba(15, 98, 254, 0)',
+                              '0 0 20px rgba(15, 98, 254, 0.6)',
+                              '0 0 0px rgba(15, 98, 254, 0)',
+                            ],
+                          }
+                        : {}
+                    }
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+
+                  {/* Step Label (on hover) */}
+                  <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    <div className="px-3 py-1.5 text-xs font-mono whitespace-nowrap text-console-text backdrop-blur-sm">
+                      <div className="text-ibm-blue mb-0.5">{index + 1}</div>
+                      <div className="text-console-text-dim">{name}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Progress - Minimal */}
+          <div className="md:hidden">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs text-console-text-dim">
+                {currentStep + 1}/{STEP_NAMES.length}
               </span>
-              <span className="text-xs font-mono text-console-text">
+              <span className="text-xs text-console-text">
                 {STEP_NAMES[currentStep]}
               </span>
             </div>
-            <div className="h-1 bg-console-text-dim/20 rounded-full overflow-hidden">
+            <div className="relative h-px">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-console-text-dim/30 to-transparent" />
               <motion.div
-                className="h-full bg-ibm-blue"
-                initial={{ width: 0 }}
-                animate={{ width: `${((currentStep + 1) / STEP_NAMES.length) * 100}%` }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-ibm-blue/60 to-transparent"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: (currentStep + 1) / STEP_NAMES.length }}
                 transition={{ duration: 0.3 }}
+                style={{ transformOrigin: 'left' }}
               />
             </div>
           </div>
         </div>
+
+        {/* Bottom hairline separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-console-text-dim/20 to-transparent" />
       </header>
 
-      {/* Main Content Area */}
-      <main className="flex-1">
+      {/* Main Content Area - Seamless */}
+      <main className="flex-1 relative z-10">
         {children}
       </main>
     </div>
@@ -154,3 +181,4 @@ export default function MissionConsole({ currentStep = 0, score = 0, timerSecond
 }
 
 // Made with Bob
+

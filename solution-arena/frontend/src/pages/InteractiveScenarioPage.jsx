@@ -146,38 +146,42 @@ function InteractiveScenarioPage() {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.15 }}
+        className="glow-zone-blue"
       >
-        <div className="mb-6">
-          <p className="text-xs font-mono text-console-text-dim uppercase tracking-wide mb-2">
+        <div className="mb-12">
+          <p className="text-xs text-console-text-dim uppercase tracking-wide mb-3">
             Select all that apply
           </p>
-          <h2 className="text-2xl font-semibold tracking-console text-console-text">
+          <h2 className="text-3xl font-semibold tracking-console text-console-text">
             {question.question}
           </h2>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-1">
           {question.options.map((option) => {
             const isSelected = selectedOptions.includes(option.id)
             return (
               <motion.div
                 key={option.id}
-                className={`option-card ${isSelected ? 'selected' : ''}`}
+                className={`option-item ${isSelected ? 'selected' : ''}`}
                 onClick={() => handleMultiSelectToggle(question.id, option.id)}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileTap={{ scale: 0.995 }}
               >
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    checked={isSelected}
-                    onChange={() => handleMultiSelectToggle(question.id, option.id)}
-                    onClick={(e) => e.stopPropagation()}
-                    className="mt-1 w-5 h-5 rounded border-2 border-console-text-dim/30 
-                             checked:bg-ibm-blue checked:border-ibm-blue cursor-pointer
-                             focus:ring-2 focus:ring-ibm-blue focus:ring-offset-2 focus:ring-offset-console-bg"
-                  />
-                  <span className="flex-1 text-console-text leading-relaxed">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1">
+                    <div className={`w-5 h-5 rounded border-2 transition-all ${
+                      isSelected 
+                        ? 'bg-ibm-blue border-ibm-blue' 
+                        : 'border-console-text-dim/30'
+                    }`}>
+                      {isSelected && (
+                        <svg className="w-full h-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                  <span className="flex-1 text-lg text-console-text/80 leading-relaxed option-text">
                     {option.text}
                   </span>
                 </div>
@@ -188,22 +192,13 @@ function InteractiveScenarioPage() {
 
         {selectedOptions.length > 0 && (
           <motion.div 
-            className="mt-4 p-3 bg-ibm-blue/10 border border-ibm-blue/30 rounded-lg"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="mt-8 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
           >
-            <div className="flex items-center gap-2 text-sm">
-              <span className="font-mono text-ibm-blue font-semibold">
-                {selectedOptions.length} selected
-              </span>
-              <span className="text-console-text-dim">•</span>
-              <span className="text-console-text-dim text-xs">
-                {selectedOptions.map(optionId => {
-                  const option = question.options.find(opt => opt.id === optionId)
-                  return option?.text
-                }).join(', ')}
-              </span>
-            </div>
+            <span className="text-sm text-ibm-blue">
+              {selectedOptions.length} selected
+            </span>
           </motion.div>
         )}
       </motion.div>
@@ -217,51 +212,59 @@ function InteractiveScenarioPage() {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.15 }}
+        className="glow-zone-purple"
       >
         {question.objection && (
           <motion.div 
-            className="mb-6 p-4 bg-yellow-500/10 border-l-4 border-yellow-500 rounded-r-lg"
+            className="mb-12 p-6 relative"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
+            style={{
+              background: 'radial-gradient(ellipse at center, rgba(250, 204, 21, 0.05) 0%, transparent 70%)',
+              borderBottom: '2px solid rgba(250, 204, 21, 0.3)'
+            }}
           >
-            <p className="text-xs font-mono text-yellow-400 uppercase tracking-wide mb-2">
+            <p className="text-xs text-yellow-400 uppercase tracking-wide mb-3">
               Customer Objection
             </p>
-            <p className="text-console-text italic">
+            <p className="text-xl text-console-text italic leading-relaxed">
               "{question.objection}"
             </p>
           </motion.div>
         )}
 
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold tracking-console text-console-text">
+        <div className="mb-12">
+          <h2 className="text-3xl font-semibold tracking-console text-console-text">
             {question.question}
           </h2>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-1">
           {question.options.map((option) => {
             const isSelected = userAnswer === option.id
             return (
               <motion.div
                 key={option.id}
-                className={`option-card ${isSelected ? 'selected' : ''}`}
+                className={`option-item ${isSelected ? 'selected' : ''}`}
                 onClick={() => handleAnswer(question.id, option.id)}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileTap={{ scale: 0.995 }}
               >
-                <div className="flex items-start gap-3">
-                  <input
-                    type="radio"
-                    name={question.id}
-                    checked={isSelected}
-                    onChange={() => handleAnswer(question.id, option.id)}
-                    onClick={(e) => e.stopPropagation()}
-                    className="mt-1 w-5 h-5 cursor-pointer accent-ibm-blue
-                             focus:ring-2 focus:ring-ibm-blue focus:ring-offset-2 focus:ring-offset-console-bg"
-                  />
-                  <span className="flex-1 text-console-text leading-relaxed">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1">
+                    <div className={`w-5 h-5 rounded-full border-2 transition-all ${
+                      isSelected 
+                        ? 'bg-ibm-blue border-ibm-blue' 
+                        : 'border-console-text-dim/30'
+                    }`}>
+                      {isSelected && (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="w-2 h-2 bg-white rounded-full" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <span className="flex-1 text-lg text-console-text/80 leading-relaxed option-text">
                     {option.text}
                   </span>
                 </div>
@@ -289,63 +292,75 @@ function InteractiveScenarioPage() {
 
     return (
       <MissionConsole currentStep={6} score={currentScore} timerSeconds={timeSpent}>
-        <div className="max-w-5xl mx-auto p-6">
+        <div className="max-w-5xl mx-auto p-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            {/* Header */}
-            <div className="text-center mb-8">
+            {/* Hero Score - Large Typography */}
+            <div className="text-center mb-24 glow-zone-blue">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2, type: "spring" }}
               >
-                <div className="text-7xl font-bold font-mono text-ibm-blue mb-2">
+                <div className="text-8xl md:text-9xl font-bold text-ibm-blue mb-4"
+                     style={{ textShadow: '0 0 60px rgba(15, 98, 254, 0.4)' }}>
                   {overallScore.percentage}%
                 </div>
-                <div className="text-xl text-console-text-dim font-mono mb-4">
+                <div className="text-2xl text-console-text-dim mb-6">
                   {overallScore.score} / {overallScore.maxScore} points
                 </div>
-                <div className={`status-badge ${performance.tier} text-base`}>
+                <div className={`status-badge ${performance.tier} text-lg`}>
                   {performance.label}
                 </div>
               </motion.div>
             </div>
 
-            {/* Category Breakdown */}
-            <div className="console-card mb-6">
-              <h3 className="text-xl font-semibold tracking-console text-console-text mb-6 border-l-4 border-ibm-purple pl-4">
+            {/* Category Breakdown - Flowing Equalizer Style */}
+            <div className="mb-24">
+              <h3 className="text-heading text-console-text mb-12 text-center">
                 Performance Breakdown
               </h3>
               
-              <div className="space-y-4">
+              <div className="space-y-8">
                 {Object.entries(categoryScores).map(([category, data], index) => (
                   <motion.div
                     key={category}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-console-text font-medium">
+                    <div className="flex items-baseline justify-between mb-3">
+                      <span className="text-xl text-console-text font-medium">
                         {category.replace(/([A-Z])/g, ' $1').trim()}
                       </span>
-                      <span className="font-mono text-console-text-dim">
+                      <span className="text-lg text-console-text-dim">
                         {data.score}/{data.maxScore} <span className="text-ibm-blue">({data.percentage}%)</span>
                       </span>
                     </div>
-                    <div className="h-2 bg-console-surface-light rounded-full overflow-hidden">
+                    
+                    {/* Flowing bar - no container */}
+                    <div className="relative h-1">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-console-text-dim/20 to-transparent" />
                       <motion.div
-                        className={`h-full ${
-                          data.percentage >= 75 ? 'bg-ibm-green' :
-                          data.percentage >= 60 ? 'bg-ibm-blue' :
-                          'bg-yellow-500'
-                        }`}
+                        className="absolute inset-y-0 left-0"
+                        style={{
+                          background: data.percentage >= 75 
+                            ? 'linear-gradient(90deg, transparent, rgba(36, 161, 72, 0.6), rgba(36, 161, 72, 0.3))' 
+                            : data.percentage >= 60 
+                            ? 'linear-gradient(90deg, transparent, rgba(15, 98, 254, 0.6), rgba(15, 98, 254, 0.3))'
+                            : 'linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.6), rgba(250, 204, 21, 0.3))',
+                          boxShadow: data.percentage >= 75 
+                            ? '0 0 20px rgba(36, 161, 72, 0.3)' 
+                            : data.percentage >= 60 
+                            ? '0 0 20px rgba(15, 98, 254, 0.3)'
+                            : '0 0 20px rgba(250, 204, 21, 0.3)'
+                        }}
                         initial={{ width: 0 }}
                         animate={{ width: `${data.percentage}%` }}
-                        transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
+                        transition={{ delay: 0.5 + index * 0.1, duration: 0.6, ease: "easeOut" }}
                       />
                     </div>
                   </motion.div>
@@ -353,28 +368,37 @@ function InteractiveScenarioPage() {
               </div>
             </div>
 
-            {/* Ideal Solution */}
+            <div className="hairline-separator" />
+
+            {/* Ideal Solution - Flowing Layout */}
             <motion.div 
-              className="console-card mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="mb-20 glow-zone-purple"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
             >
-              <h3 className="text-xl font-semibold tracking-console text-console-text mb-4 border-l-4 border-ibm-green pl-4">
+              <h3 className="text-heading text-console-text mb-8 text-center">
                 Ideal Solution
               </h3>
-              <p className="text-console-text/80 mb-4 leading-relaxed">
+              <p className="text-xl text-console-text/70 mb-12 leading-relaxed text-center max-w-3xl mx-auto">
                 {idealSolution.summary}
               </p>
               
-              <div className="space-y-3">
+              <div className="space-y-8">
                 <div>
-                  <p className="text-sm font-mono text-console-text-dim uppercase tracking-wide mb-2">
+                  <p className="text-sm text-console-text-dim uppercase tracking-wide mb-4 text-center">
                     Primary Solutions
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap justify-center gap-4">
                     {idealSolution.primary.map(product => (
-                      <span key={product} className="px-3 py-1.5 bg-ibm-green/20 text-ibm-green border border-ibm-green/30 rounded-md font-mono text-sm">
+                      <span
+                        key={product}
+                        className="px-4 py-2 text-ibm-green text-sm"
+                        style={{ 
+                          borderBottom: '2px solid rgba(36, 161, 72, 0.5)',
+                          textShadow: '0 0 10px rgba(36, 161, 72, 0.3)'
+                        }}
+                      >
                         {product}
                       </span>
                     ))}
@@ -383,12 +407,19 @@ function InteractiveScenarioPage() {
                 
                 {idealSolution.supporting && idealSolution.supporting.length > 0 && (
                   <div>
-                    <p className="text-sm font-mono text-console-text-dim uppercase tracking-wide mb-2">
+                    <p className="text-sm text-console-text-dim uppercase tracking-wide mb-4 text-center">
                       Supporting Solutions
                     </p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap justify-center gap-4">
                       {idealSolution.supporting.map(product => (
-                        <span key={product} className="px-3 py-1.5 bg-ibm-blue/20 text-ibm-blue border border-ibm-blue/30 rounded-md font-mono text-sm">
+                        <span
+                          key={product}
+                          className="px-4 py-2 text-ibm-blue text-sm"
+                          style={{ 
+                            borderBottom: '2px solid rgba(15, 98, 254, 0.5)',
+                            textShadow: '0 0 10px rgba(15, 98, 254, 0.3)'
+                          }}
+                        >
                           {product}
                         </span>
                       ))}
@@ -400,22 +431,22 @@ function InteractiveScenarioPage() {
 
             {/* Actions */}
             <motion.div 
-              className="flex gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
               <button 
-                className="btn-primary flex-1" 
+                className="btn-primary" 
                 onClick={() => window.location.reload()}
               >
-                Run Another Scenario
+                <span>Run Another Scenario</span>
               </button>
               <button 
                 className="btn-secondary" 
                 onClick={() => navigate('/')}
               >
-                Exit to Home
+                <span>Exit to Home</span>
               </button>
             </motion.div>
           </motion.div>
@@ -426,10 +457,11 @@ function InteractiveScenarioPage() {
 
   if (loading && !scenario) {
     return (
-      <div className="min-h-screen bg-console-bg flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block w-12 h-12 border-4 border-console-text-dim/20 border-t-ibm-blue rounded-full animate-spin mb-4" />
-          <p className="text-console-text-dim font-mono">Loading scenario...</p>
+          <div className="inline-block w-16 h-16 border-4 border-console-text-dim/20 border-t-ibm-blue rounded-full animate-spin mb-6" 
+               style={{ boxShadow: '0 0 30px rgba(15, 98, 254, 0.3)' }} />
+          <p className="text-console-text-dim text-lg">Loading scenario...</p>
         </div>
       </div>
     )
@@ -447,76 +479,76 @@ function InteractiveScenarioPage() {
 
   return (
     <MissionConsole currentStep={currentStep} score={currentScore} timerSeconds={timerSeconds}>
-      <div className="max-w-4xl mx-auto p-6">
-        {/* Scenario Brief (Step 0 only) */}
+      <div className="max-w-4xl mx-auto p-8">
+        {/* Scenario Brief (Step 0 only) - No Card */}
         {currentStep === 0 && (
           <motion.div 
-            className="console-card mb-6"
+            className="mb-20 glow-zone-blue"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="flex items-start justify-between mb-4">
+            <div className="flex items-start justify-between mb-8">
               <div>
-                <h1 className="text-2xl font-bold tracking-console text-console-text mb-1">
+                <h1 className="text-4xl font-bold tracking-console text-console-text mb-3">
                   {scenario.title}
                 </h1>
-                <div className="flex items-center gap-3 text-sm">
-                  <span className="industry-badge">{scenario.industry}</span>
+                <div className="flex items-center gap-4 text-base">
+                  <span className="text-console-text-dim font-mono">{scenario.industry}</span>
                   <span className="text-console-text-dim">•</span>
                   <span className="text-console-text-dim">{scenario.company}</span>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-xs font-mono text-console-text-dim uppercase tracking-wide">
+                <div className="text-xs font-mono text-console-text-dim uppercase tracking-wide mb-1">
                   Target Time
                 </div>
-                <div className="text-lg font-mono text-ibm-blue">
+                <div className="text-2xl font-mono text-ibm-blue">
                   3–6 min
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-console-surface-light rounded-lg border border-console-text-dim/10 mb-4">
-              <p className="text-console-text/90 leading-relaxed">
-                {scenario.brief}
-              </p>
+            <p className="text-xl text-console-text/70 leading-relaxed mb-12">
+              {scenario.brief}
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div>
+                <div className="text-xs text-console-text-dim mb-2 uppercase tracking-wide">Revenue</div>
+                <div className="text-lg font-semibold text-console-text">{scenario.revenue}</div>
+              </div>
+              <div>
+                <div className="text-xs text-console-text-dim mb-2 uppercase tracking-wide">Employees</div>
+                <div className="text-lg font-semibold text-console-text">{scenario.employees.toLocaleString()}</div>
+              </div>
+              <div>
+                <div className="text-xs text-console-text-dim mb-2 uppercase tracking-wide">Timeline</div>
+                <div className="text-lg font-semibold text-console-text">{scenario.constraints.timeline}</div>
+              </div>
+              <div>
+                <div className="text-xs text-console-text-dim mb-2 uppercase tracking-wide">Budget</div>
+                <div className="text-lg font-semibold text-console-text">{scenario.constraints.budget}</div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <div className="p-3 bg-console-surface-light rounded-lg">
-                <div className="text-xs font-mono text-console-text-dim mb-1">Revenue</div>
-                <div className="text-sm font-semibold text-console-text">{scenario.revenue}</div>
-              </div>
-              <div className="p-3 bg-console-surface-light rounded-lg">
-                <div className="text-xs font-mono text-console-text-dim mb-1">Employees</div>
-                <div className="text-sm font-semibold text-console-text">{scenario.employees.toLocaleString()}</div>
-              </div>
-              <div className="p-3 bg-console-surface-light rounded-lg">
-                <div className="text-xs font-mono text-console-text-dim mb-1">Timeline</div>
-                <div className="text-sm font-semibold text-console-text">{scenario.constraints.timeline}</div>
-              </div>
-              <div className="p-3 bg-console-surface-light rounded-lg">
-                <div className="text-xs font-mono text-console-text-dim mb-1">Budget</div>
-                <div className="text-sm font-semibold text-console-text">{scenario.constraints.budget}</div>
-              </div>
-            </div>
+            <div className="hairline-separator" />
           </motion.div>
         )}
 
-        {/* Question Card */}
-        <div className="console-card mb-6">
-          <div className="mb-6 pb-4 border-b border-console-text-dim/10">
-            <div className="flex items-center justify-between">
+        {/* Question Section - No Card */}
+        <div className="mb-12">
+          <div className="mb-12">
+            <div className="flex items-center justify-between mb-6">
               <div>
-                <div className="text-xs font-mono text-console-text-dim uppercase tracking-wide mb-1">
+                <div className="text-xs text-console-text-dim uppercase tracking-wide mb-2">
                   Step {currentQuestion.step}
                 </div>
-                <h2 className="text-lg font-semibold text-console-text">
+                <h2 className="text-2xl font-semibold text-console-text">
                   {currentQuestion.title}
                 </h2>
               </div>
               <div className="text-right">
-                <div className="text-xs font-mono text-console-text-dim">
+                <div className="text-sm text-console-text-dim">
                   {currentStep + 1} / {scenario.questions.length}
                 </div>
               </div>
@@ -528,8 +560,8 @@ function InteractiveScenarioPage() {
           </AnimatePresence>
         </div>
 
-        {/* Navigation */}
-        <div className="flex gap-4">
+        {/* Navigation - Minimal */}
+        <div className="flex gap-6 justify-center">
           <button 
             className="btn-secondary" 
             onClick={handlePrevious}
@@ -538,14 +570,14 @@ function InteractiveScenarioPage() {
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous
+            <span>Previous</span>
           </button>
           <button 
-            className="btn-primary flex-1" 
+            className="btn-primary" 
             onClick={handleNext}
             disabled={loading || !canProceed}
           >
-            {loading ? 'Processing...' : currentStep === scenario.questions.length - 1 ? 'Submit & Score' : 'Next Step'}
+            <span>{loading ? 'Processing...' : currentStep === scenario.questions.length - 1 ? 'Submit & Score' : 'Next Step'}</span>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

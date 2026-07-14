@@ -7,15 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Mission Console Palette
+        // Atmospheric Surface Palette
         'console-bg': '#0A0E14',
-        'console-surface': '#161B22',
-        'console-surface-light': '#21262D',
         'ibm-blue': '#0F62FE',
         'ibm-blue-hover': '#0353E9',
         'ibm-purple': '#8A3FFC',
         'ibm-green': '#24A148',
-        'ibm-green-dark': '#198038',
+        'ibm-red': '#DA1E28',
         'console-text': '#F4F4F4',
         'console-text-dim': '#8D8D8D',
       },
@@ -30,6 +28,9 @@ export default {
         'slide-in': 'slideIn 0.15s ease-out',
         'count-up': 'countUp 0.3s ease-out',
         'progress-fill': 'progressFill 0.4s ease-out',
+        'glow-drift-blue': 'glowDriftBlue 20s ease-in-out infinite',
+        'glow-drift-purple': 'glowDriftPurple 25s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 3s ease-in-out infinite',
       },
       keyframes: {
         slideIn: {
@@ -44,9 +45,44 @@ export default {
           '0%': { width: '0%' },
           '100%': { width: '100%' },
         },
+        glowDriftBlue: {
+          '0%, 100%': {
+            transform: 'translate(0, 0) scale(1)',
+            opacity: '0.05'
+          },
+          '33%': {
+            transform: 'translate(30px, -20px) scale(1.1)',
+            opacity: '0.08'
+          },
+          '66%': {
+            transform: 'translate(-20px, 30px) scale(0.9)',
+            opacity: '0.06'
+          },
+        },
+        glowDriftPurple: {
+          '0%, 100%': {
+            transform: 'translate(0, 0) scale(1)',
+            opacity: '0.05'
+          },
+          '33%': {
+            transform: 'translate(-30px, 20px) scale(1.1)',
+            opacity: '0.08'
+          },
+          '66%': {
+            transform: 'translate(20px, -30px) scale(0.9)',
+            opacity: '0.06'
+          },
+        },
+        glowPulse: {
+          '0%, 100%': { opacity: '0.3' },
+          '50%': { opacity: '0.6' },
+        },
       },
       transitionDuration: {
         '150': '150ms',
+      },
+      backdropBlur: {
+        'xs': '2px',
       },
     },
   },

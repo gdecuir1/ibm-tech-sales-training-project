@@ -8,16 +8,47 @@
   }
 
   body {
-    @apply font-sans antialiased bg-console-bg text-console-text min-h-screen;
+    @apply font-sans antialiased bg-console-bg text-console-text min-h-screen overflow-x-hidden;
+    position: relative;
   }
 
   #root {
-    @apply min-h-screen;
+    @apply min-h-screen relative;
   }
 
-  /* Keyboard focus states */
+  /* Ambient glow fields - continuous atmospheric background */
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::before {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(15, 98, 254, 0.08) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    animation: glowDriftBlue 20s ease-in-out infinite;
+  }
+
+  body::after {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(138, 63, 252, 0.06) 0%, transparent 70%);
+    bottom: -150px;
+    left: -150px;
+    animation: glowDriftPurple 25s ease-in-out infinite;
+  }
+
+  /* Keyboard focus states - subtle glow instead of ring */
   *:focus-visible {
-    @apply outline-none ring-2 ring-ibm-blue ring-offset-2 ring-offset-console-bg;
+    @apply outline-none;
+    box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.4), 0 0 20px rgba(15, 98, 254, 0.2);
   }
 
   /* Reduced motion support */
@@ -29,166 +60,229 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+    
+    body::before,
+    body::after {
+      animation: none !important;
+    }
   }
 }
 
 @layer components {
-  /* Mission Console Button Styles */
-  .btn-console {
-    @apply px-6 py-3 font-medium rounded-lg transition-all duration-150 
-           flex items-center justify-center gap-2 cursor-pointer
-           focus-visible:ring-2 focus-visible:ring-ibm-blue focus-visible:ring-offset-2 focus-visible:ring-offset-console-bg;
+  /* Atmospheric Button Styles - no boxes, just glow and text */
+  .btn-primary {
+    @apply px-8 py-4 font-semibold text-lg transition-all duration-150
+           flex items-center justify-center gap-3 cursor-pointer relative
+           text-white;
+    background: transparent;
+    border: none;
   }
 
-  .btn-primary {
-    @apply btn-console bg-ibm-blue text-white hover:bg-ibm-blue-hover 
-           hover:shadow-lg hover:shadow-ibm-blue/30 active:scale-[0.98];
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.2), rgba(15, 98, 254, 0.1));
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .btn-primary:hover::before {
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.3), rgba(15, 98, 254, 0.15));
+    box-shadow: 0 0 40px rgba(15, 98, 254, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary span {
+    position: relative;
+    z-index: 1;
   }
 
   .btn-secondary {
-    @apply btn-console bg-console-surface-light text-console-text 
-           hover:bg-console-surface border border-console-text-dim/20
-           active:scale-[0.98];
+    @apply px-8 py-4 font-medium text-lg transition-all duration-150
+           flex items-center justify-center gap-3 cursor-pointer
+           text-console-text hover:text-white;
+    background: transparent;
+    border-bottom: 1px solid rgba(141, 141, 141, 0.2);
   }
 
-  .btn-purple {
-    @apply btn-console bg-ibm-purple text-white hover:bg-ibm-purple/90
-           hover:shadow-lg hover:shadow-ibm-purple/30 active:scale-[0.98];
+  .btn-secondary:hover {
+    border-bottom-color: rgba(15, 98, 254, 0.5);
+    text-shadow: 0 0 20px rgba(15, 98, 254, 0.5);
   }
 
-  .btn-outline {
-    @apply btn-console bg-transparent text-ibm-blue border-2 border-ibm-blue
-           hover:bg-ibm-blue hover:text-white active:scale-[0.98];
+  .btn-secondary:active {
+    transform: scale(0.98);
   }
 
-  .btn-console:disabled {
-    @apply opacity-40 cursor-not-allowed hover:scale-100 active:scale-100;
+  /* Selection states - glow and underline, not boxes */
+  .option-item {
+    @apply p-6 transition-all duration-150 cursor-pointer relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(141, 141, 141, 0.1);
   }
 
-  /* Console Card */
-  .console-card {
-    @apply bg-console-surface rounded-lg p-6 border border-console-text-dim/10;
+  .option-item:hover {
+    border-bottom-color: rgba(15, 98, 254, 0.3);
   }
 
-  /* Selection Options */
-  .option-card {
-    @apply p-4 rounded-lg border-2 transition-all duration-150 cursor-pointer
-           bg-console-surface border-console-text-dim/20
-           hover:border-ibm-blue/50 hover:bg-console-surface-light
-           focus-visible:ring-2 focus-visible:ring-ibm-blue;
+  .option-item:hover .option-text {
+    color: rgba(244, 244, 244, 1);
+    text-shadow: 0 0 20px rgba(15, 98, 254, 0.3);
   }
 
-  .option-card.selected {
-    @apply border-ibm-blue bg-ibm-blue/10;
+  .option-item.selected {
+    border-bottom-color: rgba(15, 98, 254, 0.8);
+    background: radial-gradient(ellipse at center, rgba(15, 98, 254, 0.05) 0%, transparent 70%);
   }
 
-  .option-card.correct {
-    @apply border-ibm-green bg-ibm-green/10;
+  .option-item.selected .option-text {
+    color: #0F62FE;
+    text-shadow: 0 0 30px rgba(15, 98, 254, 0.4);
   }
 
-  .option-card.incorrect {
-    @apply border-red-500 bg-red-500/10;
+  .option-item.correct {
+    border-bottom-color: rgba(36, 161, 72, 0.8);
+    background: radial-gradient(ellipse at center, rgba(36, 161, 72, 0.05) 0%, transparent 70%);
   }
 
-  /* Mono Data Display */
-  .mono-data {
-    @apply font-mono tracking-tight;
+  .option-item.correct .option-text {
+    color: #24A148;
   }
 
-  /* Status Badge */
+  .option-item.incorrect {
+    border-bottom-color: rgba(218, 30, 40, 0.8);
+    background: radial-gradient(ellipse at center, rgba(218, 30, 40, 0.05) 0%, transparent 70%);
+  }
+
+  .option-item.incorrect .option-text {
+    color: #DA1E28;
+  }
+
+  /* Data Display - Use IBM Plex Sans only */
+  .data-display {
+    @apply font-sans tracking-tight;
+  }
+
+  /* Status Badge - minimal, no filled backgrounds, IBM Plex Sans only */
   .status-badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wide;
+    @apply inline-flex items-center px-4 py-1.5 text-sm font-sans font-medium uppercase tracking-wide;
+    background: transparent;
+    border-bottom: 2px solid;
   }
 
   .status-badge.excellent {
-    @apply bg-ibm-green/20 text-ibm-green border border-ibm-green/30;
+    @apply text-ibm-green;
+    border-bottom-color: rgba(36, 161, 72, 0.5);
   }
 
   .status-badge.good {
-    @apply bg-ibm-blue/20 text-ibm-blue border border-ibm-blue/30;
+    @apply text-ibm-blue;
+    border-bottom-color: rgba(15, 98, 254, 0.5);
   }
 
   .status-badge.satisfactory {
-    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+    @apply text-yellow-400;
+    border-bottom-color: rgba(250, 204, 21, 0.5);
   }
 
   .status-badge.needs-improvement {
-    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+    color: #DA1E28;
+    border-bottom-color: rgba(218, 30, 40, 0.5);
   }
 
-  /* Industry Badge */
-  .industry-badge {
-    @apply inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium
-           bg-console-surface-light border border-console-text-dim/20;
-  }
-
-  /* Difficulty Tag */
+  /* Difficulty Tag - text with subtle glow, IBM Plex Sans only */
   .difficulty-tag {
-    @apply inline-flex items-center px-2.5 py-1 rounded text-xs font-mono font-medium uppercase;
+    @apply inline-flex items-center px-3 py-1 text-xs font-sans font-medium uppercase;
+    background: transparent;
   }
 
   .difficulty-tag.beginner {
-    @apply bg-ibm-green/20 text-ibm-green;
+    @apply text-ibm-green;
+    text-shadow: 0 0 10px rgba(36, 161, 72, 0.3);
   }
 
   .difficulty-tag.intermediate {
-    @apply bg-ibm-blue/20 text-ibm-blue;
+    @apply text-ibm-blue;
+    text-shadow: 0 0 10px rgba(15, 98, 254, 0.3);
   }
 
   .difficulty-tag.advanced {
-    @apply bg-ibm-purple/20 text-ibm-purple;
+    @apply text-ibm-purple;
+    text-shadow: 0 0 10px rgba(138, 63, 252, 0.3);
   }
 
-  /* Feedback Item */
-  .feedback-item {
-    @apply p-4 rounded-lg border-l-4 bg-console-surface-light;
+  /* Hairline separator - replaces card borders */
+  .hairline-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(141, 141, 141, 0.2), transparent);
+    margin: 3rem 0;
   }
 
-  .feedback-item.success {
-    @apply border-ibm-green;
+  /* Glow zone - defines content areas without boxes */
+  .glow-zone-blue {
+    position: relative;
   }
 
-  .feedback-item.warning {
-    @apply border-yellow-500;
+  .glow-zone-blue::before {
+    content: '';
+    position: absolute;
+    inset: -100px;
+    background: radial-gradient(ellipse at top, rgba(15, 98, 254, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
   }
 
-  .feedback-item.error {
-    @apply border-red-500;
+  .glow-zone-purple {
+    position: relative;
   }
 
-  .feedback-item.info {
-    @apply border-ibm-blue;
+  .glow-zone-purple::before {
+    content: '';
+    position: absolute;
+    inset: -100px;
+    background: radial-gradient(ellipse at bottom, rgba(138, 63, 252, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
   }
 }
 
 @layer utilities {
-  /* Console text utilities */
-  .text-console-heading {
-    @apply text-console-text font-semibold tracking-console;
+  /* Typography utilities */
+  .text-display {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-console;
   }
 
-  .text-console-body {
-    @apply text-console-text/90;
+  .text-heading {
+    @apply text-3xl md:text-4xl font-semibold tracking-console;
   }
 
-  .text-console-dim {
-    @apply text-console-text-dim;
+  .text-subheading {
+    @apply text-xl md:text-2xl font-medium;
   }
 
-  /* Animation utilities */
-  .animate-in {
-    animation: slideIn 0.15s ease-out;
+  /* Etched line - for progress rails */
+  .etched-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(141, 141, 141, 0.3), transparent);
+    position: relative;
   }
 
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  .etched-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(15, 98, 254, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .etched-line.active::after {
+    opacity: 1;
   }
 }
 
