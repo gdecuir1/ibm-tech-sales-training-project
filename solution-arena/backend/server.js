@@ -15,6 +15,7 @@ const productsRouter = require('./routes/products');
 const evaluateRouter = require('./routes/evaluate');
 const objectionsRouter = require('./routes/objections');
 const scoringRouter = require('./routes/scoring');
+const scenarioSelectionRouter = require('./routes/scenarioSelection');
 
 // Mount routes
 app.use('/scenario', scenariosRouter);
@@ -22,6 +23,7 @@ app.use('/products', productsRouter);
 app.use('/evaluate', evaluateRouter);
 app.use('/objections', objectionsRouter);
 app.use('/scoring', scoringRouter);
+app.use('/api/scenarios', scenarioSelectionRouter);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -37,6 +39,13 @@ app.get('/', (req, res) => {
       scenarios: {
         'GET /scenario/random': 'Get a random scenario',
         'GET /scenario/:id': 'Get a specific scenario by ID'
+      },
+      scenarioSelection: {
+        'GET /api/scenarios/next': 'Get next scenario with adaptive difficulty',
+        'POST /api/scenarios/complete': 'Record scenario completion',
+        'GET /api/scenarios/history': 'Get user scenario history',
+        'GET /api/scenarios/stats': 'Get overall statistics',
+        'DELETE /api/scenarios/history': 'Reset user history'
       },
       products: {
         'GET /products': 'Get all available IBM products'

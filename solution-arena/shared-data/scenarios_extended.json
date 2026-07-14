@@ -1,0 +1,160 @@
+[
+  {
+    "id": "scenario-beginner-retail-001",
+    "title": "E-commerce Platform Modernization",
+    "difficulty": "beginner",
+    "estimatedTime": "3-4 minutes",
+    "company": "FashionForward Retail",
+    "industry": "Retail",
+    "size": "Mid-Market",
+    "revenue": "$250M",
+    "employees": 1200,
+    "brief": "Online fashion retailer experiencing rapid growth needs to modernize their e-commerce platform to handle seasonal traffic spikes (Black Friday, holiday season) and improve customer experience. Current monolithic application struggles during peak times, causing lost sales.",
+    "currentEnvironment": {
+      "infrastructure": ["On-premises servers", "Monolithic Java application", "MySQL database"],
+      "applications": ["E-commerce platform", "Inventory management", "Order processing"],
+      "challenges": ["Slow during peak traffic", "Difficult to update", "High infrastructure costs", "Poor mobile experience"]
+    },
+    "businessGoals": [
+      "Handle 10x traffic during peak seasons",
+      "Reduce page load times by 50%",
+      "Enable faster feature deployment",
+      "Improve mobile shopping experience"
+    ],
+    "constraints": {
+      "budget": "Moderate - $500K approved",
+      "timeline": "6 months before holiday season",
+      "compliance": "PCI-DSS for payment processing",
+      "technical": "Must maintain existing customer data"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "type": "priorities",
+        "step": 1,
+        "title": "Identify Customer Priorities",
+        "question": "Select ALL business outcomes that matter most to this customer:",
+        "options": [
+          {"id": "reduce-costs", "text": "Reduce infrastructure costs", "correct": true, "weight": 8},
+          {"id": "improve-ai", "text": "Improve AI readiness", "correct": false, "weight": 0},
+          {"id": "modernize-apps", "text": "Modernize legacy applications", "correct": true, "weight": 10},
+          {"id": "cyber-resilience", "text": "Increase cyber resilience", "correct": false, "weight": 3},
+          {"id": "compliance", "text": "Meet compliance requirements", "correct": true, "weight": 7},
+          {"id": "reduce-downtime", "text": "Reduce downtime", "correct": true, "weight": 10},
+          {"id": "dev-productivity", "text": "Improve developer productivity", "correct": true, "weight": 8},
+          {"id": "disaster-recovery", "text": "Improve disaster recovery", "correct": false, "weight": 2}
+        ],
+        "feedback": {
+          "correct": "Excellent! You identified the key priorities: modernization, uptime during peaks, developer agility, and cost optimization.",
+          "partial": "Good start, but focus on application modernization and handling traffic spikes.",
+          "incorrect": "Review the scenario - this customer needs to modernize their e-commerce platform for scalability and performance."
+        }
+      },
+      {
+        "id": "q2",
+        "type": "technology-selection",
+        "step": 2,
+        "title": "Recommend IBM Technologies",
+        "question": "Select ALL IBM technologies you would recommend for this scenario:",
+        "options": [
+          {"id": "ibm-power", "text": "IBM Power", "correct": false, "weight": 0, "reasoning": "Not needed for web applications"},
+          {"id": "ibm-cloud", "text": "IBM Cloud", "correct": true, "weight": 10, "reasoning": "Foundation platform for cloud-native applications"},
+          {"id": "red-hat-openshift", "text": "Red Hat OpenShift", "correct": true, "weight": 15, "reasoning": "Perfect for containerizing and modernizing the application"},
+          {"id": "ibm-turbonomic", "text": "IBM Turbonomic", "correct": true, "weight": 8, "reasoning": "Optimizes cloud costs and ensures performance"},
+          {"id": "ibm-instana", "text": "IBM Instana", "correct": true, "weight": 10, "reasoning": "Essential for monitoring application performance"},
+          {"id": "watsonx-ai", "text": "watsonx.ai", "correct": false, "weight": 2, "reasoning": "Not a current priority"},
+          {"id": "ibm-guardium", "text": "IBM Guardium", "correct": false, "weight": 3, "reasoning": "Useful but not critical for initial modernization"},
+          {"id": "ibm-consulting", "text": "IBM Consulting", "correct": true, "weight": 8, "reasoning": "Helps with modernization strategy and implementation"}
+        ],
+        "feedback": {
+          "excellent": "Perfect! OpenShift for containerization, IBM Cloud for infrastructure, Instana for monitoring, and Turbonomic for optimization.",
+          "good": "Good selections, but ensure you include OpenShift for application modernization and Instana for observability.",
+          "needs-improvement": "Focus on cloud-native technologies: OpenShift, IBM Cloud, and observability tools like Instana."
+        }
+      },
+      {
+        "id": "q3",
+        "type": "architecture",
+        "step": 3,
+        "title": "Architecture Approach",
+        "question": "What's the best modernization approach for their monolithic application?",
+        "multipleChoice": false,
+        "options": [
+          {"id": "lift-shift", "text": "Lift and shift to cloud as-is", "correct": false, "reasoning": "Doesn't address scalability issues"},
+          {"id": "microservices", "text": "Break into microservices on OpenShift", "correct": true, "reasoning": "Enables independent scaling and faster updates"},
+          {"id": "rewrite", "text": "Complete rewrite from scratch", "correct": false, "reasoning": "Too risky and time-consuming"},
+          {"id": "stay-onprem", "text": "Keep on-premises, add more servers", "correct": false, "reasoning": "Doesn't solve fundamental architecture issues"}
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "architecture",
+        "step": 3,
+        "title": "Monitoring Strategy",
+        "question": "How should they monitor the modernized application?",
+        "multipleChoice": false,
+        "options": [
+          {"id": "manual", "text": "Manual monitoring and log review", "correct": false, "reasoning": "Not scalable for microservices"},
+          {"id": "instana", "text": "IBM Instana for automated observability", "correct": true, "reasoning": "Provides real-time insights across microservices"},
+          {"id": "basic-tools", "text": "Basic open-source monitoring tools", "correct": false, "reasoning": "Lacks enterprise support and automation"},
+          {"id": "no-monitoring", "text": "Rely on customer complaints", "correct": false, "reasoning": "Reactive approach leads to poor experience"}
+        ]
+      },
+      {
+        "id": "q5",
+        "type": "justification",
+        "step": 4,
+        "title": "Solution Justification",
+        "question": "Why recommend Red Hat OpenShift? Select the BEST reasons:",
+        "options": [
+          {"id": "containers", "text": "Enables containerization and microservices", "correct": true, "weight": 10},
+          {"id": "scaling", "text": "Auto-scales during traffic spikes", "correct": true, "weight": 10},
+          {"id": "dev-speed", "text": "Accelerates development and deployment", "correct": true, "weight": 9},
+          {"id": "cheapest", "text": "Cheapest container platform", "correct": false, "weight": 0},
+          {"id": "hybrid", "text": "Supports hybrid and multi-cloud", "correct": true, "weight": 7},
+          {"id": "security", "text": "Built-in security and compliance features", "correct": true, "weight": 8}
+        ]
+      },
+      {
+        "id": "q6",
+        "type": "objection",
+        "step": 5,
+        "title": "Handle Customer Objection",
+        "objection": "We're already looking at AWS EKS. Why should we consider OpenShift instead?",
+        "question": "Select the BEST response:",
+        "multipleChoice": false,
+        "options": [
+          {"id": "ibm-better", "text": "IBM is better than AWS", "correct": false, "score": 0, "reasoning": "Too generic and not credible"},
+          {"id": "openshift-value", "text": "OpenShift provides enterprise Kubernetes with built-in CI/CD, security, and developer tools. It runs on IBM Cloud or AWS, giving you flexibility. You get a complete platform, not just orchestration.", "correct": true, "score": 10, "reasoning": "Highlights specific value and flexibility"},
+          {"id": "cheaper", "text": "OpenShift is cheaper than EKS", "correct": false, "score": 2, "reasoning": "Cost comparison is complex and may not be true"},
+          {"id": "lock-in", "text": "EKS locks you into AWS", "correct": false, "score": 3, "reasoning": "Partially true but negative positioning"}
+        ]
+      },
+      {
+        "id": "q7",
+        "type": "cross-sell",
+        "step": 6,
+        "title": "Cross-Sell Opportunity",
+        "question": "After modernization, which solution adds the MOST value?",
+        "multipleChoice": false,
+        "options": [
+          {"id": "watsonx-ai", "text": "watsonx.ai - Add AI-powered product recommendations", "correct": true, "score": 10, "reasoning": "Natural next step to improve customer experience and sales"},
+          {"id": "guardium", "text": "IBM Guardium - Database security", "correct": false, "score": 4, "reasoning": "Useful but not highest priority"},
+          {"id": "apptio", "text": "IBM Apptio - IT financial management", "correct": false, "score": 3, "reasoning": "Turbonomic already provides cost optimization"},
+          {"id": "qradar", "text": "IBM QRadar - Security monitoring", "correct": false, "score": 5, "reasoning": "Valuable but not immediate need"}
+        ]
+      }
+    ],
+    "scoringBreakdown": {
+      "businessUnderstanding": {"questions": ["q1"], "maxScore": 10},
+      "cloudPositioning": {"questions": ["q2", "q3"], "maxScore": 15},
+      "portfolioKnowledge": {"questions": ["q2", "q4", "q7"], "maxScore": 15},
+      "objectionHandling": {"questions": ["q6"], "maxScore": 10}
+    },
+    "idealSolution": {
+      "primary": ["Red Hat OpenShift", "IBM Cloud", "IBM Instana"],
+      "supporting": ["IBM Turbonomic", "IBM Consulting"],
+      "summary": "Modernize to microservices on OpenShift for scalability, with Instana for observability and Turbonomic for cost optimization."
+    }
+  }
+]
