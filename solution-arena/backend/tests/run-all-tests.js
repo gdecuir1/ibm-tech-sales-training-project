@@ -5,7 +5,9 @@ const path = require('path');
 const testFiles = [
   'evaluate.test.js',
   'scoring.test.js',
-  'integration.test.js'
+  'integration.test.js',
+  'scenarioSelection.test.js',
+  'scenarioGenerator.test.js'
 ];
 
 let currentTest = 0;
