@@ -1,12 +1,12 @@
-# Solution Arena - Project Summary
+# IBM DealSprint
 
 ## 🎯 Project Overview
 
-**Solution Arena** is an AI-powered interactive training platform with 100+ adaptive scenarios designed for IBM technology sales professionals.
+**IBM DealSprint** is an AI-powered adaptive training platform with 100+ gamified scenarios that accelerates IBM sales mastery through intelligent, rapid-fire practice.
 
 ### GitHub One-Liner
 ```
-AI-powered interactive training platform with 100+ adaptive scenarios for IBM technology sales professionals
+AI-powered adaptive training platform with 100+ gamified scenarios that accelerates IBM sales mastery through intelligent, rapid-fire practice
 ```
 
 ## ✅ Completed Features
@@ -361,4 +361,4 @@ MIT License - See LICENSE file for details
 
 **Made with ❤️ by Bob**
 
-*Empowering IBM sales professionals through immersive, adaptive training*
+*Sprint to success. Master IBM solutions faster.*

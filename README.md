@@ -1,6 +1,6 @@
-# Solution Arena - IBM Tech Sales Training Platform
+# IBM DealSprint - Accelerate Your Sales Mastery
 
-> **AI-powered interactive training platform with 100+ adaptive scenarios for IBM technology sales professionals**
+> **AI-powered adaptive training platform with 100+ gamified scenarios that accelerates IBM sales mastery through intelligent, rapid-fire practice**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
@@ -9,13 +9,13 @@
 
 ## 🎯 Overview
 
-Solution Arena is an immersive training platform designed to help IBM sales professionals master the art of solution selling through realistic, scenario-based learning. The platform features adaptive difficulty progression, comprehensive portfolio coverage, and intelligent scenario selection to ensure optimal learning outcomes.
+IBM DealSprint is an immersive training platform designed to help IBM sales professionals master the art of solution selling through realistic, scenario-based learning. The platform features adaptive difficulty progression, comprehensive portfolio coverage, and intelligent scenario selection to ensure optimal learning outcomes.
 
-### Why Solution Arena?
+### Why IBM DealSprint?
 
 Traditional IBM training methods like **watsonx workshops** and **Seismic customer interaction simulations** are comprehensive but often **too lengthy** for quick practice sessions. Sales professionals need a way to get **fast reps** and build intuitive decision-making skills without committing hours to each training session.
 
-**Solution Arena solves this by:**
+**IBM DealSprint solves this by:**
 - ⚡ **Quick Practice** - Complete scenarios in 3-6 minutes vs. 30-60 minute workshops
 - 🎯 **Focused Learning** - Each scenario targets specific skills and concepts
 - 🔄 **High Volume Reps** - Complete 10+ scenarios in a typical session
@@ -386,4 +386,4 @@ For questions or issues:
 
 **Made with ❤️ by Bob**
 
-*Empowering IBM sales professionals through immersive, adaptive training*
+*Sprint to success. Master IBM solutions faster.*
