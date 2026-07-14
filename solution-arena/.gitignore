@@ -10,6 +10,16 @@ build/
 .env
 .env.local
 .env.production
+.env.development
+backend/.env
+frontend/.env
+*.env
+!.env.example
+
+# Database
+db-credentials.json
+*.sql.backup
+database/backups/
 
 # IDE
 .vscode/

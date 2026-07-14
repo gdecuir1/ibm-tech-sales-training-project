@@ -45,6 +45,7 @@ Traditional IBM training methods like **watsonx workshops** and **Seismic custom
 ### Prerequisites
 
 - Node.js 18+ and npm
+- PostgreSQL 14+ (or IBM Cloud Databases for PostgreSQL)
 - Git
 
 ### Installation
@@ -57,10 +58,44 @@ cd solution-arena
 # Install backend dependencies
 cd backend
 npm install
+npm install pg  # PostgreSQL client
 
 # Install frontend dependencies
 cd ../frontend
 npm install
+```
+
+### Database Setup
+
+```bash
+# Create local PostgreSQL database
+createdb dealsprint
+
+# Run database schema
+psql dealsprint < database/schema.sql
+
+# Seed database with scenarios and products
+cd database
+node seed.js
+cd ..
+```
+
+### Environment Configuration
+
+Create `backend/.env`:
+
+```env
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=dealsprint
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_SSL=false
+
+# Application
+NODE_ENV=development
+PORT=3001
 ```
 
 ### Running the Application
@@ -87,6 +122,9 @@ Open your browser to `http://localhost:5173`
 ```
 solution-arena/
 ├── backend/                    # Node.js/Express API server
+│   ├── database/              # Database layer
+│   │   ├── connection.js      # PostgreSQL connection pool
+│   │   └── models.js          # Data access models
 │   ├── routes/                # API endpoints
 │   │   ├── scenarios.js       # Scenario retrieval
 │   │   ├── scenarioSelection.js  # Adaptive selection & tracking
@@ -266,8 +304,10 @@ See [TEST_DOCUMENTATION.md](./backend/tests/TEST_DOCUMENTATION.md) for details.
 ## 🛠️ Technology Stack
 
 ### Backend
-- **Node.js** - Runtime environment
+- **Node.js 18+** - Runtime environment
 - **Express.js** - Web framework
+- **PostgreSQL 14+** - Primary database
+- **node-postgres (pg)** - Database client
 - **Jest/Supertest** - Testing framework
 
 ### Frontend
@@ -276,9 +316,17 @@ See [TEST_DOCUMENTATION.md](./backend/tests/TEST_DOCUMENTATION.md) for details.
 - **Tailwind CSS** - Styling
 - **React Router** - Navigation
 
-### Data
-- **JSON** - Data storage (scenarios, products, objections)
-- **In-memory** - User session tracking (production: database)
+### Database
+- **PostgreSQL 14+** - Relational database
+- **IBM Cloud Databases for PostgreSQL** - Production deployment
+- **JSONB** - Flexible schema for complex data
+- **Connection pooling** - Performance optimization
+
+### Cloud Infrastructure
+- **IBM Cloud Code Engine** - Container deployment
+- **IBM Cloud Databases** - Managed PostgreSQL
+- **IBM Cloud Object Storage** - Backups and assets
+- **IBM Log Analysis** - Monitoring and logging
 
 ## 📈 Performance Metrics
 
@@ -293,8 +341,9 @@ See [TEST_DOCUMENTATION.md](./backend/tests/TEST_DOCUMENTATION.md) for details.
 ## 🔮 Future Enhancements
 
 ### Planned Features
-- [ ] Persistent database (PostgreSQL/MongoDB)
-- [ ] User authentication and profiles
+- [x] Persistent PostgreSQL database
+- [x] IBM Cloud deployment ready
+- [ ] User authentication (IBM App ID)
 - [ ] Team/organization leaderboards
 - [ ] Custom scenario creation tools
 - [ ] Integration with LMS platforms
@@ -315,6 +364,8 @@ See [TEST_DOCUMENTATION.md](./backend/tests/TEST_DOCUMENTATION.md) for details.
 
 ## 📝 Documentation
 
+- [Database Documentation](./database/README.md) - Database schema and setup
+- [IBM Cloud Deployment](./IBM_CLOUD_DEPLOYMENT.md) - Production deployment guide
 - [Running Instructions](./RUNNING_INSTRUCTIONS.md) - Detailed setup guide
 - [Scenario System Implementation](./SCENARIO_SYSTEM_IMPLEMENTATION.md) - Architecture details
 - [Test Documentation](./backend/tests/TEST_DOCUMENTATION.md) - Testing guide

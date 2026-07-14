@@ -45,6 +45,7 @@ Traditional IBM training methods like **watsonx workshops** and **Seismic custom
 ### Prerequisites
 
 - Node.js 18+ and npm
+- PostgreSQL 14+ (or IBM Cloud Databases for PostgreSQL)
 - Git
 
 ### Installation
@@ -57,10 +58,44 @@ cd solution-arena
 # Install backend dependencies
 cd backend
 npm install
+npm install pg  # PostgreSQL client
 
 # Install frontend dependencies
 cd ../frontend
 npm install
+```
+
+### Database Setup
+
+```bash
+# Create local PostgreSQL database
+createdb dealsprint
+
+# Run database schema
+psql dealsprint < database/schema.sql
+
+# Seed database with scenarios and products
+cd database
+node seed.js
+cd ..
+```
+
+### Environment Configuration
+
+Create `backend/.env`:
+
+```env
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=dealsprint
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_SSL=false
+
+# Application
+NODE_ENV=development
+PORT=3001
 ```
 
 ### Running the Application
@@ -81,6 +116,10 @@ npm run dev
 
 **Access the application:**
 Open your browser to `http://localhost:5173`
+
+### Quick Deploy to IBM Cloud
+
+See [IBM Cloud Deployment Guide](./solution-arena/IBM_CLOUD_DEPLOYMENT.md) for production deployment.
 
 ## 📁 Project Structure
 
@@ -266,8 +305,10 @@ See [TEST_DOCUMENTATION.md](./backend/tests/TEST_DOCUMENTATION.md) for details.
 ## 🛠️ Technology Stack
 
 ### Backend
-- **Node.js** - Runtime environment
+- **Node.js 18+** - Runtime environment
 - **Express.js** - Web framework
+- **PostgreSQL 14+** - Primary database
+- **node-postgres (pg)** - Database client
 - **Jest/Supertest** - Testing framework
 
 ### Frontend
@@ -276,9 +317,11 @@ See [TEST_DOCUMENTATION.md](./backend/tests/TEST_DOCUMENTATION.md) for details.
 - **Tailwind CSS** - Styling
 - **React Router** - Navigation
 
-### Data
-- **JSON** - Data storage (scenarios, products, objections)
-- **In-memory** - User session tracking (production: database)
+### Database & Cloud
+- **PostgreSQL 14+** - Relational database with JSONB support
+- **IBM Cloud Databases for PostgreSQL** - Managed database service
+- **IBM Cloud Code Engine** - Serverless container platform
+- **IBM Cloud Object Storage** - Backup and asset storage
 
 ## 📈 Performance Metrics
 
@@ -315,11 +358,12 @@ See [TEST_DOCUMENTATION.md](./backend/tests/TEST_DOCUMENTATION.md) for details.
 
 ## 📝 Documentation
 
-- [Running Instructions](./RUNNING_INSTRUCTIONS.md) - Detailed setup guide
-- [Scenario System Implementation](./SCENARIO_SYSTEM_IMPLEMENTATION.md) - Architecture details
-- [Test Documentation](./backend/tests/TEST_DOCUMENTATION.md) - Testing guide
-- [Scenario Generation Plan](./shared-data/SCENARIO_GENERATION_PLAN.md) - Content strategy
-- [Redesign Guide](./REDESIGN_GUIDE.md) - UI/UX improvements
+- **[Database Documentation](./solution-arena/database/README.md)** - Complete database guide
+- **[IBM Cloud Deployment](./solution-arena/IBM_CLOUD_DEPLOYMENT.md)** - Production deployment
+- [Running Instructions](./solution-arena/RUNNING_INSTRUCTIONS.md) - Local setup guide
+- [Scenario System Implementation](./solution-arena/SCENARIO_SYSTEM_IMPLEMENTATION.md) - Architecture
+- [Test Documentation](./solution-arena/backend/tests/TEST_DOCUMENTATION.md) - Testing guide
+- [Scenario Generation Plan](./solution-arena/shared-data/SCENARIO_GENERATION_PLAN.md) - Content strategy
 
 ## 🤝 Contributing
 
