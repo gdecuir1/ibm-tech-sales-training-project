@@ -83,6 +83,30 @@ function ObjectionPage({
 
   return (
     <div className="container">
+      {/* Navigation Header */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        gap: '1rem',
+        marginBottom: '1.5rem',
+        paddingTop: '1rem'
+      }}>
+        <button
+          className="btn btn-outline"
+          onClick={() => navigate('/dashboard')}
+          style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}
+        >
+          Dashboard
+        </button>
+        <button
+          className="btn btn-outline"
+          onClick={() => navigate('/')}
+          style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}
+        >
+          Exit to Home
+        </button>
+      </div>
+
       <div className="card">
         <div className="card-header">
           <h1 className="card-title">Handle Customer Objections</h1>

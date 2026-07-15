@@ -98,10 +98,10 @@ function ScenarioPage({
 
   if (loading && !currentScenario) {
     return (
-      <div className="min-h-screen bg-console-bg flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block w-12 h-12 border-4 border-console-text-dim/20 border-t-ibm-blue rounded-full animate-spin mb-4" />
-          <p className="text-console-text-dim font-mono">Loading scenario...</p>
+          <div className="inline-block w-12 h-12 border-4 border-ibm-gray-20 border-t-ibm-blue-60 rounded-full animate-spin mb-4" />
+          <p className="text-ibm-gray-70 font-mono">Loading scenario...</p>
         </div>
       </div>
     )
@@ -109,10 +109,10 @@ function ScenarioPage({
 
   if (error) {
     return (
-      <div className="min-h-screen bg-console-bg p-6">
+      <div className="min-h-screen bg-white p-6">
         <div className="max-w-2xl mx-auto">
-          <div className="console-card border-2 border-red-500/30 bg-red-500/10">
-            <p className="text-red-400 mb-4"><strong>Error:</strong> {error}</p>
+          <div className="p-6 border-2 border-ibm-red/30 bg-ibm-red/10 rounded">
+            <p className="text-ibm-red mb-4"><strong>Error:</strong> {error}</p>
             <button className="btn-primary" onClick={loadScenarioAndProducts}>
               Try Again
             </button>
@@ -127,14 +127,30 @@ function ScenarioPage({
   }
 
   return (
-    <div className="min-h-screen bg-console-bg">
-      <header className="bg-console-surface border-b border-console-text-dim/20">
+    <div className="min-h-screen bg-white">
+      <header className="bg-ibm-gray-10 border-b border-ibm-gray-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 bg-ibm-blue rounded-full" />
-            <h1 className="text-lg font-semibold tracking-console text-console-text">
-              CLASSIC MODE
-            </h1>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-ibm-blue-60 rounded-full" />
+              <h1 className="text-lg font-semibold text-ibm-gray-100">
+                CLASSIC MODE
+              </h1>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => navigate('/dashboard')}
+                className="px-4 py-2 text-sm font-medium text-ibm-gray-70 hover:text-ibm-gray-100 hover:bg-ibm-gray-20 rounded transition-colors"
+              >
+                Dashboard
+              </button>
+              <button
+                onClick={() => navigate('/')}
+                className="px-4 py-2 text-sm font-medium text-ibm-gray-70 hover:text-ibm-gray-100 hover:bg-ibm-gray-20 rounded transition-colors"
+              >
+                Exit to Home
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -146,40 +162,40 @@ function ScenarioPage({
           transition={{ duration: 0.3 }}
         >
           {/* Scenario Overview */}
-          <div className="console-card mb-6">
-            <div className="border-l-4 border-ibm-blue pl-4 mb-6">
-              <h2 className="text-2xl font-semibold tracking-console text-console-text mb-2">
+          <div className="panel p-6 mb-6">
+            <div className="border-l-4 border-ibm-blue-60 pl-4 mb-6">
+              <h2 className="text-2xl font-semibold text-ibm-gray-100 mb-2">
                 Scenario Analysis
               </h2>
-              <p className="text-console-text-dim">
+              <p className="text-ibm-gray-70">
                 Review the company context and recommend IBM solutions
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="p-3 bg-console-surface-light rounded-lg">
-                <div className="text-xs font-mono text-console-text-dim mb-1">Company</div>
-                <div className="text-sm font-semibold text-console-text">{currentScenario.company}</div>
+              <div className="p-3 bg-ibm-gray-10 rounded">
+                <div className="text-xs font-mono text-ibm-gray-70 mb-1">Company</div>
+                <div className="text-sm font-semibold text-ibm-gray-100">{currentScenario.company}</div>
               </div>
-              <div className="p-3 bg-console-surface-light rounded-lg">
-                <div className="text-xs font-mono text-console-text-dim mb-1">Industry</div>
-                <div className="text-sm font-semibold text-console-text">{currentScenario.industry}</div>
+              <div className="p-3 bg-ibm-gray-10 rounded">
+                <div className="text-xs font-mono text-ibm-gray-70 mb-1">Industry</div>
+                <div className="text-sm font-semibold text-ibm-gray-100">{currentScenario.industry}</div>
               </div>
-              <div className="p-3 bg-console-surface-light rounded-lg">
-                <div className="text-xs font-mono text-console-text-dim mb-1">Size</div>
-                <div className="text-sm font-semibold text-console-text">{currentScenario.size}</div>
+              <div className="p-3 bg-ibm-gray-10 rounded">
+                <div className="text-xs font-mono text-ibm-gray-70 mb-1">Size</div>
+                <div className="text-sm font-semibold text-ibm-gray-100">{currentScenario.size}</div>
               </div>
             </div>
 
             <div className="space-y-4">
               <div>
-                <h3 className="text-sm font-mono text-console-text-dim uppercase tracking-wide mb-2">
+                <h3 className="text-sm font-mono text-ibm-gray-70 uppercase tracking-wide mb-2">
                   Pain Points
                 </h3>
                 <ul className="space-y-2">
                   {currentScenario.pain_points.map((point, index) => (
-                    <li key={index} className="flex items-start gap-2 text-console-text/90">
-                      <span className="text-ibm-blue mt-1">•</span>
+                    <li key={index} className="flex items-start gap-2 text-ibm-gray-90">
+                      <span className="text-ibm-blue-60 mt-1">•</span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -187,12 +203,12 @@ function ScenarioPage({
               </div>
 
               <div>
-                <h3 className="text-sm font-mono text-console-text-dim uppercase tracking-wide mb-2">
+                <h3 className="text-sm font-mono text-ibm-gray-70 uppercase tracking-wide mb-2">
                   Current Tech Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {currentScenario.tech_stack.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 bg-console-surface-light border border-console-text-dim/20 rounded-md text-sm text-console-text">
+                    <span key={index} className="px-3 py-1 bg-ibm-gray-10 border border-ibm-gray-20 rounded-md text-sm text-ibm-gray-100">
                       {tech}
                     </span>
                   ))}
@@ -200,12 +216,12 @@ function ScenarioPage({
               </div>
 
               <div>
-                <h3 className="text-sm font-mono text-console-text-dim uppercase tracking-wide mb-2">
+                <h3 className="text-sm font-mono text-ibm-gray-70 uppercase tracking-wide mb-2">
                   Business Objectives
                 </h3>
                 <ul className="space-y-2">
                   {currentScenario.objectives.map((obj, index) => (
-                    <li key={index} className="flex items-start gap-2 text-console-text/90">
+                    <li key={index} className="flex items-start gap-2 text-ibm-gray-90">
                       <span className="text-ibm-green mt-1">•</span>
                       <span>{obj}</span>
                     </li>
@@ -216,11 +232,11 @@ function ScenarioPage({
           </div>
 
           {/* Product Selection */}
-          <div className="console-card mb-6">
-            <h2 className="text-xl font-semibold tracking-console text-console-text mb-4 border-l-4 border-ibm-purple pl-4">
+          <div className="panel p-6 mb-6">
+            <h2 className="text-xl font-semibold text-ibm-gray-100 mb-4 border-l-4 border-ibm-blue-60 pl-4">
               Select IBM Products
             </h2>
-            <p className="text-console-text-dim mb-6">
+            <p className="text-ibm-gray-70 mb-6">
               Choose products that address the company's pain points and objectives.
             </p>
 
@@ -228,7 +244,11 @@ function ScenarioPage({
               {availableProducts.map((product) => (
                 <motion.div
                   key={product.name}
-                  className={`option-card ${selectedProducts.includes(product.name) ? 'selected' : ''}`}
+                  className={`p-4 border rounded cursor-pointer transition-all ${
+                    selectedProducts.includes(product.name)
+                      ? 'border-ibm-blue-60 bg-ibm-blue-60/5'
+                      : 'border-ibm-gray-20 hover:border-ibm-gray-30 hover:bg-ibm-gray-10'
+                  }`}
                   onClick={() => handleProductToggle(product.name)}
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
@@ -239,12 +259,11 @@ function ScenarioPage({
                       checked={selectedProducts.includes(product.name)}
                       onChange={() => handleProductToggle(product.name)}
                       onClick={(e) => e.stopPropagation()}
-                      className="mt-1 w-5 h-5 rounded border-2 border-console-text-dim/30 
-                               checked:bg-ibm-blue checked:border-ibm-blue cursor-pointer"
+                      className="mt-1"
                     />
                     <div className="flex-1">
-                      <div className="font-semibold text-console-text">{product.name}</div>
-                      <div className="text-sm text-console-text-dim">{product.category}</div>
+                      <div className="font-semibold text-ibm-gray-100">{product.name}</div>
+                      <div className="text-sm text-ibm-gray-70">{product.category}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -253,12 +272,12 @@ function ScenarioPage({
 
             {selectedProducts.length > 0 && (
               <motion.div
-                className="p-3 bg-ibm-blue/10 border border-ibm-blue/30 rounded-lg"
+                className="p-3 bg-ibm-blue-60/10 border border-ibm-blue-60/30 rounded"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-mono text-ibm-blue font-semibold text-sm">
+                  <span className="font-mono text-ibm-blue-60 font-semibold text-sm">
                     {selectedProducts.length} selected
                   </span>
                 </div>
@@ -274,32 +293,29 @@ function ScenarioPage({
           </div>
 
           {/* Justification */}
-          <div className="console-card mb-6">
-            <h2 className="text-xl font-semibold tracking-console text-console-text mb-4 border-l-4 border-ibm-green pl-4">
+          <div className="panel p-6 mb-6">
+            <h2 className="text-xl font-semibold text-ibm-gray-100 mb-4 border-l-4 border-ibm-green pl-4">
               Justify Your Selection
             </h2>
-            <p className="text-console-text-dim mb-4">
+            <p className="text-ibm-gray-70 mb-4">
               Explain how your selected products address the pain points and objectives.
             </p>
 
             <textarea
-              className="w-full p-4 bg-console-surface-light border-2 border-console-text-dim/20 
-                       rounded-lg text-console-text placeholder-console-text-dim/50
-                       focus:border-ibm-blue focus:ring-2 focus:ring-ibm-blue focus:ring-offset-2 
-                       focus:ring-offset-console-bg transition-all min-h-[200px]"
+              className="input-field min-h-[200px] text-ibm-gray-100 placeholder-ibm-gray-50"
               value={justification}
               onChange={(e) => setJustification(e.target.value)}
               placeholder="Explain how your selected IBM products address the company's pain points and objectives. Focus on business value and ROI..."
             />
-            <div className="mt-2 text-xs font-mono text-console-text-dim">
+            <div className="mt-2 text-xs font-mono text-ibm-gray-70">
               Word count: {justification.trim().split(/\s+/).filter(w => w).length}
             </div>
           </div>
 
           {/* Actions */}
           {error && (
-            <div className="console-card border-2 border-red-500/30 bg-red-500/10 mb-6">
-              <p className="text-red-400"><strong>Error:</strong> {error}</p>
+            <div className="p-4 border-2 border-ibm-red/30 bg-ibm-red/10 rounded mb-6">
+              <p className="text-ibm-red"><strong>Error:</strong> {error}</p>
             </div>
           )}
 

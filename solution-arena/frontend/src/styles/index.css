@@ -194,6 +194,53 @@
     outline: 2px solid #0F62FE;
     border-color: transparent;
   }
+
+  /* Checkbox Styles */
+  input[type="checkbox"] {
+    @apply appearance-none w-5 h-5 border-2 rounded cursor-pointer transition-all duration-150;
+    border-color: #8D8D8D;
+    background-color: #FFFFFF;
+  }
+
+  input[type="checkbox"]:hover {
+    border-color: #0F62FE;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #0F62FE;
+    border-color: #0F62FE;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 16px 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  input[type="checkbox"]:focus-visible {
+    outline: 2px solid #0F62FE;
+    outline-offset: 2px;
+  }
+
+  /* Radio Button Styles */
+  input[type="radio"] {
+    @apply appearance-none w-5 h-5 border-2 rounded-full cursor-pointer transition-all duration-150;
+    border-color: #8D8D8D;
+    background-color: #FFFFFF;
+  }
+
+  input[type="radio"]:hover {
+    border-color: #0F62FE;
+  }
+
+  input[type="radio"]:checked {
+    border-color: #0F62FE;
+    background-color: #FFFFFF;
+    box-shadow: inset 0 0 0 3px #FFFFFF, inset 0 0 0 10px #0F62FE;
+  }
+
+  input[type="radio"]:focus-visible {
+    outline: 2px solid #0F62FE;
+    outline-offset: 2px;
+  }
 }
 
 @layer utilities {

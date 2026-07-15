@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const STEP_NAMES = [
   'Priorities',
@@ -12,6 +13,7 @@ const STEP_NAMES = [
 ]
 
 export default function MissionConsole({ currentStep = 0, score = 0, timerSeconds = 0, children }) {
+  const navigate = useNavigate()
   const [displayScore, setDisplayScore] = useState(0)
 
   // Animate score changes
@@ -47,12 +49,15 @@ export default function MissionConsole({ currentStep = 0, score = 0, timerSecond
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between mb-8">
             {/* Left: Minimal Logo */}
-            <div className="flex items-center gap-3">
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+            >
               <div className="w-1.5 h-1.5 bg-ibm-blue rounded-full animate-glow-pulse" />
               <h1 className="text-sm tracking-wide text-console-text-dim uppercase">
                 IBM DealSprint
               </h1>
-            </div>
+            </button>
 
             {/* Right: Timer & Score - No Boxes */}
             <div className="flex items-center gap-8">

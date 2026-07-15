@@ -64,11 +64,27 @@ function ResultsPage({ scores, currentScenario }) {
       {/* Header Bar */}
       <header className="bg-console-surface border-b border-console-text-dim/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 bg-ibm-green rounded-full" />
-            <h1 className="text-lg font-semibold tracking-console text-console-text">
-              CLASSIC MODE RESULTS
-            </h1>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-ibm-green rounded-full" />
+              <h1 className="text-lg font-semibold tracking-console text-console-text">
+                CLASSIC MODE RESULTS
+              </h1>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => navigate('/dashboard')}
+                className="px-4 py-2 text-sm font-medium text-console-text-dim hover:text-console-text hover:bg-console-surface-light rounded transition-colors"
+              >
+                Dashboard
+              </button>
+              <button
+                onClick={() => navigate('/')}
+                className="px-4 py-2 text-sm font-medium text-console-text-dim hover:text-console-text hover:bg-console-surface-light rounded transition-colors"
+              >
+                Exit to Home
+              </button>
+            </div>
           </div>
         </div>
       </header>

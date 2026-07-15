@@ -168,19 +168,13 @@ function InteractiveScenarioPage() {
                 whileTap={{ scale: 0.995 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <div className={`w-5 h-5 rounded border-2 transition-all ${
-                      isSelected 
-                        ? 'bg-ibm-blue border-ibm-blue' 
-                        : 'border-console-text-dim/30'
-                    }`}>
-                      {isSelected && (
-                        <svg className="w-full h-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
+                  <input
+                    type="checkbox"
+                    checked={isSelected}
+                    onChange={() => handleMultiSelectToggle(question.id, option.id)}
+                    onClick={(e) => e.stopPropagation()}
+                    className="mt-1"
+                  />
                   <span className="flex-1 text-lg text-console-text/80 leading-relaxed option-text">
                     {option.text}
                   </span>
@@ -251,19 +245,14 @@ function InteractiveScenarioPage() {
                 whileTap={{ scale: 0.995 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <div className={`w-5 h-5 rounded-full border-2 transition-all ${
-                      isSelected 
-                        ? 'bg-ibm-blue border-ibm-blue' 
-                        : 'border-console-text-dim/30'
-                    }`}>
-                      {isSelected && (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <div className="w-2 h-2 bg-white rounded-full" />
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                  <input
+                    type="radio"
+                    checked={isSelected}
+                    onChange={() => handleAnswer(question.id, option.id)}
+                    onClick={(e) => e.stopPropagation()}
+                    className="mt-1"
+                    name={question.id}
+                  />
                   <span className="flex-1 text-lg text-console-text/80 leading-relaxed option-text">
                     {option.text}
                   </span>
@@ -561,27 +550,46 @@ function InteractiveScenarioPage() {
         </div>
 
         {/* Navigation - Minimal */}
-        <div className="flex gap-6 justify-center">
-          <button 
-            className="btn-secondary" 
-            onClick={handlePrevious}
-            disabled={currentStep === 0}
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            <span>Previous</span>
-          </button>
-          <button 
-            className="btn-primary" 
-            onClick={handleNext}
-            disabled={loading || !canProceed}
-          >
-            <span>{loading ? 'Processing...' : currentStep === scenario.questions.length - 1 ? 'Submit & Score' : 'Next Step'}</span>
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-6 justify-center">
+            <button
+              className="btn-secondary"
+              onClick={handlePrevious}
+              disabled={currentStep === 0}
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Previous</span>
+            </button>
+            <button
+              className="btn-primary"
+              onClick={handleNext}
+              disabled={loading || !canProceed}
+            >
+              <span>{loading ? 'Processing...' : currentStep === scenario.questions.length - 1 ? 'Submit & Score' : 'Next Step'}</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Exit Options */}
+          <div className="flex gap-4 justify-center pt-4 border-t border-console-text-dim/20">
+            <button
+              className="text-sm text-console-text-dim hover:text-console-text transition-colors"
+              onClick={() => navigate('/dashboard')}
+            >
+              Go to Dashboard
+            </button>
+            <span className="text-console-text-dim">•</span>
+            <button
+              className="text-sm text-console-text-dim hover:text-console-text transition-colors"
+              onClick={() => navigate('/')}
+            >
+              Exit to Home
+            </button>
+          </div>
         </div>
       </div>
     </MissionConsole>
