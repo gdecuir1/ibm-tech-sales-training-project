@@ -30,14 +30,14 @@ jobs:
           cache-dependency-path: solution-arena/frontend/package-lock.json
 
       - name: Install dependencies
-        run: |
-          cd solution-arena/frontend
-          npm ci
+        working-directory: solution-arena/frontend
+        run: npm ci
 
       - name: Build
-        run: |
-          cd solution-arena/frontend
-          npm run build
+        working-directory: solution-arena/frontend
+        run: npm run build
+        env:
+          NODE_ENV: production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
