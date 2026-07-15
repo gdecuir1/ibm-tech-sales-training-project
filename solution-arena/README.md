@@ -6,6 +6,13 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
 [![Tests](https://img.shields.io/badge/Tests-90%2B-brightgreen.svg)](./backend/tests/)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-success.svg)](https://gdecuir1.github.io/ibm-tech-sales-training-project/)
+
+## 🌐 Live Demo
+
+**Try it now:** [https://gdecuir1.github.io/ibm-tech-sales-training-project/](https://gdecuir1.github.io/ibm-tech-sales-training-project/)
+
+Experience the platform instantly with no setup required! The demo runs with mock data to showcase all features.
 
 ## 🎯 Overview
 

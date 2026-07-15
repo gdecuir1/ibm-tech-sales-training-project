@@ -1,40 +1,34 @@
 # GitHub Pages Deployment Guide
 
+## 🌐 Live Demo
+
+**Current Deployment:** [https://gdecuir1.github.io/ibm-tech-sales-training-project/](https://gdecuir1.github.io/ibm-tech-sales-training-project/)
+
 ## Quick Setup (5 minutes)
 
-### Step 1: Create GitHub Repository
+### Step 1: Repository Already Created ✅
 
-1. Go to [GitHub.com](https://github.com) and sign in
-2. Click the **"+"** icon → **"New repository"**
-3. Repository name: `solution-arena` (or your preferred name)
-4. Description: `AI-powered IBM tech sales training platform`
-5. Choose **Public** (required for free GitHub Pages)
-6. **Do NOT** check "Initialize with README" (we already have one)
-7. Click **"Create repository"**
+Your repository is already set up at:
+- **Repository:** `ibm-tech-sales-training-project`
+- **Owner:** `gdecuir1`
+- **URL:** https://github.com/gdecuir1/ibm-tech-sales-training-project
 
-### Step 2: Push Code to GitHub
+### Step 2: Push Updates to GitHub
 
-Open a terminal in your project directory and run:
+To deploy updates, simply push to the main branch:
 
 ```bash
 # Navigate to the solution-arena directory
 cd solution-arena
 
-# Initialize git (if not already done)
-git init
-
-# Add all files
+# Add all changes
 git add .
 
-# Commit
-git commit -m "Initial commit: Solution Arena training platform"
+# Commit with descriptive message
+git commit -m "Update: Description of your changes"
 
-# Add your GitHub repository as remote (replace YOUR_USERNAME and REPO_NAME)
-git remote add origin https://github.com/YOUR_USERNAME/solution-arena.git
-
-# Push to GitHub
-git branch -M main
-git push -u origin main
+# Push to GitHub (triggers auto-deployment)
+git push origin main
 ```
 
 ### Step 3: Enable GitHub Pages
