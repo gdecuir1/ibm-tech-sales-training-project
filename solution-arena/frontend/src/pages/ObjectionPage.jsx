@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { mockApi } from '../services/mockApi'
-
-const API_BASE = '/api'
-const USE_MOCK_API = import.meta.env.MODE === 'production' || !import.meta.env.VITE_API_URL
+import { evaluateProducts, evaluateResponse } from '../data/scenarios'
+import { storageService } from '../services/storageService'
 
 function ObjectionPage({ 
   objections,
@@ -26,7 +24,7 @@ function ObjectionPage({
 
   const handleSubmit = async () => {
     if (!userResponse.trim()) {
-      alert('Please provide a response to the objections')
+      setError('Please provide a response to the objections')
       return
     }
 
@@ -34,92 +32,50 @@ function ObjectionPage({
     setError(null)
 
     try {
-      if (USE_MOCK_API) {
-        // Use mock API
-        const [productEval, responseEval] = await Promise.all([
-          mockApi.evaluateProducts(currentScenario.id, selectedProducts),
-          mockApi.evaluateResponse(userResponse)
-        ])
+      // Simulate slight delay for UX consistency
+      await new Promise(resolve => setTimeout(resolve, 300))
+      
+      // Evaluate using local functions
+      const productEval = evaluateProducts(currentScenario.id, selectedProducts)
+      const responseEval = evaluateResponse(userResponse, currentScenario.id)
 
-        setScores({
-          productScore: productEval.score,
-          correctProducts: productEval.correctProducts,
-          missingProducts: productEval.missingProducts,
-          incorrectProducts: productEval.incorrectProducts,
-          idealProducts: productEval.idealProducts,
-          businessScore: responseEval.businessScore,
-          objectionScore: responseEval.objectionScore,
-          totalResponseScore: responseEval.totalScore,
-          feedback: responseEval.feedback
-        })
-
-        navigate('/results')
-      } else {
-        // Use real API
-        const [productEvalRes, responseEvalRes] = await Promise.all([
-          fetch(`${API_BASE}/evaluate/products`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              scenarioId: currentScenario.id,
-              selectedProducts: selectedProducts
-            })
-          }),
-          fetch(`${API_BASE}/evaluate/response`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              responseText: userResponse
-            })
-          })
-        ])
-
-        if (!productEvalRes.ok || !responseEvalRes.ok) {
-          throw new Error('Failed to evaluate responses')
-        }
-
-        const productEval = await productEvalRes.json()
-        const responseEval = await responseEvalRes.json()
-
-        setScores({
-          productScore: productEval.score,
-          correctProducts: productEval.correctProducts,
-          missingProducts: productEval.missingProducts,
-          incorrectProducts: productEval.incorrectProducts,
-          idealProducts: productEval.idealProducts,
-          businessScore: responseEval.businessScore,
-          objectionScore: responseEval.objectionScore,
-          totalResponseScore: responseEval.totalScore,
-          feedback: responseEval.feedback
-        })
-
-        navigate('/results')
+      const scores = {
+        productScore: productEval.score,
+        correctProducts: productEval.correctProducts,
+        missingProducts: productEval.missingProducts,
+        incorrectProducts: productEval.incorrectProducts,
+        idealProducts: productEval.idealProducts,
+        businessScore: responseEval.businessScore,
+        objectionScore: responseEval.objectionScore,
+        totalResponseScore: responseEval.totalScore,
+        feedback: responseEval.feedback
       }
+
+      setScores(scores)
+
+      // Calculate overall score
+      const overallScore = Math.round((scores.productScore + scores.totalResponseScore) / 2)
+
+      // Save to localStorage
+      storageService.saveCompletedScenario({
+        scenarioId: currentScenario.id,
+        score: overallScore,
+        productScore: scores.productScore,
+        businessScore: scores.businessScore,
+        objectionScore: scores.objectionScore,
+        selectedProducts,
+        correctProducts: scores.correctProducts,
+        missingProducts: scores.missingProducts,
+        incorrectProducts: scores.incorrectProducts,
+        justification,
+        userResponse,
+        timestamp: Date.now()
+      })
+
+      navigate('/results')
     } catch (err) {
-      // Fallback to mock API
-      console.warn('API failed, using mock data:', err)
-      try {
-        const [productEval, responseEval] = await Promise.all([
-          mockApi.evaluateProducts(currentScenario.id, selectedProducts),
-          mockApi.evaluateResponse(userResponse)
-        ])
-
-        setScores({
-          productScore: productEval.score,
-          correctProducts: productEval.correctProducts,
-          missingProducts: productEval.missingProducts,
-          incorrectProducts: productEval.incorrectProducts,
-          idealProducts: productEval.idealProducts,
-          businessScore: responseEval.businessScore,
-          objectionScore: responseEval.objectionScore,
-          totalResponseScore: responseEval.totalScore,
-          feedback: responseEval.feedback
-        })
-
-        navigate('/results')
-      } catch (mockErr) {
-        setError('Failed to evaluate responses')
-      }
+      console.error('Error evaluating responses:', err)
+      setError('Failed to evaluate responses. Please try again.')
     } finally {
       setLoading(false)
     }

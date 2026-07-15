@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import NewHomePage from './components/Landing/NewHomePage'
 import DashboardPage from './pages/DashboardPage'
 import HomePage from './pages/HomePage'

@@ -5,42 +5,34 @@ package-lock.json
 # Build outputs
 dist/
 build/
+*.log
 
-# Environment variables
+# Environment files
 .env
 .env.local
 .env.production
-.env.development
-backend/.env
-frontend/.env
-*.env
-!.env.example
-
-# Database
-db-credentials.json
-*.sql.backup
-database/backups/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Logs
-logs/
-*.log
-npm-debug.log*
+# Backend (not needed for static deployment)
+backend/
+database/
 
-# Testing
+# Test coverage
 coverage/
+.nyc_output/
 
-# Misc
+# Temporary files
+*.tmp
+*.temp
 .cache/
 
 # Made with Bob

@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
-import { mockUserStats } from '../utils/mockData';
+import { storageService } from '../services/storageService';
 import PageHeader from '../components/Primitives/PageHeader';
 import MetricBand from '../components/Primitives/MetricBand';
 import SectionHeader from '../components/Primitives/SectionHeader';
@@ -17,35 +17,42 @@ import PracticeCalendar from '../components/Dashboard/Timeline/PracticeCalendar'
 function DashboardPage() {
   const navigate = useNavigate();
   const [dateRange, setDateRange] = useState('30d');
+  const [userStats, setUserStats] = useState(null);
 
-  // Calculate metrics from mockUserStats
-  const metrics = [
+  useEffect(() => {
+    // Load user stats from localStorage
+    const stats = storageService.getDashboardStats();
+    setUserStats(stats);
+  }, []);
+
+  // Calculate metrics from localStorage stats
+  const metrics = userStats ? [
     {
       label: 'Scenarios completed',
-      value: mockUserStats.totalScenarios,
+      value: userStats.totalScenarios,
       subtitle: 'All time'
     },
     {
       label: 'Average score',
-      value: `${mockUserStats.averageScore}%`,
-      trend: 6
+      value: `${userStats.averageScore}%`,
+      trend: userStats.recentAverage > userStats.averageScore ? Math.round(userStats.recentAverage - userStats.averageScore) : 0
     },
     {
       label: 'Current level',
-      value: mockUserStats.currentLevel,
-      subtitle: `${mockUserStats.xp}/${mockUserStats.xpToNextLevel} XP`
+      value: userStats.currentLevel,
+      subtitle: `${userStats.xp}/${userStats.xpToNextLevel} XP`
     },
     {
       label: 'Practice streak',
-      value: `${mockUserStats.currentStreak}d`,
+      value: `${userStats.currentStreak}d`,
       subtitle: 'Current'
     },
     {
-      label: 'Mastery rate',
-      value: '73%',
-      trend: 4
+      label: 'Recent average',
+      value: `${userStats.recentAverage}%`,
+      subtitle: 'Last 7 days'
     }
-  ];
+  ] : [];
 
   const handleStartPractice = () => {
     navigate('/interactive');

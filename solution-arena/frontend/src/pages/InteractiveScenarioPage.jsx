@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import MissionConsole from '../components/MissionConsole'
-import { mockApi } from '../services/mockApi'
+import { storageService } from '../services/storageService'
 
-const API_BASE = '/api'
-const USE_MOCK_API = import.meta.env.MODE === 'production' || !import.meta.env.VITE_API_URL
+// Import comprehensive scenarios from shared-data
+import scenariosData from '../../../shared-data/scenarios.json'
 
 function InteractiveScenarioPage() {
   const navigate = useNavigate()
@@ -35,64 +35,20 @@ function InteractiveScenarioPage() {
   const loadScenario = async () => {
     setLoading(true)
     try {
-      if (USE_MOCK_API) {
-        // Use mock API - create a mock interactive scenario
-        const mockScenario = {
-          id: 1,
-          title: "Enterprise Cloud Migration",
-          industry: "Financial Services",
-          company: "FinServe Global",
-          brief: "A large financial services company needs to modernize their infrastructure while maintaining security and compliance.",
-          revenue: "$2.5B",
-          employees: 3500,
-          constraints: {
-            timeline: "6 months",
-            budget: "$5M"
-          },
-          questions: [
-            {
-              id: "q1",
-              step: 1,
-              title: "Business Priorities",
-              type: "priorities",
-              question: "What are the top business priorities for this engagement?",
-              options: [
-                { id: "p1", text: "Reduce operational costs" },
-                { id: "p2", text: "Improve security posture" },
-                { id: "p3", text: "Accelerate time to market" },
-                { id: "p4", text: "Enable data-driven decisions" }
-              ]
-            },
-            {
-              id: "q2",
-              step: 2,
-              title: "Technology Selection",
-              type: "technology-selection",
-              question: "Which IBM technologies would you recommend?",
-              options: [
-                { id: "t1", text: "IBM Cloud" },
-                { id: "t2", text: "IBM WatsonX" },
-                { id: "t3", text: "IBM QRadar" },
-                { id: "t4", text: "IBM Turbonomic" }
-              ]
-            }
-          ]
-        }
-        setScenario(mockScenario)
-        setStartTime(Date.now())
-      } else {
-        const response = await fetch(`${API_BASE}/scenario/random`)
-        if (!response.ok) throw new Error('Failed to load scenario')
-        
-        const data = await response.json()
-        setScenario(data)
-        setStartTime(Date.now())
-      }
+      // Simulate slight delay for UX consistency
+      await new Promise(resolve => setTimeout(resolve, 300))
+      
+      // Get random scenario from comprehensive data
+      const randomIndex = Math.floor(Math.random() * scenariosData.length)
+      const selectedScenario = scenariosData[randomIndex]
+      
+      setScenario(selectedScenario)
+      setStartTime(Date.now())
     } catch (error) {
       console.error('Error loading scenario:', error)
-      // Fallback to mock data
-      const mockScenario = {
-        id: 1,
+      // Fallback to simple mock scenario
+      const fallbackScenario = {
+        id: "fallback-001",
         title: "Enterprise Cloud Migration",
         industry: "Financial Services",
         company: "FinServe Global",
@@ -108,13 +64,18 @@ function InteractiveScenarioPage() {
             type: "priorities",
             question: "What are the top business priorities?",
             options: [
-              { id: "p1", text: "Reduce costs" },
-              { id: "p2", text: "Improve security" }
+              { id: "p1", text: "Reduce costs", correct: true, weight: 10 },
+              { id: "p2", text: "Improve security", correct: true, weight: 10 }
             ]
           }
-        ]
+        ],
+        idealSolution: {
+          primary: ["IBM Cloud", "IBM QRadar"],
+          supporting: ["IBM Turbonomic"],
+          summary: "Hybrid cloud solution with security and cost optimization."
+        }
       }
-      setScenario(mockScenario)
+      setScenario(fallbackScenario)
       setStartTime(Date.now())
     } finally {
       setLoading(false)
@@ -166,21 +127,92 @@ function InteractiveScenarioPage() {
   const submitScenario = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`${API_BASE}/scoring/evaluate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          scenarioId: scenario.id,
-          answers: answers
-        })
+      // Simulate slight delay for UX consistency
+      await new Promise(resolve => setTimeout(resolve, 300))
+      
+      // Calculate scores based on answers
+      const categoryScores = {}
+      let totalScore = 0
+      let maxScore = 0
+
+      scenario.questions.forEach(question => {
+        const userAnswer = answers[question.id]
+        let questionScore = 0
+        let questionMaxScore = 0
+
+        if (question.type === 'priorities' || question.type === 'technology-selection' || question.type === 'justification') {
+          // Multi-select questions
+          const selectedOptions = Array.isArray(userAnswer) ? userAnswer : []
+          question.options.forEach(option => {
+            if (option.correct) {
+              questionMaxScore += option.weight || 10
+              if (selectedOptions.includes(option.id)) {
+                questionScore += option.weight || 10
+              }
+            }
+          })
+        } else {
+          // Single-select questions
+          const selectedOption = question.options.find(opt => opt.id === userAnswer)
+          questionMaxScore = Math.max(...question.options.map(opt => opt.score || opt.weight || 10))
+          questionScore = selectedOption ? (selectedOption.score || selectedOption.weight || 0) : 0
+        }
+
+        // Group by category from scoringBreakdown
+        const category = question.title.replace(/\s+/g, '')
+        if (!categoryScores[category]) {
+          categoryScores[category] = { score: 0, maxScore: 0, percentage: 0 }
+        }
+        categoryScores[category].score += questionScore
+        categoryScores[category].maxScore += questionMaxScore
+
+        totalScore += questionScore
+        maxScore += questionMaxScore
       })
 
-      if (!response.ok) throw new Error('Failed to evaluate scenario')
-      
-      const data = await response.json()
+      // Calculate percentages
+      Object.keys(categoryScores).forEach(category => {
+        const cat = categoryScores[category]
+        cat.percentage = cat.maxScore > 0 ? Math.round((cat.score / cat.maxScore) * 100) : 0
+      })
+
+      const overallPercentage = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0
+
       const timeSpent = Math.floor((Date.now() - startTime) / 1000)
-      setResults({ ...data, timeSpent })
-      setCurrentScore(data.overallScore.score)
+      
+      const evaluationResults = {
+        overallScore: {
+          score: totalScore,
+          maxScore: maxScore,
+          percentage: overallPercentage
+        },
+        categoryScores,
+        idealSolution: scenario.idealSolution || {
+          primary: [],
+          supporting: [],
+          summary: "Review the scenario details for the recommended solution."
+        },
+        timeSpent
+      }
+
+      setResults(evaluationResults)
+      setCurrentScore(overallPercentage)
+
+      // Save to localStorage
+      storageService.saveCompletedScenario({
+        scenarioId: scenario.id,
+        score: overallPercentage,
+        productScore: overallPercentage, // For consistency with classic mode
+        businessScore: Math.round(overallPercentage / 2),
+        objectionScore: Math.round(overallPercentage / 2),
+        selectedProducts: [], // Interactive mode doesn't have explicit product selection
+        correctProducts: scenario.idealSolution?.primary || [],
+        missingProducts: [],
+        incorrectProducts: [],
+        justification: JSON.stringify(answers),
+        userResponse: `Interactive scenario completed in ${timeSpent}s`,
+        timestamp: Date.now()
+      })
     } catch (error) {
       console.error('Error submitting scenario:', error)
       alert('Failed to submit scenario. Please try again.')
@@ -448,25 +480,27 @@ function InteractiveScenarioPage() {
               </p>
               
               <div className="space-y-8">
-                <div>
-                  <p className="text-sm text-console-text-dim uppercase tracking-wide mb-4 text-center">
-                    Primary Solutions
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-4">
-                    {idealSolution.primary.map(product => (
-                      <span
-                        key={product}
-                        className="px-4 py-2 text-ibm-green text-sm"
-                        style={{ 
-                          borderBottom: '2px solid rgba(36, 161, 72, 0.5)',
-                          textShadow: '0 0 10px rgba(36, 161, 72, 0.3)'
-                        }}
-                      >
-                        {product}
-                      </span>
-                    ))}
+                {idealSolution.primary && idealSolution.primary.length > 0 && (
+                  <div>
+                    <p className="text-sm text-console-text-dim uppercase tracking-wide mb-4 text-center">
+                      Primary Solutions
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                      {idealSolution.primary.map(product => (
+                        <span
+                          key={product}
+                          className="px-4 py-2 text-ibm-green text-sm"
+                          style={{ 
+                            borderBottom: '2px solid rgba(36, 161, 72, 0.5)',
+                            textShadow: '0 0 10px rgba(36, 161, 72, 0.3)'
+                          }}
+                        >
+                          {product}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
                 
                 {idealSolution.supporting && idealSolution.supporting.length > 0 && (
                   <div>
@@ -566,7 +600,7 @@ function InteractiveScenarioPage() {
                   Target Time
                 </div>
                 <div className="text-2xl font-mono text-ibm-blue">
-                  3–6 min
+                  {scenario.estimatedTime || '3–6 min'}
                 </div>
               </div>
             </div>

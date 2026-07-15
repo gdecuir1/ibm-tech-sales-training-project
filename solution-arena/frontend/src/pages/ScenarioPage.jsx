@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { mockApi } from '../services/mockApi'
-
-const API_BASE = '/api'
-const USE_MOCK_API = import.meta.env.MODE === 'production' || !import.meta.env.VITE_API_URL
+import { getRandomScenario, getProducts, generateObjections } from '../data/scenarios'
 
 function ScenarioPage({ 
   currentScenario, 
@@ -29,44 +26,17 @@ function ScenarioPage({
     setError(null)
     
     try {
-      if (USE_MOCK_API) {
-        // Use mock API for GitHub Pages deployment
-        const [scenarioData, productsData] = await Promise.all([
-          mockApi.getRandomScenario(),
-          mockApi.getProducts()
-        ])
-        setCurrentScenario(scenarioData)
-        setAvailableProducts(productsData)
-      } else {
-        // Use real API when backend is available
-        const [scenarioRes, productsRes] = await Promise.all([
-          fetch(`${API_BASE}/scenario/random`),
-          fetch(`${API_BASE}/products`)
-        ])
-
-        if (!scenarioRes.ok || !productsRes.ok) {
-          throw new Error('Failed to load data')
-        }
-
-        const scenarioData = await scenarioRes.json()
-        const productsData = await productsRes.json()
-
-        setCurrentScenario(scenarioData)
-        setAvailableProducts(productsData)
-      }
+      // Simulate slight delay for UX consistency
+      await new Promise(resolve => setTimeout(resolve, 300))
+      
+      const scenarioData = getRandomScenario()
+      const productsData = getProducts()
+      
+      setCurrentScenario(scenarioData)
+      setAvailableProducts(productsData)
     } catch (err) {
-      // Fallback to mock API if real API fails
-      console.warn('API failed, using mock data:', err)
-      try {
-        const [scenarioData, productsData] = await Promise.all([
-          mockApi.getRandomScenario(),
-          mockApi.getProducts()
-        ])
-        setCurrentScenario(scenarioData)
-        setAvailableProducts(productsData)
-      } catch (mockErr) {
-        setError('Failed to load scenario data')
-      }
+      console.error('Error loading scenario:', err)
+      setError('Failed to load scenario data')
     } finally {
       setLoading(false)
     }
@@ -84,12 +54,12 @@ function ScenarioPage({
 
   const handleSubmit = async () => {
     if (selectedProducts.length === 0) {
-      alert('Select at least one IBM product before continuing.')
+      setError('Please select at least one IBM product before continuing.')
       return
     }
 
     if (!justification.trim()) {
-      alert('Provide justification for your product selection.')
+      setError('Please provide justification for your product selection.')
       return
     }
 
@@ -97,40 +67,15 @@ function ScenarioPage({
     setError(null)
 
     try {
-      if (USE_MOCK_API) {
-        // Use mock API
-        const data = await mockApi.generateObjections(currentScenario.id, selectedProducts)
-        setObjections(data.objections)
-        navigate('/objections')
-      } else {
-        // Use real API
-        const response = await fetch(`${API_BASE}/objections/generate`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            scenarioId: currentScenario.id,
-            selectedProducts: selectedProducts
-          })
-        })
-
-        if (!response.ok) {
-          throw new Error('Failed to generate objections')
-        }
-
-        const data = await response.json()
-        setObjections(data.objections)
-        navigate('/objections')
-      }
+      // Simulate slight delay for UX consistency
+      await new Promise(resolve => setTimeout(resolve, 300))
+      
+      const objections = generateObjections(currentScenario.id)
+      setObjections(objections)
+      navigate('/objections')
     } catch (err) {
-      // Fallback to mock API
-      console.warn('API failed, using mock data:', err)
-      try {
-        const data = await mockApi.generateObjections(currentScenario.id, selectedProducts)
-        setObjections(data.objections)
-        navigate('/objections')
-      } catch (mockErr) {
-        setError('Failed to generate objections')
-      }
+      console.error('Error generating objections:', err)
+      setError('Failed to generate objections. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -147,7 +92,7 @@ function ScenarioPage({
     )
   }
 
-  if (error) {
+  if (error && !currentScenario) {
     return (
       <div className="min-h-screen bg-white p-6">
         <div className="max-w-2xl mx-auto">
