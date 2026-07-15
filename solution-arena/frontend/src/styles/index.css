@@ -8,47 +8,19 @@
   }
 
   body {
-    @apply font-sans antialiased bg-console-bg text-console-text min-h-screen overflow-x-hidden;
-    position: relative;
+    @apply font-sans antialiased min-h-screen;
+    background-color: #FFFFFF;
+    color: #161616;
   }
 
   #root {
-    @apply min-h-screen relative;
+    @apply min-h-screen;
   }
 
-  /* Ambient glow fields - continuous atmospheric background */
-  body::before,
-  body::after {
-    content: '';
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  body::before {
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(15, 98, 254, 0.08) 0%, transparent 70%);
-    top: -200px;
-    right: -200px;
-    animation: glowDriftBlue 20s ease-in-out infinite;
-  }
-
-  body::after {
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(138, 63, 252, 0.06) 0%, transparent 70%);
-    bottom: -150px;
-    left: -150px;
-    animation: glowDriftPurple 25s ease-in-out infinite;
-  }
-
-  /* Keyboard focus states - subtle glow instead of ring */
+  /* Keyboard focus states - IBM blue outline */
   *:focus-visible {
-    @apply outline-none;
-    box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.4), 0 0 20px rgba(15, 98, 254, 0.2);
+    outline: 2px solid #0F62FE;
+    outline-offset: 2px;
   }
 
   /* Reduced motion support */
@@ -60,229 +32,203 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
-    
-    body::before,
-    body::after {
-      animation: none !important;
-    }
   }
 }
 
 @layer components {
-  /* Atmospheric Button Styles - no boxes, just glow and text */
+  /* Primary Button - IBM Blue */
   .btn-primary {
-    @apply px-8 py-4 font-semibold text-lg transition-all duration-150
-           flex items-center justify-center gap-3 cursor-pointer relative
-           text-white;
-    background: transparent;
-    border: none;
+    @apply px-6 py-2.5 font-medium transition-colors duration-150 cursor-pointer;
+    background-color: #0F62FE;
+    color: #FFFFFF;
+    border-radius: 0;
   }
 
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(15, 98, 254, 0.2), rgba(15, 98, 254, 0.1));
-    border-radius: 4px;
-    transition: all 0.15s;
+  .btn-primary:hover {
+    background-color: #0043CE;
   }
 
-  .btn-primary:hover::before {
-    background: linear-gradient(135deg, rgba(15, 98, 254, 0.3), rgba(15, 98, 254, 0.15));
-    box-shadow: 0 0 40px rgba(15, 98, 254, 0.3);
+  .btn-primary:focus-visible {
+    outline: 2px solid #0F62FE;
+    outline-offset: 2px;
   }
 
-  .btn-primary:active {
-    transform: scale(0.98);
-  }
-
-  .btn-primary span {
-    position: relative;
-    z-index: 1;
-  }
-
+  /* Secondary Button - Outlined */
   .btn-secondary {
-    @apply px-8 py-4 font-medium text-lg transition-all duration-150
-           flex items-center justify-center gap-3 cursor-pointer
-           text-console-text hover:text-white;
-    background: transparent;
-    border-bottom: 1px solid rgba(141, 141, 141, 0.2);
+    @apply px-6 py-2.5 font-medium transition-colors duration-150 cursor-pointer;
+    background-color: transparent;
+    border: 1px solid #525252;
+    color: #161616;
+    border-radius: 0;
   }
 
   .btn-secondary:hover {
-    border-bottom-color: rgba(15, 98, 254, 0.5);
-    text-shadow: 0 0 20px rgba(15, 98, 254, 0.5);
+    background-color: #F4F4F4;
   }
 
-  .btn-secondary:active {
-    transform: scale(0.98);
+  .btn-secondary:focus-visible {
+    outline: 2px solid #0F62FE;
+    outline-offset: 2px;
   }
 
-  /* Selection states - glow and underline, not boxes */
-  .option-item {
-    @apply p-6 transition-all duration-150 cursor-pointer relative;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(141, 141, 141, 0.1);
-  }
-
-  .option-item:hover {
-    border-bottom-color: rgba(15, 98, 254, 0.3);
-  }
-
-  .option-item:hover .option-text {
-    color: rgba(244, 244, 244, 1);
-    text-shadow: 0 0 20px rgba(15, 98, 254, 0.3);
-  }
-
-  .option-item.selected {
-    border-bottom-color: rgba(15, 98, 254, 0.8);
-    background: radial-gradient(ellipse at center, rgba(15, 98, 254, 0.05) 0%, transparent 70%);
-  }
-
-  .option-item.selected .option-text {
+  /* Tertiary Button - Text only */
+  .btn-tertiary {
+    @apply px-4 py-2 font-medium transition-colors duration-150 cursor-pointer;
+    background-color: transparent;
     color: #0F62FE;
-    text-shadow: 0 0 30px rgba(15, 98, 254, 0.4);
   }
 
-  .option-item.correct {
-    border-bottom-color: rgba(36, 161, 72, 0.8);
-    background: radial-gradient(ellipse at center, rgba(36, 161, 72, 0.05) 0%, transparent 70%);
+  .btn-tertiary:hover {
+    color: #0043CE;
   }
 
-  .option-item.correct .option-text {
-    color: #24A148;
+  .btn-tertiary:focus-visible {
+    outline: 2px solid #0F62FE;
+    outline-offset: 2px;
   }
 
-  .option-item.incorrect {
-    border-bottom-color: rgba(218, 30, 40, 0.8);
-    background: radial-gradient(ellipse at center, rgba(218, 30, 40, 0.05) 0%, transparent 70%);
+  /* Card/Panel - Minimal with border */
+  .panel {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
   }
 
-  .option-item.incorrect .option-text {
-    color: #DA1E28;
+  /* Section Header */
+  .section-header {
+    @apply text-lg font-semibold mb-4;
+    color: #161616;
   }
 
-  /* Data Display - Use IBM Plex Sans only */
-  .data-display {
-    @apply font-sans tracking-tight;
+  /* Metric Label */
+  .metric-label {
+    @apply text-xs uppercase tracking-wide font-medium;
+    color: #525252;
   }
 
-  /* Status Badge - minimal, no filled backgrounds, IBM Plex Sans only */
+  /* Metric Value */
+  .metric-value {
+    @apply text-2xl font-semibold font-mono;
+    color: #161616;
+  }
+
+  /* Status Badge - Minimal */
   .status-badge {
-    @apply inline-flex items-center px-4 py-1.5 text-sm font-sans font-medium uppercase tracking-wide;
-    background: transparent;
-    border-bottom: 2px solid;
+    @apply inline-flex items-center px-2 py-0.5 text-xs font-medium uppercase tracking-wide;
+    border-radius: 2px;
   }
 
-  .status-badge.excellent {
-    @apply text-ibm-green;
-    border-bottom-color: rgba(36, 161, 72, 0.5);
+  .status-badge.success {
+    background-color: rgba(36, 161, 72, 0.1);
+    color: #24A148;
+    border: 1px solid rgba(36, 161, 72, 0.2);
   }
 
-  .status-badge.good {
-    @apply text-ibm-blue;
-    border-bottom-color: rgba(15, 98, 254, 0.5);
+  .status-badge.warning {
+    background-color: rgba(241, 194, 27, 0.1);
+    color: #F1C21B;
+    border: 1px solid rgba(241, 194, 27, 0.2);
   }
 
-  .status-badge.satisfactory {
-    @apply text-yellow-400;
-    border-bottom-color: rgba(250, 204, 21, 0.5);
-  }
-
-  .status-badge.needs-improvement {
+  .status-badge.error {
+    background-color: rgba(218, 30, 40, 0.1);
     color: #DA1E28;
-    border-bottom-color: rgba(218, 30, 40, 0.5);
+    border: 1px solid rgba(218, 30, 40, 0.2);
   }
 
-  /* Difficulty Tag - text with subtle glow, IBM Plex Sans only */
-  .difficulty-tag {
-    @apply inline-flex items-center px-3 py-1 text-xs font-sans font-medium uppercase;
-    background: transparent;
+  .status-badge.info {
+    background-color: rgba(15, 98, 254, 0.1);
+    color: #0F62FE;
+    border: 1px solid rgba(15, 98, 254, 0.2);
   }
 
-  .difficulty-tag.beginner {
-    @apply text-ibm-green;
-    text-shadow: 0 0 10px rgba(36, 161, 72, 0.3);
+  /* Table Styles */
+  .data-table {
+    @apply w-full border-collapse;
   }
 
-  .difficulty-tag.intermediate {
-    @apply text-ibm-blue;
-    text-shadow: 0 0 10px rgba(15, 98, 254, 0.3);
+  .data-table th {
+    @apply text-left text-xs uppercase tracking-wide font-semibold py-3 px-4;
+    color: #525252;
+    border-bottom: 2px solid #E0E0E0;
+    background-color: #F4F4F4;
   }
 
-  .difficulty-tag.advanced {
-    @apply text-ibm-purple;
-    text-shadow: 0 0 10px rgba(138, 63, 252, 0.3);
+  .data-table td {
+    @apply py-3 px-4 text-sm;
+    border-bottom: 1px solid #E0E0E0;
   }
 
-  /* Hairline separator - replaces card borders */
-  .hairline-separator {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(141, 141, 141, 0.2), transparent);
-    margin: 3rem 0;
+  .data-table tr:hover {
+    background-color: #F4F4F4;
   }
 
-  /* Glow zone - defines content areas without boxes */
-  .glow-zone-blue {
-    position: relative;
+  /* Divider */
+  .divider {
+    border-top: 1px solid #E0E0E0;
   }
 
-  .glow-zone-blue::before {
-    content: '';
-    position: absolute;
-    inset: -100px;
-    background: radial-gradient(ellipse at top, rgba(15, 98, 254, 0.08) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: -1;
+  /* Input Field */
+  .input-field {
+    @apply w-full px-3 py-2 transition-colors duration-150;
+    border: 1px solid #C6C6C6;
+    background-color: #FFFFFF;
+    color: #161616;
+    border-radius: 0;
   }
 
-  .glow-zone-purple {
-    position: relative;
+  .input-field:focus {
+    outline: 2px solid #0F62FE;
+    border-color: transparent;
   }
 
-  .glow-zone-purple::before {
-    content: '';
-    position: absolute;
-    inset: -100px;
-    background: radial-gradient(ellipse at bottom, rgba(138, 63, 252, 0.06) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: -1;
+  /* Select Field */
+  .select-field {
+    @apply w-full px-3 py-2 transition-colors duration-150 cursor-pointer;
+    border: 1px solid #C6C6C6;
+    background-color: #FFFFFF;
+    color: #161616;
+    border-radius: 0;
+  }
+
+  .select-field:focus {
+    outline: 2px solid #0F62FE;
+    border-color: transparent;
   }
 }
 
 @layer utilities {
-  /* Typography utilities */
-  .text-display {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-console;
+  /* Typography Scale */
+  .text-page-title {
+    @apply text-3xl font-semibold tracking-tight;
   }
 
-  .text-heading {
-    @apply text-3xl md:text-4xl font-semibold tracking-console;
+  .text-section-title {
+    @apply text-xl font-semibold;
   }
 
-  .text-subheading {
-    @apply text-xl md:text-2xl font-medium;
+  .text-card-title {
+    @apply text-base font-semibold;
   }
 
-  /* Etched line - for progress rails */
-  .etched-line {
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(141, 141, 141, 0.3), transparent);
-    position: relative;
+  /* Spacing System (8px base) */
+  .space-micro {
+    @apply space-y-1;
   }
 
-  .etched-line::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(15, 98, 254, 0.2), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
+  .space-compact {
+    @apply space-y-2;
   }
 
-  .etched-line.active::after {
-    opacity: 1;
+  .space-default {
+    @apply space-y-4;
+  }
+
+  .space-comfortable {
+    @apply space-y-6;
+  }
+
+  .space-loose {
+    @apply space-y-8;
   }
 }
 

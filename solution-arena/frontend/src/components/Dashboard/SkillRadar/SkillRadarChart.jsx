@@ -1,8 +1,5 @@
-import { motion } from 'framer-motion';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Tooltip } from 'recharts';
-import { Target, TrendingUp, AlertCircle } from 'lucide-react';
 import { mockSkillRadar } from '../../../utils/mockData';
-import { getSkillIcon } from '../../../utils/helpers';
 
 function SkillRadarChart() {
   // Transform data for radar chart
@@ -27,9 +24,9 @@ function SkillRadarChart() {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-gray-900 border border-white/20 rounded-lg p-3 shadow-xl">
-          <p className="text-sm font-semibold text-white mb-1">{payload[0].payload.skill}</p>
-          <p className="text-lg font-bold text-blue-400">{payload[0].value}%</p>
+        <div className="bg-white border border-ibm-gray-20 shadow-overlay p-3">
+          <p className="text-sm font-semibold text-ibm-gray-100 mb-1">{payload[0].payload.skill}</p>
+          <p className="text-lg font-semibold text-ibm-blue-60 font-mono">{payload[0].value}%</p>
         </div>
       );
     }
@@ -37,121 +34,77 @@ function SkillRadarChart() {
   };
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h2 className="text-2xl font-bold mb-1">Skill Analysis</h2>
-          <p className="text-sm text-gray-400">Your performance across key sales competencies</p>
-        </div>
-        <Target className="w-8 h-8 text-blue-400" />
+    <div>
+      {/* Radar Chart */}
+      <div className="mb-6">
+        <ResponsiveContainer width="100%" height={300}>
+          <RadarChart data={radarData}>
+            <PolarGrid stroke="#E0E0E0" />
+            <PolarAngleAxis 
+              dataKey="skill" 
+              stroke="#8D8D8D"
+              style={{ fontSize: '11px' }}
+            />
+            <PolarRadiusAxis 
+              angle={90} 
+              domain={[0, 100]} 
+              stroke="#8D8D8D"
+              style={{ fontSize: '10px' }}
+            />
+            <Radar 
+              name="Skills" 
+              dataKey="value" 
+              stroke="#0F62FE" 
+              fill="#0F62FE" 
+              fillOpacity={0.2}
+              strokeWidth={2}
+            />
+            <Tooltip content={<CustomTooltip />} />
+          </RadarChart>
+        </ResponsiveContainer>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
-        {/* Radar Chart */}
+      {/* Skill Breakdown */}
+      <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-ibm-gray-20">
+        {/* Strongest Skills */}
         <div>
-          <ResponsiveContainer width="100%" height={400}>
-            <RadarChart data={radarData}>
-              <PolarGrid stroke="#ffffff20" />
-              <PolarAngleAxis 
-                dataKey="skill" 
-                stroke="#9ca3af"
-                style={{ fontSize: '11px' }}
-              />
-              <PolarRadiusAxis 
-                angle={90} 
-                domain={[0, 100]} 
-                stroke="#9ca3af"
-                style={{ fontSize: '10px' }}
-              />
-              <Radar 
-                name="Skills" 
-                dataKey="value" 
-                stroke="#3b82f6" 
-                fill="#3b82f6" 
-                fillOpacity={0.3}
-                strokeWidth={2}
-              />
-              <Tooltip content={<CustomTooltip />} />
-            </RadarChart>
-          </ResponsiveContainer>
+          <div className="metric-label mb-3">Top strengths</div>
+          <div className="space-y-3">
+            {strongest.map((skill, index) => (
+              <div key={index}>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm font-medium text-ibm-gray-100">{skill.skill}</span>
+                  <span className="text-sm font-semibold text-ibm-gray-100 font-mono">{skill.value}%</span>
+                </div>
+                <div className="h-1.5 bg-ibm-gray-10 overflow-hidden">
+                  <div
+                    className="h-full bg-ibm-green transition-all duration-300"
+                    style={{ width: `${skill.value}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Skill Breakdown */}
-        <div className="space-y-6">
-          {/* Strongest Skills */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 bg-green-500/10 rounded-lg">
-                <TrendingUp className="w-5 h-5 text-green-400" />
+        {/* Areas for Improvement */}
+        <div>
+          <div className="metric-label mb-3">Focus areas</div>
+          <div className="space-y-3">
+            {weakest.map((skill, index) => (
+              <div key={index}>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm font-medium text-ibm-gray-100">{skill.skill}</span>
+                  <span className="text-sm font-semibold text-ibm-gray-100 font-mono">{skill.value}%</span>
+                </div>
+                <div className="h-1.5 bg-ibm-gray-10 overflow-hidden">
+                  <div
+                    className="h-full bg-ibm-yellow transition-all duration-300"
+                    style={{ width: `${skill.value}%` }}
+                  />
+                </div>
               </div>
-              <h3 className="font-semibold text-green-400">Top Strengths</h3>
-            </div>
-            <div className="space-y-3">
-              {strongest.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-green-500/5 border border-green-500/20 rounded-lg p-3"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium">{skill.skill}</span>
-                    <span className="text-lg font-bold text-green-400">{skill.value}%</span>
-                  </div>
-                  <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.value}%` }}
-                      transition={{ delay: index * 0.1 + 0.3, duration: 0.8 }}
-                      className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Areas for Improvement */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 bg-yellow-500/10 rounded-lg">
-                <AlertCircle className="w-5 h-5 text-yellow-400" />
-              </div>
-              <h3 className="font-semibold text-yellow-400">Focus Areas</h3>
-            </div>
-            <div className="space-y-3">
-              {weakest.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                  className="bg-yellow-500/5 border border-yellow-500/20 rounded-lg p-3"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium">{skill.skill}</span>
-                    <span className="text-lg font-bold text-yellow-400">{skill.value}%</span>
-                  </div>
-                  <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.value}%` }}
-                      transition={{ delay: index * 0.1 + 0.6, duration: 0.8 }}
-                      className="h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Insight */}
-          <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
-            <p className="text-sm text-gray-300 leading-relaxed">
-              <span className="font-semibold text-blue-400">💡 Insight:</span> Your architecture skills are exceptional at 92%. 
-              Focus on objection handling (68%) to become a well-rounded sales professional.
-            </p>
+            ))}
           </div>
         </div>
       </div>
