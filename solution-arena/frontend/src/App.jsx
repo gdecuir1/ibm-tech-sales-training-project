@@ -8,6 +8,8 @@ import InteractiveScenarioPage from './pages/InteractiveScenarioPage'
 import ObjectionPage from './pages/ObjectionPage'
 import ResultsPage from './pages/ResultsPage'
 import IdealAnswerPage from './pages/IdealAnswerPage'
+import ProductLibraryPage from './pages/ProductLibraryPage'
+import ProductDetailPage from './pages/ProductDetailPage'
 
 function App() {
   const [currentScenario, setCurrentScenario] = useState(null)
@@ -83,14 +85,22 @@ function App() {
               />
             } 
           />
-          <Route 
-            path="/ideal-answer" 
+          <Route
+            path="/ideal-answer"
             element={
-              <IdealAnswerPage 
+              <IdealAnswerPage
                 currentScenario={currentScenario}
                 scores={scores}
               />
-            } 
+            }
+          />
+          <Route
+            path="/products"
+            element={<ProductLibraryPage />}
+          />
+          <Route
+            path="/products/:productId"
+            element={<ProductDetailPage />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
