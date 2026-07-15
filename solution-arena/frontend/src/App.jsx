@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import NewHomePage from './components/Landing/NewHomePage'
+import DashboardPage from './pages/DashboardPage'
 import HomePage from './pages/HomePage'
 import ScenarioPage from './pages/ScenarioPage'
 import InteractiveScenarioPage from './pages/InteractiveScenarioPage'
@@ -30,6 +32,14 @@ function App() {
         <Routes>
           <Route
             path="/"
+            element={<NewHomePage />}
+          />
+          <Route
+            path="/dashboard"
+            element={<DashboardPage />}
+          />
+          <Route
+            path="/home-classic"
             element={<HomePage onStart={resetState} />}
           />
           <Route
