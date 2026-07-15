@@ -27,22 +27,22 @@ export const formatDateLong = (dateString) => {
 
 export const getScoreColor = (score) => {
   if (score >= 90) return 'text-green-500';
-  if (score >= 75) return 'text-blue-500';
-  if (score >= 60) return 'text-yellow-500';
+  if (score >= 70) return 'text-blue-500';
+  if (score >= 50) return 'text-yellow-500';
   return 'text-red-500';
 };
 
 export const getScoreBgColor = (score) => {
   if (score >= 90) return 'bg-green-500/10';
-  if (score >= 75) return 'bg-blue-500/10';
-  if (score >= 60) return 'bg-yellow-500/10';
+  if (score >= 70) return 'bg-blue-500/10';
+  if (score >= 50) return 'bg-yellow-500/10';
   return 'bg-red-500/10';
 };
 
 export const getScoreBorderColor = (score) => {
   if (score >= 90) return 'border-green-500/20';
-  if (score >= 75) return 'border-blue-500/20';
-  if (score >= 60) return 'border-yellow-500/20';
+  if (score >= 70) return 'border-blue-500/20';
+  if (score >= 50) return 'border-yellow-500/20';
   return 'border-red-500/20';
 };
 
@@ -64,7 +64,7 @@ export const getDifficultyColor = (difficulty) => {
   const colors = {
     'Beginner': 'text-green-500',
     'Intermediate': 'text-blue-500',
-    'Advanced': 'text-purple-500',
+    'Advanced': 'text-yellow-500',
     'Expert': 'text-red-500'
   };
   return colors[difficulty] || 'text-gray-500';
@@ -74,7 +74,7 @@ export const getDifficultyBg = (difficulty) => {
   const colors = {
     'Beginner': 'bg-green-500/10',
     'Intermediate': 'bg-blue-500/10',
-    'Advanced': 'bg-purple-500/10',
+    'Advanced': 'bg-yellow-500/10',
     'Expert': 'bg-red-500/10'
   };
   return colors[difficulty] || 'bg-gray-500/10';
@@ -167,11 +167,11 @@ export const formatPercentage = (value) => {
 export const getCalendarHeatColor = (level) => {
   const colors = [
     'bg-gray-800/30',
-    'bg-blue-500/20',
-    'bg-blue-500/40',
-    'bg-blue-500/60',
-    'bg-blue-500/80',
-    'bg-blue-500'
+    'bg-green-500/20',
+    'bg-green-500/40',
+    'bg-green-500/60',
+    'bg-green-500/80',
+    'bg-green-500'
   ];
   return colors[level] || colors[0];
 };
