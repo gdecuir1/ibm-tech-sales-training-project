@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { mockApi } from '../services/mockApi'
 
 const API_BASE = '/api'
+const USE_MOCK_API = import.meta.env.MODE === 'production' || !import.meta.env.VITE_API_URL
 
 function ScenarioPage({ 
   currentScenario, 
@@ -27,22 +29,44 @@ function ScenarioPage({
     setError(null)
     
     try {
-      const [scenarioRes, productsRes] = await Promise.all([
-        fetch(`${API_BASE}/scenario/random`),
-        fetch(`${API_BASE}/products`)
-      ])
+      if (USE_MOCK_API) {
+        // Use mock API for GitHub Pages deployment
+        const [scenarioData, productsData] = await Promise.all([
+          mockApi.getRandomScenario(),
+          mockApi.getProducts()
+        ])
+        setCurrentScenario(scenarioData)
+        setAvailableProducts(productsData)
+      } else {
+        // Use real API when backend is available
+        const [scenarioRes, productsRes] = await Promise.all([
+          fetch(`${API_BASE}/scenario/random`),
+          fetch(`${API_BASE}/products`)
+        ])
 
-      if (!scenarioRes.ok || !productsRes.ok) {
-        throw new Error('Failed to load data')
+        if (!scenarioRes.ok || !productsRes.ok) {
+          throw new Error('Failed to load data')
+        }
+
+        const scenarioData = await scenarioRes.json()
+        const productsData = await productsRes.json()
+
+        setCurrentScenario(scenarioData)
+        setAvailableProducts(productsData)
       }
-
-      const scenarioData = await scenarioRes.json()
-      const productsData = await productsRes.json()
-
-      setCurrentScenario(scenarioData)
-      setAvailableProducts(productsData)
     } catch (err) {
-      setError(err.message)
+      // Fallback to mock API if real API fails
+      console.warn('API failed, using mock data:', err)
+      try {
+        const [scenarioData, productsData] = await Promise.all([
+          mockApi.getRandomScenario(),
+          mockApi.getProducts()
+        ])
+        setCurrentScenario(scenarioData)
+        setAvailableProducts(productsData)
+      } catch (mockErr) {
+        setError('Failed to load scenario data')
+      }
     } finally {
       setLoading(false)
     }
@@ -73,24 +97,40 @@ function ScenarioPage({
     setError(null)
 
     try {
-      const response = await fetch(`${API_BASE}/objections/generate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          scenarioId: currentScenario.id,
-          selectedProducts: selectedProducts
+      if (USE_MOCK_API) {
+        // Use mock API
+        const data = await mockApi.generateObjections(currentScenario.id, selectedProducts)
+        setObjections(data.objections)
+        navigate('/objections')
+      } else {
+        // Use real API
+        const response = await fetch(`${API_BASE}/objections/generate`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            scenarioId: currentScenario.id,
+            selectedProducts: selectedProducts
+          })
         })
-      })
 
-      if (!response.ok) {
-        throw new Error('Failed to generate objections')
+        if (!response.ok) {
+          throw new Error('Failed to generate objections')
+        }
+
+        const data = await response.json()
+        setObjections(data.objections)
+        navigate('/objections')
       }
-
-      const data = await response.json()
-      setObjections(data.objections)
-      navigate('/objections')
     } catch (err) {
-      setError(err.message)
+      // Fallback to mock API
+      console.warn('API failed, using mock data:', err)
+      try {
+        const data = await mockApi.generateObjections(currentScenario.id, selectedProducts)
+        setObjections(data.objections)
+        navigate('/objections')
+      } catch (mockErr) {
+        setError('Failed to generate objections')
+      }
     } finally {
       setLoading(false)
     }

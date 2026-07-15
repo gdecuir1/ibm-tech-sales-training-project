@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import MissionConsole from '../components/MissionConsole'
+import { mockApi } from '../services/mockApi'
 
 const API_BASE = '/api'
+const USE_MOCK_API = import.meta.env.MODE === 'production' || !import.meta.env.VITE_API_URL
 
 function InteractiveScenarioPage() {
   const navigate = useNavigate()
@@ -33,15 +35,87 @@ function InteractiveScenarioPage() {
   const loadScenario = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`${API_BASE}/scenario/random`)
-      if (!response.ok) throw new Error('Failed to load scenario')
-      
-      const data = await response.json()
-      setScenario(data)
-      setStartTime(Date.now())
+      if (USE_MOCK_API) {
+        // Use mock API - create a mock interactive scenario
+        const mockScenario = {
+          id: 1,
+          title: "Enterprise Cloud Migration",
+          industry: "Financial Services",
+          company: "FinServe Global",
+          brief: "A large financial services company needs to modernize their infrastructure while maintaining security and compliance.",
+          revenue: "$2.5B",
+          employees: 3500,
+          constraints: {
+            timeline: "6 months",
+            budget: "$5M"
+          },
+          questions: [
+            {
+              id: "q1",
+              step: 1,
+              title: "Business Priorities",
+              type: "priorities",
+              question: "What are the top business priorities for this engagement?",
+              options: [
+                { id: "p1", text: "Reduce operational costs" },
+                { id: "p2", text: "Improve security posture" },
+                { id: "p3", text: "Accelerate time to market" },
+                { id: "p4", text: "Enable data-driven decisions" }
+              ]
+            },
+            {
+              id: "q2",
+              step: 2,
+              title: "Technology Selection",
+              type: "technology-selection",
+              question: "Which IBM technologies would you recommend?",
+              options: [
+                { id: "t1", text: "IBM Cloud" },
+                { id: "t2", text: "IBM WatsonX" },
+                { id: "t3", text: "IBM QRadar" },
+                { id: "t4", text: "IBM Turbonomic" }
+              ]
+            }
+          ]
+        }
+        setScenario(mockScenario)
+        setStartTime(Date.now())
+      } else {
+        const response = await fetch(`${API_BASE}/scenario/random`)
+        if (!response.ok) throw new Error('Failed to load scenario')
+        
+        const data = await response.json()
+        setScenario(data)
+        setStartTime(Date.now())
+      }
     } catch (error) {
       console.error('Error loading scenario:', error)
-      alert('Failed to load scenario. Please try again.')
+      // Fallback to mock data
+      const mockScenario = {
+        id: 1,
+        title: "Enterprise Cloud Migration",
+        industry: "Financial Services",
+        company: "FinServe Global",
+        brief: "A large financial services company needs to modernize their infrastructure.",
+        revenue: "$2.5B",
+        employees: 3500,
+        constraints: { timeline: "6 months", budget: "$5M" },
+        questions: [
+          {
+            id: "q1",
+            step: 1,
+            title: "Business Priorities",
+            type: "priorities",
+            question: "What are the top business priorities?",
+            options: [
+              { id: "p1", text: "Reduce costs" },
+              { id: "p2", text: "Improve security" }
+            ]
+          }
+        ]
+      }
+      setScenario(mockScenario)
+      setStartTime(Date.now())
     } finally {
       setLoading(false)
     }

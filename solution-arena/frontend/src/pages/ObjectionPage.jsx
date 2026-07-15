@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { mockApi } from '../services/mockApi'
 
 const API_BASE = '/api'
+const USE_MOCK_API = import.meta.env.MODE === 'production' || !import.meta.env.VITE_API_URL
 
 function ObjectionPage({ 
   objections,
@@ -32,46 +34,92 @@ function ObjectionPage({
     setError(null)
 
     try {
-      const [productEvalRes, responseEvalRes] = await Promise.all([
-        fetch(`${API_BASE}/evaluate/products`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            scenarioId: currentScenario.id,
-            selectedProducts: selectedProducts
-          })
-        }),
-        fetch(`${API_BASE}/evaluate/response`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            responseText: userResponse
-          })
+      if (USE_MOCK_API) {
+        // Use mock API
+        const [productEval, responseEval] = await Promise.all([
+          mockApi.evaluateProducts(currentScenario.id, selectedProducts),
+          mockApi.evaluateResponse(userResponse)
+        ])
+
+        setScores({
+          productScore: productEval.score,
+          correctProducts: productEval.correctProducts,
+          missingProducts: productEval.missingProducts,
+          incorrectProducts: productEval.incorrectProducts,
+          idealProducts: productEval.idealProducts,
+          businessScore: responseEval.businessScore,
+          objectionScore: responseEval.objectionScore,
+          totalResponseScore: responseEval.totalScore,
+          feedback: responseEval.feedback
         })
-      ])
 
-      if (!productEvalRes.ok || !responseEvalRes.ok) {
-        throw new Error('Failed to evaluate responses')
+        navigate('/results')
+      } else {
+        // Use real API
+        const [productEvalRes, responseEvalRes] = await Promise.all([
+          fetch(`${API_BASE}/evaluate/products`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              scenarioId: currentScenario.id,
+              selectedProducts: selectedProducts
+            })
+          }),
+          fetch(`${API_BASE}/evaluate/response`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              responseText: userResponse
+            })
+          })
+        ])
+
+        if (!productEvalRes.ok || !responseEvalRes.ok) {
+          throw new Error('Failed to evaluate responses')
+        }
+
+        const productEval = await productEvalRes.json()
+        const responseEval = await responseEvalRes.json()
+
+        setScores({
+          productScore: productEval.score,
+          correctProducts: productEval.correctProducts,
+          missingProducts: productEval.missingProducts,
+          incorrectProducts: productEval.incorrectProducts,
+          idealProducts: productEval.idealProducts,
+          businessScore: responseEval.businessScore,
+          objectionScore: responseEval.objectionScore,
+          totalResponseScore: responseEval.totalScore,
+          feedback: responseEval.feedback
+        })
+
+        navigate('/results')
       }
-
-      const productEval = await productEvalRes.json()
-      const responseEval = await responseEvalRes.json()
-
-      setScores({
-        productScore: productEval.score,
-        correctProducts: productEval.correctProducts,
-        missingProducts: productEval.missingProducts,
-        incorrectProducts: productEval.incorrectProducts,
-        idealProducts: productEval.idealProducts,
-        businessScore: responseEval.businessScore,
-        objectionScore: responseEval.objectionScore,
-        totalResponseScore: responseEval.totalScore,
-        feedback: responseEval.feedback
-      })
-
-      navigate('/results')
     } catch (err) {
-      setError(err.message)
+      // Fallback to mock API
+      console.warn('API failed, using mock data:', err)
+      try {
+        const [productEval, responseEval] = await Promise.all([
+          mockApi.evaluateProducts(currentScenario.id, selectedProducts),
+          mockApi.evaluateResponse(userResponse)
+        ])
+
+        setScores({
+          productScore: productEval.score,
+          correctProducts: productEval.correctProducts,
+          missingProducts: productEval.missingProducts,
+          incorrectProducts: productEval.incorrectProducts,
+          idealProducts: productEval.idealProducts,
+          businessScore: responseEval.businessScore,
+          objectionScore: responseEval.objectionScore,
+          totalResponseScore: responseEval.totalScore,
+          feedback: responseEval.feedback
+        })
+
+        navigate('/results')
+      } catch (mockErr) {
+        setError('Failed to evaluate responses')
+      }
     } finally {
       setLoading(false)
     }
