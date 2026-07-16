@@ -8,7 +8,7 @@ function NewHomePage() {
   const navigate = useNavigate();
 
   const handleStartTraining = () => {
-    navigate('/dashboard');
+    navigate('/scenarios');
   };
 
   const handleViewProgress = () => {
@@ -19,6 +19,14 @@ function NewHomePage() {
     navigate('/interactive');
   };
 
+  const handleBrowseScenarios = () => {
+    navigate('/scenarios');
+  };
+
+  const handleBrowseProducts = () => {
+    navigate('/products');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -26,12 +34,26 @@ function NewHomePage() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="text-xl font-semibold text-ibm-gray-100">IBM DealSprint</div>
-            <button
-              onClick={handleViewProgress}
-              className="btn-tertiary"
-            >
-              View Dashboard
-            </button>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={handleBrowseScenarios}
+                className="text-ibm-gray-70 hover:text-ibm-gray-100 transition-colors"
+              >
+                Scenarios
+              </button>
+              <button
+                onClick={handleBrowseProducts}
+                className="text-ibm-gray-70 hover:text-ibm-gray-100 transition-colors"
+              >
+                Products
+              </button>
+              <button
+                onClick={handleViewProgress}
+                className="btn-tertiary"
+              >
+                Dashboard
+              </button>
+            </div>
           </div>
         </div>
       </nav>

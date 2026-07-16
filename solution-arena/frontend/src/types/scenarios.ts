@@ -222,6 +222,60 @@ export interface UserProgress {
   attempts: number;
 }
 
+export interface ScenarioProgress {
+  scenarioId: string;
+  userId: string;
+  status: 'not-started' | 'in-progress' | 'completed';
+  currentPhase: ScenarioPhase;
+  startedAt: Date;
+  completedAt?: Date;
+  discoveryAnswers: Array<{
+    questionIndex: number;
+    answer: string;
+    timestamp: Date;
+  }>;
+  objectionResponses: Array<{
+    objectionIndex: number;
+    response: string;
+    timestamp: Date;
+  }>;
+  recommendation: {
+    primaryProduct: string;
+    supportingProducts: string[];
+    reasoning: string;
+    configuration: string;
+    businessCase: string;
+    timestamp: Date;
+  } | null;
+  score: {
+    totalScore: number;
+    maxScore: number;
+    percentage: number;
+    passed: boolean;
+  } | null;
+}
+
+export interface ScenarioResult {
+  scenarioId: string;
+  userId: string;
+  completedAt: Date;
+  totalScore: number;
+  maxScore: number;
+  percentage: number;
+  passed: boolean;
+  excellent: boolean;
+  phaseScores: Array<{
+    phase: 'discovery' | 'objectionHandling' | 'recommendation' | 'businessValue';
+    points: number;
+    maxPoints: number;
+    percentage: number;
+  }>;
+  timeSpent: number; // in minutes
+  feedback: string[];
+  strengths: string[];
+  improvements: string[];
+}
+
 export interface TrainingScenario {
   // Core identification
   id: string;

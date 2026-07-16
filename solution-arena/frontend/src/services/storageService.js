@@ -345,6 +345,9 @@ export const storageService = {
   }
 };
 
+
+// Named export for scenario progress (alias for saveCompletedScenario)
+export const saveScenarioProgress = storageService.saveCompletedScenario.bind(storageService);
 export default storageService;
 
 // Made with Bob

@@ -10,6 +10,10 @@ import ResultsPage from './pages/ResultsPage'
 import IdealAnswerPage from './pages/IdealAnswerPage'
 import ProductLibraryPage from './pages/ProductLibraryPage'
 import ProductDetailPage from './pages/ProductDetailPage'
+import ScenarioLibraryPage from './pages/ScenarioLibraryPage'
+import ScenarioExecutionPage from './pages/ScenarioExecutionPage'
+import ScenarioRecommendationPage from './pages/ScenarioRecommendationPage'
+import ScenarioResultsPage from './pages/ScenarioResultsPage'
 
 function App() {
   const [currentScenario, setCurrentScenario] = useState(null)
@@ -101,6 +105,22 @@ function App() {
           <Route
             path="/products/:productId"
             element={<ProductDetailPage />}
+          />
+          <Route
+            path="/scenarios"
+            element={<ScenarioLibraryPage />}
+          />
+          <Route
+            path="/scenarios/:scenarioId"
+            element={<ScenarioExecutionPage />}
+          />
+          <Route
+            path="/scenarios/:scenarioId/recommendation"
+            element={<ScenarioRecommendationPage />}
+          />
+          <Route
+            path="/scenarios/:scenarioId/results"
+            element={<ScenarioResultsPage />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
