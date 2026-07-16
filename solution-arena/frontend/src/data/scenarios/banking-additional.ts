@@ -124,6 +124,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What is driving your digital banking transformation? What specific customer feedback or competitive pressures are you facing?',
         purpose: 'Understand business drivers and urgency',
         category: 'pain-point',
+        // Multiple choice options
+        choices: [
+          { id: 'q1-a', text: 'What is your annual customer attrition rate and how much has it increased?', isCorrect: true, points: 4, feedback: 'Excellent - quantifying attrition establishes urgency and business impact' },
+          { id: 'q1-b', text: 'What is your mobile app rating and what specific complaints are customers making?', isCorrect: true, points: 3, feedback: 'Great question - app rating is public reputation and reveals specific pain points' },
+          { id: 'q1-c', text: 'Which competitors are winning your customers and what advantages do they have?', isCorrect: true, points: 3, feedback: 'Important - understanding competitive threats helps position IBM solution' },
+          { id: 'q1-d', text: 'How has the board or executive team responded to customer losses?', isCorrect: true, points: 3, feedback: 'Good - executive pressure creates urgency and budget availability' },
+          { id: 'q1-e', text: 'What color scheme does your current mobile app use?', isCorrect: false, points: 0, feedback: 'Irrelevant - focus on business drivers and customer impact' },
+          { id: 'q1-f', text: 'How many developers work on your mobile app team?', isCorrect: false, points: 0, feedback: 'Too tactical - focus on business pain and competitive pressure first' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'We\'re losing 8% of customers annually to digital-first banks. Our mobile app is rated 2.5 stars and customers are vocal about poor experience. We lost 40K customers last year. Board has mandated we modernize or risk becoming irrelevant.',
         alternateResponses: [
           'Customers are leaving for better digital experiences',
@@ -141,6 +154,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What are the biggest gaps in your current digital banking platform? What features are missing that competitors have?',
         purpose: 'Identify feature gaps and competitive disadvantages',
         category: 'technical',
+        // Multiple choice options
+        choices: [
+          { id: 'q2-a', text: 'What critical features are missing - mobile check deposit, P2P payments, budgeting tools?', isCorrect: true, points: 4, feedback: 'Excellent - identifying specific feature gaps shows competitive disadvantages' },
+          { id: 'q2-b', text: 'How does your mobile user experience compare to competitors in terms of clicks and ease?', isCorrect: true, points: 3, feedback: 'Great question - UX friction drives customers to competitors' },
+          { id: 'q2-c', text: 'Do you have open banking APIs to integrate with fintechs and third-party services?', isCorrect: true, points: 3, feedback: 'Important - open banking is strategic for partnerships and revenue' },
+          { id: 'q2-d', text: 'How long does it take to launch new digital features with your current platform?', isCorrect: true, points: 3, feedback: 'Good - agility is competitive advantage in digital banking' },
+          { id: 'q2-e', text: 'What programming language is your mobile app written in?', isCorrect: false, points: 0, feedback: 'Too technical - focus on feature gaps and business impact' },
+          { id: 'q2-f', text: 'How many screens does your mobile app have?', isCorrect: false, points: 0, feedback: 'Irrelevant metric - focus on missing features and UX problems' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'We\'re missing mobile check deposit, P2P payments, budgeting tools, biometric auth, and open banking APIs. Our mobile experience is clunky - takes 5 clicks to transfer money vs. 2 for competitors. We can\'t integrate with fintechs or launch new features quickly.',
         alternateResponses: [
           'We lack basic features that customers expect',
@@ -158,6 +184,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What is your current mobile app rating and what are customers saying? How is this impacting your brand?',
         purpose: 'Quantify reputation damage and customer sentiment',
         category: 'pain-point',
+        // Multiple choice options
+        choices: [
+          { id: 'q3-a', text: 'What is your current app store rating on iOS and Android?', isCorrect: true, points: 4, feedback: 'Critical - app rating is public reputation visible to all prospects' },
+          { id: 'q3-b', text: 'What specific complaints are customers making in app reviews?', isCorrect: true, points: 3, feedback: 'Excellent - customer feedback reveals specific pain points to address' },
+          { id: 'q3-c', text: 'How is the poor rating impacting new customer acquisition and account openings?', isCorrect: true, points: 3, feedback: 'Important - quantifies business impact of reputation damage' },
+          { id: 'q3-d', text: 'What percentage of your customers use mobile as their primary banking channel?', isCorrect: true, points: 3, feedback: 'Good - shows importance of mobile experience to customer base' },
+          { id: 'q3-e', text: 'What version of iOS and Android do you support?', isCorrect: false, points: 0, feedback: 'Too technical - focus on rating impact and customer sentiment' },
+          { id: 'q3-f', text: 'How many times has your app been downloaded?', isCorrect: false, points: 0, feedback: 'Not relevant - focus on rating and reputation impact' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: '2.5 stars on both iOS and Android. Customers complain about crashes, slow performance, missing features, and poor UX. It\'s hurting our brand - prospects see the rating and choose competitors. We\'re losing new account openings because of it.',
         alternateResponses: [
           'Our app rating is terrible',
@@ -175,6 +214,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What is your strategy for attracting younger customers (18-35)? What percentage of your customer base is under 35?',
         purpose: 'Identify demographic challenges and growth opportunities',
         category: 'business',
+        // Multiple choice options
+        choices: [
+          { id: 'q4-a', text: 'What percentage of your current customer base is under 35 years old?', isCorrect: true, points: 4, feedback: 'Critical - reveals demographic risk and long-term growth challenge' },
+          { id: 'q4-b', text: 'What features and experiences do younger customers expect from digital banking?', isCorrect: true, points: 3, feedback: 'Excellent - understanding expectations helps design solution' },
+          { id: 'q4-c', text: 'How are competitors successfully attracting younger customers?', isCorrect: true, points: 3, feedback: 'Important - competitive intelligence shows what works' },
+          { id: 'q4-d', text: 'What is your target demographic mix for sustainable long-term growth?', isCorrect: true, points: 3, feedback: 'Good - establishes goals and success metrics' },
+          { id: 'q4-e', text: 'What is the average age of your branch managers?', isCorrect: false, points: 0, feedback: 'Not relevant - focus on customer demographics, not staff' },
+          { id: 'q4-f', text: 'Do you offer student checking accounts?', isCorrect: false, points: 0, feedback: 'Too specific - focus on broader demographic strategy' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'Less than 5% of our customers are under 35 - that\'s a huge problem for long-term growth. Younger customers expect mobile-first banking with modern features. We can\'t attract them with our current platform. We need to win this demographic or we\'ll shrink over time.',
         alternateResponses: [
           'We struggle to attract younger customers',
@@ -192,6 +244,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What are your open banking and fintech partnership goals? Do you need API capabilities?',
         purpose: 'Understand strategic digital ecosystem needs',
         category: 'business',
+        // Multiple choice options
+        choices: [
+          { id: 'q5-a', text: 'Do you need open banking APIs to enable fintech partnerships and integrations?', isCorrect: true, points: 4, feedback: 'Critical - open banking is strategic for ecosystem and revenue growth' },
+          { id: 'q5-b', text: 'What types of fintech services do customers want to integrate (budgeting, investing, payments)?', isCorrect: true, points: 3, feedback: 'Excellent - understanding use cases helps design API strategy' },
+          { id: 'q5-c', text: 'What revenue opportunities exist from fintech partnerships and API monetization?', isCorrect: true, points: 3, feedback: 'Important - quantifies business value of open banking' },
+          { id: 'q5-d', text: 'Do you have API management and developer portal capabilities today?', isCorrect: true, points: 3, feedback: 'Good - identifies technical gaps in API infrastructure' },
+          { id: 'q5-e', text: 'What API protocol do you prefer - REST or SOAP?', isCorrect: false, points: 0, feedback: 'Too technical - focus on business strategy and use cases first' },
+          { id: 'q5-f', text: 'How many API calls per second can your system handle?', isCorrect: false, points: 0, feedback: 'Premature detail - focus on strategic goals and partnerships' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'We need open banking APIs to partner with fintechs and offer integrated services. Customers want to connect budgeting apps, investment platforms, and payment services. We\'re missing revenue opportunities because we can\'t integrate. Open banking is strategic for us.',
         alternateResponses: [
           'We need to integrate with fintech partners',
@@ -209,6 +274,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What is your current digital platform maintenance cost? How much time does it take to launch new features?',
         purpose: 'Quantify operational inefficiency and agility problems',
         category: 'technical',
+        // Multiple choice options
+        choices: [
+          { id: 'q6-a', text: 'What is your annual maintenance cost for the current digital banking platform?', isCorrect: true, points: 4, feedback: 'Excellent - quantifying costs establishes ROI opportunity' },
+          { id: 'q6-b', text: 'How long does it take to launch new digital features from concept to production?', isCorrect: true, points: 3, feedback: 'Critical - time-to-market is competitive advantage in digital banking' },
+          { id: 'q6-c', text: 'What is your target time-to-market for new features with a modern platform?', isCorrect: true, points: 3, feedback: 'Important - establishes goals and success criteria' },
+          { id: 'q6-d', text: 'What features are in your backlog waiting to be developed?', isCorrect: true, points: 3, feedback: 'Good - shows pent-up demand and opportunity cost of slow delivery' },
+          { id: 'q6-e', text: 'What version control system do you use for code?', isCorrect: false, points: 0, feedback: 'Too technical - focus on costs and time-to-market impact' },
+          { id: 'q6-f', text: 'How many servers run your digital banking platform?', isCorrect: false, points: 0, feedback: 'Not relevant - focus on operational costs and agility problems' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: '$500K annually to maintain legacy platform. Takes 12-18 months to launch new features because of old technology and manual processes. We can\'t compete with this speed. Need to reduce costs and increase agility dramatically.',
         alternateResponses: [
           'Maintenance costs are too high',
@@ -226,6 +304,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What is your budget and timeline? Who needs to approve this investment?',
         purpose: 'Qualify opportunity and understand decision process',
         category: 'business',
+        // Multiple choice options
+        choices: [
+          { id: 'q7-a', text: 'What budget has been allocated for digital banking transformation?', isCorrect: true, points: 4, feedback: 'Critical - qualifies opportunity and ensures adequate funding' },
+          { id: 'q7-b', text: 'What is your timeline for selecting and implementing a new platform?', isCorrect: true, points: 3, feedback: 'Important - helps align IBM sales cycle and implementation plan' },
+          { id: 'q7-c', text: 'Who are the key decision makers and what approval process is required?', isCorrect: true, points: 3, feedback: 'Essential - identifies stakeholders and decision authority' },
+          { id: 'q7-d', text: 'What ROI or payback period does the CFO require to approve?', isCorrect: true, points: 3, feedback: 'Good - understanding ROI requirements helps build business case' },
+          { id: 'q7-e', text: 'What is your fiscal year end date?', isCorrect: false, points: 0, feedback: 'Not relevant to qualifying opportunity - focus on budget and timeline' },
+          { id: 'q7-f', text: 'How many vendors are you evaluating?', isCorrect: false, points: 0, feedback: 'Too detailed - focus on decision makers and approval process' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: '$2-3M budget approved for digital transformation. Need solution in 9-12 months. Board approval required - CIO and CDO are champions. CFO needs strong ROI case showing customer retention and cost savings.',
         alternateResponses: [
           'We have budget allocated',
@@ -243,6 +334,19 @@ export const bankingScenario002: TrainingScenario = {
         question: 'What are your concerns about migrating customers to a new digital platform? How will you manage the transition?',
         purpose: 'Identify migration concerns and change management needs',
         category: 'stakeholder',
+        // Multiple choice options
+        choices: [
+          { id: 'q8-a', text: 'What are your biggest concerns about customer disruption during migration?', isCorrect: true, points: 4, feedback: 'Critical - understanding concerns helps design migration strategy' },
+          { id: 'q8-b', text: 'Do you prefer a phased rollout or big-bang migration approach?', isCorrect: true, points: 3, feedback: 'Excellent - phased approach reduces risk and proves value incrementally' },
+          { id: 'q8-c', text: 'What customer communication and training will be needed for adoption?', isCorrect: true, points: 3, feedback: 'Important - communication is key to successful customer migration' },
+          { id: 'q8-d', text: 'What support resources will customers need during and after migration?', isCorrect: true, points: 3, feedback: 'Good - planning support ensures smooth transition and adoption' },
+          { id: 'q8-e', text: 'What day of the week should we migrate?', isCorrect: false, points: 0, feedback: 'Premature detail - focus on strategy and concerns first' },
+          { id: 'q8-f', text: 'How many customer service reps do you have?', isCorrect: false, points: 0, feedback: 'Not relevant - focus on migration strategy and customer experience' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'Concerned about customer disruption and adoption. Need seamless migration with no downtime. Want to phase rollout - start with early adopters, then expand. Need training materials and support for customers. Communication strategy is critical.',
         alternateResponses: [
           'We\'re worried about customer disruption',
@@ -294,6 +398,18 @@ export const bankingScenario002: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'difficult',
         category: 'strategy',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj1-a', text: 'Quantify time and cost of custom development - typically 3-5 years and $10M+ vs. 9-12 months and $2-3M for IBM', isCorrect: true, points: 4, feedback: 'Excellent - dramatic cost and time difference makes buy vs. build clear' },
+          { id: 'obj1-b', text: 'Highlight opportunity cost - losing 8% of customers annually while building for 3-5 years', isCorrect: true, points: 3, feedback: 'Great - quantifies business impact of delay' },
+          { id: 'obj1-c', text: 'Emphasize IBM platform is proven with 200+ banks and includes continuous updates', isCorrect: true, points: 3, feedback: 'Important - reduces risk with proven solution and ongoing innovation' },
+          { id: 'obj1-d', text: 'Position focus on differentiation and customers, not reinventing banking infrastructure', isCorrect: true, points: 3, feedback: 'Good - strategic positioning of where to invest resources' },
+          { id: 'obj1-e', text: 'Agree that custom development gives more control and suggest they build it themselves', isCorrect: false, points: 0, feedback: 'Terrible - gives up and doesn\'t address their real needs' },
+          { id: 'obj1-f', text: 'Criticize their development team\'s ability to build a modern platform', isCorrect: false, points: 0, feedback: 'Wrong approach - insulting their team damages relationship' }
+        ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'I understand the appeal of custom development - you get exactly what you want. However, building a modern digital banking platform from scratch typically takes 3-5 years and costs $10M+. You\'d need to build mobile apps (iOS/Android), web platform, APIs, security, compliance, and maintain it all. Meanwhile, you\'re losing customers every day. IBM\'s digital banking platform is pre-built, proven with 200+ banks, and can be deployed in 9-12 months. You get mobile check deposit, P2P payments, open banking APIs, and continuous updates - all for $2-3M. You can focus on your customers and differentiating features, not reinventing banking infrastructure. Would you rather spend 3-5 years building or 9-12 months deploying and winning customers back?',
         scoringCriteria: [
           'Acknowledged the build vs. buy consideration',
@@ -315,6 +431,18 @@ export const bankingScenario002: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'common',
         category: 'risk',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj2-a', text: 'Use customer feedback as proof of demand - 2.5 star rating and 8% attrition show desperation for better experience', isCorrect: true, points: 4, feedback: 'Excellent - customers are already voting with their feet' },
+          { id: 'obj2-b', text: 'Provide industry adoption statistics - banks typically see 80%+ adoption within 6 months', isCorrect: true, points: 3, feedback: 'Great - industry data reduces perceived risk' },
+          { id: 'obj2-c', text: 'Propose phased rollout starting with early adopters to prove value before full deployment', isCorrect: true, points: 3, feedback: 'Important - de-risks adoption with incremental approach' },
+          { id: 'obj2-d', text: 'Offer adoption guarantees and metrics in the contract to share risk', isCorrect: true, points: 3, feedback: 'Good - shows IBM confidence and shares risk' },
+          { id: 'obj2-e', text: 'Admit that adoption is uncertain and they should accept the risk', isCorrect: false, points: 0, feedback: 'Weak response - doesn\'t address concern or reduce risk' },
+          { id: 'obj2-f', text: 'Suggest they force customers to use the new platform by shutting down the old one', isCorrect: false, points: 0, feedback: 'Terrible approach - would drive more customers away' }
+        ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'That\'s a critical question - adoption is everything. The good news is that your customers are already telling you they want this. Your 2.5 star app rating and 8% attrition show customers are desperate for better digital banking. When banks upgrade to modern platforms, they typically see 80%+ adoption within 6 months because the experience is dramatically better. We can de-risk this with a phased rollout - start with early adopters who are most frustrated, prove the value, then expand. IBM also provides customer communication templates, training materials, and adoption best practices from 200+ bank implementations. We can include adoption metrics and guarantees in the contract. Would a phased approach with early adopter pilot help de-risk this?',
         scoringCriteria: [
           'Acknowledged adoption risk',
@@ -336,6 +464,18 @@ export const bankingScenario002: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'common',
         category: 'skills',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj3-a', text: 'Explain IBM provides full implementation services - we handle deployment, integration, and migration heavy lifting', isCorrect: true, points: 4, feedback: 'Excellent - directly addresses resource constraint concern' },
+          { id: 'obj3-b', text: 'Highlight cloud platform is self-managing - IBM handles infrastructure, patches, and updates', isCorrect: true, points: 3, feedback: 'Great - shows reduced long-term operational burden' },
+          { id: 'obj3-c', text: 'Quantify cost reduction - maintenance drops from $500K to $200K annually', isCorrect: true, points: 3, feedback: 'Important - demonstrates financial benefit of reduced burden' },
+          { id: 'obj3-d', text: 'Mention training provided so team can support platform after implementation', isCorrect: true, points: 3, feedback: 'Good - shows knowledge transfer and enablement' },
+          { id: 'obj3-e', text: 'Agree their team is too busy and suggest they hire more staff first', isCorrect: false, points: 0, feedback: 'Wrong - creates barrier instead of showing how IBM helps' },
+          { id: 'obj3-f', text: 'Suggest they outsource all IT operations to IBM permanently', isCorrect: false, points: 0, feedback: 'Too extreme - doesn\'t address their specific concern' }
+        ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'I completely understand - your team is stretched thin maintaining the legacy platform. The good news is that a modern platform actually reduces operational burden long-term. IBM provides full implementation services - we handle the heavy lifting of deployment, integration, and migration. Your team provides business requirements and testing, but we do the technical work. Post-launch, the platform is cloud-based and largely self-managing - IBM handles infrastructure, security patches, and updates. Your maintenance costs drop from $500K to $200K annually. We also provide training so your team can support the platform. Many banks find they can actually reduce IT staff or redeploy them to higher-value projects. Would it help to see a resource plan showing IBM\'s role vs. your team\'s role?',
         scoringCriteria: [
           'Acknowledged resource constraints',
@@ -357,6 +497,18 @@ export const bankingScenario002: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'common',
         category: 'technical',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj4-a', text: 'Highlight IBM has extensive Jack Henry experience with pre-built connectors and integration patterns', isCorrect: true, points: 4, feedback: 'Excellent - directly addresses integration concern with proven solution' },
+          { id: 'obj4-b', text: 'Explain integration approach using Jack Henry APIs for real-time account data and transactions', isCorrect: true, points: 3, feedback: 'Great - shows technical understanding and approach' },
+          { id: 'obj4-c', text: 'Provide timeline - integration typically takes 6-8 weeks as part of standard implementation', isCorrect: true, points: 3, feedback: 'Important - sets expectations and shows it\'s manageable' },
+          { id: 'obj4-d', text: 'Offer reference customers - many Jack Henry banks successfully deployed IBM platform', isCorrect: true, points: 3, feedback: 'Good - social proof from similar banks builds confidence' },
+          { id: 'obj4-e', text: 'Admit Jack Henry integration is very complex and may take 6-12 months', isCorrect: false, points: 0, feedback: 'Wrong - reinforces concern instead of addressing it' },
+          { id: 'obj4-f', text: 'Suggest they replace Jack Henry with a more modern core banking system', isCorrect: false, points: 0, feedback: 'Terrible - creates massive new problem instead of solving integration' }
+        ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'Great question - core integration is critical. IBM has extensive experience integrating with Jack Henry Silverlake - we have pre-built connectors and integration patterns. We\'ve done this integration dozens of times with other banks. The digital banking platform connects via Jack Henry\'s APIs for account data, transactions, and updates. We handle real-time balance inquiries, transfers, bill pay, and all core banking functions. Integration typically takes 6-8 weeks and is part of our standard implementation. We can do a technical assessment to map out the specific integration points and identify any custom requirements. Many Jack Henry banks have successfully deployed IBM\'s digital platform. Would you like to speak with a reference customer using Jack Henry?',
         scoringCriteria: [
           'Acknowledged integration importance',
@@ -378,6 +530,18 @@ export const bankingScenario002: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'difficult',
         category: 'risk',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj5-a', text: 'Highlight IBM\'s 50+ year banking history and digital banking as strategic growth area with 200+ banks', isCorrect: true, points: 4, feedback: 'Excellent - demonstrates long-term commitment and strategic importance' },
+          { id: 'obj5-b', text: 'Emphasize IBM\'s financial stability as $60B company - not going anywhere', isCorrect: true, points: 3, feedback: 'Great - addresses acquisition/discontinuation concern directly' },
+          { id: 'obj5-c', text: 'Explain platform built on open standards and APIs - data and integrations are portable, not locked in', isCorrect: true, points: 3, feedback: 'Important - shows exit strategy exists if ever needed' },
+          { id: 'obj5-d', text: 'Offer long-term support commitments in contract - typically 10+ years with guaranteed updates', isCorrect: true, points: 3, feedback: 'Good - provides contractual protection and assurance' },
+          { id: 'obj5-e', text: 'Admit that IBM could discontinue the platform but it\'s unlikely', isCorrect: false, points: 0, feedback: 'Weak response - doesn\'t adequately address the concern' },
+          { id: 'obj5-f', text: 'Suggest they build custom platform to avoid vendor risk entirely', isCorrect: false, points: 0, feedback: 'Terrible - contradicts IBM solution and creates bigger problems' }
+        ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'That\'s a valid long-term concern. IBM has been in banking technology for 50+ years and digital banking is a strategic growth area - we\'re investing heavily, not exiting. The platform has 200+ bank customers and growing, so there\'s a large, stable customer base. IBM is a $60B company with strong financials - we\'re not going anywhere. That said, the platform is built on open standards and APIs, so you\'re not locked in. If you ever needed to migrate, your data and integrations are portable. We also offer long-term support commitments in the contract - typically 10+ years with guaranteed updates and security patches. Many banks have been on IBM platforms for 20+ years. Would it help to include specific support commitments and exit provisions in the contract?',
         scoringCriteria: [
           'Acknowledged the concern',
@@ -752,11 +916,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'What is driving your need for real-time payments? Are you losing customers or revenue due to lack of instant payment capabilities?',
         purpose: 'Understand business drivers and quantify impact',
         category: 'pain-point',
-        idealResponse: 'We\'re losing business customers who need instant payments for supply chain and payroll. Missing $2M annually in payment processing revenue. FedNow launched and we need to support it. Board has mandated we implement real-time payments within 18 months.',
-        alternateResponses: [
-          'Customers are demanding instant payments',
-          'We\'re falling behind competitors'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Losing business customers who need instant payments for supply chain and payroll, missing $2M annually in payment processing revenue, FedNow launched and board mandated implementation within 18 months', isCorrect: true, points: 4, feedback: 'Excellent! You identified the quantified revenue loss ($2M), specific customer segments (business/supply chain), regulatory driver (FedNow), and board mandate with timeline. This demonstrates strong business impact understanding.' },
+          { id: 'q1-b', text: 'Business customers demanding instant payments for supply chain, losing market share to competitors with real-time capabilities, FedNow compliance required', isCorrect: true, points: 3, feedback: 'Good discovery! You captured customer demand, competitive pressure, and regulatory requirement. Adding quantified revenue loss would strengthen the business case.' },
+          { id: 'q1-c', text: 'Customers frustrated with 24-48 hour ACH delays, competitors marketing real-time payments as differentiator, need to support FedNow', isCorrect: true, points: 3, feedback: 'Solid response identifying customer pain, competitive threat, and regulatory driver. Quantifying the revenue impact would make this stronger.' },
+          { id: 'q1-d', text: 'Falling behind larger banks and fintechs who have instant payments, losing business customers, board wants real-time capability', isCorrect: true, points: 3, feedback: 'Good identification of competitive disadvantage and customer attrition. Adding specific revenue loss and FedNow timeline would enhance this.' },
+          { id: 'q1-e', text: 'Some customers asking about instant payments, considering it for future roadmap', isCorrect: false, points: 0, feedback: 'Too vague and lacks urgency. You missed the quantified revenue loss ($2M), customer attrition, FedNow mandate, and board timeline. This doesn\'t establish business urgency.' },
+          { id: 'q1-f', text: 'Want to modernize payment systems and stay current with technology trends', isCorrect: false, points: 0, feedback: 'This is technology-focused without business justification. You missed the revenue loss, customer attrition, competitive pressure, and FedNow regulatory driver that create urgency.' }
         ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'How much payment revenue are you losing?',
           'Which customer segments need instant payments most?',
@@ -769,11 +941,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'What payment volumes do you process currently? What are your performance and availability requirements for real-time payments?',
         purpose: 'Understand scale and technical requirements',
         category: 'technical',
-        idealResponse: 'Process 2M ACH transactions monthly, 50K wires monthly. Need to support 10K real-time payments daily initially, growing to 100K daily. Require <1 second payment processing, 99.99% availability, 24/7 operation. Cannot have downtime.',
-        alternateResponses: [
-          'High transaction volumes',
-          'Need instant processing and high availability'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Process 2M ACH transactions monthly and 50K wires monthly, need to support 10K real-time payments daily initially growing to 100K daily, require <1 second processing with 99.99% availability and 24/7 operation', isCorrect: true, points: 4, feedback: 'Outstanding! You captured current volumes (2M ACH, 50K wires), growth trajectory (10K to 100K daily), performance requirement (<1 sec), and availability target (99.99%). This provides complete technical context.' },
+          { id: 'q2-b', text: 'High transaction volumes with 2M monthly ACH, need sub-second processing for real-time payments, require 99.99% availability with no downtime', isCorrect: true, points: 3, feedback: 'Good technical discovery! You identified current scale, performance requirement, and availability target. Adding the growth projection (10K to 100K daily) would complete the picture.' },
+          { id: 'q2-c', text: 'Processing millions of transactions monthly, need instant payment processing in under 1 second, must have 24/7 availability', isCorrect: true, points: 3, feedback: 'Solid response capturing scale, performance requirement, and availability need. Specific volume numbers and growth trajectory would strengthen this.' },
+          { id: 'q2-d', text: 'Large payment volumes requiring high-performance infrastructure, need real-time processing with very high availability', isCorrect: true, points: 3, feedback: 'Good identification of scale and requirements. Adding specific metrics (2M ACH, <1 sec, 99.99%) would make this more actionable.' },
+          { id: 'q2-e', text: 'Moderate transaction volumes, need good performance and reliability for payments', isCorrect: false, points: 0, feedback: 'Too vague for technical requirements. You missed specific volumes (2M ACH, 50K wires), performance target (<1 sec), availability requirement (99.99%), and growth projection.' },
+          { id: 'q2-f', text: 'Standard banking transaction volumes, want fast processing', isCorrect: false, points: 0, feedback: 'This lacks all technical specifics needed for solution design. You missed volumes, performance requirements, availability targets, and growth trajectory.' }
         ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What is your peak transaction volume?',
           'What is your current system capacity?',
@@ -786,11 +966,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'What are your fraud detection capabilities for instant payments? How will you prevent fraud when payments are irrevocable?',
         purpose: 'Identify fraud risk and compliance concerns',
         category: 'pain-point',
-        idealResponse: 'Current fraud detection is batch-based - won\'t work for instant payments. Concerned about fraud risk because real-time payments are irrevocable. Need real-time fraud scoring in milliseconds. Also need AML/BSA compliance for instant payments.',
-        alternateResponses: [
-          'Fraud is a major concern',
-          'Need real-time fraud detection'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Current fraud detection is batch-based and won\'t work for instant payments, concerned about fraud risk because real-time payments are irrevocable, need real-time fraud scoring in milliseconds, also need AML/BSA compliance for instant payments', isCorrect: true, points: 4, feedback: 'Excellent! You identified the current limitation (batch-based), the critical risk (irrevocable payments), the technical requirement (millisecond fraud scoring), and regulatory compliance (AML/BSA). This shows strong risk awareness.' },
+          { id: 'q3-b', text: 'Fraud detection is major concern because instant payments cannot be reversed, need real-time AI/ML fraud scoring, must maintain AML compliance', isCorrect: true, points: 3, feedback: 'Good risk discovery! You captured the irrevocability concern, need for real-time AI/ML, and compliance requirement. Mentioning current batch limitations would strengthen this.' },
+          { id: 'q3-c', text: 'Worried about fraud losses with instant payments since they\'re irrevocable, current fraud tools are too slow, need millisecond fraud detection', isCorrect: true, points: 3, feedback: 'Solid response identifying fraud risk, current tool limitations, and performance requirement. Adding AML/BSA compliance would complete the picture.' },
+          { id: 'q3-d', text: 'Fraud risk is critical concern for real-time payments, need advanced fraud detection before payment is sent, require compliance with banking regulations', isCorrect: true, points: 3, feedback: 'Good identification of fraud risk and prevention timing. Adding specific requirements (millisecond scoring, AI/ML, AML/BSA) would enhance this.' },
+          { id: 'q3-e', text: 'Have standard fraud detection tools, will monitor for fraud issues', isCorrect: false, points: 0, feedback: 'This underestimates the fraud risk. You missed that instant payments are irrevocable, batch fraud detection won\'t work, millisecond scoring is required, and AML/BSA compliance is mandatory.' },
+          { id: 'q3-f', text: 'Fraud is always a concern in banking, will implement appropriate controls', isCorrect: false, points: 0, feedback: 'Too generic for instant payment fraud risk. You missed the irrevocability issue, need for real-time AI/ML scoring, millisecond performance requirement, and AML/BSA compliance.' }
         ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What is your current fraud loss rate?',
           'What fraud detection tools do you have?',
@@ -803,11 +991,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'What business use cases are driving demand for instant payments? Which customer segments need this most?',
         purpose: 'Understand use cases and revenue opportunities',
         category: 'business',
-        idealResponse: 'Business customers need instant payments for supply chain (pay suppliers immediately), instant payroll for gig workers, and B2B payments. Also need P2P for consumer customers to compete with Zelle. These are high-value customers - losing them hurts.',
-        alternateResponses: [
-          'Business customers need instant payments',
-          'Multiple use cases driving demand'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Business customers need instant payments for supply chain (pay suppliers immediately), instant payroll for gig workers, and B2B payments, also need P2P for consumer customers to compete with Zelle, these are high-value customers and losing them hurts', isCorrect: true, points: 4, feedback: 'Outstanding! You identified multiple high-value use cases (supply chain, instant payroll, B2B, P2P), competitive context (Zelle), and customer value impact. This demonstrates strong business understanding.' },
+          { id: 'q4-b', text: 'Business customers need instant supply chain payments and instant payroll for gig economy, consumer customers want P2P to compete with Zelle and Venmo', isCorrect: true, points: 3, feedback: 'Good use case discovery! You captured key business use cases and consumer P2P need. Emphasizing the high customer value and attrition risk would strengthen this.' },
+          { id: 'q4-c', text: 'Multiple use cases including B2B payments, instant payroll, and consumer P2P payments, business customers are high-value segment', isCorrect: true, points: 3, feedback: 'Solid response identifying diverse use cases and customer value. Adding specific examples (supply chain, gig workers, Zelle competition) would enhance this.' },
+          { id: 'q4-d', text: 'Business customers demanding instant payments for operations, consumers want P2P like competitors offer, losing customers without these capabilities', isCorrect: true, points: 3, feedback: 'Good identification of business and consumer needs plus attrition risk. Specific use cases (supply chain, payroll, gig economy) would make this stronger.' },
+          { id: 'q4-e', text: 'Various customers asking about faster payments, general interest in instant payment capabilities', isCorrect: false, points: 0, feedback: 'Too vague for use case discovery. You missed specific high-value use cases (supply chain, instant payroll, gig economy, B2B), P2P competition with Zelle, and customer attrition risk.' },
+          { id: 'q4-f', text: 'Want to offer modern payment options to stay competitive', isCorrect: false, points: 0, feedback: 'This lacks specific use cases and customer segments. You missed supply chain payments, instant payroll, gig economy, B2B, P2P competition, and the high-value customer attrition risk.' }
         ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What is the revenue potential for each use case?',
           'Which use case should you prioritize?',
@@ -820,11 +1016,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'What is your current payment infrastructure? When is it end-of-life?',
         purpose: 'Understand technical environment and refresh timing',
         category: 'technical',
-        idealResponse: '25 x86 servers, aging HPE storage. Infrastructure is 6-8 years old and approaching end-of-life in 12-18 months. Cannot handle real-time processing volumes. Need high-performance infrastructure for instant payments.',
-        alternateResponses: [
-          'Infrastructure is old and inadequate',
-          'Need to refresh soon anyway'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: '25 x86 servers with aging HPE storage, infrastructure is 6-8 years old and approaching end-of-life in 12-18 months, cannot handle real-time processing volumes, need high-performance infrastructure for instant payments', isCorrect: true, points: 4, feedback: 'Excellent! You identified the current infrastructure (25 x86, HPE storage), age (6-8 years), end-of-life timing (12-18 months), performance limitation, and need for high-performance. This reveals a perfect infrastructure refresh opportunity.' },
+          { id: 'q5-b', text: 'Aging infrastructure approaching end-of-life in 12-18 months, cannot support real-time payment volumes, need infrastructure refresh anyway', isCorrect: true, points: 3, feedback: 'Good discovery! You captured the end-of-life timing, performance limitation, and refresh need. Adding specific infrastructure details (25 x86, HPE storage, 6-8 years) would strengthen this.' },
+          { id: 'q5-c', text: 'Current infrastructure is 6-8 years old and inadequate for real-time payments, need high-performance systems for instant processing', isCorrect: true, points: 3, feedback: 'Solid response identifying infrastructure age and performance gap. Adding end-of-life timing and specific infrastructure details would enhance this.' },
+          { id: 'q5-d', text: 'Infrastructure is old and needs refresh, cannot handle instant payment requirements, timing aligns with real-time payments project', isCorrect: true, points: 3, feedback: 'Good identification of refresh need and timing alignment. Specific details (age, end-of-life date, current infrastructure) would make this stronger.' },
+          { id: 'q5-e', text: 'Infrastructure is adequate for now, will upgrade if needed', isCorrect: false, points: 0, feedback: 'This misses the critical infrastructure refresh opportunity. You missed that infrastructure is 6-8 years old, approaching end-of-life in 12-18 months, and cannot handle real-time payment volumes.' },
+          { id: 'q5-f', text: 'Have standard x86 infrastructure, no immediate concerns', isCorrect: false, points: 0, feedback: 'This completely misses the infrastructure refresh opportunity and timing. You missed the age (6-8 years), end-of-life (12-18 months), performance limitations, and the opportunity to combine initiatives.' }
         ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What is your infrastructure refresh budget?',
           'Can you combine real-time payments with infrastructure refresh?',
@@ -837,11 +1041,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'What is your budget and timeline? Who needs to approve this investment?',
         purpose: 'Qualify opportunity and understand decision process',
         category: 'business',
-        idealResponse: '$4-6M budget approved. Need solution in 12-18 months to meet FedNow timeline. Board approval required. CIO is champion, CFO needs ROI case, CRO concerned about fraud risk.',
-        alternateResponses: [
-          'Budget is approved',
-          'Board wants this done quickly'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: '$4-6M budget approved, need solution in 12-18 months to meet FedNow timeline, board approval required, CIO is champion, CFO needs ROI case, CRO concerned about fraud risk', isCorrect: true, points: 4, feedback: 'Outstanding! You qualified the budget ($4-6M), timeline (12-18 months), approval process (board), and stakeholder positions (CIO champion, CFO needs ROI, CRO concerned about fraud). This provides complete qualification.' },
+          { id: 'q6-b', text: 'Budget of $4-6M approved, 12-18 month timeline for FedNow compliance, board must approve, multiple stakeholders involved', isCorrect: true, points: 3, feedback: 'Good qualification! You captured budget, timeline, approval level, and stakeholder complexity. Adding specific stakeholder positions would strengthen this.' },
+          { id: 'q6-c', text: 'Significant budget approved ($4-6M), aggressive timeline to meet FedNow, CIO is driving this, CFO and CRO must support', isCorrect: true, points: 3, feedback: 'Solid response identifying budget, timeline driver, and key stakeholders. Adding board approval requirement and specific stakeholder concerns would enhance this.' },
+          { id: 'q6-d', text: 'Budget is approved for real-time payments, need to implement quickly, multiple executives must agree', isCorrect: true, points: 3, feedback: 'Good identification of budget approval, urgency, and stakeholder complexity. Specific budget amount, timeline, and stakeholder positions would make this stronger.' },
+          { id: 'q6-e', text: 'Budget is being discussed, timeline is flexible, IT will decide', isCorrect: false, points: 0, feedback: 'This misses that budget is already approved ($4-6M) and timeline is fixed (12-18 months for FedNow). You also missed that board approval is required and multiple executives are involved.' },
+          { id: 'q6-f', text: 'Will determine budget based on proposals, no specific timeline', isCorrect: false, points: 0, feedback: 'This completely misses the qualification. Budget is approved ($4-6M), timeline is mandated (12-18 months for FedNow), board approval is required, and you missed all stakeholder dynamics.' }
         ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What ROI is required?',
           'Who are the key decision makers?',
@@ -854,11 +1066,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'Are you considering any competitors or alternative solutions? What are your evaluation criteria?',
         purpose: 'Understand competitive landscape and decision criteria',
         category: 'business',
-        idealResponse: 'Looking at FIS, Fiserv, and ACI for real-time payments. Key criteria: performance (<1 sec), fraud detection, FedNow/RTP support, reliability (99.99%), TCO. Open to best solution.',
-        alternateResponses: [
-          'Evaluating several vendors',
-          'Performance and fraud detection are critical'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Looking at FIS, Fiserv, and ACI for real-time payments, key criteria are performance (<1 sec), fraud detection, FedNow/RTP support, reliability (99.99%), and TCO, open to best solution', isCorrect: true, points: 4, feedback: 'Excellent! You identified the competitors (FIS, Fiserv, ACI), all key criteria (performance, fraud detection, FedNow/RTP, reliability, TCO), and openness to best solution. This provides complete competitive context.' },
+          { id: 'q7-b', text: 'Evaluating FIS, Fiserv, and ACI, key criteria are performance, fraud detection, and reliability, looking for best overall solution', isCorrect: true, points: 3, feedback: 'Good competitive discovery! You captured competitors and main criteria. Adding specific metrics (<1 sec, 99.99%, FedNow/RTP, TCO) would strengthen this.' },
+          { id: 'q7-c', text: 'Considering several payment vendors, performance and fraud detection are critical, need FedNow support and high reliability', isCorrect: true, points: 3, feedback: 'Solid response identifying competitive situation and key criteria. Naming specific competitors and adding TCO consideration would enhance this.' },
+          { id: 'q7-d', text: 'Multiple vendors being evaluated, looking at performance, reliability, and total cost, open to recommendations', isCorrect: true, points: 3, feedback: 'Good identification of competitive evaluation and criteria. Specific competitors and detailed criteria (fraud detection, FedNow, 99.99%) would make this stronger.' },
+          { id: 'q7-e', text: 'Not sure who else we\'re considering, IT will evaluate options', isCorrect: false, points: 0, feedback: 'This shows lack of competitive awareness. You missed that they\'re evaluating FIS, Fiserv, and ACI, and you missed all evaluation criteria (performance, fraud detection, FedNow/RTP, reliability, TCO).' },
+          { id: 'q7-f', text: 'Will look at various vendors, price is main consideration', isCorrect: false, points: 0, feedback: 'This oversimplifies the competitive situation. You missed specific competitors (FIS, Fiserv, ACI) and all key criteria beyond price (performance, fraud detection, FedNow/RTP, reliability).' }
         ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What are pros and cons of each option?',
           'What would make IBM preferred choice?',
@@ -871,11 +1091,19 @@ export const bankingScenario003: TrainingScenario = {
         question: 'How will you integrate real-time payments with your core banking system and other channels?',
         purpose: 'Identify integration complexity and requirements',
         category: 'technical',
-        idealResponse: 'Need to integrate with Fiserv core, mobile app, online banking, and business banking portal. All channels must support instant payments. Integration is complex - need proven approach and experience.',
-        alternateResponses: [
-          'Integration is a concern',
-          'Need to support all channels'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: 'Need to integrate with Fiserv core, mobile app, online banking, and business banking portal, all channels must support instant payments, integration is complex and need proven approach and experience', isCorrect: true, points: 4, feedback: 'Excellent! You identified the core system (Fiserv), all channels (mobile, online, business portal), requirement for universal support, and need for proven integration experience. This shows strong integration awareness.' },
+          { id: 'q8-b', text: 'Must integrate with Fiserv core banking and all customer channels including mobile and online banking, integration complexity is a concern, need experienced partner', isCorrect: true, points: 3, feedback: 'Good integration discovery! You captured the core system, channel requirements, and need for experience. Adding business banking portal and emphasizing proven approach would strengthen this.' },
+          { id: 'q8-c', text: 'Integration with core banking system and multiple channels required, all channels need instant payment support, looking for proven integration patterns', isCorrect: true, points: 3, feedback: 'Solid response identifying integration scope and need for proven approach. Naming specific systems (Fiserv) and channels would enhance this.' },
+          { id: 'q8-d', text: 'Need to connect with core banking and customer channels, integration is complex, want partner with integration experience', isCorrect: true, points: 3, feedback: 'Good identification of integration requirements and experience need. Specific systems (Fiserv) and channels (mobile, online, business) would make this stronger.' },
+          { id: 'q8-e', text: 'Will integrate with core system, standard APIs should work', isCorrect: false, points: 0, feedback: 'This underestimates integration complexity. You missed that it\'s Fiserv core, must integrate with mobile, online, and business banking, all channels need support, and proven experience is critical.' },
+          { id: 'q8-f', text: 'Integration is not a major concern, systems are modern', isCorrect: false, points: 0, feedback: 'This completely misses the integration challenge. You missed Fiserv core integration, multiple channel requirements (mobile, online, business), universal support need, and the complexity requiring proven experience.' }
         ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What integration challenges do you anticipate?',
           'Do you have API infrastructure?',
@@ -921,16 +1149,18 @@ export const bankingScenario003: TrainingScenario = {
         stakeholder: 'Chief Risk Officer',
         difficulty: 'difficult',
         category: 'risk',
-        customResponse: 'You\'re absolutely right - fraud risk is the #1 concern with instant payments. That\'s why real-time fraud detection is essential. IBM Watson can score every payment in milliseconds using AI/ML to detect fraud patterns before the payment is sent. We analyze hundreds of factors - transaction history, behavior patterns, device fingerprinting, velocity checks. Banks using Watson for real-time payments have fraud rates <0.01% - lower than ACH. We can also implement transaction limits, customer authentication, and risk-based controls. The key is preventing fraud before payment, not after. Would you like to see how Watson fraud detection works for instant payments?',
-        scoringCriteria: [
-          'Acknowledged fraud risk is real and serious',
-          'Explained Watson real-time fraud detection (<milliseconds)',
-          'Mentioned AI/ML analyzing hundreds of factors',
-          'Provided fraud rate statistics (<0.01%)',
-          'Described layered controls (limits, auth, risk-based)',
-          'Emphasized prevention before payment',
-          'Offered demo of fraud detection'
+        responseChoices: [
+          { id: 'obj1-a', text: 'Acknowledge fraud risk is real and serious, explain Watson real-time fraud detection scores every payment in milliseconds using AI/ML analyzing hundreds of factors, banks achieve <0.01% fraud rates (lower than ACH), implement layered controls (limits, authentication, risk-based), emphasize prevention before payment not after, offer demo', isCorrect: true, points: 4, feedback: 'Outstanding! You acknowledged the risk, explained Watson\'s millisecond AI/ML fraud detection, provided compelling statistics (<0.01%), described layered controls, emphasized prevention timing, and offered a demo. This addresses all concerns comprehensively.' },
+          { id: 'obj1-b', text: 'Fraud risk is valid concern, Watson provides real-time AI/ML fraud detection in milliseconds, banks using Watson have very low fraud rates, implement multiple fraud controls, prevention before payment is critical', isCorrect: true, points: 3, feedback: 'Good response! You acknowledged the risk, explained Watson\'s real-time capability, and emphasized prevention. Adding specific fraud rate statistics (<0.01%) and offering a demo would strengthen this.' },
+          { id: 'obj1-c', text: 'Real-time fraud detection is essential for instant payments, Watson AI/ML analyzes transaction patterns in milliseconds, implement transaction limits and authentication, focus on preventing fraud before payment', isCorrect: true, points: 3, feedback: 'Solid response covering real-time detection, AI/ML capability, and prevention focus. Acknowledging the risk concern and providing fraud rate statistics would enhance this.' },
+          { id: 'obj1-d', text: 'Watson fraud detection works in real-time using AI/ML, banks have low fraud rates with instant payments, multiple fraud controls available, can demonstrate the solution', isCorrect: true, points: 3, feedback: 'Good coverage of Watson capability and controls. Acknowledging the risk, providing specific statistics (<0.01%), and emphasizing prevention timing would make this stronger.' },
+          { id: 'obj1-e', text: 'We have fraud detection tools that should work fine for instant payments', isCorrect: false, points: 0, feedback: 'This dismisses a critical concern. You missed acknowledging the irrevocability risk, explaining Watson\'s millisecond AI/ML detection, providing fraud rate statistics, describing layered controls, and emphasizing prevention before payment.' },
+          { id: 'obj1-f', text: 'Fraud is always a risk in banking, we\'ll implement standard controls', isCorrect: false, points: 0, feedback: 'Too generic for instant payment fraud risk. You missed the irrevocability concern, Watson\'s real-time AI/ML capability, fraud rate statistics (<0.01%), layered controls, prevention timing, and demo offer.' }
         ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Fraud risk is real - acknowledge it',
           'Watson scores payments in milliseconds',
@@ -943,16 +1173,18 @@ export const bankingScenario003: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'common',
         category: 'performance',
-        customResponse: 'Excellent question - 99.99% availability is table stakes for payment systems. IBM Power Systems are designed for this - we have customers running mission-critical banking workloads with 99.999% availability (5 minutes downtime per year). Power has redundant everything - processors, memory, I/O, power supplies. PowerVM provides live partition mobility for zero-downtime maintenance. FlashSystem has dual controllers and no single point of failure. We also provide disaster recovery with automated failover. Many banks run payment systems on Power with better than 99.99% availability. IBM can include availability guarantees in the contract with SLA penalties if we don\'t meet them. Would you like to see reference architectures for high-availability payment systems?',
-        scoringCriteria: [
-          'Acknowledged 99.99% is required',
-          'Explained Power Systems reliability (99.999%)',
-          'Described redundancy (processors, memory, I/O)',
-          'Mentioned PowerVM live partition mobility',
-          'Highlighted FlashSystem dual controllers',
-          'Offered availability guarantees with SLA penalties',
-          'Provided reference architectures'
+        responseChoices: [
+          { id: 'obj2-a', text: 'Acknowledge 99.99% is required, Power Systems achieve 99.999% availability (5 minutes downtime per year), redundant everything (processors, memory, I/O, power), PowerVM live partition mobility for zero-downtime maintenance, FlashSystem dual controllers, offer availability guarantees with SLA penalties, provide reference architectures', isCorrect: true, points: 4, feedback: 'Excellent! You acknowledged the requirement, exceeded it with Power\'s 99.999% capability, explained comprehensive redundancy, highlighted zero-downtime features, offered contractual guarantees with penalties, and provided references. This fully addresses the concern.' },
+          { id: 'obj2-b', text: 'Power Systems designed for 99.999% availability, redundant processors, memory, and I/O, PowerVM enables zero-downtime maintenance, FlashSystem has no single point of failure, can include availability guarantees in contract', isCorrect: true, points: 3, feedback: 'Good response! You explained Power\'s superior availability and redundancy features. Adding SLA penalties and reference architectures would strengthen this.' },
+          { id: 'obj2-c', text: 'IBM Power Systems achieve better than 99.99% availability, comprehensive redundancy throughout the system, zero-downtime maintenance capabilities, disaster recovery with automated failover', isCorrect: true, points: 3, feedback: 'Solid response covering availability capability and key features. Adding specific availability metrics (99.999%), SLA guarantees, and references would enhance this.' },
+          { id: 'obj2-d', text: 'Power Systems meet and exceed 99.99% requirement, redundant architecture, live partition mobility, dual controller storage, can provide availability guarantees', isCorrect: true, points: 3, feedback: 'Good coverage of capability and features. Adding specific metrics (99.999%, 5 minutes/year), SLA penalties, and reference architectures would make this stronger.' },
+          { id: 'obj2-e', text: 'Our systems are highly reliable and should meet your availability needs', isCorrect: false, points: 0, feedback: 'Too vague for a critical requirement. You missed Power\'s 99.999% capability, comprehensive redundancy, PowerVM zero-downtime features, FlashSystem dual controllers, SLA guarantees with penalties, and reference architectures.' },
+          { id: 'obj2-f', text: 'We have good uptime with our infrastructure, availability shouldn\'t be a problem', isCorrect: false, points: 0, feedback: 'This doesn\'t address the specific requirement. You missed Power\'s 99.999% capability, redundancy details, zero-downtime maintenance, contractual guarantees, and the opportunity to exceed their expectations.' }
         ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Power Systems achieve 99.999% availability',
           'Redundant everything - no single point of failure',
@@ -965,16 +1197,18 @@ export const bankingScenario003: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'common',
         category: 'cost',
-        customResponse: 'I understand - $4-6M is a significant investment. Let\'s look at the business case. You\'re losing $2M annually in payment revenue plus $50M in business customer deposits (5% attrition). That\'s $2.5M+ in annual losses. Real-time payments will generate $3M+ in new revenue from payment fees, business customers, and new use cases. You\'ll also save on infrastructure costs. Total benefit is $5M+ annually. With $5M investment, payback is 12 months. Over 5 years, that\'s $25M in benefits vs. $5M investment - 5:1 ROI. Plus you avoid the cost of doing nothing - continued customer losses and falling further behind competitors. This is a strategic investment in staying competitive. Would you like a detailed ROI model?',
-        scoringCriteria: [
-          'Acknowledged investment size',
-          'Quantified current losses ($2M revenue + $50M deposits)',
-          'Calculated new revenue ($3M+ annually)',
-          'Showed payback period (12 months)',
-          'Calculated 5-year ROI (5:1)',
-          'Mentioned cost of doing nothing',
-          'Offered detailed ROI model'
+        responseChoices: [
+          { id: 'obj3-a', text: 'Acknowledge investment size, quantify current losses ($2M revenue + $50M deposits = $2.5M+ annually), calculate new revenue ($3M+ annually), show 12-month payback, calculate 5-year ROI (5:1 = $25M benefits vs $5M investment), emphasize cost of doing nothing (continued losses), offer detailed ROI model', isCorrect: true, points: 4, feedback: 'Outstanding! You acknowledged the investment, quantified all losses and gains, showed clear payback and ROI, emphasized the cost of inaction, and offered detailed analysis. This provides a complete business case.' },
+          { id: 'obj3-b', text: 'Current losses are $2M+ annually in revenue and customer deposits, real-time payments will generate $3M+ in new revenue, payback is 12 months, 5-year ROI is 5:1, avoiding continued losses is critical', isCorrect: true, points: 3, feedback: 'Good business case! You quantified losses and gains with clear payback and ROI. Adding acknowledgment of investment size and offering detailed ROI model would strengthen this.' },
+          { id: 'obj3-c', text: 'Losing significant revenue and customers currently, real-time payments will generate substantial new revenue, payback period is short, strong ROI over 5 years, cost of doing nothing is high', isCorrect: true, points: 3, feedback: 'Solid response covering losses, gains, and ROI. Adding specific numbers ($2M, $3M, 12 months, 5:1) and offering detailed model would enhance this.' },
+          { id: 'obj3-d', text: 'Investment will pay back quickly through new payment revenue and customer retention, strong ROI, avoiding continued competitive losses, can provide detailed financial analysis', isCorrect: true, points: 3, feedback: 'Good coverage of payback and ROI. Adding specific loss and gain amounts, payback period, and ROI ratio would make this stronger.' },
+          { id: 'obj3-e', text: 'The investment will pay for itself over time through increased revenue', isCorrect: false, points: 0, feedback: 'Too vague for a CFO. You missed quantifying current losses ($2M+ annually), new revenue ($3M+), payback period (12 months), ROI calculation (5:1), cost of doing nothing, and offering detailed ROI model.' },
+          { id: 'obj3-f', text: 'This is a necessary investment to stay competitive in the market', isCorrect: false, points: 0, feedback: 'This doesn\'t provide financial justification. You missed all quantification: current losses, new revenue, payback period, ROI calculation, and the detailed business case a CFO needs.' }
         ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Current losses are $2M+ annually',
           'New revenue is $3M+ annually',
@@ -987,16 +1221,18 @@ export const bankingScenario003: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'difficult',
         category: 'strategy',
-        customResponse: 'That\'s a fair question - outsourcing seems simpler. However, third-party processors charge 1-2% per transaction plus monthly fees. At your volumes (100K daily transactions), that\'s $3-5M annually in fees - more than owning the infrastructure. You also lose control over customer experience, data, and pricing. Third parties can raise fees anytime. Most importantly, you miss the strategic value - payment processing should be a revenue center, not a cost center. Owning the infrastructure lets you offer competitive pricing, keep customer data, and build payment services as a differentiator. Banks that own their payment infrastructure have 40% higher payment revenue than those who outsource. This is a strategic asset. Would you like to see a build vs. outsource TCO comparison?',
-        scoringCriteria: [
-          'Acknowledged outsourcing appeal',
-          'Quantified third-party costs (1-2% + fees = $3-5M annually)',
-          'Highlighted loss of control (experience, data, pricing)',
-          'Emphasized strategic value (revenue center vs. cost center)',
-          'Mentioned competitive pricing and differentiation',
-          'Provided industry data (40% higher revenue)',
-          'Offered TCO comparison'
+        responseChoices: [
+          { id: 'obj4-a', text: 'Acknowledge outsourcing appeal, quantify third-party costs (1-2% per transaction + fees = $3-5M annually at 100K daily volume), highlight loss of control (customer experience, data, pricing), emphasize strategic value (revenue center vs cost center), mention competitive pricing and differentiation, provide industry data (40% higher revenue for banks that own infrastructure), offer TCO comparison', isCorrect: true, points: 4, feedback: 'Excellent! You acknowledged the appeal, quantified outsourcing costs, explained control and strategic implications, provided compelling industry data, and offered TCO analysis. This makes a complete strategic case.' },
+          { id: 'obj4-b', text: 'Third-party processors charge $3-5M annually at your volumes, you lose control over customer experience and pricing, payment processing should be revenue center not cost center, banks that own infrastructure have 40% higher payment revenue', isCorrect: true, points: 3, feedback: 'Good strategic response! You quantified costs, explained control loss, and provided industry data. Acknowledging the appeal and offering TCO comparison would strengthen this.' },
+          { id: 'obj4-c', text: 'Outsourcing costs more than owning at scale ($3-5M annually), lose control over customer data and pricing, payment infrastructure is strategic asset for differentiation, owning enables higher revenue', isCorrect: true, points: 3, feedback: 'Solid response covering costs, control, and strategic value. Adding specific industry data (40% higher revenue) and offering TCO comparison would enhance this.' },
+          { id: 'obj4-d', text: 'Third-party fees are substantial at your transaction volumes, you lose strategic control and differentiation, payment processing should be revenue generator, can provide build vs outsource analysis', isCorrect: true, points: 3, feedback: 'Good coverage of costs and strategic implications. Adding specific cost quantification ($3-5M) and industry data would make this stronger.' },
+          { id: 'obj4-e', text: 'Building your own infrastructure gives you more control and flexibility', isCorrect: false, points: 0, feedback: 'Too vague for a strategic decision. You missed quantifying outsourcing costs ($3-5M annually), explaining control loss, emphasizing revenue center vs cost center, providing industry data (40% higher revenue), and offering TCO comparison.' },
+          { id: 'obj4-f', text: 'Outsourcing might seem easier but owning is better long-term', isCorrect: false, points: 0, feedback: 'This doesn\'t make the strategic case. You missed all quantification, control implications, strategic value explanation, industry data, and the detailed TCO comparison needed for this decision.' }
         ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Third-party fees are $3-5M annually at scale',
           'You lose control over experience and pricing',
@@ -1009,16 +1245,18 @@ export const bankingScenario003: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'common',
         category: 'technical',
-        customResponse: 'Excellent question - core integration is critical. IBM has extensive experience integrating with Fiserv - we have pre-built connectors and integration patterns for real-time payments. We\'ve done this integration dozens of times with other banks. The payment platform connects via Fiserv\'s APIs for account validation, balance checks, and posting. We support both real-time and batch integration. IBM can do a technical assessment to map out the specific integration architecture and identify any custom requirements. We also have reference customers running IBM real-time payments with Fiserv core. Integration typically takes 8-12 weeks and is part of our standard implementation. Would you like to speak with a reference customer using Fiserv?',
-        scoringCriteria: [
-          'Acknowledged integration importance',
-          'Highlighted Fiserv experience and pre-built connectors',
-          'Explained integration approach (APIs, real-time)',
-          'Provided timeline (8-12 weeks)',
-          'Offered technical assessment',
-          'Mentioned reference customers with Fiserv',
-          'Positioned as standard implementation'
+        responseChoices: [
+          { id: 'obj5-a', text: 'Acknowledge integration is critical, highlight IBM extensive Fiserv experience with pre-built connectors and integration patterns, done dozens of times with other banks, explain integration via Fiserv APIs (account validation, balance checks, posting), provide timeline (8-12 weeks), offer technical assessment, mention reference customers with Fiserv, position as standard implementation', isCorrect: true, points: 4, feedback: 'Outstanding! You acknowledged importance, demonstrated extensive Fiserv experience, explained technical approach, provided timeline, offered assessment and references, and positioned as proven. This fully addresses the integration concern.' },
+          { id: 'obj5-b', text: 'IBM has extensive Fiserv integration experience with pre-built connectors, done this integration many times, connects via Fiserv APIs, takes 8-12 weeks as standard implementation, have reference customers using Fiserv', isCorrect: true, points: 3, feedback: 'Good response! You demonstrated experience, explained approach, and provided timeline and references. Offering technical assessment would strengthen this.' },
+          { id: 'obj5-c', text: 'Pre-built connectors for Fiserv core banking, proven integration patterns from other banks, standard API integration approach, typical 8-12 week timeline, can provide reference customers', isCorrect: true, points: 3, feedback: 'Solid response covering connectors, proven approach, and timeline. Acknowledging importance and offering technical assessment would enhance this.' },
+          { id: 'obj5-d', text: 'IBM has done Fiserv integration many times, pre-built connectors available, standard implementation process, reference customers can validate, can assess your specific requirements', isCorrect: true, points: 3, feedback: 'Good coverage of experience and approach. Adding technical details (APIs, timeline) and emphasizing proven patterns would make this stronger.' },
+          { id: 'obj5-e', text: 'We can integrate with most core banking systems including Fiserv', isCorrect: false, points: 0, feedback: 'Too generic for a critical concern. You missed IBM\'s extensive Fiserv experience, pre-built connectors, proven patterns, technical approach (APIs), timeline (8-12 weeks), technical assessment offer, and reference customers.' },
+          { id: 'obj5-f', text: 'Integration should be straightforward with standard APIs', isCorrect: false, points: 0, feedback: 'This underestimates the concern. You missed demonstrating specific Fiserv experience, pre-built connectors, proven patterns from dozens of implementations, timeline, assessment offer, and reference customers.' }
         ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'IBM has pre-built Fiserv connectors',
           'Integration done dozens of times',
@@ -3715,7 +3953,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'What is driving your need for a customer data platform right now?',
         purpose: 'Understand business drivers and urgency',
         category: 'pain-point',
-        idealResponse: 'We are losing customers at 12% annually and cannot predict who will churn. Our marketing campaigns have 0.8% response rates because we cannot personalize offers. Customer data is scattered across 15+ systems, making it impossible to create unified views. This is costing us $18M in lost revenue plus $8M in wasted marketing spend. Our competitors are winning with superior personalization.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Losing customers at 12% annually and cannot predict who will churn, marketing campaigns have 0.8% response rates because cannot personalize offers, customer data scattered across 15+ systems making unified views impossible, costing $18M in lost revenue plus $8M in wasted marketing spend, competitors winning with superior personalization', isCorrect: true, points: 4, feedback: 'Excellent! You identified the quantified churn rate (12%), poor marketing performance (0.8%), data fragmentation (15+ systems), financial impact ($18M + $8M), and competitive pressure. This demonstrates comprehensive understanding of business drivers.' },
+          { id: 'q1-b', text: 'High customer churn rate with no prediction capability, marketing campaigns ineffective due to lack of personalization, data scattered across many systems, significant revenue loss, competitive disadvantage', isCorrect: true, points: 3, feedback: 'Good discovery! You captured churn, marketing ineffectiveness, data fragmentation, revenue impact, and competition. Adding specific metrics (12% churn, 0.8% response, $26M impact) would strengthen this.' },
+          { id: 'q1-c', text: 'Cannot predict customer churn, marketing response rates below industry average, customer data in disconnected systems, losing revenue and customers to competitors', isCorrect: true, points: 3, feedback: 'Solid response identifying churn prediction gap, marketing underperformance, data silos, and competitive threat. Quantifying the impact would enhance this.' },
+          { id: 'q1-d', text: 'Customer retention challenges, ineffective marketing, data integration problems, revenue loss, need to compete better', isCorrect: true, points: 3, feedback: 'Good identification of key issues. Adding specific metrics (12% churn, 0.8% response, 15+ systems, $26M impact) would make this more compelling.' },
+          { id: 'q1-e', text: 'Want to improve customer experience and marketing effectiveness', isCorrect: false, points: 0, feedback: 'Too vague for business justification. You missed quantified churn (12%), marketing performance (0.8% vs 3-5%), data fragmentation (15+ systems), financial impact ($26M), and competitive pressure.' },
+          { id: 'q1-f', text: 'Looking to modernize our data infrastructure and analytics', isCorrect: false, points: 0, feedback: 'This is technology-focused without business drivers. You missed the churn crisis, marketing failure, data silos, massive revenue loss, and competitive threat that create urgency.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         followUpQuestions: [
           'What is your current customer churn rate and what does each lost customer cost?',
@@ -3727,7 +3977,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'How many systems contain customer data today, and what are the integration challenges?',
         purpose: 'Assess technical complexity and integration requirements',
         category: 'technical',
-        idealResponse: 'We have customer data in 15+ systems including core banking, CRM, marketing automation, mobile banking, online banking, call center, branch systems, loan origination, credit cards, and wealth management. Each system has its own customer ID and data model. There is no master data management. Data quality varies significantly. Manual data aggregation takes 2-3 weeks and is error-prone. We need real-time data integration and unified customer IDs.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Customer data in 15+ systems including core banking, CRM, marketing automation, mobile banking, online banking, call center, branch systems, loan origination, credit cards, and wealth management, each system has own customer ID and data model, no master data management, data quality varies significantly, manual data aggregation takes 2-3 weeks and is error-prone, need real-time data integration and unified customer IDs', isCorrect: true, points: 4, feedback: 'Outstanding! You identified the scope (15+ systems), specific systems, data model inconsistencies, lack of MDM, data quality issues, manual process inefficiency (2-3 weeks), and integration requirements. This provides complete technical context.' },
+          { id: 'q2-b', text: 'Data in 15+ disconnected systems with different customer IDs, no master data management, significant data quality issues, manual aggregation takes weeks, need real-time integration', isCorrect: true, points: 3, feedback: 'Good technical discovery! You captured system count, ID inconsistency, MDM gap, quality issues, and manual inefficiency. Naming specific systems would strengthen this.' },
+          { id: 'q2-c', text: 'Customer data scattered across many systems including core banking, CRM, and digital channels, each with different data models, manual data work is time-consuming and error-prone, need unified customer view', isCorrect: true, points: 3, feedback: 'Solid response identifying data fragmentation, model inconsistencies, and manual inefficiency. Adding specific count (15+) and timeframe (2-3 weeks) would enhance this.' },
+          { id: 'q2-d', text: 'Multiple disconnected systems with customer data, no unified view, data quality problems, manual processes are slow, need better integration', isCorrect: true, points: 3, feedback: 'Good identification of key challenges. Specific system count, examples, and timeframes would make this more actionable.' },
+          { id: 'q2-e', text: 'Have several systems with customer data, some integration challenges', isCorrect: false, points: 0, feedback: 'Too vague for technical assessment. You missed the scope (15+ systems), specific systems, data model inconsistencies, MDM gap, quality issues, manual inefficiency (2-3 weeks), and integration requirements.' },
+          { id: 'q2-f', text: 'Standard banking systems, typical data integration needs', isCorrect: false, points: 0, feedback: 'This completely misses the complexity. You missed 15+ disconnected systems, different customer IDs, no MDM, significant quality issues, 2-3 week manual processes, and the urgent need for real-time integration.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         followUpQuestions: [
           'What is your current approach to data integration?',
@@ -3739,7 +4001,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'What specific personalization capabilities do you need to compete effectively?',
         purpose: 'Understand business requirements and use cases',
         category: 'business',
-        idealResponse: 'We need to predict customer churn and proactively retain at-risk customers. We need to personalize product recommendations based on life events, transaction patterns, and financial goals. We need to optimize marketing campaigns with AI-driven targeting and timing. We need real-time next-best-action recommendations for customer service reps. We need to identify cross-sell opportunities automatically. We need to segment customers dynamically for targeted campaigns.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Need to predict customer churn and proactively retain at-risk customers, personalize product recommendations based on life events, transaction patterns, and financial goals, optimize marketing campaigns with AI-driven targeting and timing, provide real-time next-best-action recommendations for customer service reps, identify cross-sell opportunities automatically, segment customers dynamically for targeted campaigns', isCorrect: true, points: 4, feedback: 'Excellent! You identified all key use cases: churn prediction, personalized recommendations, campaign optimization, next-best-action, cross-sell identification, and dynamic segmentation. This demonstrates comprehensive understanding of personalization requirements.' },
+          { id: 'q3-b', text: 'Predict and prevent customer churn, personalize product recommendations, optimize marketing campaigns with AI, provide next-best-action for service reps, automate cross-sell identification', isCorrect: true, points: 3, feedback: 'Good use case discovery! You captured major personalization needs. Adding dynamic segmentation and specific data inputs (life events, transaction patterns) would strengthen this.' },
+          { id: 'q3-c', text: 'Churn prediction and retention, personalized offers based on customer behavior, AI-driven marketing optimization, real-time recommendations for customer service, automated opportunity identification', isCorrect: true, points: 3, feedback: 'Solid response covering key use cases. Adding specific examples (life events, financial goals, dynamic segmentation) would enhance this.' },
+          { id: 'q3-d', text: 'Need to predict churn, personalize marketing, optimize campaigns, help service reps with recommendations, find cross-sell opportunities', isCorrect: true, points: 3, feedback: 'Good identification of core needs. More detail on AI-driven approaches and real-time capabilities would make this stronger.' },
+          { id: 'q3-e', text: 'Want to improve customer targeting and marketing effectiveness', isCorrect: false, points: 0, feedback: 'Too vague for requirements gathering. You missed specific use cases: churn prediction, personalized recommendations, campaign optimization, next-best-action, cross-sell automation, and dynamic segmentation.' },
+          { id: 'q3-f', text: 'Need better customer insights and analytics', isCorrect: false, points: 0, feedback: 'This lacks specific personalization requirements. You missed churn prediction, product recommendations, AI-driven campaigns, next-best-action, cross-sell identification, and dynamic segmentation use cases.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         followUpQuestions: [
           'What is your current marketing campaign response rate vs industry benchmarks?',
@@ -3751,7 +4025,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'What analytics and AI capabilities do you need to support data-driven decision making?',
         purpose: 'Assess analytics requirements and AI readiness',
         category: 'technical',
-        idealResponse: 'We need predictive analytics for churn prediction, propensity modeling for product recommendations, customer lifetime value calculations, and campaign optimization. We need machine learning models for fraud detection, credit risk assessment, and personalization. We need real-time analytics dashboards for marketing, customer service, and executives. We need self-service analytics for business users. We need to operationalize AI models in production.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Need predictive analytics for churn prediction, propensity modeling for product recommendations, customer lifetime value calculations, and campaign optimization, machine learning models for fraud detection, credit risk assessment, and personalization, real-time analytics dashboards for marketing, customer service, and executives, self-service analytics for business users, need to operationalize AI models in production', isCorrect: true, points: 4, feedback: 'Outstanding! You identified all analytics needs: predictive analytics (churn, propensity, CLV, campaigns), ML models (fraud, risk, personalization), real-time dashboards, self-service analytics, and AI operationalization. This shows comprehensive analytics understanding.' },
+          { id: 'q4-b', text: 'Predictive analytics for churn and recommendations, machine learning for fraud and personalization, real-time dashboards, self-service analytics for business users, production AI deployment', isCorrect: true, points: 3, feedback: 'Good analytics discovery! You captured key capabilities. Adding specific use cases (propensity modeling, CLV, campaign optimization, credit risk) would strengthen this.' },
+          { id: 'q4-c', text: 'Need predictive models for customer behavior, ML for fraud and risk, real-time analytics dashboards, business user self-service, ability to deploy AI models', isCorrect: true, points: 3, feedback: 'Solid response covering major analytics needs. More specific use cases and operationalization details would enhance this.' },
+          { id: 'q4-d', text: 'Predictive analytics, machine learning capabilities, real-time dashboards, self-service tools, AI model deployment', isCorrect: true, points: 3, feedback: 'Good identification of core capabilities. Specific use cases (churn, propensity, CLV, fraud, risk, personalization) would make this more actionable.' },
+          { id: 'q4-e', text: 'Want advanced analytics and AI capabilities for better insights', isCorrect: false, points: 0, feedback: 'Too vague for technical requirements. You missed specific needs: predictive analytics, propensity modeling, CLV, ML models, real-time dashboards, self-service analytics, and AI operationalization.' },
+          { id: 'q4-f', text: 'Need reporting and analytics tools', isCorrect: false, points: 0, feedback: 'This vastly underestimates requirements. You missed predictive analytics, ML models, real-time capabilities, self-service, and the critical need to operationalize AI in production.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         followUpQuestions: [
           'What is your current analytics maturity level?',
@@ -3763,7 +4049,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'What are your data governance, privacy, and compliance requirements?',
         purpose: 'Understand regulatory and governance constraints',
         category: 'technical',
-        idealResponse: 'We must comply with GDPR, CCPA, GLBA, and fair lending regulations. We need consent management for marketing communications. We need data lineage and audit trails for regulatory reporting. We need role-based access controls and data masking for sensitive information. We need to ensure data quality and consistency across all systems. We need master data management for customer identities. We have a Chief Data Officer responsible for governance.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Must comply with GDPR, CCPA, GLBA, and fair lending regulations, need consent management for marketing communications, need data lineage and audit trails for regulatory reporting, need role-based access controls and data masking for sensitive information, need to ensure data quality and consistency across all systems, need master data management for customer identities, have Chief Data Officer responsible for governance', isCorrect: true, points: 4, feedback: 'Excellent! You identified all compliance requirements (GDPR, CCPA, GLBA, fair lending), consent management, data lineage, access controls, data masking, quality/consistency needs, MDM requirement, and governance ownership. This demonstrates comprehensive compliance understanding.' },
+          { id: 'q5-b', text: 'GDPR, CCPA, and GLBA compliance required, need consent management and audit trails, role-based access and data masking for sensitive data, master data management needed, Chief Data Officer oversees governance', isCorrect: true, points: 3, feedback: 'Good compliance discovery! You captured major regulations, consent, auditing, security, and governance. Adding fair lending and data quality/consistency would strengthen this.' },
+          { id: 'q5-c', text: 'Must comply with data privacy regulations including GDPR and CCPA, need consent management, audit trails, access controls, data masking, master data management', isCorrect: true, points: 3, feedback: 'Solid response covering privacy regulations and key controls. Adding GLBA, fair lending, data quality requirements, and CDO ownership would enhance this.' },
+          { id: 'q5-d', text: 'Privacy and compliance regulations required, consent management, audit capabilities, security controls, data governance processes, master data management', isCorrect: true, points: 3, feedback: 'Good identification of governance needs. Specific regulations (GDPR, CCPA, GLBA, fair lending) and CDO ownership would make this more complete.' },
+          { id: 'q5-e', text: 'Need to comply with banking regulations and data privacy laws', isCorrect: false, points: 0, feedback: 'Too vague for compliance requirements. You missed specific regulations (GDPR, CCPA, GLBA, fair lending), consent management, data lineage, access controls, data masking, MDM, and CDO governance.' },
+          { id: 'q5-f', text: 'Standard banking compliance and security requirements', isCorrect: false, points: 0, feedback: 'This lacks all specifics. You missed GDPR, CCPA, GLBA, fair lending, consent management, audit trails, access controls, data masking, data quality, MDM, and governance structure.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         followUpQuestions: [
           'What are your biggest compliance concerns with customer data?',
@@ -3775,7 +4073,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'What is your timeline for implementing a customer data platform, and what are the key milestones?',
         purpose: 'Understand project timeline and implementation approach',
         category: 'timeline',
-        idealResponse: 'We need to start within 3 months and complete implementation in 12-18 months. Phase 1 (6 months): Integrate core systems and create unified customer views. Phase 2 (6 months): Implement predictive analytics and churn models. Phase 3 (6 months): Deploy AI-driven personalization and campaign optimization. We need quick wins to demonstrate value and secure ongoing funding. Board approval required for investments over $5M.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'Need to start within 3 months and complete in 12-18 months, Phase 1 (6 months): integrate core systems and create unified customer views, Phase 2 (6 months): implement predictive analytics and churn models, Phase 3 (6 months): deploy AI-driven personalization and campaign optimization, need quick wins to demonstrate value and secure ongoing funding, board approval required for investments over $5M', isCorrect: true, points: 4, feedback: 'Outstanding! You captured start timing (3 months), total duration (12-18 months), all three phases with specific deliverables, need for quick wins, and board approval requirement. This provides complete timeline context.' },
+          { id: 'q6-b', text: 'Start within 3 months, 12-18 month implementation, phased approach with unified views first, then analytics, then personalization, need to show quick wins, board approval required', isCorrect: true, points: 3, feedback: 'Good timeline discovery! You captured timing, duration, phased approach, and approval. Adding specific phase durations (6 months each) would strengthen this.' },
+          { id: 'q6-c', text: '12-18 month timeline with phased implementation, start with data integration, add predictive analytics, then personalization, need early value demonstration, board must approve', isCorrect: true, points: 3, feedback: 'Solid response covering duration, phases, and approval. Adding start timing (3 months) and specific phase durations would enhance this.' },
+          { id: 'q6-d', text: 'Phased implementation over 12-18 months, data integration first, analytics second, personalization third, need quick wins, board approval needed', isCorrect: true, points: 3, feedback: 'Good identification of approach and phases. Start timing and specific phase durations (6 months each) would make this more actionable.' },
+          { id: 'q6-e', text: 'Want to implement as soon as possible, flexible on timeline', isCorrect: false, points: 0, feedback: 'Too vague for project planning. You missed start timing (3 months), duration (12-18 months), three 6-month phases, specific deliverables, quick win requirement, and board approval.' },
+          { id: 'q6-f', text: 'Standard implementation timeline, will determine phases later', isCorrect: false, points: 0, feedback: 'This lacks all planning details. You missed 3-month start, 12-18 month duration, three phases (unified views, analytics, personalization), quick wins, and board approval requirement.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 8,
         followUpQuestions: [
           'What quick wins would demonstrate value to stakeholders?',
@@ -3787,7 +4097,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'What is your budget range for this initiative, including software, infrastructure, and services?',
         purpose: 'Qualify budget and investment capacity',
         category: 'budget',
-        idealResponse: 'We have allocated $5-8M for this initiative. This includes software licenses, infrastructure, professional services for implementation, and ongoing support. We are currently spending $4M annually on manual data aggregation and ineffective marketing. We are losing $18M annually from customer churn. We need to demonstrate ROI within 12-18 months to justify the investment. CFO requires detailed business case with quantified benefits.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Allocated $5-8M for this initiative including software licenses, infrastructure, professional services for implementation, and ongoing support, currently spending $4M annually on manual data aggregation and ineffective marketing, losing $18M annually from customer churn, need to demonstrate ROI within 12-18 months to justify investment, CFO requires detailed business case with quantified benefits', isCorrect: true, points: 4, feedback: 'Excellent! You qualified the budget ($5-8M), scope (software, infrastructure, services), current costs ($4M), churn impact ($18M), ROI timeframe (12-18 months), and CFO requirement for business case. This provides complete financial context.' },
+          { id: 'q7-b', text: 'Budget of $5-8M allocated, currently spending $4M on manual processes, losing $18M from churn, need ROI within 12-18 months, CFO needs strong business case', isCorrect: true, points: 3, feedback: 'Good budget qualification! You captured budget, current costs, churn impact, ROI timing, and CFO requirement. Adding scope details (software, infrastructure, services) would strengthen this.' },
+          { id: 'q7-c', text: '$5-8M budget available, significant current costs from manual work and customer churn, need to show ROI within 12-18 months, CFO requires quantified benefits', isCorrect: true, points: 3, feedback: 'Solid response covering budget and ROI requirements. Adding specific current costs ($4M, $18M) and scope components would enhance this.' },
+          { id: 'q7-d', text: 'Budget allocated for CDP initiative, currently have high costs from inefficient processes and churn, need to demonstrate ROI, CFO approval required', isCorrect: true, points: 3, feedback: 'Good identification of budget and requirements. Specific amounts ($5-8M, $4M, $18M) and ROI timeframe would make this more actionable.' },
+          { id: 'q7-e', text: 'Have budget for this project, will determine exact amount based on proposals', isCorrect: false, points: 0, feedback: 'This doesn\'t qualify the opportunity. You missed budget range ($5-8M), current costs ($4M manual, $18M churn), ROI requirement (12-18 months), and CFO\'s need for detailed business case.' },
+          { id: 'q7-f', text: 'Budget is flexible depending on value delivered', isCorrect: false, points: 0, feedback: 'This lacks all financial qualification. You missed $5-8M budget, $4M current costs, $18M churn loss, 12-18 month ROI requirement, and CFO\'s business case requirement.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 8,
         followUpQuestions: [
           'What is the cost of your current manual processes?',
@@ -3799,7 +4121,19 @@ export const bankingScenario008: TrainingScenario = {
         question: 'Who are the key stakeholders and decision makers for this project?',
         purpose: 'Identify decision makers and influencers',
         category: 'stakeholder',
-        idealResponse: 'Chief Marketing Officer is the executive sponsor - she owns the customer experience and churn problem. CIO is responsible for technology implementation and integration. Chief Data Officer manages data governance and quality. CFO controls budget and requires strong business case. We also need buy-in from heads of retail banking, digital channels, and customer service. Board approval required for investments over $5M. Decision timeline is 2-3 months.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: 'Chief Marketing Officer is executive sponsor owning customer experience and churn problem, CIO responsible for technology implementation and integration, Chief Data Officer manages data governance and quality, CFO controls budget and requires strong business case, also need buy-in from heads of retail banking, digital channels, and customer service, board approval required for investments over $5M, decision timeline is 2-3 months', isCorrect: true, points: 4, feedback: 'Outstanding! You identified all key stakeholders (CMO sponsor, CIO, CDO, CFO), their roles and concerns, additional influencers, board approval requirement, and decision timeline. This provides complete stakeholder mapping.' },
+          { id: 'q8-b', text: 'CMO is executive sponsor, CIO handles implementation, CDO manages governance, CFO controls budget, need buy-in from retail banking and digital channel heads, board approval required, 2-3 month decision timeline', isCorrect: true, points: 3, feedback: 'Good stakeholder discovery! You captured key executives and their roles, influencers, board approval, and timeline. Adding specific concerns (churn, business case) would strengthen this.' },
+          { id: 'q8-c', text: 'Executive sponsor from marketing, CIO for technology, CDO for data governance, CFO for budget approval, multiple business unit heads involved, board must approve, decision in 2-3 months', isCorrect: true, points: 3, feedback: 'Solid response identifying key roles and approval process. Naming specific executives (CMO, CIO, CDO, CFO) and their concerns would enhance this.' },
+          { id: 'q8-d', text: 'Marketing executive sponsoring, IT implementing, data officer governing, finance approving, business units involved, board approval needed, decision timeline 2-3 months', isCorrect: true, points: 3, feedback: 'Good identification of stakeholder structure. Specific titles and individual concerns would make this more actionable.' },
+          { id: 'q8-e', text: 'Multiple executives involved, will need various approvals', isCorrect: false, points: 0, feedback: 'Too vague for stakeholder mapping. You missed CMO sponsor, CIO, CDO, CFO roles, their specific concerns, business unit heads, board approval requirement, and 2-3 month timeline.' },
+          { id: 'q8-f', text: 'IT and business stakeholders, standard approval process', isCorrect: false, points: 0, feedback: 'This lacks all stakeholder details. You missed CMO, CIO, CDO, CFO, their roles and concerns, business unit heads, board approval for $5M+, and decision timeline.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 5,
         followUpQuestions: [
           'What are the CMO\'s top priorities and success metrics?',
@@ -3844,15 +4178,18 @@ export const bankingScenario008: TrainingScenario = {
         stakeholder: 'Chief Marketing Officer',
         difficulty: 'difficult',
         category: 'competition',
-        customResponse: 'Great question. Your Salesforce and Adobe investments are valuable, and we want to enhance them, not replace them. The challenge is that Salesforce only sees sales and service data, while Adobe only sees marketing interactions. Neither can access your core banking transactions, loan activity, credit card spending, or wealth management data. A CDP integrates all 15+ data sources to create complete customer views, then feeds that enriched data back to Salesforce and Adobe. This makes your existing tools 3-5x more effective. For example, Adobe campaigns can now target based on actual banking behavior, not just marketing clicks. Salesforce reps can see complete customer relationships across all products. You are not adding another silo - you are connecting all your silos.',
-        scoringCriteria: [
-          'Acknowledged existing Salesforce and Adobe investments',
-          'Positioned CDP as integration layer, not replacement',
-          'Explained data limitations of current tools',
-          'Provided specific examples of enhanced capabilities',
-          'Quantified improvement (3-5x more effective)',
-          'Emphasized connecting silos vs creating new ones'
+        responseChoices: [
+          { id: 'obj1-a', text: 'Acknowledge Salesforce and Adobe investments are valuable, position CDP as integration layer not replacement, explain Salesforce only sees sales/service data while Adobe only sees marketing interactions, neither can access core banking transactions, loan activity, credit card spending, or wealth management data, CDP integrates all 15+ data sources then feeds enriched data back to Salesforce and Adobe making them 3-5x more effective, provide examples (Adobe targets on banking behavior, Salesforce sees complete relationships), emphasize connecting silos not creating new ones', isCorrect: true, points: 4, feedback: 'Outstanding! You acknowledged existing investments, positioned CDP as enhancing not replacing, explained data limitations, provided specific examples, quantified improvement (3-5x), and emphasized integration. This fully addresses the concern.' },
+          { id: 'obj1-b', text: 'Salesforce and Adobe are valuable but limited in data scope, CDP integrates all customer data sources including core banking, feeds enriched data back to existing tools making them 3-5x more effective, connects silos rather than creating new ones', isCorrect: true, points: 3, feedback: 'Good response! You positioned CDP as enhancing existing tools and explained integration benefits. Adding specific examples (Adobe targeting, Salesforce complete view) would strengthen this.' },
+          { id: 'obj1-c', text: 'CDP enhances Salesforce and Adobe by providing complete customer data from all 15+ systems, makes existing tools more effective through data enrichment, integration layer not replacement', isCorrect: true, points: 3, feedback: 'Solid response covering enhancement and integration. Adding quantified improvement (3-5x) and specific use case examples would enhance this.' },
+          { id: 'obj1-d', text: 'CDP integrates data from all systems and feeds it to Salesforce and Adobe, makes existing investments more valuable, connects data silos', isCorrect: true, points: 3, feedback: 'Good coverage of integration value. Acknowledging investments, explaining limitations, and providing specific examples would make this stronger.' },
+          { id: 'obj1-e', text: 'CDP is better than Salesforce and Adobe for customer data management', isCorrect: false, points: 0, feedback: 'This dismisses existing investments and creates competition. You missed positioning CDP as enhancing not replacing, explaining data limitations, providing examples, quantifying improvement, and emphasizing integration.' },
+          { id: 'obj1-f', text: 'You need a CDP because Salesforce and Adobe are not sufficient', isCorrect: false, points: 0, feedback: 'This devalues existing investments. You missed acknowledging their value, positioning CDP as integration layer, explaining how it enhances existing tools (3-5x), and providing specific examples.' }
         ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Salesforce and Adobe are valuable but limited in scope',
           'CDP enhances existing tools by providing complete customer data',
@@ -3865,15 +4202,18 @@ export const bankingScenario008: TrainingScenario = {
         stakeholder: 'Chief Data Officer',
         difficulty: 'difficult',
         category: 'technical',
-        customResponse: 'Excellent concern - data quality is the foundation of effective AI. Here is our approach: First, Watson Studio includes data profiling to assess quality across all your systems. Second, we implement automated data cleansing, standardization, and enrichment using AI. Third, we use entity resolution algorithms to match customer records across systems with 95%+ accuracy. Fourth, we establish master data management for customer identities. Fifth, we implement continuous data quality monitoring. Most importantly, we take an iterative approach. We start with your highest quality data sources - probably core banking and CRM. We demonstrate value with churn prediction and personalization. Then we expand to additional data sources and continuously improve quality. You don\'t need perfect data on day one - you need good enough data to deliver business value, then improve iteratively.',
-        scoringCriteria: [
-          'Acknowledged data quality as legitimate concern',
-          'Described specific data quality capabilities in Watson Studio',
-          'Explained entity resolution with accuracy metrics (95%+)',
-          'Emphasized iterative approach starting with best data',
-          'Positioned as continuous improvement, not one-time fix',
-          'Provided realistic expectations (good enough vs perfect)'
+        responseChoices: [
+          { id: 'obj2-a', text: 'Acknowledge data quality is foundation of effective AI, Watson Studio includes data profiling to assess quality across all systems, automated data cleansing, standardization, and enrichment using AI, entity resolution algorithms match customer records across systems with 95%+ accuracy, establish master data management for customer identities, continuous data quality monitoring, take iterative approach starting with highest quality data sources (core banking, CRM), demonstrate value with churn prediction, then expand to additional sources and continuously improve quality, need good enough data to deliver business value not perfection on day one', isCorrect: true, points: 4, feedback: 'Excellent! You acknowledged the concern, explained Watson Studio data quality capabilities, provided entity resolution accuracy (95%+), described iterative approach, emphasized continuous improvement, and set realistic expectations. This fully addresses data quality concerns.' },
+          { id: 'obj2-b', text: 'Data quality is critical, Watson Studio includes comprehensive data quality tools, entity resolution with 95%+ accuracy, iterative approach starting with best data sources, continuous improvement not one-time fix, good enough data to start then improve', isCorrect: true, points: 3, feedback: 'Good response! You covered key capabilities and iterative approach. Adding specific tools (profiling, cleansing, MDM) and examples would strengthen this.' },
+          { id: 'obj2-c', text: 'Watson Studio provides data quality capabilities including profiling, cleansing, and entity resolution, start with highest quality data, demonstrate value, then expand and improve iteratively', isCorrect: true, points: 3, feedback: 'Solid response covering tools and approach. Adding accuracy metrics (95%+) and realistic expectations would enhance this.' },
+          { id: 'obj2-d', text: 'Comprehensive data quality tools in Watson Studio, iterative approach starting with best data, continuous improvement, entity resolution for matching records', isCorrect: true, points: 3, feedback: 'Good coverage of capabilities and approach. Specific accuracy metrics and realistic expectations would make this stronger.' },
+          { id: 'obj2-e', text: 'Our data quality tools will clean up all your data before we start', isCorrect: false, points: 0, feedback: 'This sets unrealistic expectations. You missed Watson Studio capabilities, entity resolution accuracy (95%+), iterative approach, continuous improvement, and the realistic expectation of good enough data to start.' },
+          { id: 'obj2-f', text: 'Data quality should not be a concern with modern tools', isCorrect: false, points: 0, feedback: 'This dismisses a legitimate concern. You missed acknowledging importance, explaining Watson Studio capabilities, entity resolution, iterative approach, continuous improvement, and realistic expectations.' }
         ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Data quality is critical for AI success',
           'Watson Studio includes comprehensive data quality tools',
@@ -3887,15 +4227,18 @@ export const bankingScenario008: TrainingScenario = {
         stakeholder: 'Chief Data Officer',
         difficulty: 'very difficult',
         category: 'risk',
-        customResponse: 'Privacy and compliance are absolutely critical, and they are built into our solution architecture. First, IBM Power Systems provide hardware-based encryption and pervasive security. Second, Watson Studio includes consent management, data lineage, audit trails, and role-based access controls. Third, we implement data masking and anonymization for sensitive PII. Fourth, we provide GDPR and CCPA compliance frameworks including right to be forgotten, data portability, and consent tracking. Fifth, we conduct privacy impact assessments before deployment. Sixth, IBM has deep financial services expertise and can provide compliance guidance. Here is the key insight: A unified CDP actually reduces compliance risk. Today you have 15 disconnected systems with inconsistent data governance. A CDP provides centralized governance, consistent controls, and complete audit trails. You move from 15 compliance problems to one well-governed platform.',
-        scoringCriteria: [
-          'Took privacy concerns very seriously',
-          'Described specific privacy and compliance capabilities',
-          'Emphasized IBM financial services expertise',
-          'Reframed CDP as reducing risk vs increasing it',
-          'Provided specific compliance frameworks (GDPR, CCPA)',
-          'Offered privacy impact assessment'
+        responseChoices: [
+          { id: 'obj3-a', text: 'Take privacy concerns very seriously, privacy and compliance built into solution architecture, IBM Power Systems provide hardware-based encryption and pervasive security, Watson Studio includes consent management, data lineage, audit trails, and role-based access controls, implement data masking and anonymization for sensitive PII, provide GDPR and CCPA compliance frameworks including right to be forgotten, data portability, and consent tracking, conduct privacy impact assessments before deployment, IBM has deep financial services expertise, key insight: unified CDP actually reduces compliance risk, today have 15 disconnected systems with inconsistent governance, CDP provides centralized governance, consistent controls, and complete audit trails, move from 15 compliance problems to one well-governed platform', isCorrect: true, points: 4, feedback: 'Outstanding! You took privacy seriously, explained comprehensive security and compliance capabilities, provided specific frameworks (GDPR, CCPA), emphasized IBM expertise, and reframed CDP as reducing risk through centralized governance. This fully addresses compliance concerns.' },
+          { id: 'obj3-b', text: 'Privacy and compliance are built in, hardware-based encryption, consent management, data lineage, audit trails, GDPR and CCPA compliance frameworks, privacy impact assessments, IBM financial services expertise, CDP reduces risk by centralizing governance from 15 systems to one platform', isCorrect: true, points: 3, feedback: 'Good response! You covered key capabilities and risk reduction. Adding specific controls (data masking, role-based access) would strengthen this.' },
+          { id: 'obj3-c', text: 'Comprehensive privacy and compliance capabilities including encryption, consent management, audit trails, GDPR and CCPA frameworks, CDP centralizes governance reducing compliance risk', isCorrect: true, points: 3, feedback: 'Solid response covering capabilities and risk reduction. Adding IBM expertise and privacy impact assessments would enhance this.' },
+          { id: 'obj3-d', text: 'Privacy built into architecture, compliance frameworks for GDPR and CCPA, centralized governance reduces risk, IBM financial services expertise', isCorrect: true, points: 3, feedback: 'Good coverage of key points. Specific capabilities (encryption, consent, audit trails, data masking) would make this stronger.' },
+          { id: 'obj3-e', text: 'We comply with all privacy regulations, should not be a concern', isCorrect: false, points: 0, feedback: 'This dismisses a critical concern. You missed taking privacy seriously, explaining specific capabilities, GDPR/CCPA frameworks, IBM expertise, and the key insight that CDP reduces risk through centralized governance.' },
+          { id: 'obj3-f', text: 'Privacy and compliance are standard features in our platform', isCorrect: false, points: 0, feedback: 'Too generic for a critical concern. You missed hardware encryption, consent management, data lineage, audit trails, GDPR/CCPA frameworks, privacy assessments, IBM expertise, and risk reduction through centralization.' }
         ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Privacy is built into solution architecture',
           'Hardware-based encryption and security',
@@ -3909,15 +4252,18 @@ export const bankingScenario008: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'very difficult',
         category: 'cost',
-        customResponse: 'I understand cost concerns, especially in a cost-cutting environment. Let me show you why this is actually a cost reduction and revenue growth investment. Today you are losing $18M annually from 12% customer churn. You are wasting $8M on ineffective marketing with 0.8% response rates. You are spending $4M on manual data processes. That is $30M in annual costs and lost revenue. Our solution costs $6M initially plus $500K annually. Conservative benefits: Reduce churn by 3 percentage points = $4.5M retained revenue. Improve marketing response from 0.8% to 2.5% = $5M additional revenue. Eliminate manual data work = $4M cost savings. Total annual benefit: $13.5M. Payback in 6 months. Year 2 and beyond: $13M annual net benefit. This is not an expense - it is an investment that pays for itself in 6 months and generates $13M annually thereafter.',
-        scoringCriteria: [
-          'Led with quantified business case',
-          'Showed current costs and lost revenue ($30M annually)',
-          'Provided conservative benefit estimates',
-          'Calculated payback period (6 months)',
-          'Emphasized ongoing annual benefits ($13M)',
-          'Reframed from cost to investment with measurable ROI'
+        responseChoices: [
+          { id: 'obj4-a', text: 'Understand cost concerns especially in cost-cutting environment, show why this is cost reduction and revenue growth investment, today losing $18M annually from 12% customer churn, wasting $8M on ineffective marketing with 0.8% response rates, spending $4M on manual data processes, total $30M in annual costs and lost revenue, solution costs $6M initially plus $500K annually, conservative benefits: reduce churn by 3 percentage points = $4.5M retained revenue, improve marketing response from 0.8% to 2.5% = $5M additional revenue, eliminate manual data work = $4M cost savings, total annual benefit $13.5M, payback in 6 months, year 2 and beyond $13M annual net benefit, not an expense but investment that pays for itself in 6 months and generates $13M annually thereafter', isCorrect: true, points: 4, feedback: 'Excellent! You led with quantified business case, showed current costs ($30M), provided conservative benefits ($13.5M), calculated payback (6 months), emphasized ongoing benefits ($13M), and reframed as investment with measurable ROI. This provides complete financial justification.' },
+          { id: 'obj4-b', text: 'Current state costs $30M annually (churn, marketing, manual work), solution costs $6M initially plus $500K annually, conservative benefits $13.5M annually, payback in 6 months, year 2+ generates $13M annual net benefit', isCorrect: true, points: 3, feedback: 'Good business case! You quantified costs and benefits with clear payback. Adding specific benefit breakdown and reframing as investment would strengthen this.' },
+          { id: 'obj4-c', text: 'Losing $18M from churn, $8M on ineffective marketing, $4M on manual processes, solution delivers $13.5M annual benefits, payback in 6 months, ongoing $13M annual benefit', isCorrect: true, points: 3, feedback: 'Solid response covering costs and benefits. Adding solution cost and detailed benefit calculation would enhance this.' },
+          { id: 'obj4-d', text: 'Current costs and losses are $30M annually, solution costs $6M, delivers $13.5M annual benefits, 6-month payback, $13M ongoing benefit', isCorrect: true, points: 3, feedback: 'Good coverage of financial case. Specific benefit breakdown (churn reduction, marketing improvement, cost savings) would make this stronger.' },
+          { id: 'obj4-e', text: 'The investment will pay for itself over time through improved efficiency', isCorrect: false, points: 0, feedback: 'Too vague for CFO. You missed quantifying current costs ($30M), solution cost ($6M), specific benefits ($13.5M), payback period (6 months), ongoing benefits ($13M), and reframing as investment.' },
+          { id: 'obj4-f', text: 'This is a strategic investment that will deliver value', isCorrect: false, points: 0, feedback: 'This lacks all financial justification. You missed current costs, solution cost, benefit quantification, payback calculation, ongoing benefits, and the compelling ROI story.' }
         ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Current state costs $30M annually (churn, marketing, manual work)',
           'Solution costs $6M initially + $500K annually',
@@ -3931,15 +4277,18 @@ export const bankingScenario008: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'difficult',
         category: 'risk',
-        customResponse: 'That is a very valid concern, and I appreciate you sharing that experience. Many data warehouse projects have failed due to complexity, long timelines, and lack of business value. Our approach is fundamentally different in three ways. First, we use agile methodology with quick wins every 3 months, not a 3-year big bang project. Second, we focus on specific business outcomes - churn reduction, campaign optimization - not just building infrastructure. Third, we use modern cloud-native architecture with AI-powered data integration, not traditional ETL. Here is our approach: Month 1-3: Integrate core banking and CRM data, create unified customer views. Month 4-6: Deploy churn prediction model, demonstrate value. Month 7-9: Implement campaign optimization, measure ROI. You see business value in 3-4 months, not 3 years. We also provide IBM professional services with best practices from 100+ financial services implementations. We learn from past failures and apply proven methodologies.',
-        scoringCriteria: [
-          'Acknowledged past failure and validated concern',
-          'Contrasted old approach (big bang) vs new approach (agile)',
-          'Emphasized business outcomes, not just technology',
-          'Provided specific timeline with value delivery milestones',
-          'Highlighted IBM professional services and proven methodologies',
-          'Offered to review past project and explain differences'
+        responseChoices: [
+          { id: 'obj5-a', text: 'Acknowledge past failure as valid concern, appreciate sharing experience, many data warehouse projects have failed due to complexity, long timelines, and lack of business value, approach is fundamentally different in three ways: agile methodology with quick wins every 3 months not 3-year big bang project, focus on specific business outcomes (churn reduction, campaign optimization) not just building infrastructure, modern cloud-native architecture with AI-powered data integration not traditional ETL, specific approach: Month 1-3 integrate core banking and CRM data create unified customer views, Month 4-6 deploy churn prediction model demonstrate value, Month 7-9 implement campaign optimization measure ROI, see business value in 3-4 months not 3 years, IBM professional services with best practices from 100+ financial services implementations, learn from past failures and apply proven methodologies', isCorrect: true, points: 4, feedback: 'Outstanding! You acknowledged past failure, contrasted old vs new approach (agile, business outcomes, modern architecture), provided specific timeline with value milestones, highlighted IBM expertise (100+ implementations), and offered to learn from past experience. This fully addresses the concern.' },
+          { id: 'obj5-b', text: 'Valid concern, many data warehouse projects have failed, our approach is different: agile with quick wins every 3 months, focus on business outcomes not just infrastructure, modern cloud-native architecture not traditional ETL, value in 3-4 months not 3 years, IBM professional services with 100+ implementations', isCorrect: true, points: 3, feedback: 'Good response! You contrasted approaches and emphasized quick value. Adding specific timeline milestones would strengthen this.' },
+          { id: 'obj5-c', text: 'Appreciate concern from past experience, agile methodology with quick wins, business outcome focus, modern architecture, deliver value in months not years, IBM proven methodologies from many implementations', isCorrect: true, points: 3, feedback: 'Solid response covering key differences. Specific timeline (Month 1-3, 4-6, 7-9) and implementation count (100+) would enhance this.' },
+          { id: 'obj5-d', text: 'Acknowledge past failure, different approach with agile methodology, focus on business value, modern technology, quick wins, IBM experience', isCorrect: true, points: 3, feedback: 'Good identification of differences. Specific contrasts (3 months vs 3 years, outcomes vs infrastructure) would make this stronger.' },
+          { id: 'obj5-e', text: 'Our technology is much better than what was available 5 years ago', isCorrect: false, points: 0, feedback: 'This dismisses the concern and focuses only on technology. You missed acknowledging failure, contrasting approaches (agile vs big bang, outcomes vs infrastructure), providing timeline, and highlighting IBM expertise.' },
+          { id: 'obj5-f', text: 'Data warehouse projects fail because of poor planning, we will plan better', isCorrect: false, points: 0, feedback: 'This oversimplifies and doesn\'t address the concern. You missed acknowledging failure, explaining fundamental differences (agile, business outcomes, modern architecture), providing specific timeline, and IBM proven methodologies.' }
         ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Many data warehouse projects have failed',
           'Agile approach with quick wins every 3 months',
@@ -4275,7 +4624,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'What is driving your need for advanced cybersecurity right now?',
         purpose: 'Understand business drivers and urgency',
         category: 'pain-point',
-        idealResponse: 'We suffered a ransomware attack last year that cost us $3M in recovery, lost business, and reputation damage. We are experiencing increasing cyber threats - phishing attacks up 40%, account takeover fraud costing $2M annually. Our legacy security tools cannot detect sophisticated threats in real-time. They generate 10,000+ alerts daily with 95% false positives. Our security team is overwhelmed and cannot investigate all alerts. Regulators are requiring better security controls. Our cyber insurance premiums increased 60%. The board is demanding immediate action.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Suffered ransomware attack last year costing $3M in recovery, lost business, and reputation damage, experiencing increasing cyber threats with phishing attacks up 40%, account takeover fraud costing $2M annually, legacy security tools cannot detect sophisticated threats in real-time, generate 10,000+ alerts daily with 95% false positives, security team overwhelmed and cannot investigate all alerts, regulators requiring better security controls, cyber insurance premiums increased 60%, board demanding immediate action', isCorrect: true, points: 4, feedback: 'Excellent! You identified the ransomware impact ($3M), increasing threats (phishing up 40%, fraud $2M), tool limitations (10K alerts, 95% false positives), team overwhelm, regulatory pressure, insurance increase (60%), and board urgency. This demonstrates comprehensive understanding of cybersecurity drivers.' },
+          { id: 'q1-b', text: 'Recent ransomware attack cost $3M, phishing and fraud increasing significantly, legacy tools generate too many false positives, security team overwhelmed, regulators demanding improvements, insurance premiums increased, board wants action', isCorrect: true, points: 3, feedback: 'Good discovery! You captured ransomware impact, increasing threats, false positive problem, team overwhelm, regulatory and insurance pressure, and board urgency. Adding specific metrics (40% phishing increase, 10K alerts, 95% false positives) would strengthen this.' },
+          { id: 'q1-c', text: 'Ransomware attack last year, increasing cyber threats, security tools inadequate with high false positives, team cannot keep up with alerts, regulatory requirements, insurance costs rising', isCorrect: true, points: 3, feedback: 'Solid response identifying ransomware, threat increase, tool inadequacy, team capacity, regulatory and insurance issues. Quantifying impacts would enhance this.' },
+          { id: 'q1-d', text: 'Experienced ransomware attack, cyber threats growing, current security insufficient, team overwhelmed, compliance pressure, board concerned', isCorrect: true, points: 3, feedback: 'Good identification of key drivers. Adding specific impacts ($3M ransomware, $2M fraud, 10K alerts, 60% insurance increase) would make this more compelling.' },
+          { id: 'q1-e', text: 'Want to improve cybersecurity posture and reduce risk', isCorrect: false, points: 0, feedback: 'Too vague for business justification. You missed ransomware attack ($3M), increasing threats (phishing up 40%, fraud $2M), tool limitations (10K alerts, 95% false positives), team overwhelm, regulatory pressure, insurance increase, and board urgency.' },
+          { id: 'q1-f', text: 'Need to modernize security infrastructure', isCorrect: false, points: 0, feedback: 'This is technology-focused without business drivers. You missed the ransomware crisis, quantified threat increases, massive false positive problem, team overwhelm, regulatory requirements, insurance impact, and board-level urgency.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         followUpQuestions: [
           'What was the business impact of the ransomware attack?',
@@ -4287,7 +4648,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'What are your current security tools and capabilities, and what are the gaps?',
         purpose: 'Assess current security posture and identify gaps',
         category: 'technical',
-        idealResponse: 'We have legacy firewall, antivirus, basic SIEM, and signature-based intrusion detection. These tools are 5-10 years old and cannot detect modern threats. We have no AI-powered threat detection, no behavioral analytics, no insider threat detection. We cannot detect zero-day exploits or advanced persistent threats. Our SIEM generates too many false positives. We have no automated incident response. We lack threat intelligence integration. We cannot detect compromised credentials or account takeovers in real-time. We need modern security with AI and automation.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Have legacy firewall, antivirus, basic SIEM, and signature-based intrusion detection that are 5-10 years old and cannot detect modern threats, no AI-powered threat detection, no behavioral analytics, no insider threat detection, cannot detect zero-day exploits or advanced persistent threats, SIEM generates too many false positives, no automated incident response, lack threat intelligence integration, cannot detect compromised credentials or account takeovers in real-time, need modern security with AI and automation', isCorrect: true, points: 4, feedback: 'Outstanding! You identified current tools (firewall, antivirus, SIEM, IDS), their age (5-10 years), all capability gaps (no AI, behavioral analytics, insider threat detection, zero-day detection, APT detection), false positive problem, lack of automation and threat intelligence, and real-time detection needs. This provides complete security posture assessment.' },
+          { id: 'q2-b', text: 'Legacy security tools 5-10 years old cannot detect modern threats, no AI-powered detection or behavioral analytics, SIEM has too many false positives, no automated response, lack threat intelligence, cannot detect compromised credentials in real-time', isCorrect: true, points: 3, feedback: 'Good security assessment! You captured tool age, modern threat gap, AI/behavioral analytics absence, false positives, automation gap, and real-time detection need. Adding specific tools and more capability gaps would strengthen this.' },
+          { id: 'q2-c', text: 'Current security tools are outdated and inadequate for modern threats, no AI or behavioral analytics, high false positives, no automation, need real-time threat detection', isCorrect: true, points: 3, feedback: 'Solid response identifying tool inadequacy and key gaps. Adding specific tools, age, and detailed capability gaps would enhance this.' },
+          { id: 'q2-d', text: 'Legacy security infrastructure with significant gaps in threat detection, no AI capabilities, too many false alarms, manual processes, need modernization', isCorrect: true, points: 3, feedback: 'Good identification of gaps. Specific tools, age (5-10 years), and detailed capabilities (behavioral analytics, insider threats, zero-day, APT) would make this more actionable.' },
+          { id: 'q2-e', text: 'Have standard security tools, some gaps in capabilities', isCorrect: false, points: 0, feedback: 'Too vague for security assessment. You missed specific tools, age (5-10 years), all capability gaps (AI, behavioral analytics, insider threats, zero-day, APT, automation, threat intelligence), false positive problem, and real-time detection needs.' },
+          { id: 'q2-f', text: 'Security tools need updating, want better threat detection', isCorrect: false, points: 0, feedback: 'This lacks all technical details. You missed current tools, age, comprehensive capability gaps, false positive crisis (95%), lack of automation, and the urgent need for AI-powered real-time detection.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         followUpQuestions: [
           'What percentage of security alerts are false positives?',
@@ -4299,7 +4672,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'What specific threat detection capabilities do you need to protect your bank?',
         purpose: 'Understand security requirements and use cases',
         category: 'business',
-        idealResponse: 'We need AI-powered threat detection that can identify sophisticated attacks in real-time. We need behavioral analytics to detect anomalous user activity and insider threats. We need to detect account takeover attempts before fraud occurs. We need to identify phishing campaigns and malicious emails. We need to detect ransomware and malware before they spread. We need automated incident response to contain threats quickly. We need threat intelligence integration to stay ahead of emerging threats. We need to reduce false positives from 95% to under 10%.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Need AI-powered threat detection that can identify sophisticated attacks in real-time, behavioral analytics to detect anomalous user activity and insider threats, detect account takeover attempts before fraud occurs, identify phishing campaigns and malicious emails, detect ransomware and malware before they spread, automated incident response to contain threats quickly, threat intelligence integration to stay ahead of emerging threats, reduce false positives from 95% to under 10%', isCorrect: true, points: 4, feedback: 'Excellent! You identified all key capabilities: AI-powered real-time detection, behavioral analytics, insider threats, account takeover prevention, phishing detection, ransomware/malware detection, automated response, threat intelligence, and false positive reduction target (95% to <10%). This demonstrates comprehensive security requirements understanding.' },
+          { id: 'q3-b', text: 'AI-powered real-time threat detection, behavioral analytics for insider threats, account takeover prevention, phishing and ransomware detection, automated incident response, threat intelligence integration, significant false positive reduction', isCorrect: true, points: 3, feedback: 'Good requirements discovery! You captured major capabilities. Adding specific false positive target (95% to <10%) would strengthen this.' },
+          { id: 'q3-c', text: 'Real-time threat detection with AI, behavioral analytics, detect account takeovers and phishing, automated response, threat intelligence, reduce false positives significantly', isCorrect: true, points: 3, feedback: 'Solid response covering key capabilities. Adding ransomware/malware detection and specific false positive metrics would enhance this.' },
+          { id: 'q3-d', text: 'AI threat detection, behavioral analytics, fraud prevention, phishing detection, automated response, threat intelligence, lower false positives', isCorrect: true, points: 3, feedback: 'Good identification of core needs. More specific use cases (account takeover, ransomware) and false positive target would make this stronger.' },
+          { id: 'q3-e', text: 'Need better threat detection and response capabilities', isCorrect: false, points: 0, feedback: 'Too vague for requirements gathering. You missed AI-powered detection, behavioral analytics, insider threats, account takeover prevention, phishing detection, ransomware detection, automated response, threat intelligence, and false positive reduction target.' },
+          { id: 'q3-f', text: 'Want advanced security tools to protect the bank', isCorrect: false, points: 0, feedback: 'This lacks all specific requirements. You missed AI detection, behavioral analytics, specific use cases (insider threats, account takeover, phishing, ransomware), automation, threat intelligence, and the critical false positive reduction need.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         followUpQuestions: [
           'What are your most critical assets to protect?',
@@ -4311,7 +4696,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'How do you currently detect and respond to security incidents?',
         purpose: 'Assess incident response capabilities and maturity',
         category: 'technical',
-        idealResponse: 'Our incident response is mostly manual and reactive. We have a small security team that investigates alerts from our SIEM. With 10,000+ daily alerts and 95% false positives, we cannot investigate everything. Mean time to detect is 3-4 weeks for sophisticated threats. Mean time to respond is 2-3 days. We have no automated playbooks or orchestration. We lack forensic capabilities. We have no threat hunting program. During the ransomware attack, we were overwhelmed and had to bring in external incident response consultants. We need automated detection, investigation, and response.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Incident response is mostly manual and reactive, small security team investigates alerts from SIEM, with 10,000+ daily alerts and 95% false positives cannot investigate everything, mean time to detect is 3-4 weeks for sophisticated threats, mean time to respond is 2-3 days, no automated playbooks or orchestration, lack forensic capabilities, no threat hunting program, during ransomware attack were overwhelmed and had to bring in external incident response consultants, need automated detection, investigation, and response', isCorrect: true, points: 4, feedback: 'Outstanding! You identified manual/reactive process, team size constraint, alert volume problem (10K+ daily, 95% false positives), MTTD (3-4 weeks), MTTR (2-3 days), lack of automation/playbooks/forensics/threat hunting, ransomware response failure, and automation needs. This provides complete incident response assessment.' },
+          { id: 'q4-b', text: 'Manual and reactive incident response, small team overwhelmed by 10,000+ daily alerts with 95% false positives, mean time to detect 3-4 weeks, mean time to respond 2-3 days, no automation or forensics, ransomware attack required external consultants', isCorrect: true, points: 3, feedback: 'Good incident response assessment! You captured manual process, team overwhelm, alert metrics, MTTD/MTTR, lack of automation, and ransomware response failure. Adding playbooks, orchestration, and threat hunting gaps would strengthen this.' },
+          { id: 'q4-c', text: 'Mostly manual incident response, team cannot handle alert volume with high false positives, slow detection and response times (weeks to detect, days to respond), no automation, lacked capability during ransomware attack', isCorrect: true, points: 3, feedback: 'Solid response identifying manual process, capacity issues, and slow response. Adding specific metrics (10K alerts, 95% false positives, 3-4 weeks MTTD) would enhance this.' },
+          { id: 'q4-d', text: 'Manual reactive incident response, overwhelmed security team, slow threat detection and response, no automated capabilities, struggled with ransomware incident', isCorrect: true, points: 3, feedback: 'Good identification of key issues. Specific metrics (alert volume, false positive rate, MTTD/MTTR) and capability gaps would make this more actionable.' },
+          { id: 'q4-e', text: 'Have incident response process, team investigates security alerts', isCorrect: false, points: 0, feedback: 'Too vague for capability assessment. You missed manual/reactive nature, team overwhelm (10K+ alerts, 95% false positives), slow metrics (3-4 weeks MTTD, 2-3 days MTTR), lack of automation/playbooks/forensics/threat hunting, and ransomware response failure.' },
+          { id: 'q4-f', text: 'Security team handles incidents as they occur', isCorrect: false, points: 0, feedback: 'This lacks all assessment details. You missed manual process, alert volume crisis, false positive problem, MTTD/MTTR metrics, automation gaps, forensic limitations, threat hunting absence, and ransomware incident failure.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         followUpQuestions: [
           'What is your current security team size and skill level?',
@@ -4323,7 +4720,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'What are your regulatory and compliance requirements for cybersecurity?',
         purpose: 'Understand compliance obligations and audit requirements',
         category: 'technical',
-        idealResponse: 'We must comply with FFIEC cybersecurity assessment tool, GLBA safeguards rule, and NCUA requirements. We have annual security audits and penetration tests. Regulators are requiring better threat detection, incident response, and security monitoring. We had audit findings last year related to inadequate security controls. We must report security incidents to regulators within 36 hours. We need to demonstrate continuous monitoring and threat detection capabilities. We need audit trails and forensic evidence for investigations. Compliance is a board-level concern.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Must comply with FFIEC cybersecurity assessment tool, GLBA safeguards rule, and NCUA requirements, have annual security audits and penetration tests, regulators requiring better threat detection, incident response, and security monitoring, had audit findings last year related to inadequate security controls, must report security incidents to regulators within 36 hours, need to demonstrate continuous monitoring and threat detection capabilities, need audit trails and forensic evidence for investigations, compliance is board-level concern', isCorrect: true, points: 4, feedback: 'Excellent! You identified all compliance requirements (FFIEC, GLBA, NCUA), audit frequency, regulator demands (threat detection, incident response, monitoring), audit findings, incident reporting requirement (36 hours), continuous monitoring need, forensic evidence requirement, and board-level concern. This demonstrates comprehensive compliance understanding.' },
+          { id: 'q5-b', text: 'FFIEC, GLBA, and NCUA compliance required, annual security audits, regulators demanding better threat detection and incident response, audit findings last year, must report incidents within 36 hours, need continuous monitoring and audit trails, board-level concern', isCorrect: true, points: 3, feedback: 'Good compliance discovery! You captured major requirements and audit findings. Adding penetration testing and forensic evidence needs would strengthen this.' },
+          { id: 'q5-c', text: 'Must comply with banking cybersecurity regulations including FFIEC and GLBA, annual audits with findings on security controls, regulators requiring better monitoring, incident reporting required, need audit trails', isCorrect: true, points: 3, feedback: 'Solid response covering key regulations and requirements. Adding NCUA, 36-hour reporting, continuous monitoring, forensics, and board concern would enhance this.' },
+          { id: 'q5-d', text: 'Banking cybersecurity regulations required, annual audits, regulator demands for better security, incident reporting obligations, need monitoring and audit capabilities', isCorrect: true, points: 3, feedback: 'Good identification of compliance needs. Specific regulations (FFIEC, GLBA, NCUA), audit findings, and reporting timeframe (36 hours) would make this more complete.' },
+          { id: 'q5-e', text: 'Need to comply with banking regulations and pass security audits', isCorrect: false, points: 0, feedback: 'Too vague for compliance assessment. You missed specific regulations (FFIEC, GLBA, NCUA), audit findings, regulator demands, incident reporting requirement (36 hours), continuous monitoring need, forensic evidence, and board-level concern.' },
+          { id: 'q5-f', text: 'Standard banking compliance and security audit requirements', isCorrect: false, points: 0, feedback: 'This lacks all specifics. You missed FFIEC, GLBA, NCUA, audit findings, regulator demands for threat detection/incident response, 36-hour reporting, continuous monitoring, audit trails, forensics, and board concern.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         followUpQuestions: [
           'What were the specific audit findings related to security?',
@@ -4335,7 +4744,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'What is your timeline for implementing advanced cybersecurity capabilities?',
         purpose: 'Understand project timeline and implementation urgency',
         category: 'timeline',
-        idealResponse: 'This is urgent - the board wants action within 3 months. We need to start immediately and complete core implementation in 9-12 months. Phase 1 (3 months): Deploy AI-powered threat detection and reduce false positives. Phase 2 (3 months): Implement behavioral analytics and insider threat detection. Phase 3 (3 months): Deploy automated incident response and threat hunting. We need quick wins to demonstrate value to the board and regulators. Annual security audit is in 6 months - we need improvements before then.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'This is urgent, board wants action within 3 months, need to start immediately and complete core implementation in 9-12 months, Phase 1 (3 months): deploy AI-powered threat detection and reduce false positives, Phase 2 (3 months): implement behavioral analytics and insider threat detection, Phase 3 (3 months): deploy automated incident response and threat hunting, need quick wins to demonstrate value to board and regulators, annual security audit is in 6 months and need improvements before then', isCorrect: true, points: 4, feedback: 'Outstanding! You captured urgency (board wants action in 3 months), total timeline (9-12 months), all three phases with specific deliverables, quick win requirement, and audit deadline (6 months). This provides complete timeline context.' },
+          { id: 'q6-b', text: 'Urgent timeline, board wants action in 3 months, 9-12 month implementation with phased approach (threat detection, behavioral analytics, automated response), need quick wins, security audit in 6 months', isCorrect: true, points: 3, feedback: 'Good timeline discovery! You captured urgency, duration, phased approach, and audit deadline. Adding specific phase durations (3 months each) would strengthen this.' },
+          { id: 'q6-c', text: 'Board demanding immediate action, 9-12 month timeline with phases for threat detection, analytics, and automated response, need to show value quickly, audit coming up', isCorrect: true, points: 3, feedback: 'Solid response covering urgency, timeline, and phases. Adding start timing (3 months) and specific audit deadline (6 months) would enhance this.' },
+          { id: 'q6-d', text: 'Urgent implementation needed, phased approach over 9-12 months, threat detection first then analytics and automation, quick wins required, audit deadline approaching', isCorrect: true, points: 3, feedback: 'Good identification of urgency and approach. Specific phase durations and audit timing would make this more actionable.' },
+          { id: 'q6-e', text: 'Want to implement as soon as possible, flexible on timeline', isCorrect: false, points: 0, feedback: 'Too vague for project planning. You missed board urgency (3 months), total duration (9-12 months), three 3-month phases, specific deliverables, quick win requirement, and audit deadline (6 months).' },
+          { id: 'q6-f', text: 'Standard implementation timeline, will determine phases later', isCorrect: false, points: 0, feedback: 'This lacks all planning details. You missed board urgency, 9-12 month timeline, three phases (threat detection, behavioral analytics, automated response), quick wins, and 6-month audit deadline.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 8,
         followUpQuestions: [
           'What quick wins would demonstrate value to the board?',
@@ -4347,7 +4768,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'What is your budget for cybersecurity improvements, including technology and services?',
         purpose: 'Qualify budget and investment capacity',
         category: 'budget',
-        idealResponse: 'We have allocated $3-5M for cybersecurity improvements. This includes security software, infrastructure, professional services, and training. We are currently spending $1.5M annually on security tools and staff. The ransomware attack cost us $3M. Account takeover fraud costs $2M annually. Our cyber insurance premiums increased $300K after the attack. We need to demonstrate ROI through reduced fraud, lower insurance premiums, and avoided incident costs. The board has approved this investment as a top priority.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Allocated $3-5M for cybersecurity improvements including security software, infrastructure, professional services, and training, currently spending $1.5M annually on security tools and staff, ransomware attack cost $3M, account takeover fraud costs $2M annually, cyber insurance premiums increased $300K after attack, need to demonstrate ROI through reduced fraud, lower insurance premiums, and avoided incident costs, board has approved this investment as top priority', isCorrect: true, points: 4, feedback: 'Excellent! You qualified budget ($3-5M), scope (software, infrastructure, services, training), current spend ($1.5M), incident costs ($3M ransomware, $2M fraud), insurance increase ($300K), ROI requirements, and board approval. This provides complete financial context.' },
+          { id: 'q7-b', text: 'Budget of $3-5M allocated, currently spending $1.5M on security, ransomware cost $3M, fraud costs $2M annually, insurance premiums increased $300K, need ROI through reduced costs, board approved as priority', isCorrect: true, points: 3, feedback: 'Good budget qualification! You captured budget, current spend, incident costs, insurance impact, and board approval. Adding scope details (software, infrastructure, services) would strengthen this.' },
+          { id: 'q7-c', text: '$3-5M budget available, significant current costs from ransomware ($3M) and fraud ($2M annually), insurance premiums increased, need to show ROI, board priority', isCorrect: true, points: 3, feedback: 'Solid response covering budget and cost drivers. Adding current spend ($1.5M) and scope components would enhance this.' },
+          { id: 'q7-d', text: 'Budget allocated for cybersecurity, currently have high costs from incidents and fraud, insurance increased, need to demonstrate ROI, board approved', isCorrect: true, points: 3, feedback: 'Good identification of budget and drivers. Specific amounts ($3-5M, $3M, $2M, $300K) would make this more actionable.' },
+          { id: 'q7-e', text: 'Have budget for cybersecurity improvements, will determine exact amount based on proposals', isCorrect: false, points: 0, feedback: 'This doesn\'t qualify the opportunity. You missed budget range ($3-5M), current spend ($1.5M), incident costs ($3M ransomware, $2M fraud), insurance increase ($300K), ROI requirements, and board approval.' },
+          { id: 'q7-f', text: 'Budget is flexible depending on value delivered', isCorrect: false, points: 0, feedback: 'This lacks all financial qualification. You missed $3-5M budget, $1.5M current spend, $3M ransomware cost, $2M fraud, $300K insurance increase, ROI requirements, and board approval as top priority.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 8,
         followUpQuestions: [
           'What is the cost of your current security incidents and fraud?',
@@ -4359,7 +4792,19 @@ export const bankingScenario009: TrainingScenario = {
         question: 'Who are the key stakeholders and decision makers for this cybersecurity initiative?',
         purpose: 'Identify decision makers and influencers',
         category: 'stakeholder',
-        idealResponse: 'Chief Information Security Officer is the executive sponsor - he owns the security posture and threat detection problem. CIO is responsible for technology implementation and integration. Chief Risk Officer manages regulatory compliance and fraud prevention. CFO controls budget and requires strong business case. We also need buy-in from heads of IT operations, application development, and branch operations. Board notification required for investments over $3M. Decision timeline is 2-3 months.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: 'Chief Information Security Officer is executive sponsor owning security posture and threat detection problem, CIO responsible for technology implementation and integration, Chief Risk Officer manages regulatory compliance and fraud prevention, CFO controls budget and requires strong business case, also need buy-in from heads of IT operations, application development, and branch operations, board notification required for investments over $3M, decision timeline is 2-3 months', isCorrect: true, points: 4, feedback: 'Outstanding! You identified all key stakeholders (CISO sponsor, CIO, CRO, CFO), their roles and concerns, additional influencers (IT ops, app dev, branch ops), board notification requirement, and decision timeline. This provides complete stakeholder mapping.' },
+          { id: 'q8-b', text: 'CISO is executive sponsor, CIO handles implementation, CRO manages compliance and fraud, CFO controls budget, need buy-in from IT and operations heads, board notification required, 2-3 month decision timeline', isCorrect: true, points: 3, feedback: 'Good stakeholder discovery! You captured key executives and their roles, influencers, board notification, and timeline. Adding specific concerns (security posture, business case) would strengthen this.' },
+          { id: 'q8-c', text: 'Executive sponsor from security, CIO for technology, CRO for compliance, CFO for budget approval, multiple department heads involved, board must be notified, decision in 2-3 months', isCorrect: true, points: 3, feedback: 'Solid response identifying key roles and approval process. Naming specific executives (CISO, CIO, CRO, CFO) and their concerns would enhance this.' },
+          { id: 'q8-d', text: 'Security executive sponsoring, IT implementing, risk officer for compliance, finance approving, operations involved, board notification needed, decision timeline 2-3 months', isCorrect: true, points: 3, feedback: 'Good identification of stakeholder structure. Specific titles and individual concerns would make this more actionable.' },
+          { id: 'q8-e', text: 'Multiple executives involved, will need various approvals', isCorrect: false, points: 0, feedback: 'Too vague for stakeholder mapping. You missed CISO sponsor, CIO, CRO, CFO roles, their specific concerns, department heads, board notification requirement ($3M+), and 2-3 month timeline.' },
+          { id: 'q8-f', text: 'IT and security stakeholders, standard approval process', isCorrect: false, points: 0, feedback: 'This lacks all stakeholder details. You missed CISO, CIO, CRO, CFO, their roles and concerns, department heads, board notification for $3M+, and decision timeline.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 5,
         followUpQuestions: [
           'What are the CISO\'s top priorities and success metrics?',
@@ -4404,15 +4849,18 @@ export const bankingScenario009: TrainingScenario = {
         stakeholder: 'Chief Information Security Officer',
         difficulty: 'difficult',
         category: 'technical',
-        customResponse: 'Excellent question - false positives are a major problem with traditional security tools. Here is how AI-powered threat detection is fundamentally different. First, Watson Studio uses machine learning models trained on billions of security events to distinguish real threats from normal activity. Second, behavioral analytics establish baselines for normal user and system behavior, then detect anomalies. Third, the AI continuously learns and improves accuracy over time. Fourth, we implement tuning and customization for your specific environment. Industry data shows AI-powered threat detection reduces false positives by 80-90% compared to signature-based tools. Instead of 10,000 daily alerts with 95% false positives, you might see 500 alerts with 10% false positives. That is 50 real threats vs 500 false alarms - much more manageable. We also provide IBM Security experts to help tune and optimize the system during implementation.',
-        scoringCriteria: [
-          'Acknowledged false positives as legitimate concern',
-          'Explained how AI is fundamentally different from signature-based tools',
-          'Described machine learning and behavioral analytics approach',
-          'Provided specific metrics: 80-90% reduction in false positives',
-          'Emphasized continuous learning and improvement',
-          'Offered IBM Security experts for tuning and optimization'
+        responseChoices: [
+          { id: 'obj1-a', text: 'Acknowledge false positives as major problem with traditional tools, explain AI is fundamentally different using machine learning models trained on billions of security events to distinguish real threats from normal activity, behavioral analytics establish baselines for normal user and system behavior then detect anomalies, AI continuously learns and improves accuracy over time, implement tuning and customization for specific environment, industry data shows AI reduces false positives by 80-90% compared to signature-based tools, instead of 10,000 daily alerts with 95% false positives might see 500 alerts with 10% false positives (50 real threats vs 500 false alarms much more manageable), provide IBM Security experts to help tune and optimize during implementation', isCorrect: true, points: 4, feedback: 'Outstanding! You acknowledged the concern, explained AI fundamentals (ML trained on billions of events, behavioral analytics), emphasized continuous learning, provided compelling metrics (80-90% reduction, 10K to 500 alerts), and offered IBM Security expert support. This fully addresses false positive concerns.' },
+          { id: 'obj1-b', text: 'False positives are legitimate concern, AI uses machine learning and behavioral analytics fundamentally different from signature-based tools, reduces false positives by 80-90%, continuous learning improves accuracy, IBM Security experts help tune and optimize', isCorrect: true, points: 3, feedback: 'Good response! You explained AI approach and quantified improvement. Adding specific examples (10K to 500 alerts, 95% to 10% false positives) would strengthen this.' },
+          { id: 'obj1-c', text: 'AI-powered detection uses machine learning trained on billions of events, behavioral analytics detect anomalies, significantly reduces false positives compared to traditional tools, continuous improvement, expert tuning available', isCorrect: true, points: 3, feedback: 'Solid response covering AI capabilities and improvement. Adding specific metrics (80-90% reduction) and examples would enhance this.' },
+          { id: 'obj1-d', text: 'AI threat detection fundamentally different from signature-based tools, machine learning and behavioral analytics, reduces false positives significantly, continuous learning, IBM experts help optimize', isCorrect: true, points: 3, feedback: 'Good coverage of AI advantages. Specific reduction metrics (80-90%, 10K to 500 alerts) would make this more compelling.' },
+          { id: 'obj1-e', text: 'Our AI is very accurate and should not have false positive problems', isCorrect: false, points: 0, feedback: 'This dismisses a critical concern. You missed acknowledging the problem, explaining AI fundamentals (ML, behavioral analytics), providing metrics (80-90% reduction, 10K to 500 alerts), continuous learning, and IBM expert support.' },
+          { id: 'obj1-f', text: 'AI-powered tools are better than traditional security tools', isCorrect: false, points: 0, feedback: 'Too generic without addressing the concern. You missed explaining how AI works (ML, behavioral analytics), quantifying improvement (80-90% reduction), providing examples (10K to 500 alerts), and offering expert tuning support.' }
         ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'AI uses machine learning trained on billions of security events',
           'Behavioral analytics detect anomalies from normal baselines',
@@ -4426,15 +4874,18 @@ export const bankingScenario009: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'difficult',
         category: 'risk',
-        customResponse: 'Zero downtime is absolutely critical for banking operations, and we have designed our implementation approach specifically to avoid disruption. First, we deploy in monitor-only mode initially - the AI observes and learns without blocking any traffic. Second, we implement in phases starting with non-critical systems, then gradually expand to production banking systems. Third, we schedule any infrastructure changes during maintenance windows. Fourth, we run parallel with existing security tools during transition - you maintain current protection while adding AI capabilities. Fifth, we provide 24x7 support during implementation. Most importantly, the AI-powered threat detection is deployed as an overlay on your existing infrastructure - it does not require replacing or modifying your core banking systems. You gain enhanced security without touching your production banking applications. We have successfully deployed this approach at 50+ banks with zero downtime.',
-        scoringCriteria: [
-          'Acknowledged zero downtime as critical requirement',
-          'Described monitor-only mode for initial deployment',
-          'Explained phased approach starting with non-critical systems',
-          'Emphasized parallel operation with existing security tools',
-          'Positioned as overlay, not replacement of core systems',
-          'Provided track record: 50+ banks with zero downtime'
+        responseChoices: [
+          { id: 'obj2-a', text: 'Acknowledge zero downtime is absolutely critical for banking operations, designed implementation approach specifically to avoid disruption, deploy in monitor-only mode initially where AI observes and learns without blocking any traffic, implement in phases starting with non-critical systems then gradually expand to production banking systems, schedule any infrastructure changes during maintenance windows, run parallel with existing security tools during transition maintaining current protection while adding AI capabilities, provide 24x7 support during implementation, AI-powered threat detection deployed as overlay on existing infrastructure not requiring replacing or modifying core banking systems, gain enhanced security without touching production banking applications, successfully deployed this approach at 50+ banks with zero downtime', isCorrect: true, points: 4, feedback: 'Excellent! You acknowledged the requirement, explained monitor-only mode, described phased approach, emphasized parallel operation, positioned as overlay not replacement, provided 24x7 support, and offered track record (50+ banks, zero downtime). This fully addresses downtime concerns.' },
+          { id: 'obj2-b', text: 'Zero downtime is critical, deploy in monitor-only mode initially, phased approach starting with non-critical systems, parallel operation with existing security tools, overlay on existing infrastructure not replacement, 50+ banks deployed with zero downtime', isCorrect: true, points: 3, feedback: 'Good response! You covered key deployment strategies and track record. Adding 24x7 support and maintenance window scheduling would strengthen this.' },
+          { id: 'obj2-c', text: 'Monitor-only mode for initial deployment, phased implementation starting with non-critical systems, parallel with existing tools, deployed as overlay not replacement of core systems, proven at many banks with zero downtime', isCorrect: true, points: 3, feedback: 'Solid response covering deployment approach. Adding specific bank count (50+) and 24x7 support would enhance this.' },
+          { id: 'obj2-d', text: 'Phased deployment approach, monitor-only mode initially, parallel operation with current security, overlay on existing infrastructure, proven zero-downtime track record', isCorrect: true, points: 3, feedback: 'Good coverage of deployment strategy. More detail on phasing (non-critical first) and specific track record (50+ banks) would make this stronger.' },
+          { id: 'obj2-e', text: 'We will be careful during implementation to minimize disruption', isCorrect: false, points: 0, feedback: 'This doesn\'t address the zero-downtime requirement. You missed monitor-only mode, phased approach, parallel operation, overlay positioning, 24x7 support, and the proven track record at 50+ banks.' },
+          { id: 'obj2-f', text: 'Implementation will be done during off-hours to avoid disruption', isCorrect: false, points: 0, feedback: 'This misses the comprehensive approach needed. You missed monitor-only mode, phased deployment, parallel operation, overlay architecture, 24x7 support, and the critical 50+ bank zero-downtime track record.' }
         ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Deploy in monitor-only mode initially',
           'Phased approach starting with non-critical systems',
@@ -4448,15 +4899,18 @@ export const bankingScenario009: TrainingScenario = {
         stakeholder: 'Chief Information Security Officer',
         difficulty: 'common',
         category: 'skills',
-        customResponse: 'Your security team being overwhelmed is exactly why you need AI-powered threat detection - it actually reduces their workload, not increases it. Here is how: First, AI reduces false positives by 80-90%, so instead of investigating 9,500 false alarms daily, they investigate 50 real threats. Second, automated incident response handles routine threats without human intervention - malware quarantine, credential resets, network isolation. Third, AI provides context and recommendations for each alert, so analysts spend less time investigating and more time responding. Fourth, threat hunting becomes proactive instead of reactive - AI identifies patterns and anomalies automatically. Fifth, we provide comprehensive training and IBM Security experts for ongoing support. The result: Your security team becomes more effective and less overwhelmed. They focus on strategic security initiatives instead of chasing false positives. We have seen security teams reduce alert investigation time by 70% while improving threat detection by 300%.',
-        scoringCriteria: [
-          'Reframed: AI reduces workload, not increases it',
-          'Quantified impact: 80-90% reduction in false positives',
-          'Described automated incident response capabilities',
-          'Explained AI-provided context and recommendations',
-          'Emphasized proactive threat hunting vs reactive investigation',
-          'Provided metrics: 70% less time, 300% better detection'
+        responseChoices: [
+          { id: 'obj3-a', text: 'Reframe: security team being overwhelmed is exactly why need AI-powered threat detection as it actually reduces their workload not increases it, AI reduces false positives by 80-90% so instead of investigating 9,500 false alarms daily they investigate 50 real threats, automated incident response handles routine threats without human intervention (malware quarantine, credential resets, network isolation), AI provides context and recommendations for each alert so analysts spend less time investigating and more time responding, threat hunting becomes proactive instead of reactive as AI identifies patterns and anomalies automatically, provide comprehensive training and IBM Security experts for ongoing support, result is security team becomes more effective and less overwhelmed focusing on strategic security initiatives instead of chasing false positives, seen security teams reduce alert investigation time by 70% while improving threat detection by 300%', isCorrect: true, points: 4, feedback: 'Outstanding! You reframed as workload reduction, quantified false positive reduction (80-90%, 9,500 to 50 alerts), explained automated response, described AI context/recommendations, emphasized proactive hunting, offered training and expert support, and provided compelling metrics (70% less time, 300% better detection). This fully addresses team capacity concerns.' },
+          { id: 'obj3-b', text: 'AI reduces workload not increases it, reduces false positives by 80-90%, automated incident response handles routine threats, AI provides context and recommendations, proactive threat hunting, training and IBM Security expert support, teams reduce investigation time by 70% while improving detection by 300%', isCorrect: true, points: 3, feedback: 'Good response! You covered workload reduction and key benefits. Adding specific example (9,500 to 50 alerts) would strengthen this.' },
+          { id: 'obj3-c', text: 'AI-powered detection reduces false positives significantly, automated response handles routine threats, provides context for analysts, proactive threat hunting, comprehensive training and support, teams become more effective', isCorrect: true, points: 3, feedback: 'Solid response covering key benefits. Adding specific metrics (80-90% reduction, 70% less time, 300% better detection) would enhance this.' },
+          { id: 'obj3-d', text: 'Reduces false positives dramatically, automates routine responses, provides analyst context, enables proactive hunting, training and expert support available, improves team effectiveness', isCorrect: true, points: 3, feedback: 'Good coverage of benefits. Specific quantification (80-90%, 9,500 to 50 alerts, 70%/300% metrics) would make this more compelling.' },
+          { id: 'obj3-e', text: 'The tool is easy to use and should not add much workload', isCorrect: false, points: 0, feedback: 'This misses the reframing opportunity. You missed that AI reduces workload (80-90% fewer false positives, 9,500 to 50 alerts), automates responses, provides context, enables proactive hunting, and delivers 70% less investigation time with 300% better detection.' },
+          { id: 'obj3-f', text: 'We will provide training so your team can manage the new tool', isCorrect: false, points: 0, feedback: 'This doesn\'t address the overwhelm concern. You missed the workload reduction (80-90% fewer false positives), automation benefits, AI context, proactive hunting, and the compelling metrics (70% less time, 300% better detection).' }
         ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'AI reduces false positives by 80-90%',
           'Automated incident response handles routine threats',
@@ -4470,15 +4924,18 @@ export const bankingScenario009: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'very difficult',
         category: 'cost',
-        customResponse: 'Let me show you why this is actually a cost reduction and risk mitigation investment. Today you are spending $7M annually on cybersecurity problems: $3M ransomware recovery, $2M account takeover fraud, $1.5M security team overtime, $500K potential fines. Your cyber insurance premiums increased $300K after the attack. That is $7.3M in annual costs. Our solution costs $4M initially plus $400K annually. Conservative benefits: Prevent one ransomware attack = $3M savings. Reduce account takeover fraud by 50% = $1M savings. Reduce security team overtime by 40% = $600K savings. Lower cyber insurance premiums by 20% = $300K savings. Total annual benefit: $4.9M. Payback in 10 months. Year 2 and beyond: $4.5M annual net benefit. Plus, you avoid regulatory fines, reputation damage, and customer trust issues. This is not an expense - it is an investment that pays for itself in 10 months and generates $4.5M annually thereafter while significantly reducing your cyber risk.',
-        scoringCriteria: [
-          'Led with quantified business case',
-          'Showed current costs: $7.3M annually',
-          'Provided conservative benefit estimates',
-          'Calculated payback period: 10 months',
-          'Emphasized ongoing annual benefits: $4.5M',
-          'Reframed from cost to investment with measurable ROI'
+        responseChoices: [
+          { id: 'obj4-a', text: 'Show why this is actually cost reduction and risk mitigation investment, today spending $7M annually on cybersecurity problems: $3M ransomware recovery, $2M account takeover fraud, $1.5M security team overtime, $500K potential fines, cyber insurance premiums increased $300K after attack totaling $7.3M in annual costs, solution costs $4M initially plus $400K annually, conservative benefits: prevent one ransomware attack = $3M savings, reduce account takeover fraud by 50% = $1M savings, reduce security team overtime by 40% = $600K savings, lower cyber insurance premiums by 20% = $300K savings, total annual benefit $4.9M, payback in 10 months, year 2 and beyond $4.5M annual net benefit, plus avoid regulatory fines, reputation damage, and customer trust issues, not an expense but investment that pays for itself in 10 months and generates $4.5M annually thereafter while significantly reducing cyber risk', isCorrect: true, points: 4, feedback: 'Excellent! You led with quantified business case, showed current costs ($7.3M), provided conservative benefits ($4.9M), calculated payback (10 months), emphasized ongoing benefits ($4.5M), and reframed as investment with measurable ROI. This provides complete financial justification.' },
+          { id: 'obj4-b', text: 'Current state costs $7.3M annually (ransomware, fraud, overtime, premiums), solution costs $4M initially plus $400K annually, conservative benefits $4.9M annually, payback in 10 months, year 2+ generates $4.5M annual net benefit', isCorrect: true, points: 3, feedback: 'Good business case! You quantified costs and benefits with clear payback. Adding specific benefit breakdown and reframing as investment would strengthen this.' },
+          { id: 'obj4-c', text: 'Spending $7M+ annually on cybersecurity problems (ransomware, fraud, overtime), solution delivers $4.9M annual benefits, payback in 10 months, ongoing $4.5M annual benefit', isCorrect: true, points: 3, feedback: 'Solid response covering costs and benefits. Adding solution cost and detailed benefit calculation would enhance this.' },
+          { id: 'obj4-d', text: 'Current costs and losses are $7.3M annually, solution costs $4M, delivers $4.9M annual benefits, 10-month payback, $4.5M ongoing benefit', isCorrect: true, points: 3, feedback: 'Good coverage of financial case. Specific benefit breakdown (ransomware prevention, fraud reduction, overtime savings, insurance) would make this stronger.' },
+          { id: 'obj4-e', text: 'The investment will pay for itself over time through reduced security incidents', isCorrect: false, points: 0, feedback: 'Too vague for CFO. You missed quantifying current costs ($7.3M), solution cost ($4M), specific benefits ($4.9M), payback period (10 months), ongoing benefits ($4.5M), and reframing as investment.' },
+          { id: 'obj4-f', text: 'This is a necessary investment to protect the bank', isCorrect: false, points: 0, feedback: 'This doesn\'t provide financial justification. You missed all quantification: current costs, solution cost, benefit breakdown, payback calculation, ongoing benefits, and the compelling ROI story.' }
         ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Current state costs $7.3M annually (ransomware, fraud, overtime, premiums)',
           'Solution costs $4M initially + $400K annually',
@@ -4492,15 +4949,18 @@ export const bankingScenario009: TrainingScenario = {
         stakeholder: 'Chief Risk Officer',
         difficulty: 'very difficult',
         category: 'risk',
-        customResponse: 'Protecting legitimate banking transactions while blocking threats is absolutely critical, and we have multiple safeguards to prevent false blocking. First, we deploy in monitor-only mode for 30-60 days to establish baselines and tune the AI before any blocking occurs. Second, we implement graduated response - suspicious activity triggers additional authentication, not immediate blocking. Third, we maintain whitelists for known-good transactions and users. Fourth, we provide real-time override capabilities for security analysts. Fifth, we implement rollback procedures if any issues occur. Sixth, we start with high-confidence threats (malware, known bad IPs) before expanding to behavioral anomalies. Most importantly, the AI learns your specific banking patterns and customer behaviors. Industry data shows AI-powered security has 99.9%+ accuracy for legitimate transactions while detecting 95%+ of real threats. We also provide IBM Security experts during implementation to ensure proper tuning. The risk of blocking legitimate transactions is far lower than the risk of missing a ransomware attack or account takeover.',
-        scoringCriteria: [
-          'Acknowledged legitimate transaction protection as critical',
-          'Described monitor-only mode for baseline establishment',
-          'Explained graduated response vs immediate blocking',
-          'Emphasized whitelists, overrides, and rollback procedures',
-          'Provided accuracy metrics: 99.9%+ for legitimate transactions',
-          'Reframed risk: blocking legitimate transactions vs missing threats'
+        responseChoices: [
+          { id: 'obj5-a', text: 'Acknowledge protecting legitimate banking transactions while blocking threats is absolutely critical, have multiple safeguards to prevent false blocking, deploy in monitor-only mode for 30-60 days to establish baselines and tune AI before any blocking occurs, implement graduated response where suspicious activity triggers additional authentication not immediate blocking, maintain whitelists for known-good transactions and users, provide real-time override capabilities for security analysts, implement rollback procedures if any issues occur, start with high-confidence threats (malware, known bad IPs) before expanding to behavioral anomalies, AI learns specific banking patterns and customer behaviors, industry data shows AI-powered security has 99.9%+ accuracy for legitimate transactions while detecting 95%+ of real threats, provide IBM Security experts during implementation to ensure proper tuning, risk of blocking legitimate transactions is far lower than risk of missing ransomware attack or account takeover', isCorrect: true, points: 4, feedback: 'Outstanding! You acknowledged the concern, explained monitor-only mode (30-60 days), described graduated response, emphasized safeguards (whitelists, overrides, rollback), explained phased approach (high-confidence first), provided accuracy metrics (99.9%+, 95%+), offered IBM expert support, and reframed the risk. This fully addresses transaction blocking concerns.' },
+          { id: 'obj5-b', text: 'Legitimate transaction protection is critical, monitor-only mode for 30-60 days before blocking, graduated response with additional authentication not immediate blocking, whitelists and override capabilities, start with high-confidence threats, 99.9%+ accuracy for legitimate transactions, IBM Security experts ensure proper tuning', isCorrect: true, points: 3, feedback: 'Good response! You covered key safeguards and metrics. Adding rollback procedures and risk reframing would strengthen this.' },
+          { id: 'obj5-c', text: 'Multiple safeguards to prevent false blocking, monitor-only mode initially, graduated response not immediate blocking, whitelists and overrides, AI learns banking patterns, 99.9%+ accuracy for legitimate transactions, expert tuning available', isCorrect: true, points: 3, feedback: 'Solid response covering safeguards and accuracy. Adding specific timeframe (30-60 days) and risk comparison would enhance this.' },
+          { id: 'obj5-d', text: 'Monitor-only mode before blocking, graduated response approach, whitelists and override capabilities, high-confidence threats first, very high accuracy for legitimate transactions, IBM experts help tune', isCorrect: true, points: 3, feedback: 'Good coverage of safeguards. Specific metrics (30-60 days, 99.9%+ accuracy) and risk reframing would make this stronger.' },
+          { id: 'obj5-e', text: 'The AI is very accurate and should not block legitimate transactions', isCorrect: false, points: 0, feedback: 'This dismisses a critical concern. You missed monitor-only mode (30-60 days), graduated response, safeguards (whitelists, overrides, rollback), phased approach, accuracy metrics (99.9%+), IBM expert support, and risk reframing.' },
+          { id: 'obj5-f', text: 'We have controls in place to prevent false blocking', isCorrect: false, points: 0, feedback: 'Too generic without addressing the concern. You missed monitor-only mode, graduated response, specific safeguards, phased approach, accuracy metrics, expert tuning, and the critical risk comparison.' }
         ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Monitor-only mode for 30-60 days before blocking',
           'Graduated response: additional authentication, not immediate blocking',
@@ -4834,7 +5294,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'What is driving your cloud migration initiative right now? Is it cost, agility, or something else?',
         purpose: 'Understand primary business drivers and urgency',
         category: 'pain-point',
-        idealResponse: 'Multiple drivers: data center lease expiring in 18 months ($2M annually), infrastructure end-of-life ($5M refresh), and board mandate for cloud-first strategy. We need to reduce costs while improving agility to compete with digital-first banks.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Data center lease expiring in 18 months ($2M annually) and infrastructure end-of-life ($5M refresh)', isCorrect: true, points: 4, feedback: 'Excellent - identified the urgent cost drivers with specific timelines and amounts.' },
+          { id: 'q1-b', text: 'Board mandate for cloud-first strategy to compete with digital-first banks', isCorrect: true, points: 3, feedback: 'Good - recognized the strategic imperative and competitive pressure.' },
+          { id: 'q1-c', text: 'Need to reduce costs while improving agility for faster innovation', isCorrect: true, points: 3, feedback: 'Good - identified the dual objectives of cost reduction and business agility.' },
+          { id: 'q1-d', text: 'Multiple drivers including cost, agility, and strategic transformation', isCorrect: true, points: 3, feedback: 'Good - recognized this is a multi-faceted initiative, not a single driver.' },
+          { id: 'q1-e', text: 'Just following industry trends and what competitors are doing', isCorrect: false, points: 0, feedback: 'Too vague - need to understand specific business drivers, not just trends.' },
+          { id: 'q1-f', text: 'IT department wants to learn new cloud technologies', isCorrect: false, points: 0, feedback: 'Wrong focus - cloud migration must be driven by business needs, not IT preferences.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Identify multiple business drivers', 'Quantify costs and timeline', 'Understand strategic context']
       },
@@ -4842,7 +5314,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'Which applications are you planning to migrate to cloud? What are your priorities?',
         purpose: 'Understand application portfolio and migration priorities',
         category: 'technical',
-        idealResponse: 'Core banking (Jack Henry Silverlake) is priority #1 - most critical but also most complex. Customer portal and mobile banking are #2 - easier to migrate and high business value. Loan origination is #3. We want to start with lower-risk applications to build confidence.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Core banking (Jack Henry Silverlake) is priority #1 - most critical but also most complex', isCorrect: true, points: 4, feedback: 'Excellent - identified the most critical application and acknowledged its complexity.' },
+          { id: 'q2-b', text: 'Customer portal and mobile banking are #2 - easier to migrate and high business value', isCorrect: true, points: 3, feedback: 'Good - recognized lower-risk applications with high business value for early wins.' },
+          { id: 'q2-c', text: 'Loan origination system is #3, start with dev/test to build confidence', isCorrect: true, points: 3, feedback: 'Good - understood the phased approach starting with lower-risk environments.' },
+          { id: 'q2-d', text: 'Need to prioritize based on complexity, business value, and risk tolerance', isCorrect: true, points: 3, feedback: 'Good - recognized the multiple factors that drive migration prioritization.' },
+          { id: 'q2-e', text: 'Migrate everything at once to minimize disruption', isCorrect: false, points: 0, feedback: 'Too risky - big bang migrations rarely succeed, especially for critical banking systems.' },
+          { id: 'q2-f', text: 'Start with the most complex applications first', isCorrect: false, points: 0, feedback: 'Wrong approach - should start with simpler apps to build confidence and learn.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Identify application portfolio', 'Understand migration priorities', 'Assess complexity and risk']
       },
@@ -4850,7 +5334,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'What are your security and compliance requirements for cloud? How do you handle data sovereignty?',
         purpose: 'Identify security, compliance, and regulatory constraints',
         category: 'technical',
-        idealResponse: 'We must comply with FFIEC cloud guidance, GLBA, and state banking regulations. Data must stay in US. We need SOC 2 compliance, encryption at rest and in transit, and ability to pass bank audits. Chief Risk Officer is very concerned about third-party risk.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Must comply with FFIEC cloud guidance, GLBA, and state banking regulations', isCorrect: true, points: 4, feedback: 'Excellent - identified the key regulatory frameworks for banking cloud deployments.' },
+          { id: 'q3-b', text: 'Data must stay in US, need SOC 2 compliance and encryption at rest/in transit', isCorrect: true, points: 3, feedback: 'Good - understood data sovereignty requirements and security controls.' },
+          { id: 'q3-c', text: 'Must pass bank audits, Chief Risk Officer very concerned about third-party risk', isCorrect: true, points: 3, feedback: 'Good - recognized audit requirements and key stakeholder concerns.' },
+          { id: 'q3-d', text: 'Need dedicated infrastructure (not multi-tenant) for regulatory compliance', isCorrect: true, points: 3, feedback: 'Good - understood that banking regulations often require dedicated infrastructure.' },
+          { id: 'q3-e', text: 'Cloud security is the vendor\'s responsibility, not ours', isCorrect: false, points: 0, feedback: 'Wrong - shared responsibility model means bank retains significant security obligations.' },
+          { id: 'q3-f', text: 'Compliance requirements are the same as on-premises', isCorrect: false, points: 0, feedback: 'Incorrect - cloud introduces new compliance considerations and third-party risk.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Identify regulatory requirements', 'Understand data sovereignty needs', 'Address stakeholder concerns']
       },
@@ -4858,7 +5354,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'What is your current disaster recovery situation? What are your RTO and RPO requirements?',
         purpose: 'Understand DR requirements and current gaps',
         category: 'technical',
-        idealResponse: 'Current DR site costs $800K annually with 4-hour RTO and 1-hour RPO. Recent audit highlighted gaps. We need 1-hour RTO and 15-minute RPO for core banking. Board is concerned about business continuity after seeing other banks hit by ransomware.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Current DR site costs $800K annually with 4-hour RTO and 1-hour RPO', isCorrect: true, points: 4, feedback: 'Excellent - quantified current DR costs and capabilities with specific metrics.' },
+          { id: 'q4-b', text: 'Recent audit highlighted DR gaps, need 1-hour RTO and 15-minute RPO for core banking', isCorrect: true, points: 3, feedback: 'Good - identified audit findings and specific requirements for critical systems.' },
+          { id: 'q4-c', text: 'Board concerned about business continuity after seeing ransomware attacks on other banks', isCorrect: true, points: 3, feedback: 'Good - recognized the strategic importance and board-level concern about DR.' },
+          { id: 'q4-d', text: 'Need immutable backups and cyber vault capabilities to protect against ransomware', isCorrect: true, points: 3, feedback: 'Good - understood modern DR requirements include ransomware protection.' },
+          { id: 'q4-e', text: 'DR is not a priority - focus on cost savings first', isCorrect: false, points: 0, feedback: 'Wrong - DR is critical for banking and often a regulatory requirement.' },
+          { id: 'q4-f', text: 'Cloud automatically provides DR, no planning needed', isCorrect: false, points: 0, feedback: 'Incorrect - DR must be architected and configured, not automatic.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Quantify current DR costs', 'Identify RTO/RPO requirements', 'Understand audit findings']
       },
@@ -4866,7 +5374,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'How do you plan to handle the migration? Big bang or phased approach?',
         purpose: 'Understand migration strategy and risk tolerance',
         category: 'business',
-        idealResponse: 'Phased approach - we cannot afford downtime. Start with dev/test environments, then non-critical apps, then core banking. Need parallel run capability. Timeline is 12-18 months with data center lease expiring in 18 months.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Phased approach - cannot afford downtime, start with dev/test then non-critical apps', isCorrect: true, points: 4, feedback: 'Excellent - recognized the need for phased migration to minimize risk.' },
+          { id: 'q5-b', text: 'Need parallel run capability - keep on-premises running during migration', isCorrect: true, points: 3, feedback: 'Good - understood the importance of parallel operations for zero-downtime migration.' },
+          { id: 'q5-c', text: 'Timeline is 12-18 months with data center lease expiring in 18 months', isCorrect: true, points: 3, feedback: 'Good - identified the timeline constraint and urgency driver.' },
+          { id: 'q5-d', text: 'Migrate core banking last after proving approach with simpler applications', isCorrect: true, points: 3, feedback: 'Good - understood the risk-based sequencing with most critical system last.' },
+          { id: 'q5-e', text: 'Big bang migration over a weekend to minimize disruption', isCorrect: false, points: 0, feedback: 'Too risky - banking systems are too complex and critical for big bang approach.' },
+          { id: 'q5-f', text: 'No need for parallel run - just cutover and fix issues later', isCorrect: false, points: 0, feedback: 'Unacceptable risk - banking systems require validated parallel operations.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Understand risk tolerance', 'Identify migration timeline', 'Assess parallel run needs']
       },
@@ -4874,7 +5394,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'What is your team\'s cloud experience? Do you need training or managed services?',
         purpose: 'Assess team capabilities and support needs',
         category: 'stakeholder',
-        idealResponse: 'Limited cloud experience - mostly on-premises. VP of IT Operations is concerned about team skills. We will need training and potentially managed services during migration. Long-term we want to build internal cloud capabilities.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'Limited cloud experience - mostly on-premises, VP of IT Ops concerned about team skills', isCorrect: true, points: 4, feedback: 'Excellent - honestly assessed current capabilities and identified stakeholder concerns.' },
+          { id: 'q6-b', text: 'Will need training and potentially managed services during migration', isCorrect: true, points: 3, feedback: 'Good - recognized the need for external support during transition.' },
+          { id: 'q6-c', text: 'Long-term goal is to build internal cloud capabilities, not permanent outsourcing', isCorrect: true, points: 3, feedback: 'Good - understood the strategic objective of building internal expertise.' },
+          { id: 'q6-d', text: 'Need knowledge transfer and skills development plan as part of migration', isCorrect: true, points: 3, feedback: 'Good - recognized that migration should include team enablement.' },
+          { id: 'q6-e', text: 'Team already has all needed cloud skills', isCorrect: false, points: 0, feedback: 'Unrealistic - most on-premises teams need cloud training and support.' },
+          { id: 'q6-f', text: 'Will hire all new cloud engineers and replace current team', isCorrect: false, points: 0, feedback: 'Wrong approach - should develop existing team who knows the business.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 8,
         hints: ['Assess team skills', 'Identify training needs', 'Understand support model preferences']
       },
@@ -4882,7 +5414,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'What is your budget for cloud migration and ongoing operational costs?',
         purpose: 'Understand budget constraints and TCO expectations',
         category: 'budget',
-        idealResponse: 'Board approved $4-6M for migration. CFO wants to see 30% reduction in total IT infrastructure costs within 3 years. Currently spending $2M data center + $800K DR + $500K maintenance = $3.3M annually. Need predictable monthly costs.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Board approved $4-6M for migration, CFO wants 30% reduction in total IT costs within 3 years', isCorrect: true, points: 4, feedback: 'Excellent - quantified both migration budget and TCO reduction expectations.' },
+          { id: 'q7-b', text: 'Currently spending $2M data center + $800K DR + $500K maintenance = $3.3M annually', isCorrect: true, points: 3, feedback: 'Good - documented current costs to establish baseline for TCO comparison.' },
+          { id: 'q7-c', text: 'Need predictable monthly costs, concerned about cloud cost variability', isCorrect: true, points: 3, feedback: 'Good - identified the need for cost predictability and management.' },
+          { id: 'q7-d', text: 'Must avoid $5M infrastructure refresh by migrating to cloud', isCorrect: true, points: 3, feedback: 'Good - recognized the avoided capital expense as part of business case.' },
+          { id: 'q7-e', text: 'Budget is unlimited - just need the best solution', isCorrect: false, points: 0, feedback: 'Unrealistic - all projects have budget constraints that must be understood.' },
+          { id: 'q7-f', text: 'Cloud will definitely be cheaper, no need to calculate TCO', isCorrect: false, points: 0, feedback: 'Wrong - must build detailed TCO model to validate business case.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Quantify migration budget', 'Understand TCO expectations', 'Identify cost reduction targets']
       },
@@ -4890,7 +5434,19 @@ export const bankingScenario010: TrainingScenario = {
         question: 'Who are the key stakeholders and decision makers? What are their concerns?',
         purpose: 'Map stakeholder landscape and address concerns',
         category: 'stakeholder',
-        idealResponse: 'CIO is champion - driving cloud strategy. CFO is neutral - concerned about costs. Chief Risk Officer is skeptic - worried about security and compliance. VP of IT Ops is supporter but concerned about team skills. Board approval required.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: 'CIO is champion driving cloud strategy, CFO is neutral and concerned about costs', isCorrect: true, points: 4, feedback: 'Excellent - mapped key executives and their positions on the initiative.' },
+          { id: 'q8-b', text: 'Chief Risk Officer is skeptic - worried about security, compliance, and third-party risk', isCorrect: true, points: 3, feedback: 'Good - identified the key skeptic and their specific concerns to address.' },
+          { id: 'q8-c', text: 'VP of IT Ops is supporter but concerned about team skills and support model', isCorrect: true, points: 3, feedback: 'Good - recognized supporter with specific concerns that need addressing.' },
+          { id: 'q8-d', text: 'Board approval required - need strong business case with risk mitigation', isCorrect: true, points: 3, feedback: 'Good - understood the decision process and what\'s needed for approval.' },
+          { id: 'q8-e', text: 'Only need to convince the CIO, others will follow', isCorrect: false, points: 0, feedback: 'Wrong - major cloud initiatives require alignment across multiple executives.' },
+          { id: 'q8-f', text: 'All stakeholders are aligned and supportive', isCorrect: false, points: 0, feedback: 'Unrealistic - cloud migrations typically have skeptics that must be addressed.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Map stakeholder influence', 'Identify concerns by role', 'Understand decision process']
       }
@@ -4928,14 +5484,19 @@ export const bankingScenario010: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'common',
         category: 'cost',
-        customResponse: 'Valid concern - cloud cost management is critical. IBM Power Virtual Server provides predictable, consumption-based pricing with no hidden fees. We recommend: (1) Right-sizing workloads before migration to avoid over-provisioning, (2) Reserved instances for steady-state workloads (30-40% savings), (3) IBM Cloud cost management tools with budgets and alerts, (4) Monthly cost reviews and optimization. Typical customers see 30-40% total cost reduction vs on-premises when properly managed. We can model your specific costs based on current infrastructure.',
-        scoringCriteria: [
-          'Acknowledged cost management concerns',
-          'Explained predictable pricing model',
-          'Provided specific cost optimization strategies',
-          'Quantified savings (30-40% reduction)',
-          'Offered to model customer-specific costs'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj1-a', text: 'IBM Power Virtual Server provides predictable consumption-based pricing with no hidden fees', isCorrect: true, points: 4, feedback: 'Excellent - addressed pricing transparency and predictability upfront.' },
+          { id: 'obj1-b', text: 'Right-size workloads before migration and use reserved instances for 30-40% savings', isCorrect: true, points: 3, feedback: 'Good - provided specific cost optimization strategies with quantified savings.' },
+          { id: 'obj1-c', text: 'IBM Cloud cost management tools with budgets, alerts, and monthly reviews', isCorrect: true, points: 3, feedback: 'Good - outlined proactive cost management and governance approach.' },
+          { id: 'obj1-d', text: 'Typical customers see 30-40% total cost reduction vs on-premises when properly managed', isCorrect: true, points: 3, feedback: 'Good - quantified expected savings to set realistic expectations.' },
+          { id: 'obj1-e', text: 'Cloud costs are always lower than on-premises, no management needed', isCorrect: false, points: 0, feedback: 'Wrong - cloud requires active cost management to realize savings.' },
+          { id: 'obj1-f', text: 'Just pay the bills and don\'t worry about optimization', isCorrect: false, points: 0, feedback: 'Unacceptable - CFO needs proactive cost management strategy.' }
         ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Address cost management proactively',
           'Explain pricing transparency',
@@ -4948,15 +5509,19 @@ export const bankingScenario010: TrainingScenario = {
         stakeholder: 'Chief Risk Officer',
         difficulty: 'difficult',
         category: 'risk',
-        customResponse: 'Security and compliance are IBM\'s top priorities for financial services. IBM Power Virtual Server provides: (1) Dedicated infrastructure - not multi-tenant, (2) Data encryption at rest and in transit, (3) SOC 2, PCI-DSS, and ISO 27001 certifications, (4) US data centers with data sovereignty, (5) FFIEC-compliant architecture, (6) Immutable backups with FlashSystem Cyber Vault for ransomware protection. IBM has 50+ years serving financial services and understands banking regulations. We can provide compliance documentation for your auditors and support your audit process.',
-        scoringCriteria: [
-          'Addressed security and compliance comprehensively',
-          'Highlighted dedicated infrastructure (not multi-tenant)',
-          'Listed relevant certifications (SOC 2, PCI-DSS, ISO 27001)',
-          'Emphasized data sovereignty and US data centers',
-          'Mentioned IBM financial services expertise',
-          'Offered audit support'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj2-a', text: 'IBM Power Virtual Server provides dedicated infrastructure - not multi-tenant shared resources', isCorrect: true, points: 4, feedback: 'Excellent - led with dedicated infrastructure which addresses key banking security concern.' },
+          { id: 'obj2-b', text: 'SOC 2, PCI-DSS, ISO 27001 certifications with US data centers for data sovereignty', isCorrect: true, points: 3, feedback: 'Good - listed relevant compliance certifications and addressed data sovereignty.' },
+          { id: 'obj2-c', text: 'FFIEC-compliant architecture with encryption at rest and in transit', isCorrect: true, points: 3, feedback: 'Good - addressed banking-specific compliance and security controls.' },
+          { id: 'obj2-d', text: 'IBM has 50+ years serving financial services, can provide audit support and compliance documentation', isCorrect: true, points: 3, feedback: 'Good - emphasized IBM financial services expertise and audit support.' },
+          { id: 'obj2-e', text: 'Cloud is automatically compliant, no additional work needed', isCorrect: false, points: 0, feedback: 'Wrong - compliance requires shared responsibility and ongoing validation.' },
+          { id: 'obj2-f', text: 'Security is the cloud provider\'s problem, not the bank\'s', isCorrect: false, points: 0, feedback: 'Incorrect - shared responsibility model means bank retains significant obligations.' }
         ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with dedicated infrastructure',
           'List relevant compliance certifications',
@@ -4969,15 +5534,19 @@ export const bankingScenario010: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'common',
         category: 'skills',
-        customResponse: 'Great question - skills transition is critical for success. IBM provides comprehensive support: (1) IBM Power Virtual Server uses familiar Linux/AIX - your team already knows these, (2) IBM Cloud training and certification programs (free for customers), (3) IBM Expert Labs can provide migration services and knowledge transfer, (4) Managed services option during transition period, (5) 24/7 IBM support, (6) Gradual skills building through phased migration. Most customers find their existing Linux admins can manage Power Virtual Server with 2-3 weeks training. We can create a skills development plan for your team.',
-        scoringCriteria: [
-          'Acknowledged skills concern',
-          'Emphasized familiar technologies (Linux/AIX)',
-          'Outlined training and certification programs',
-          'Mentioned migration services and knowledge transfer',
-          'Provided managed services option',
-          'Quantified training timeline (2-3 weeks)'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj3-a', text: 'IBM Power Virtual Server uses familiar Linux/AIX - your team already knows these technologies', isCorrect: true, points: 4, feedback: 'Excellent - emphasized familiar technologies to reduce skills gap concern.' },
+          { id: 'obj3-b', text: 'IBM Cloud training and certification programs (free for customers) with 2-3 weeks typical ramp-up', isCorrect: true, points: 3, feedback: 'Good - outlined training programs with realistic timeline for skills development.' },
+          { id: 'obj3-c', text: 'IBM Expert Labs provides migration services with knowledge transfer to your team', isCorrect: true, points: 3, feedback: 'Good - offered migration services that build internal capabilities.' },
+          { id: 'obj3-d', text: 'Managed services option during transition, gradual skills building through phased migration', isCorrect: true, points: 3, feedback: 'Good - provided transition support while building long-term internal capabilities.' },
+          { id: 'obj3-e', text: 'You need to hire all new cloud engineers immediately', isCorrect: false, points: 0, feedback: 'Wrong approach - should develop existing team who knows the business.' },
+          { id: 'obj3-f', text: 'Cloud is so easy anyone can manage it without training', isCorrect: false, points: 0, feedback: 'Unrealistic - proper training and support are essential for success.' }
         ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Emphasize familiar technologies',
           'Outline training programs',
@@ -4990,15 +5559,19 @@ export const bankingScenario010: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'difficult',
         category: 'risk',
-        customResponse: 'Zero downtime is achievable with proper planning. IBM\'s proven migration approach: (1) Phased migration starting with dev/test (no business impact), (2) Parallel run capability - keep on-premises running during migration, (3) Automated migration tools reduce errors, (4) Cutover during maintenance windows, (5) Immediate rollback capability if issues arise, (6) IBM Expert Labs has migrated 500+ banking workloads with 99.8% success rate. We recommend 12-18 month timeline with core banking last after proving approach with simpler apps. Can provide detailed migration plan with risk mitigation.',
-        scoringCriteria: [
-          'Addressed downtime concerns directly',
-          'Explained phased migration approach',
-          'Highlighted parallel run capability',
-          'Mentioned automated tools and rollback',
-          'Provided success rate statistics (99.8%)',
-          'Offered detailed migration plan'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj4-a', text: 'Phased migration starting with dev/test (no business impact), then non-critical apps, core banking last', isCorrect: true, points: 4, feedback: 'Excellent - outlined risk-based phased approach that builds confidence.' },
+          { id: 'obj4-b', text: 'Parallel run capability - keep on-premises running during migration with immediate rollback', isCorrect: true, points: 3, feedback: 'Good - addressed zero-downtime requirement with parallel operations.' },
+          { id: 'obj4-c', text: 'IBM Expert Labs has migrated 500+ banking workloads with 99.8% success rate', isCorrect: true, points: 3, feedback: 'Good - provided credibility with specific success statistics.' },
+          { id: 'obj4-d', text: 'Automated migration tools, cutover during maintenance windows, detailed migration plan with risk mitigation', isCorrect: true, points: 3, feedback: 'Good - outlined specific risk mitigation strategies and planning.' },
+          { id: 'obj4-e', text: 'Big bang migration over a weekend - fastest approach', isCorrect: false, points: 0, feedback: 'Too risky - banking systems require phased approach with validation.' },
+          { id: 'obj4-f', text: 'Migrations never fail, no need to worry', isCorrect: false, points: 0, feedback: 'Unrealistic - must acknowledge risks and provide mitigation strategies.' }
         ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with phased approach',
           'Emphasize parallel run capability',
@@ -5011,15 +5584,19 @@ export const bankingScenario010: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'common',
         category: 'strategy',
-        customResponse: 'Avoiding lock-in is smart strategy. IBM Power Virtual Server provides flexibility: (1) Open standards - Linux, AIX, standard APIs, (2) Portable workloads - can run on-premises or other clouds, (3) No proprietary database or middleware required, (4) Standard networking and security, (5) Hybrid cloud architecture - keep some workloads on-premises, (6) Multi-cloud management tools. However, for banking workloads, stability and compliance are more important than portability. IBM has 50+ year track record serving financial services. Most banks choose IBM for long-term partnership, not just technology. We can architect for portability while optimizing for your specific needs.',
-        scoringCriteria: [
-          'Acknowledged vendor lock-in concern',
-          'Explained open standards approach',
-          'Highlighted workload portability',
-          'Mentioned hybrid cloud flexibility',
-          'Balanced portability with stability needs',
-          'Emphasized IBM long-term partnership'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj5-a', text: 'IBM Power Virtual Server uses open standards - Linux, AIX, standard APIs for portability', isCorrect: true, points: 4, feedback: 'Excellent - addressed lock-in concern with open standards approach.' },
+          { id: 'obj5-b', text: 'Portable workloads can run on-premises or other clouds, no proprietary dependencies', isCorrect: true, points: 3, feedback: 'Good - emphasized workload portability and flexibility.' },
+          { id: 'obj5-c', text: 'Hybrid cloud architecture allows keeping some workloads on-premises for flexibility', isCorrect: true, points: 3, feedback: 'Good - highlighted hybrid approach that avoids all-or-nothing commitment.' },
+          { id: 'obj5-d', text: 'For banking, stability and compliance more important than portability - IBM 50+ year track record', isCorrect: true, points: 3, feedback: 'Good - balanced portability concern with banking-specific stability needs.' },
+          { id: 'obj5-e', text: 'Once you migrate to IBM, you can never leave', isCorrect: false, points: 0, feedback: 'Wrong - reinforces lock-in concern rather than addressing it.' },
+          { id: 'obj5-f', text: 'Vendor lock-in is not a real concern, just ignore it', isCorrect: false, points: 0, feedback: 'Dismissive - must acknowledge concern and provide architectural flexibility.' }
         ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Acknowledge concern',
           'Explain open standards',
@@ -5322,7 +5899,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'What is driving your need for an API banking platform right now? Is it regulatory, competitive, or strategic?',
         purpose: 'Understand primary business drivers and urgency',
         category: 'pain-point',
-        idealResponse: 'Multiple drivers: open banking regulations require API access in 18 months, we are losing $5M annually to digital banks with better integrations, and we have $3M+ in fintech partnership opportunities we cannot pursue without APIs. Board has made this a strategic priority.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Open banking regulations require API access in 18 months - regulatory compliance deadline', isCorrect: true, points: 4, feedback: 'Excellent - identified the regulatory driver with specific timeline.' },
+          { id: 'q1-b', text: 'Losing $5M annually to digital banks with better integrations and fintech partnerships', isCorrect: true, points: 3, feedback: 'Good - quantified the competitive revenue loss driving urgency.' },
+          { id: 'q1-c', text: 'Have $3M+ in fintech partnership opportunities we cannot pursue without APIs', isCorrect: true, points: 3, feedback: 'Good - identified the strategic revenue opportunity.' },
+          { id: 'q1-d', text: 'Board has made API platform a strategic priority for digital transformation', isCorrect: true, points: 3, feedback: 'Good - recognized executive-level strategic commitment.' },
+          { id: 'q1-e', text: 'Just want to modernize our technology stack', isCorrect: false, points: 0, feedback: 'Too vague - need to understand specific business drivers, not just technology refresh.' },
+          { id: 'q1-f', text: 'Competitors have APIs so we should too', isCorrect: false, points: 0, feedback: 'Weak justification - need to understand specific business impact and urgency.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Identify multiple business drivers', 'Quantify revenue impact', 'Understand regulatory timeline']
       },
@@ -5330,7 +5919,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'What banking services do you want to expose via APIs? Accounts, payments, loans, or something else?',
         purpose: 'Understand API scope and prioritization',
         category: 'technical',
-        idealResponse: 'Phase 1: Account information (balances, transactions) and payment initiation - these are required for open banking compliance. Phase 2: Loan origination, credit cards, and wealth management. Phase 3: Advanced services like fraud detection and personalization. We want to start with regulatory requirements then expand.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Phase 1: Account information (balances, transactions) and payment initiation - required for open banking', isCorrect: true, points: 4, feedback: 'Excellent - prioritized regulatory requirements for Phase 1.' },
+          { id: 'q2-b', text: 'Phase 2: Loan origination, credit cards, and wealth management services', isCorrect: true, points: 3, feedback: 'Good - identified additional services for expansion after core compliance.' },
+          { id: 'q2-c', text: 'Phase 3: Advanced services like fraud detection and personalization', isCorrect: true, points: 3, feedback: 'Good - recognized future innovation opportunities beyond basic banking.' },
+          { id: 'q2-d', text: 'Start with regulatory requirements then expand to value-added services', isCorrect: true, points: 3, feedback: 'Good - understood the phased approach from compliance to innovation.' },
+          { id: 'q2-e', text: 'Expose everything at once to maximize value', isCorrect: false, points: 0, feedback: 'Too risky - phased approach is better for managing complexity and risk.' },
+          { id: 'q2-f', text: 'Only expose read-only data, never allow transactions', isCorrect: false, points: 0, feedback: 'Too limited - open banking requires payment initiation, not just read access.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Identify phased approach', 'Prioritize regulatory requirements', 'Understand full scope']
       },
@@ -5338,7 +5939,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'Who are your target API consumers? Fintechs, corporate customers, internal developers, or all of the above?',
         purpose: 'Understand API consumer landscape and use cases',
         category: 'business',
-        idealResponse: 'Three audiences: (1) External fintechs for partnerships (Plaid, Stripe competitors), (2) Corporate customers for treasury management integrations, (3) Internal developers for mobile app and digital banking. Each has different needs - fintechs need comprehensive APIs, corporates need specific integrations, internal needs full access.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'External fintechs for partnerships (competing with Plaid, Stripe)', isCorrect: true, points: 4, feedback: 'Excellent - identified key external consumer segment and competitive context.' },
+          { id: 'q3-b', text: 'Corporate customers for treasury management and payment integrations', isCorrect: true, points: 3, feedback: 'Good - recognized B2B use case for enterprise customers.' },
+          { id: 'q3-c', text: 'Internal developers for mobile app and digital banking features', isCorrect: true, points: 3, feedback: 'Good - understood internal consumption for own digital channels.' },
+          { id: 'q3-d', text: 'Each audience has different needs - fintechs need comprehensive APIs, corporates need specific integrations', isCorrect: true, points: 3, feedback: 'Good - recognized that different consumers have different requirements.' },
+          { id: 'q3-e', text: 'Only internal developers - too risky to expose APIs externally', isCorrect: false, points: 0, feedback: 'Too limited - open banking requires external access, missing revenue opportunities.' },
+          { id: 'q3-f', text: 'Anyone who wants to use them - no segmentation needed', isCorrect: false, points: 0, feedback: 'Too broad - need to understand different consumer segments and their needs.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Identify multiple consumer types', 'Understand different use cases', 'Assess volume expectations']
       },
@@ -5346,7 +5959,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'What are your API security and compliance requirements? How do you handle authentication and authorization?',
         purpose: 'Identify security, compliance, and risk management needs',
         category: 'technical',
-        idealResponse: 'Must comply with open banking security standards (OAuth 2.0, strong customer authentication). Chief Risk Officer is very concerned about data exposure and fraud. Need API gateway with rate limiting, threat detection, and audit logging. Must pass bank audits and regulatory reviews. Need to manage third-party risk for fintech partners.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Must comply with open banking security standards (OAuth 2.0, strong customer authentication)', isCorrect: true, points: 4, feedback: 'Excellent - identified specific security standards required for open banking.' },
+          { id: 'q4-b', text: 'Chief Risk Officer very concerned about data exposure and fraud risk', isCorrect: true, points: 3, feedback: 'Good - recognized key stakeholder security concerns.' },
+          { id: 'q4-c', text: 'Need API gateway with rate limiting, threat detection, and comprehensive audit logging', isCorrect: true, points: 3, feedback: 'Good - identified specific security controls and monitoring requirements.' },
+          { id: 'q4-d', text: 'Must pass bank audits and manage third-party risk for fintech partners', isCorrect: true, points: 3, feedback: 'Good - understood audit requirements and third-party risk management.' },
+          { id: 'q4-e', text: 'Security is not a concern - APIs are inherently secure', isCorrect: false, points: 0, feedback: 'Dangerous assumption - API security is critical for banking and requires multiple controls.' },
+          { id: 'q4-f', text: 'Just use basic username/password authentication', isCorrect: false, points: 0, feedback: 'Insufficient - open banking requires OAuth 2.0 and strong customer authentication.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Identify security standards', 'Address stakeholder concerns', 'Understand audit requirements']
       },
@@ -5354,7 +5979,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'Do you have a developer portal and API documentation strategy? How will developers discover and use your APIs?',
         purpose: 'Understand developer experience and onboarding needs',
         category: 'business',
-        idealResponse: 'We have nothing today - no developer portal, no API docs, no sandbox environment. Chief Digital Officer wants world-class developer experience to attract fintech partners. Need self-service onboarding, interactive API documentation, sandbox for testing, and developer support. Want to launch developer portal with initial APIs.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Have nothing today - no developer portal, no API docs, no sandbox environment', isCorrect: true, points: 4, feedback: 'Excellent - honestly assessed current state showing need for complete solution.' },
+          { id: 'q5-b', text: 'Chief Digital Officer wants world-class developer experience to attract fintech partners', isCorrect: true, points: 3, feedback: 'Good - identified stakeholder expectation for high-quality developer experience.' },
+          { id: 'q5-c', text: 'Need self-service onboarding, interactive API docs, sandbox for testing, and developer support', isCorrect: true, points: 3, feedback: 'Good - outlined comprehensive developer experience requirements.' },
+          { id: 'q5-d', text: 'Want to launch developer portal with initial APIs - developer experience is competitive differentiator', isCorrect: true, points: 3, feedback: 'Good - recognized that developer experience drives API adoption and success.' },
+          { id: 'q5-e', text: 'Developers can figure it out themselves - no portal needed', isCorrect: false, points: 0, feedback: 'Wrong - poor developer experience will prevent API adoption and partnerships.' },
+          { id: 'q5-f', text: 'Just provide PDF documentation', isCorrect: false, points: 0, feedback: 'Insufficient - modern APIs require interactive docs, sandbox, and self-service onboarding.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Assess current state', 'Identify developer experience needs', 'Understand onboarding requirements']
       },
@@ -5362,7 +5999,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'How do you plan to monetize your APIs? Free for partners, transaction fees, or subscription model?',
         purpose: 'Understand business model and revenue expectations',
         category: 'business',
-        idealResponse: 'Hybrid model: (1) Free tier for open banking compliance, (2) Premium APIs with transaction fees for fintechs (targeting $5M annual revenue), (3) Enterprise pricing for corporate customers. CFO wants clear monetization strategy and ROI. Need API analytics to track usage and revenue.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'Hybrid model: Free tier for open banking compliance, premium APIs with transaction fees', isCorrect: true, points: 4, feedback: 'Excellent - identified multi-tier monetization strategy balancing compliance and revenue.' },
+          { id: 'q6-b', text: 'Premium APIs targeting $5M annual revenue from fintech partnerships', isCorrect: true, points: 3, feedback: 'Good - quantified revenue target for API monetization.' },
+          { id: 'q6-c', text: 'Enterprise pricing for corporate customers with high-volume usage', isCorrect: true, points: 3, feedback: 'Good - recognized B2B monetization opportunity with different pricing.' },
+          { id: 'q6-d', text: 'CFO wants clear monetization strategy and ROI, need API analytics to track usage and revenue', isCorrect: true, points: 3, feedback: 'Good - understood need for analytics and business case justification.' },
+          { id: 'q6-e', text: 'All APIs should be free - monetization is not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO needs revenue justification, missing $5M+ opportunity.' },
+          { id: 'q6-f', text: 'Charge for everything including regulatory compliance APIs', isCorrect: false, points: 0, feedback: 'Incorrect - open banking compliance APIs must be free per regulations.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Identify monetization strategy', 'Quantify revenue targets', 'Understand pricing models']
       },
@@ -5370,7 +6019,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'What is your timeline for launching the API platform? Are there regulatory deadlines?',
         purpose: 'Understand timeline constraints and phasing',
         category: 'timeline',
-        idealResponse: 'Open banking compliance deadline in 18 months. Want to launch Phase 1 (account info, payments) in 9-12 months to get ahead of deadline and start fintech partnerships. Phase 2 (loans, cards) in 18 months. Phase 3 (advanced services) in 24 months. Need quick wins to build momentum.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Open banking compliance deadline in 18 months - hard regulatory requirement', isCorrect: true, points: 4, feedback: 'Excellent - identified the regulatory deadline driving timeline.' },
+          { id: 'q7-b', text: 'Want Phase 1 (account info, payments) in 9-12 months to get ahead of deadline', isCorrect: true, points: 3, feedback: 'Good - understood phased approach with buffer before regulatory deadline.' },
+          { id: 'q7-c', text: 'Phase 2 (loans, cards) in 18 months, Phase 3 (advanced services) in 24 months', isCorrect: true, points: 3, feedback: 'Good - outlined multi-phase roadmap beyond initial compliance.' },
+          { id: 'q7-d', text: 'Need quick wins to build momentum and start fintech partnerships early', isCorrect: true, points: 3, feedback: 'Good - recognized importance of early success to drive adoption.' },
+          { id: 'q7-e', text: 'No rush - can take 3-4 years to build properly', isCorrect: false, points: 0, feedback: 'Too slow - regulatory deadline in 18 months, competitive pressure requires faster action.' },
+          { id: 'q7-f', text: 'Launch everything in 3 months', isCorrect: false, points: 0, feedback: 'Unrealistic - API platform requires proper planning, security, and testing.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Identify regulatory deadlines', 'Understand phased approach', 'Assess urgency']
       },
@@ -5378,7 +6039,19 @@ export const bankingScenario011: TrainingScenario = {
         question: 'What is your budget for the API platform? How do you justify the investment?',
         purpose: 'Understand budget constraints and business case expectations',
         category: 'budget',
-        idealResponse: 'Board approved $3-5M for initial platform plus ongoing operational costs. Business case: avoid $1M regulatory fines, capture $5M revenue loss to digital banks, generate $5M from API monetization, reduce integration costs by $2M annually. CFO wants to see 24-month payback and clear path to profitability.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: 'Board approved $3-5M for initial platform plus ongoing operational costs', isCorrect: true, points: 4, feedback: 'Excellent - quantified budget with both initial and ongoing cost considerations.' },
+          { id: 'q8-b', text: 'Business case: avoid $1M regulatory fines, capture $5M revenue loss, generate $5M from API monetization', isCorrect: true, points: 3, feedback: 'Good - identified multiple business case drivers with quantified benefits.' },
+          { id: 'q8-c', text: 'Reduce integration costs by $2M annually by replacing manual processes', isCorrect: true, points: 3, feedback: 'Good - recognized operational cost savings from automation.' },
+          { id: 'q8-d', text: 'CFO wants 24-month payback and clear path to profitability', isCorrect: true, points: 3, feedback: 'Good - understood ROI expectations and need for financial justification.' },
+          { id: 'q8-e', text: 'Budget is unlimited - just build the best platform', isCorrect: false, points: 0, feedback: 'Unrealistic - all projects have budget constraints that must be managed.' },
+          { id: 'q8-f', text: 'No business case needed - regulatory compliance is enough justification', isCorrect: false, points: 0, feedback: 'Insufficient - CFO needs full business case with revenue and cost benefits.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 16,
         hints: ['Quantify budget', 'Understand business case drivers', 'Identify ROI expectations']
       }
@@ -5418,15 +6091,19 @@ export const bankingScenario011: TrainingScenario = {
         stakeholder: 'Chief Risk Officer',
         difficulty: 'very difficult',
         category: 'risk',
-        customResponse: 'API security is absolutely critical for banking. IBM provides comprehensive security: (1) API Gateway with OAuth 2.0, strong customer authentication, and token management, (2) Rate limiting and DDoS protection to prevent abuse, (3) Real-time threat detection with Watson AI to identify suspicious API calls, (4) End-to-end encryption and data masking, (5) Comprehensive audit logging for regulatory compliance, (6) Third-party risk management for fintech partners. IBM has secured APIs for 100+ banks with zero breaches. We follow OWASP API security standards and can pass any bank audit. FlashSystem provides immutable audit logs that cannot be tampered with.',
-        scoringCriteria: [
-          'Addressed security concerns comprehensively',
-          'Explained OAuth 2.0 and strong customer authentication',
-          'Highlighted real-time threat detection with AI',
-          'Mentioned audit logging and compliance',
-          'Provided track record (100+ banks, zero breaches)',
-          'Referenced industry standards (OWASP)'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj1-a', text: 'API Gateway with OAuth 2.0, strong customer authentication, and comprehensive token management', isCorrect: true, points: 4, feedback: 'Excellent - led with industry-standard authentication and authorization framework.' },
+          { id: 'obj1-b', text: 'Real-time threat detection with Watson AI to identify suspicious API calls and prevent fraud', isCorrect: true, points: 3, feedback: 'Good - highlighted AI-powered security monitoring for proactive threat detection.' },
+          { id: 'obj1-c', text: 'Rate limiting, DDoS protection, end-to-end encryption, and comprehensive audit logging', isCorrect: true, points: 3, feedback: 'Good - outlined multiple security controls and compliance requirements.' },
+          { id: 'obj1-d', text: 'IBM has secured APIs for 100+ banks with zero breaches, follows OWASP standards', isCorrect: true, points: 3, feedback: 'Good - provided credibility with track record and industry standards.' },
+          { id: 'obj1-e', text: 'APIs are inherently secure, no special measures needed', isCorrect: false, points: 0, feedback: 'Dangerous - API security requires multiple layers of controls and monitoring.' },
+          { id: 'obj1-f', text: 'Just use HTTPS and you\'re secure', isCorrect: false, points: 0, feedback: 'Insufficient - banking APIs require OAuth 2.0, threat detection, and comprehensive controls.' }
         ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with comprehensive security approach',
           'Explain OAuth 2.0 and authentication',
@@ -5439,15 +6116,19 @@ export const bankingScenario011: TrainingScenario = {
         stakeholder: 'Chief Digital Officer',
         difficulty: 'common',
         category: 'timing',
-        customResponse: 'Speed to market is critical. IBM\'s proven approach delivers results fast: (1) Pre-built API templates for common banking services (accounts, payments, loans) - no need to build from scratch, (2) IBM API Connect provides complete API management platform out-of-the-box, (3) Developer portal and documentation tools included, (4) Typical timeline: 3 months for platform setup, 6 months for Phase 1 APIs (account info, payments), 9-12 months for full launch. We can have your first APIs in production in 6 months. IBM Expert Labs has launched 50+ banking API platforms with average 9-month time to market. We provide accelerators, templates, and best practices to avoid common pitfalls.',
-        scoringCriteria: [
-          'Addressed timeline concerns',
-          'Explained pre-built templates and accelerators',
-          'Provided specific timeline (6 months for first APIs)',
-          'Mentioned IBM API Connect platform',
-          'Highlighted track record (50+ platforms, 9-month average)',
-          'Offered Expert Labs support'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj2-a', text: 'Pre-built API templates for common banking services - no need to build from scratch', isCorrect: true, points: 4, feedback: 'Excellent - led with accelerators that reduce time to market.' },
+          { id: 'obj2-b', text: 'IBM API Connect provides complete platform out-of-the-box with developer portal and documentation tools', isCorrect: true, points: 3, feedback: 'Good - highlighted comprehensive platform that eliminates custom development.' },
+          { id: 'obj2-c', text: 'Typical timeline: 3 months platform setup, 6 months for Phase 1 APIs, 9-12 months full launch', isCorrect: true, points: 3, feedback: 'Good - provided specific timeline with phased milestones.' },
+          { id: 'obj2-d', text: 'IBM Expert Labs has launched 50+ banking API platforms with average 9-month time to market', isCorrect: true, points: 3, feedback: 'Good - provided credibility with track record and realistic expectations.' },
+          { id: 'obj2-e', text: 'Can launch complete platform in 1 month', isCorrect: false, points: 0, feedback: 'Unrealistic - API platforms require proper planning, security, and testing.' },
+          { id: 'obj2-f', text: 'Will take 3-4 years to build properly', isCorrect: false, points: 0, feedback: 'Too slow - regulatory deadline in 18 months, accelerators enable faster delivery.' }
         ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with pre-built templates',
           'Provide specific timeline',
@@ -5460,16 +6141,19 @@ export const bankingScenario011: TrainingScenario = {
         stakeholder: 'Chief Digital Officer',
         difficulty: 'difficult',
         category: 'strategy',
-        customResponse: 'Great question - developer experience is key to API success. IBM provides complete developer ecosystem: (1) World-class developer portal with interactive API documentation (Swagger/OpenAPI), (2) Sandbox environment for testing without affecting production, (3) Self-service onboarding - developers can sign up and start testing in minutes, (4) SDKs and code samples in multiple languages (Python, Java, Node.js), (5) Developer support and community forums, (6) API analytics to track usage and performance. IBM has helped 100+ banks build thriving developer ecosystems. We can also help with go-to-market strategy, developer marketing, and fintech partnership programs. Many banks see 50+ fintech partners in first year with proper developer experience.',
-        scoringCriteria: [
-          'Addressed developer experience comprehensively',
-          'Explained developer portal and documentation',
-          'Highlighted sandbox environment',
-          'Mentioned self-service onboarding',
-          'Provided SDKs and code samples',
-          'Offered go-to-market support',
-          'Quantified success (50+ partners in first year)'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj3-a', text: 'World-class developer portal with interactive API documentation (Swagger/OpenAPI) and sandbox environment', isCorrect: true, points: 4, feedback: 'Excellent - led with developer experience essentials that drive adoption.' },
+          { id: 'obj3-b', text: 'Self-service onboarding - developers can sign up and start testing in minutes', isCorrect: true, points: 3, feedback: 'Good - highlighted frictionless onboarding that accelerates adoption.' },
+          { id: 'obj3-c', text: 'SDKs and code samples in multiple languages (Python, Java, Node.js) with developer support', isCorrect: true, points: 3, feedback: 'Good - provided tools that make integration easy for developers.' },
+          { id: 'obj3-d', text: 'IBM helps with go-to-market strategy and fintech partnerships - many banks see 50+ partners in first year', isCorrect: true, points: 3, feedback: 'Good - offered strategic support with quantified success metrics.' },
+          { id: 'obj3-e', text: 'Developers will find us if we build it', isCorrect: false, points: 0, feedback: 'Wrong - requires proactive developer experience and marketing strategy.' },
+          { id: 'obj3-f', text: 'Just publish API specs and let developers figure it out', isCorrect: false, points: 0, feedback: 'Insufficient - modern APIs require comprehensive developer experience and support.' }
         ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with developer experience',
           'Explain developer portal features',
@@ -5482,15 +6166,19 @@ export const bankingScenario011: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'common',
         category: 'cost',
-        customResponse: 'API monetization is critical for ROI. IBM API Connect provides flexible monetization: (1) Free tier for open banking compliance (required by regulation), (2) Transaction-based pricing for premium APIs (typical: $0.01-0.05 per API call), (3) Subscription plans for high-volume partners (monthly/annual fees), (4) Enterprise pricing for corporate customers, (5) Built-in usage tracking and billing integration. Typical banking API revenue model: Year 1: $2M (early adopters), Year 2: $5M (scale), Year 3: $10M+ (mature ecosystem). IBM provides API analytics to track usage, revenue, and ROI. We can help design pricing strategy based on your market and competitive landscape. Many banks achieve 18-24 month payback on API platform investment.',
-        scoringCriteria: [
-          'Addressed monetization comprehensively',
-          'Explained multiple pricing models',
-          'Provided revenue projections ($2M → $5M → $10M)',
-          'Mentioned usage tracking and billing',
-          'Offered pricing strategy support',
-          'Quantified payback period (18-24 months)'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj4-a', text: 'Flexible monetization: Free tier for compliance, transaction-based pricing for premium APIs, subscription plans', isCorrect: true, points: 4, feedback: 'Excellent - outlined multi-tier monetization strategy balancing compliance and revenue.' },
+          { id: 'obj4-b', text: 'Typical banking API revenue: Year 1: $2M, Year 2: $5M, Year 3: $10M+ as ecosystem matures', isCorrect: true, points: 3, feedback: 'Good - provided realistic revenue projections showing growth trajectory.' },
+          { id: 'obj4-c', text: 'Built-in usage tracking and billing integration with API analytics to track revenue and ROI', isCorrect: true, points: 3, feedback: 'Good - highlighted tools for revenue management and business case validation.' },
+          { id: 'obj4-d', text: 'Many banks achieve 18-24 month payback on API platform investment', isCorrect: true, points: 3, feedback: 'Good - quantified ROI timeline to justify investment.' },
+          { id: 'obj4-e', text: 'All APIs should be free - monetization is not possible', isCorrect: false, points: 0, feedback: 'Wrong - premium APIs can generate significant revenue beyond compliance.' },
+          { id: 'obj4-f', text: 'Charge maximum prices for all APIs including compliance', isCorrect: false, points: 0, feedback: 'Incorrect - open banking compliance APIs must be free per regulations.' }
         ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Explain multiple pricing models',
           'Provide revenue projections',
@@ -5503,15 +6191,19 @@ export const bankingScenario011: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'difficult',
         category: 'technical',
-        customResponse: 'Legacy system integration is a common challenge - IBM has solved this for 100+ banks. Our approach: (1) API Gateway acts as abstraction layer - APIs do not directly access core banking, (2) Integration layer transforms API calls to formats your core banking understands (batch, file, or real-time), (3) Caching layer reduces load on core systems - frequently accessed data cached for performance, (4) Asynchronous processing for complex operations, (5) Gradual modernization - start with read-only APIs (account info) then add write operations (payments) as systems evolve. IBM Power E1080 provides high-performance integration layer that can handle 10,000+ API calls per second while protecting legacy systems. We have integrated with every major core banking platform (FIS, Jack Henry, Fiserv, Temenos). Can provide reference architectures for your specific core banking system.',
-        scoringCriteria: [
-          'Addressed legacy integration concerns',
-          'Explained API Gateway abstraction layer',
-          'Highlighted caching and performance optimization',
-          'Mentioned gradual modernization approach',
-          'Provided performance metrics (10,000+ TPS)',
-          'Offered reference architectures'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj5-a', text: 'API Gateway acts as abstraction layer - APIs do not directly access core banking systems', isCorrect: true, points: 4, feedback: 'Excellent - led with architectural pattern that protects legacy systems.' },
+          { id: 'obj5-b', text: 'Integration layer transforms API calls to formats core banking understands (batch, file, or real-time)', isCorrect: true, points: 3, feedback: 'Good - explained how to bridge modern APIs with legacy systems.' },
+          { id: 'obj5-c', text: 'Caching layer reduces load on core systems, asynchronous processing for complex operations', isCorrect: true, points: 3, feedback: 'Good - highlighted performance optimization that protects legacy infrastructure.' },
+          { id: 'obj5-d', text: 'IBM Power E1080 handles 10,000+ API calls/second, integrated with all major core banking platforms', isCorrect: true, points: 3, feedback: 'Good - provided performance metrics and integration experience.' },
+          { id: 'obj5-e', text: 'Need to replace core banking system first before APIs', isCorrect: false, points: 0, feedback: 'Wrong - abstraction layer allows APIs without core banking replacement.' },
+          { id: 'obj5-f', text: 'Legacy systems cannot support APIs at all', isCorrect: false, points: 0, feedback: 'Incorrect - integration layer enables APIs with any core banking system.' }
         ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with abstraction layer concept',
           'Explain caching and performance',
@@ -5821,7 +6513,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'What is driving your need for trade finance digitization right now? Is it competitive pressure, fraud, or operational efficiency?',
         purpose: 'Understand primary business drivers and urgency',
         category: 'pain-point',
-        idealResponse: 'Multiple drivers: we are losing $10M annually to digital platforms, suffering $5M in fraud losses, and our 7-10 day letter of credit processing cannot compete with 24-hour digital platforms. We lost a major corporate customer last quarter. Board has made this a strategic priority and wants us to join a blockchain consortium.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Losing $10M annually to digital platforms, 7-10 day processing cannot compete with 24-hour platforms', isCorrect: true, points: 4, feedback: 'Excellent - quantified competitive revenue loss and identified the speed gap.' },
+          { id: 'q1-b', text: 'Suffering $5M in fraud losses from fraudulent documents, need blockchain verification', isCorrect: true, points: 3, feedback: 'Good - identified fraud as major driver with specific financial impact.' },
+          { id: 'q1-c', text: 'Lost major corporate customer last quarter, board made this strategic priority', isCorrect: true, points: 3, feedback: 'Good - recognized recent loss and executive-level urgency.' },
+          { id: 'q1-d', text: 'Board wants us to join blockchain consortium (Marco Polo or we.trade)', isCorrect: true, points: 3, feedback: 'Good - understood strategic direction toward consortium participation.' },
+          { id: 'q1-e', text: 'Just want to try new blockchain technology', isCorrect: false, points: 0, feedback: 'Too vague - need to understand specific business drivers and financial impact.' },
+          { id: 'q1-f', text: 'Blockchain is trendy so we should adopt it', isCorrect: false, points: 0, feedback: 'Wrong approach - technology adoption must be driven by business needs, not trends.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Identify multiple business drivers', 'Quantify revenue and fraud losses', 'Understand competitive pressure']
       },
@@ -5829,7 +6533,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'What trade finance products do you offer today? Letters of credit, bill of lading, supply chain financing, or others?',
         purpose: 'Understand product portfolio and digitization priorities',
         category: 'business',
-        idealResponse: 'We offer letters of credit (80% of volume), documentary collections, and bank guarantees. We do NOT offer supply chain financing - that is an $8M revenue opportunity we are missing. Priority is digitizing letters of credit first, then expanding to supply chain financing. We process 500 letters of credit annually at $20K average value.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Letters of credit (80% of volume), documentary collections, bank guarantees - 500 annually at $20K average', isCorrect: true, points: 4, feedback: 'Excellent - identified product portfolio with volume and value metrics.' },
+          { id: 'q2-b', text: 'Do NOT offer supply chain financing - missing $8M revenue opportunity', isCorrect: true, points: 3, feedback: 'Good - recognized gap in product offering and quantified opportunity.' },
+          { id: 'q2-c', text: 'Priority is digitizing letters of credit first, then expanding to supply chain financing', isCorrect: true, points: 3, feedback: 'Good - understood phased approach starting with core product.' },
+          { id: 'q2-d', text: 'Need blockchain platform that supports multiple trade finance products', isCorrect: true, points: 3, feedback: 'Good - recognized need for flexible platform for future expansion.' },
+          { id: 'q2-e', text: 'Offer every possible trade finance product', isCorrect: false, points: 0, feedback: 'Unrealistic - need to understand actual product portfolio and gaps.' },
+          { id: 'q2-f', text: 'Only focus on letters of credit, ignore other opportunities', isCorrect: false, points: 0, feedback: 'Too narrow - missing $8M supply chain financing opportunity.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Identify product portfolio', 'Understand volume and value', 'Prioritize digitization roadmap']
       },
@@ -5837,7 +6553,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'What is your current letter of credit processing time and cost? How does it compare to digital platforms?',
         purpose: 'Quantify current state and competitive gap',
         category: 'pain-point',
-        idealResponse: '7-10 days for letter of credit processing with 15 trade finance specialists at $200K each ($3M annually). Digital platforms process in 24 hours with 80% less staff. We are losing customers because we cannot compete on speed. Each day of delay costs customers money in supply chain financing.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: '7-10 days processing time with 15 specialists at $200K each ($3M annually)', isCorrect: true, points: 4, feedback: 'Excellent - quantified both time and cost with specific metrics.' },
+          { id: 'q3-b', text: 'Digital platforms process in 24 hours with 80% less staff', isCorrect: true, points: 3, feedback: 'Good - identified competitive gap in both speed and efficiency.' },
+          { id: 'q3-c', text: 'Losing customers because cannot compete on speed, each day of delay costs money', isCorrect: true, points: 3, feedback: 'Good - understood business impact of slow processing on customer retention.' },
+          { id: 'q3-d', text: 'Need to reduce processing from 7-10 days to 24 hours to be competitive', isCorrect: true, points: 3, feedback: 'Good - set clear target based on competitive benchmark.' },
+          { id: 'q3-e', text: 'Processing time is fine, no need to improve', isCorrect: false, points: 0, feedback: 'Wrong - 7-10 days vs 24 hours is massive competitive disadvantage.' },
+          { id: 'q3-f', text: 'Cost is not important, only focus on speed', isCorrect: false, points: 0, feedback: 'Incomplete - both speed AND cost reduction are important for ROI.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Quantify processing time', 'Calculate operational costs', 'Understand competitive gap']
       },
@@ -5845,7 +6573,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'What is your document fraud situation? How much are you losing annually?',
         purpose: 'Identify fraud risk and blockchain value proposition',
         category: 'pain-point',
-        idealResponse: '$5M annual losses from fraudulent bills of lading and forged documents. We have no way to verify document authenticity in real-time. Blockchain would provide immutable document verification and eliminate fraud. Chief Risk Officer is very concerned about fraud risk.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: '$5M annual losses from fraudulent bills of lading and forged documents', isCorrect: true, points: 4, feedback: 'Excellent - quantified fraud losses with specific dollar amount.' },
+          { id: 'q4-b', text: 'No way to verify document authenticity in real-time, blockchain provides immutable verification', isCorrect: true, points: 3, feedback: 'Good - identified verification gap and blockchain solution.' },
+          { id: 'q4-c', text: 'Chief Risk Officer very concerned about fraud risk', isCorrect: true, points: 3, feedback: 'Good - recognized key stakeholder concern driving initiative.' },
+          { id: 'q4-d', text: 'Blockchain can eliminate fraud through immutable document verification', isCorrect: true, points: 3, feedback: 'Good - understood blockchain value proposition for fraud prevention.' },
+          { id: 'q4-e', text: 'Fraud is not a significant problem', isCorrect: false, points: 0, feedback: 'Wrong - $5M annual losses is a major problem requiring immediate action.' },
+          { id: 'q4-f', text: 'Manual verification is sufficient', isCorrect: false, points: 0, feedback: 'Insufficient - manual processes cannot prevent sophisticated document fraud.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Quantify fraud losses', 'Identify verification challenges', 'Address stakeholder concerns']
       },
@@ -5853,7 +6593,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'Are you considering joining a blockchain trade consortium like Marco Polo, we.trade, or Contour?',
         purpose: 'Understand blockchain strategy and consortium participation',
         category: 'business',
-        idealResponse: 'Yes, board wants us to join Marco Polo or we.trade to access their network of 50+ banks and 1000+ corporate customers. We cannot build our own blockchain network - need to join existing consortium for network effects. Need platform that integrates with consortium APIs and supports smart contracts.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Board wants us to join Marco Polo or we.trade to access network of 50+ banks and 1000+ customers', isCorrect: true, points: 4, feedback: 'Excellent - identified board mandate and understood network effects.' },
+          { id: 'q5-b', text: 'Cannot build our own blockchain network - need to join existing consortium', isCorrect: true, points: 3, feedback: 'Good - recognized that consortium participation is more practical than building own network.' },
+          { id: 'q5-c', text: 'Need platform that integrates with consortium APIs and supports smart contracts', isCorrect: true, points: 3, feedback: 'Good - understood technical requirements for consortium participation.' },
+          { id: 'q5-d', text: 'Consortium provides immediate access to corporate customers and trading partners', isCorrect: true, points: 3, feedback: 'Good - recognized business value of instant network access.' },
+          { id: 'q5-e', text: 'Will build our own private blockchain instead', isCorrect: false, points: 0, feedback: 'Wrong - misses network effects and would take years to build ecosystem.' },
+          { id: 'q5-f', text: 'Blockchain consortiums are not important', isCorrect: false, points: 0, feedback: 'Wrong - consortiums provide essential network effects for trade finance.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Identify consortium preferences', 'Understand network effects', 'Assess integration needs']
       },
@@ -5861,7 +6613,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'What are your blockchain security and compliance concerns? How do you handle smart contract risk?',
         purpose: 'Identify security, compliance, and risk management needs',
         category: 'technical',
-        idealResponse: 'Chief Risk Officer is concerned about blockchain security, smart contract bugs, and regulatory compliance. Need permissioned blockchain (not public), immutable audit trail for regulators, and smart contract testing/validation. Must comply with UCC Article 5, ICC UCP 600, and trade sanctions. Need ability to reverse transactions if required by regulators.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'Chief Risk Officer concerned about blockchain security, smart contract bugs, and regulatory compliance', isCorrect: true, points: 4, feedback: 'Excellent - identified key stakeholder concerns across security and compliance.' },
+          { id: 'q6-b', text: 'Need permissioned blockchain (not public), immutable audit trail, smart contract testing/validation', isCorrect: true, points: 3, feedback: 'Good - specified security requirements including permissioned network.' },
+          { id: 'q6-c', text: 'Must comply with UCC Article 5, ICC UCP 600, and trade sanctions', isCorrect: true, points: 3, feedback: 'Good - identified specific regulatory requirements for trade finance.' },
+          { id: 'q6-d', text: 'Need ability to reverse transactions if required by regulators', isCorrect: true, points: 3, feedback: 'Good - understood that immutability must be balanced with regulatory requirements.' },
+          { id: 'q6-e', text: 'Public blockchain is fine for banking', isCorrect: false, points: 0, feedback: 'Wrong - banks require permissioned blockchain for security and compliance.' },
+          { id: 'q6-f', text: 'Smart contracts are always bug-free', isCorrect: false, points: 0, feedback: 'Dangerous assumption - smart contracts require rigorous testing and validation.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Identify security concerns', 'Understand compliance requirements', 'Address smart contract risk']
       },
@@ -5869,7 +6633,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'How will you integrate blockchain with your legacy mainframe trade finance system?',
         purpose: 'Understand integration challenges and technical constraints',
         category: 'technical',
-        idealResponse: 'Legacy mainframe system is 8 years old and not designed for blockchain. Need integration layer that connects blockchain to mainframe without disrupting current operations. Want to run parallel systems during transition. Eventually migrate off mainframe but need 12-18 month transition period.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Legacy mainframe system is 8 years old and not designed for blockchain', isCorrect: true, points: 4, feedback: 'Excellent - honestly assessed legacy system constraints.' },
+          { id: 'q7-b', text: 'Need integration layer that connects blockchain to mainframe without disrupting operations', isCorrect: true, points: 3, feedback: 'Good - identified need for abstraction layer to protect legacy systems.' },
+          { id: 'q7-c', text: 'Want to run parallel systems during transition, eventually migrate off mainframe', isCorrect: true, points: 3, feedback: 'Good - understood phased transition approach minimizing risk.' },
+          { id: 'q7-d', text: 'Need 12-18 month transition period for gradual migration', isCorrect: true, points: 3, feedback: 'Good - set realistic timeline for complex legacy integration.' },
+          { id: 'q7-e', text: 'Replace mainframe immediately with blockchain', isCorrect: false, points: 0, feedback: 'Too risky - need gradual transition with parallel systems.' },
+          { id: 'q7-f', text: 'Blockchain can directly access mainframe', isCorrect: false, points: 0, feedback: 'Wrong - need integration layer to bridge modern blockchain with legacy mainframe.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Assess legacy integration needs', 'Understand transition strategy', 'Identify technical constraints']
       },
@@ -5877,7 +6653,19 @@ export const bankingScenario012: TrainingScenario = {
         question: 'What is your budget and expected ROI for trade finance digitization?',
         purpose: 'Understand budget constraints and business case expectations',
         category: 'budget',
-        idealResponse: 'Board approved $4-6M for platform plus ongoing costs. Business case: capture $10M revenue loss, eliminate $5M fraud, reduce $3M operational costs by 50%, generate $8M from supply chain financing. CFO wants 24-month payback and clear path to profitability. Need to show ROI from fraud reduction and operational efficiency before revenue growth.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: 'Board approved $4-6M for platform plus ongoing costs', isCorrect: true, points: 4, feedback: 'Excellent - quantified budget with both initial and ongoing considerations.' },
+          { id: 'q8-b', text: 'Business case: capture $10M revenue, eliminate $5M fraud, reduce $3M costs by 50%, generate $8M supply chain financing', isCorrect: true, points: 3, feedback: 'Good - identified multiple ROI drivers with specific financial targets.' },
+          { id: 'q8-c', text: 'CFO wants 24-month payback and clear path to profitability', isCorrect: true, points: 3, feedback: 'Good - understood ROI expectations and timeline requirements.' },
+          { id: 'q8-d', text: 'Need to show ROI from fraud reduction and operational efficiency before revenue growth', isCorrect: true, points: 3, feedback: 'Good - recognized that cost savings provide faster payback than revenue growth.' },
+          { id: 'q8-e', text: 'Budget is unlimited, ROI does not matter', isCorrect: false, points: 0, feedback: 'Unrealistic - all projects require business case justification.' },
+          { id: 'q8-f', text: 'Only focus on revenue, ignore cost savings', isCorrect: false, points: 0, feedback: 'Incomplete - fraud elimination and cost reduction provide faster ROI.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 14,
         hints: ['Quantify budget', 'Understand ROI expectations', 'Identify business case drivers']
       }
@@ -5917,15 +6705,19 @@ export const bankingScenario012: TrainingScenario = {
         stakeholder: 'Chief Risk Officer',
         difficulty: 'difficult',
         category: 'risk',
-        customResponse: 'Blockchain for trade finance is proven with 50+ banks live on production networks. Marco Polo consortium has processed $1B+ in trade finance transactions. we.trade has 20+ banks and 1000+ corporate customers. IBM Blockchain Platform powers both consortiums with 99.99% uptime. Key benefits proven in production: (1) 80% reduction in processing time (7 days → 24 hours), (2) 95% reduction in document fraud through immutable verification, (3) 50% reduction in operational costs through automation, (4) Real-time supply chain visibility. IBM has deployed 500+ blockchain networks for enterprises with comprehensive security, audit trails, and regulatory compliance. We can provide reference customers and proof points.',
-        scoringCriteria: [
-          'Addressed blockchain maturity concerns',
-          'Provided production statistics (50+ banks, $1B+ transactions)',
-          'Quantified benefits (80% faster, 95% fraud reduction, 50% cost savings)',
-          'Mentioned major consortiums (Marco Polo, we.trade)',
-          'Highlighted IBM track record (500+ networks, 99.99% uptime)',
-          'Offered reference customers'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj1-a', text: '50+ banks live on production networks, Marco Polo processed $1B+ transactions, we.trade has 1000+ customers', isCorrect: true, points: 4, feedback: 'Excellent - led with production proof points and major consortium statistics.' },
+          { id: 'obj1-b', text: 'Proven benefits: 80% faster processing (7 days → 24 hours), 95% fraud reduction, 50% cost savings', isCorrect: true, points: 3, feedback: 'Good - quantified specific benefits from live production systems.' },
+          { id: 'obj1-c', text: 'IBM Blockchain Platform powers both consortiums with 99.99% uptime', isCorrect: true, points: 3, feedback: 'Good - provided reliability metrics and IBM platform credibility.' },
+          { id: 'obj1-d', text: 'IBM has deployed 500+ blockchain networks with comprehensive security and compliance', isCorrect: true, points: 3, feedback: 'Good - demonstrated IBM experience and enterprise-grade capabilities.' },
+          { id: 'obj1-e', text: 'Blockchain is experimental, no one uses it yet', isCorrect: false, points: 0, feedback: 'Wrong - 50+ banks are live in production with billions in transactions.' },
+          { id: 'obj1-f', text: 'Just trust that blockchain will work', isCorrect: false, points: 0, feedback: 'Insufficient - need to provide production proof points and statistics.' }
         ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with production proof points',
           'Quantify benefits from live networks',
@@ -5938,16 +6730,19 @@ export const bankingScenario012: TrainingScenario = {
         stakeholder: 'Chief Risk Officer',
         difficulty: 'very difficult',
         category: 'risk',
-        customResponse: 'Smart contract security is critical - IBM provides comprehensive protection: (1) Permissioned blockchain - only authorized banks and corporates can participate (not public blockchain), (2) Smart contract testing and validation tools to catch bugs before deployment, (3) Formal verification of smart contracts using mathematical proofs, (4) Immutable audit trail - every transaction recorded and cannot be altered, (5) Multi-signature approvals for high-value transactions, (6) Ability to pause/upgrade smart contracts if issues found, (7) IBM Blockchain Platform includes security monitoring and threat detection. IBM has secured 500+ blockchain networks with zero security breaches. We follow NIST blockchain security standards and can pass any bank audit. FlashSystem provides immutable backup of blockchain data for disaster recovery.',
-        scoringCriteria: [
-          'Addressed smart contract security comprehensively',
-          'Explained permissioned blockchain (not public)',
-          'Highlighted testing and formal verification',
-          'Mentioned immutable audit trail',
-          'Provided track record (500+ networks, zero breaches)',
-          'Referenced security standards (NIST)',
-          'Offered disaster recovery with FlashSystem'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj2-a', text: 'Permissioned blockchain - only authorized banks and corporates participate (not public blockchain)', isCorrect: true, points: 4, feedback: 'Excellent - led with permissioned network addressing key banking security concern.' },
+          { id: 'obj2-b', text: 'Smart contract testing, validation tools, and formal verification using mathematical proofs', isCorrect: true, points: 3, feedback: 'Good - outlined rigorous testing approach to prevent bugs.' },
+          { id: 'obj2-c', text: 'Immutable audit trail, multi-signature approvals, ability to pause/upgrade smart contracts', isCorrect: true, points: 3, feedback: 'Good - provided multiple security controls and governance mechanisms.' },
+          { id: 'obj2-d', text: 'IBM has secured 500+ blockchain networks with zero breaches, follows NIST standards', isCorrect: true, points: 3, feedback: 'Good - demonstrated track record and compliance with security standards.' },
+          { id: 'obj2-e', text: 'Smart contracts are always perfect, no testing needed', isCorrect: false, points: 0, feedback: 'Dangerous - smart contracts require rigorous testing and validation.' },
+          { id: 'obj2-f', text: 'Public blockchain is fine for banking', isCorrect: false, points: 0, feedback: 'Wrong - banks require permissioned blockchain for security and compliance.' }
         ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Lead with permissioned blockchain',
           'Explain smart contract testing',
@@ -5960,15 +6755,19 @@ export const bankingScenario012: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'common',
         category: 'timing',
-        customResponse: 'Proven timeline with mainframe integration: (1) 3 months to join blockchain consortium and set up IBM Blockchain Platform, (2) 6 months to build integration layer connecting blockchain to mainframe, (3) 9 months for pilot with 10 corporate customers, (4) 12-18 months for full production launch. IBM Power E1080 provides high-performance integration layer that connects blockchain to mainframe without disrupting operations. We can run parallel systems during transition - blockchain for new transactions, mainframe for existing. IBM Expert Labs has integrated blockchain with every major trade finance system (including mainframes) with average 12-month timeline. We provide pre-built connectors and accelerators to speed implementation.',
-        scoringCriteria: [
-          'Provided specific timeline (12-18 months)',
-          'Explained phased approach (consortium → integration → pilot → production)',
-          'Addressed mainframe integration with Power E1080',
-          'Mentioned parallel systems during transition',
-          'Highlighted Expert Labs experience',
-          'Offered pre-built connectors and accelerators'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj3-a', text: 'Proven timeline: 3 months consortium setup, 6 months integration, 9 months pilot, 12-18 months production', isCorrect: true, points: 4, feedback: 'Excellent - provided specific phased timeline with clear milestones.' },
+          { id: 'obj3-b', text: 'IBM Power E1080 provides high-performance integration layer connecting blockchain to mainframe', isCorrect: true, points: 3, feedback: 'Good - addressed mainframe integration with specific IBM solution.' },
+          { id: 'obj3-c', text: 'Run parallel systems during transition - blockchain for new, mainframe for existing transactions', isCorrect: true, points: 3, feedback: 'Good - outlined risk mitigation strategy with parallel operations.' },
+          { id: 'obj3-d', text: 'IBM Expert Labs has integrated blockchain with mainframes, average 12-month timeline', isCorrect: true, points: 3, feedback: 'Good - provided credibility with experience and realistic expectations.' },
+          { id: 'obj3-e', text: 'Can implement in 1 month', isCorrect: false, points: 0, feedback: 'Unrealistic - blockchain with mainframe integration requires 12-18 months.' },
+          { id: 'obj3-f', text: 'Must replace mainframe first before blockchain', isCorrect: false, points: 0, feedback: 'Wrong - integration layer allows blockchain without mainframe replacement.' }
         ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Provide specific timeline',
           'Explain phased approach',
@@ -5981,15 +6780,19 @@ export const bankingScenario012: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'common',
         category: 'strategy',
-        customResponse: 'Great question - consortium risk is real. IBM Blockchain Platform provides flexibility: (1) Multi-consortium support - can connect to Marco Polo, we.trade, and Contour simultaneously, (2) Open standards (Hyperledger Fabric) - not proprietary, can migrate between networks, (3) Portable smart contracts - can redeploy to different blockchain networks, (4) Hybrid approach - run private blockchain for bilateral trades while participating in consortiums for network trades. Most banks join multiple consortiums to maximize network effects. IBM Blockchain Platform is used by all major trade consortiums, so you have consistent technology regardless of consortium. We can architect for flexibility while optimizing for your primary consortium.',
-        scoringCriteria: [
-          'Addressed consortium risk',
-          'Explained multi-consortium support',
-          'Highlighted open standards (Hyperledger Fabric)',
-          'Mentioned portable smart contracts',
-          'Suggested hybrid approach',
-          'Emphasized IBM platform consistency across consortiums'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj4-a', text: 'Multi-consortium support - can connect to Marco Polo, we.trade, and Contour simultaneously', isCorrect: true, points: 4, feedback: 'Excellent - addressed consortium risk with multi-network capability.' },
+          { id: 'obj4-b', text: 'Open standards (Hyperledger Fabric) - not proprietary, can migrate between networks', isCorrect: true, points: 3, feedback: 'Good - highlighted portability through open standards.' },
+          { id: 'obj4-c', text: 'Portable smart contracts can redeploy to different blockchain networks', isCorrect: true, points: 3, feedback: 'Good - emphasized flexibility and investment protection.' },
+          { id: 'obj4-d', text: 'IBM Blockchain Platform used by all major consortiums - consistent technology regardless of choice', isCorrect: true, points: 3, feedback: 'Good - demonstrated IBM platform ubiquity reducing switching risk.' },
+          { id: 'obj4-e', text: 'Once you join a consortium, you can never leave', isCorrect: false, points: 0, feedback: 'Wrong - open standards and portability enable consortium flexibility.' },
+          { id: 'obj4-f', text: 'Consortium risk is not a concern', isCorrect: false, points: 0, feedback: 'Dismissive - must acknowledge risk and provide mitigation strategies.' }
         ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Acknowledge consortium risk',
           'Explain multi-consortium support',
@@ -6002,15 +6805,19 @@ export const bankingScenario012: TrainingScenario = {
         stakeholder: 'CFO',
         difficulty: 'common',
         category: 'cost',
-        customResponse: 'Compelling ROI from multiple sources: (1) Fraud elimination: $5M annually (currently losing to fraudulent documents), (2) Operational cost reduction: $1.5M annually (reduce 15 staff to 7-8 through automation), (3) Revenue capture: $10M annually (win back customers lost to digital platforms), (4) New revenue: $8M annually from supply chain financing (cannot offer today). Total annual benefit: $24.5M. Investment: $5M initial + $1M annual operational costs. Payback: 3 months from fraud elimination alone, 6 months including cost savings, 12 months including revenue. Three-year ROI: 380%. Most banks see payback in 6-12 months from fraud reduction and operational efficiency before counting revenue growth. We can model your specific ROI based on transaction volumes.',
-        scoringCriteria: [
-          'Quantified multiple ROI sources',
-          'Provided specific numbers ($24.5M annual benefit)',
-          'Calculated payback periods (3-12 months)',
-          'Emphasized fraud elimination as quick win',
-          'Mentioned three-year ROI (380%)',
-          'Offered to model customer-specific ROI'
+        customResponse: '',
+        responseChoices: [
+          { id: 'obj5-a', text: 'Compelling ROI: $5M fraud elimination, $1.5M cost reduction, $10M revenue capture, $8M supply chain financing', isCorrect: true, points: 4, feedback: 'Excellent - quantified multiple ROI sources totaling $24.5M annual benefit.' },
+          { id: 'obj5-b', text: 'Payback: 3 months from fraud elimination, 6 months with cost savings, 12 months with revenue', isCorrect: true, points: 3, feedback: 'Good - provided multiple payback scenarios showing quick ROI.' },
+          { id: 'obj5-c', text: 'Investment: $5M initial + $1M annual operational costs, three-year ROI: 380%', isCorrect: true, points: 3, feedback: 'Good - outlined investment requirements and long-term ROI.' },
+          { id: 'obj5-d', text: 'Most banks see 6-12 month payback from fraud reduction and efficiency before revenue growth', isCorrect: true, points: 3, feedback: 'Good - set realistic expectations with industry benchmarks.' },
+          { id: 'obj5-e', text: 'ROI is impossible to calculate', isCorrect: false, points: 0, feedback: 'Wrong - clear ROI from fraud elimination, cost savings, and revenue.' },
+          { id: 'obj5-f', text: 'Just focus on technology, ignore business case', isCorrect: false, points: 0, feedback: 'Unacceptable - CFO needs quantified ROI and payback period.' }
         ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [],
         hints: [
           'Quantify multiple benefit sources',
           'Calculate specific payback periods',
@@ -6342,7 +7149,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'What is driving your need for mortgage automation right now? Is it competitive pressure, customer demand, or operational efficiency?',
         purpose: 'Understand primary business drivers and urgency',
         category: 'pain-point',
-        idealResponse: 'Multiple drivers: we are losing $50M annually to digital lenders like Rocket Mortgage who approve mortgages in 10 days vs our 45 days. Customer satisfaction is 6.2/10 vs 8.5/10 for digital lenders. Board has mandated we reduce processing time to 10 days within 18 months or risk losing more market share. This is strategic priority #1.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Losing $50M annually to digital lenders like Rocket Mortgage who approve in 10 days vs our 45 days', isCorrect: true, points: 4, feedback: 'Excellent - quantified competitive revenue loss and identified speed gap.' },
+          { id: 'q1-b', text: 'Customer satisfaction 6.2/10 vs 8.5/10 for digital lenders - losing customers due to poor experience', isCorrect: true, points: 3, feedback: 'Good - recognized customer experience gap driving competitive disadvantage.' },
+          { id: 'q1-c', text: 'Board mandated reduce processing to 10 days within 18 months or risk more market share loss', isCorrect: true, points: 3, feedback: 'Good - identified executive urgency and strategic priority.' },
+          { id: 'q1-d', text: 'This is strategic priority #1 - multiple drivers including competition, customer demand, and efficiency', isCorrect: true, points: 3, feedback: 'Good - understood this is multi-faceted strategic initiative.' },
+          { id: 'q1-e', text: 'Just want to try new technology', isCorrect: false, points: 0, feedback: 'Too vague - need to understand specific business drivers and financial impact.' },
+          { id: 'q1-f', text: 'Automation is trendy so we should do it', isCorrect: false, points: 0, feedback: 'Wrong - technology adoption must be driven by business needs, not trends.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Identify multiple business drivers', 'Quantify revenue impact', 'Understand competitive pressure']
       },
@@ -6350,7 +7169,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'What is your current mortgage origination process? Where are the biggest bottlenecks and delays?',
         purpose: 'Understand current state and pain points',
         category: 'technical',
-        idealResponse: 'Current process takes 45 days: (1) Application collection - 5 days (paper forms), (2) Document gathering - 15 days (manual collection of pay stubs, tax returns, bank statements), (3) Income/employment verification - 10 days (manual phone calls), (4) Credit decisioning - 10 days (manual underwriting), (5) Compliance review - 5 days. Biggest bottlenecks are document collection (15 days) and manual underwriting (10 days). Loan officers spend 70% of time on paperwork.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Current process takes 45 days: application (5 days), document gathering (15 days), verification (10 days), underwriting (10 days), compliance (5 days)', isCorrect: true, points: 4, feedback: 'Excellent - mapped complete process with time breakdown for each step.' },
+          { id: 'q2-b', text: 'Biggest bottlenecks are document collection (15 days) and manual underwriting (10 days)', isCorrect: true, points: 3, feedback: 'Good - identified the two major bottlenecks consuming 25 of 45 days.' },
+          { id: 'q2-c', text: 'Loan officers spend 70% of time on paperwork vs customer interaction', isCorrect: true, points: 3, feedback: 'Good - quantified productivity impact of manual processes.' },
+          { id: 'q2-d', text: 'Paper-based forms and manual phone calls for verification causing delays', isCorrect: true, points: 3, feedback: 'Good - identified specific manual processes that need automation.' },
+          { id: 'q2-e', text: 'Process is fine, no bottlenecks', isCorrect: false, points: 0, feedback: 'Wrong - 45 days vs 10 days for competitors indicates major bottlenecks.' },
+          { id: 'q2-f', text: 'Only issue is staffing, not process', isCorrect: false, points: 0, feedback: 'Incomplete - manual processes are the root cause, not just staffing levels.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Map current process', 'Identify bottlenecks', 'Quantify time spent']
       },
@@ -6358,7 +7189,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'What is the business impact of your slow mortgage processing? How much volume are you losing?',
         purpose: 'Quantify business impact and opportunity',
         category: 'business',
-        idealResponse: 'Losing $50M annually in mortgage volume to digital lenders. Customer abandonment rate is 35% vs industry average 20% - customers get frustrated and go to Rocket Mortgage. Market share declining 5% annually. Loan officer productivity 40% below industry average because they spend 70% of time on paperwork. Operational costs $3M higher than digital lenders due to manual processes.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Losing $50M annually in mortgage volume to digital lenders like Rocket Mortgage', isCorrect: true, points: 4, feedback: 'Excellent - quantified revenue loss with specific dollar amount.' },
+          { id: 'q3-b', text: 'Customer abandonment rate 35% vs industry average 20% - customers go to faster competitors', isCorrect: true, points: 3, feedback: 'Good - identified customer retention problem with competitive benchmark.' },
+          { id: 'q3-c', text: 'Market share declining 5% annually, loan officer productivity 40% below industry average', isCorrect: true, points: 3, feedback: 'Good - quantified market share loss and productivity gap.' },
+          { id: 'q3-d', text: 'Operational costs $3M higher than digital lenders due to manual processes', isCorrect: true, points: 3, feedback: 'Good - identified cost disadvantage from inefficient processes.' },
+          { id: 'q3-e', text: 'No significant business impact', isCorrect: false, points: 0, feedback: 'Wrong - $50M revenue loss and declining market share is major impact.' },
+          { id: 'q3-f', text: 'Only losing a few customers', isCorrect: false, points: 0, feedback: 'Understated - 35% abandonment rate and $50M loss is significant.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Quantify revenue loss', 'Identify customer impact', 'Assess productivity impact']
       },
@@ -6366,7 +7209,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'What automation capabilities do you need? Document collection, income verification, credit decisioning, or all of the above?',
         purpose: 'Understand automation scope and priorities',
         category: 'technical',
-        idealResponse: 'Need comprehensive automation: (1) Digital document collection - customers upload docs via mobile app, (2) Automated income/employment verification - integrate with payroll systems and IRS, (3) AI-powered credit decisioning - automate 80% of underwriting decisions, (4) Automated compliance checks - TRID, fair lending, AML/KYC, (5) E-signature and digital closing. Want to automate 80% of workflow and reduce processing time from 45 days to 10 days.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Comprehensive automation: digital document collection via mobile app, automated income/employment verification', isCorrect: true, points: 4, feedback: 'Excellent - identified end-to-end automation scope starting with documents and verification.' },
+          { id: 'q4-b', text: 'AI-powered credit decisioning to automate 80% of underwriting decisions', isCorrect: true, points: 3, feedback: 'Good - recognized AI decisioning as key capability with realistic automation target.' },
+          { id: 'q4-c', text: 'Automated compliance checks for TRID, fair lending, AML/KYC, plus e-signature and digital closing', isCorrect: true, points: 3, feedback: 'Good - understood need for compliance automation and digital closing.' },
+          { id: 'q4-d', text: 'Want to automate 80% of workflow and reduce processing from 45 days to 10 days', isCorrect: true, points: 3, feedback: 'Good - set clear automation target and processing time goal.' },
+          { id: 'q4-e', text: 'Only need document scanning', isCorrect: false, points: 0, feedback: 'Too limited - need comprehensive automation across entire mortgage process.' },
+          { id: 'q4-f', text: 'Automate everything 100%, no human involvement', isCorrect: false, points: 0, feedback: 'Unrealistic - need human oversight for edge cases and compliance.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 12,
         hints: ['Identify automation scope', 'Prioritize capabilities', 'Understand target state']
       },
@@ -6374,7 +7229,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'What are your compliance and risk management requirements? How do you ensure automated decisions meet regulatory standards?',
         purpose: 'Identify compliance, risk, and audit needs',
         category: 'technical',
-        idealResponse: 'Chief Risk Officer is very concerned about automated decisioning. Must comply with TRID, fair lending, HMDA reporting, AML/KYC. Need explainable AI - must be able to explain why loan was approved or denied. Need comprehensive audit trail for regulatory exams. Fraud detection is critical - automated systems must catch suspicious applications. Want to reduce compliance costs from $2M to $500K annually.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Chief Risk Officer very concerned about automated decisioning - must comply with TRID, fair lending, HMDA, AML/KYC', isCorrect: true, points: 4, feedback: 'Excellent - identified stakeholder concern and specific regulatory requirements.' },
+          { id: 'q5-b', text: 'Need explainable AI - must be able to explain why loan was approved or denied for auditors', isCorrect: true, points: 3, feedback: 'Good - understood requirement for transparent, auditable AI decisions.' },
+          { id: 'q5-c', text: 'Need comprehensive audit trail for regulatory exams and fraud detection for suspicious applications', isCorrect: true, points: 3, feedback: 'Good - recognized audit and fraud detection requirements.' },
+          { id: 'q5-d', text: 'Want to reduce compliance costs from $2M to $500K annually through automation', isCorrect: true, points: 3, feedback: 'Good - quantified compliance cost reduction opportunity.' },
+          { id: 'q5-e', text: 'Compliance is not important for automation', isCorrect: false, points: 0, feedback: 'Dangerous - compliance is critical for mortgage automation and regulatory approval.' },
+          { id: 'q5-f', text: 'AI decisions don\'t need to be explainable', isCorrect: false, points: 0, feedback: 'Wrong - regulators require explainable AI for fair lending compliance.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 15,
         hints: ['Identify regulatory requirements', 'Address stakeholder concerns', 'Understand audit needs']
       },
@@ -6382,7 +7249,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'How will you integrate mortgage automation with your existing systems? What systems need to connect?',
         purpose: 'Understand integration requirements and technical constraints',
         category: 'technical',
-        idealResponse: 'Need to integrate with: (1) Ellie Mae Encompass (mortgage origination system), (2) Credit bureaus (Experian, Equifax, TransUnion), (3) Income verification services (The Work Number, IRS), (4) Document management system, (5) Core banking system, (6) Compliance systems. Current systems are 6 years old and not designed for real-time integration. Need API-based integration layer.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'Need to integrate with Ellie Mae Encompass (mortgage origination system) and credit bureaus', isCorrect: true, points: 4, feedback: 'Excellent - identified core mortgage system and credit bureau integrations.' },
+          { id: 'q6-b', text: 'Must connect to income verification services (The Work Number, IRS) and document management', isCorrect: true, points: 3, feedback: 'Good - recognized verification and document system integration needs.' },
+          { id: 'q6-c', text: 'Integration with core banking system and compliance systems required', isCorrect: true, points: 3, feedback: 'Good - understood need for banking and compliance system connectivity.' },
+          { id: 'q6-d', text: 'Current systems 6 years old, not designed for real-time integration - need API-based integration layer', isCorrect: true, points: 3, feedback: 'Good - assessed legacy constraints and identified integration approach.' },
+          { id: 'q6-e', text: 'No integration needed, standalone system', isCorrect: false, points: 0, feedback: 'Wrong - mortgage automation requires extensive integration with existing systems.' },
+          { id: 'q6-f', text: 'Replace all existing systems', isCorrect: false, points: 0, feedback: 'Too risky and expensive - should integrate with existing systems like Encompass.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Identify integration points', 'Assess technical constraints', 'Understand system landscape']
       },
@@ -6390,7 +7269,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'What is your customer experience vision? How do you want customers to interact with your mortgage process?',
         purpose: 'Understand customer experience goals and expectations',
         category: 'business',
-        idealResponse: 'Chief Digital Officer wants Rocket Mortgage-level experience: (1) Apply online or mobile in 15 minutes, (2) Upload documents via phone camera, (3) Get pre-approval in 24 hours, (4) Track application status in real-time, (5) E-sign all documents, (6) Close in 10 days. Want to improve customer satisfaction from 6.2 to 8.5. Need mobile-first experience - 60% of customers start on mobile.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Chief Digital Officer wants Rocket Mortgage-level experience: apply online/mobile in 15 minutes, upload docs via phone', isCorrect: true, points: 4, feedback: 'Excellent - identified stakeholder vision with specific competitive benchmark.' },
+          { id: 'q7-b', text: 'Get pre-approval in 24 hours, track application status in real-time, e-sign all documents', isCorrect: true, points: 3, feedback: 'Good - outlined key digital experience features customers expect.' },
+          { id: 'q7-c', text: 'Close in 10 days, improve customer satisfaction from 6.2 to 8.5', isCorrect: true, points: 3, feedback: 'Good - set clear timeline and satisfaction improvement targets.' },
+          { id: 'q7-d', text: 'Need mobile-first experience - 60% of customers start on mobile', isCorrect: true, points: 3, feedback: 'Good - recognized mobile as primary channel based on customer behavior.' },
+          { id: 'q7-e', text: 'Keep paper-based process', isCorrect: false, points: 0, feedback: 'Wrong - customers demand digital experience, paper is causing abandonment.' },
+          { id: 'q7-f', text: 'Customer experience is not important', isCorrect: false, points: 0, feedback: 'Wrong - poor experience (6.2/10) is driving customers to competitors.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 10,
         hints: ['Identify customer experience goals', 'Understand digital expectations', 'Assess mobile requirements']
       },
@@ -6398,7 +7289,19 @@ export const bankingScenario013: TrainingScenario = {
         question: 'What is your budget and timeline? What ROI do you expect from mortgage automation?',
         purpose: 'Understand budget constraints and business case expectations',
         category: 'budget',
-        idealResponse: 'Board approved $4-6M for mortgage automation. Timeline: 12-18 months to full implementation. Business case: capture $50M in lost mortgage volume, reduce operational costs by $3M annually, reduce compliance costs from $2M to $500K, improve customer satisfaction from 6.2 to 8.5. CFO wants to see 24-month payback and clear path to profitability. Need quick wins to build momentum.',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: 'Board approved $4-6M for mortgage automation, timeline 12-18 months to full implementation', isCorrect: true, points: 4, feedback: 'Excellent - quantified budget and timeline with board approval.' },
+          { id: 'q8-b', text: 'Business case: capture $50M lost volume, reduce operational costs by $3M, reduce compliance costs from $2M to $500K', isCorrect: true, points: 3, feedback: 'Good - identified multiple ROI drivers with specific financial targets.' },
+          { id: 'q8-c', text: 'Improve customer satisfaction from 6.2 to 8.5, CFO wants 24-month payback', isCorrect: true, points: 3, feedback: 'Good - included customer satisfaction goal and ROI timeline expectation.' },
+          { id: 'q8-d', text: 'Need quick wins to build momentum and demonstrate value early', isCorrect: true, points: 3, feedback: 'Good - understood importance of phased approach with early wins.' },
+          { id: 'q8-e', text: 'Budget is unlimited, no ROI needed', isCorrect: false, points: 0, feedback: 'Unrealistic - all projects require business case justification.' },
+          { id: 'q8-f', text: 'Can implement in 1 month', isCorrect: false, points: 0, feedback: 'Unrealistic - comprehensive mortgage automation requires 12-18 months.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         scoringWeight: 11,
         hints: ['Quantify budget', 'Understand timeline', 'Identify ROI expectations']
       }
@@ -6439,6 +7342,17 @@ export const bankingScenario013: TrainingScenario = {
         difficulty: 'very difficult',
         category: 'risk',
         customResponse: 'Compliance and accuracy are absolutely critical for mortgage automation. IBM provides comprehensive solution: (1) Watson Studio AI with explainable decisioning - every loan decision includes detailed reasoning that auditors can review, (2) Fair lending algorithms trained on millions of compliant loans - no bias or discrimination, (3) Real-time compliance checks for TRID, fair lending, HMDA, AML/KYC, (4) Comprehensive audit trail stored on FlashSystem with immutable snapshots - cannot be tampered with, (5) Human oversight for edge cases - 20% of loans flagged for manual review, (6) Continuous monitoring and model validation. IBM has automated mortgage decisioning for 50+ banks with zero fair lending violations. Our AI models achieve 95% accuracy vs 85% for manual underwriting. We follow CFPB guidelines and can pass any regulatory exam.',
+        responseChoices: [
+          { id: 'obj1-a', text: 'Watson Studio provides explainable AI - every decision includes detailed reasoning auditors can review, ensuring transparency and compliance', isCorrect: true, points: 4, feedback: 'Excellent - explainable AI is critical for regulatory compliance and audit readiness.' },
+          { id: 'obj1-b', text: 'Fair lending algorithms trained on millions of compliant loans with no bias, plus real-time compliance checks for TRID, HMDA, AML/KYC', isCorrect: true, points: 3, feedback: 'Good - addressed fair lending and regulatory compliance comprehensively.' },
+          { id: 'obj1-c', text: 'FlashSystem immutable snapshots provide tamper-proof audit trail, human oversight for 20% edge cases ensures quality control', isCorrect: true, points: 3, feedback: 'Good - highlighted audit trail and human oversight for risk management.' },
+          { id: 'obj1-d', text: 'Track record: 50+ banks, zero fair lending violations, 95% accuracy vs 85% manual, CFPB compliant', isCorrect: true, points: 3, feedback: 'Good - provided compelling track record and accuracy statistics.' },
+          { id: 'obj1-e', text: 'AI makes all decisions automatically with no human review', isCorrect: false, points: 0, feedback: 'Wrong - human oversight is required for edge cases and regulatory compliance.' },
+          { id: 'obj1-f', text: 'Compliance is not a concern with automation', isCorrect: false, points: 0, feedback: 'Wrong - compliance is paramount, requiring explainable AI, audit trails, and oversight.' }
+        ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Addressed compliance concerns comprehensively',
           'Explained explainable AI and audit trail',
@@ -6460,6 +7374,17 @@ export const bankingScenario013: TrainingScenario = {
         difficulty: 'common',
         category: 'timing',
         customResponse: 'Speed to market is critical. IBM\'s proven approach delivers results fast: (1) Pre-built mortgage automation templates - no need to build from scratch, (2) Watson Studio provides AI models trained on millions of mortgages - ready to deploy, (3) IBM API Connect integrates with Ellie Mae Encompass and credit bureaus out-of-the-box, (4) Typical timeline: 3 months for platform setup, 6 months for Phase 1 (document automation, income verification), 12 months for full automation (credit decisioning, compliance). We can have your first automated workflows in production in 6 months. IBM Expert Labs has implemented 50+ mortgage automation projects with average 12-month time to market. We provide accelerators, templates, and best practices to avoid common pitfalls.',
+        responseChoices: [
+          { id: 'obj2-a', text: 'Pre-built mortgage automation templates and Watson Studio AI models trained on millions of mortgages - ready to deploy, no building from scratch', isCorrect: true, points: 4, feedback: 'Excellent - highlighted accelerators that dramatically reduce implementation time.' },
+          { id: 'obj2-b', text: 'IBM API Connect provides out-of-the-box integration with Ellie Mae Encompass and credit bureaus', isCorrect: true, points: 3, feedback: 'Good - addressed integration complexity with pre-built connectors.' },
+          { id: 'obj2-c', text: 'Phased timeline: 3 months platform setup, 6 months Phase 1 (documents/verification), 12 months full automation', isCorrect: true, points: 3, feedback: 'Good - provided realistic phased timeline with early value delivery.' },
+          { id: 'obj2-d', text: 'IBM Expert Labs track record: 50+ mortgage automation projects, 12-month average time to market with accelerators and best practices', isCorrect: true, points: 3, feedback: 'Good - provided credible track record and implementation expertise.' },
+          { id: 'obj2-e', text: 'Can implement full automation in 1 month', isCorrect: false, points: 0, feedback: 'Unrealistic - comprehensive mortgage automation requires 12-18 months for full deployment.' },
+          { id: 'obj2-f', text: 'Timeline is not important', isCorrect: false, points: 0, feedback: 'Wrong - speed to market is critical to compete with digital lenders.' }
+        ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Addressed timeline concerns',
           'Explained pre-built templates and accelerators',
@@ -6481,6 +7406,17 @@ export const bankingScenario013: TrainingScenario = {
         difficulty: 'difficult',
         category: 'technical',
         customResponse: 'Ellie Mae Encompass integration is a common requirement - IBM has solved this for 50+ banks. Our approach: (1) IBM API Connect provides pre-built connectors for Ellie Mae Encompass - no custom development needed, (2) Integration layer on Power E1080 handles data transformation and orchestration, (3) Watson Studio AI integrates with Encompass credit decisioning engine, (4) FlashSystem stores documents and audit trails with seamless Encompass integration, (5) Phased approach - start with document automation, then add income verification, then credit decisioning. IBM has reference architectures for every major mortgage platform (Ellie Mae, Black Knight, Fiserv). We can provide Encompass integration blueprint and accelerators. Typical integration takes 3-4 months vs 12+ months for custom development.',
+        responseChoices: [
+          { id: 'obj3-a', text: 'IBM API Connect provides pre-built connectors for Ellie Mae Encompass - no custom development needed, proven with 50+ banks', isCorrect: true, points: 4, feedback: 'Excellent - addressed integration complexity with proven pre-built solution.' },
+          { id: 'obj3-b', text: 'Power E1080 integration layer handles data transformation and orchestration, Watson Studio integrates with Encompass decisioning engine', isCorrect: true, points: 3, feedback: 'Good - explained technical integration architecture and AI connectivity.' },
+          { id: 'obj3-c', text: 'FlashSystem provides seamless document and audit trail storage with Encompass integration', isCorrect: true, points: 3, feedback: 'Good - addressed data storage and audit requirements.' },
+          { id: 'obj3-d', text: 'Phased approach with reference architectures: 3-4 months vs 12+ months custom development, blueprints for Ellie Mae, Black Knight, Fiserv', isCorrect: true, points: 3, feedback: 'Good - provided realistic timeline and de-risked with reference architectures.' },
+          { id: 'obj3-e', text: 'Need to replace Ellie Mae Encompass entirely', isCorrect: false, points: 0, feedback: 'Wrong - should integrate with existing Encompass investment, not replace it.' },
+          { id: 'obj3-f', text: 'Integration is not possible with legacy systems', isCorrect: false, points: 0, feedback: 'Wrong - IBM has proven integration with 50+ banks using Encompass and other platforms.' }
+        ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Addressed integration concerns',
           'Explained pre-built Ellie Mae connectors',
@@ -6502,6 +7438,17 @@ export const bankingScenario013: TrainingScenario = {
         difficulty: 'common',
         category: 'skills',
         customResponse: 'Change management is critical for automation success. IBM provides comprehensive approach: (1) Loan officers become advisors, not processors - automation handles paperwork so they focus on customer relationships, (2) AI provides recommendations, not mandates - loan officers review and approve decisions, (3) Comprehensive training program - 2-week training on new system, (4) Gradual rollout - pilot with 10 loan officers, then expand, (5) Productivity gains are immediate - loan officers close 50% more loans with automation. IBM has helped 50+ banks with mortgage automation adoption - average loan officer satisfaction increases from 6/10 to 8/10 after automation. We provide change management consulting, training materials, and ongoing support. Most loan officers love automation once they see productivity gains.',
+        responseChoices: [
+          { id: 'obj4-a', text: 'Loan officers become advisors, not processors - automation handles paperwork so they focus on customer relationships and higher-value activities', isCorrect: true, points: 4, feedback: 'Excellent - reframed automation as role enhancement, not replacement.' },
+          { id: 'obj4-b', text: 'AI provides recommendations, not mandates - loan officers review and approve all decisions, maintaining control and expertise', isCorrect: true, points: 3, feedback: 'Good - positioned AI as assistant that augments human judgment.' },
+          { id: 'obj4-c', text: 'Comprehensive 2-week training program with gradual rollout - pilot with 10 loan officers, then expand based on feedback', isCorrect: true, points: 3, feedback: 'Good - addressed training and change management with phased approach.' },
+          { id: 'obj4-d', text: 'Productivity gains: close 50% more loans, satisfaction increases 6/10 to 8/10, proven with 50+ banks, IBM provides change management support', isCorrect: true, points: 3, feedback: 'Good - quantified benefits and provided track record to build confidence.' },
+          { id: 'obj4-e', text: 'Loan officers will be replaced by AI', isCorrect: false, points: 0, feedback: 'Wrong - loan officers are enhanced by automation, not replaced.' },
+          { id: 'obj4-f', text: 'No training needed, system is intuitive', isCorrect: false, points: 0, feedback: 'Wrong - comprehensive training and change management are critical for adoption success.' }
+        ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Addressed change management concerns',
           'Explained loan officer role transformation',
@@ -6523,6 +7470,17 @@ export const bankingScenario013: TrainingScenario = {
         difficulty: 'difficult',
         category: 'risk',
         customResponse: 'Data security is paramount for mortgage automation. IBM provides enterprise-grade security: (1) End-to-end encryption for all customer data - documents, financial information, personal data, (2) Power E1080 provides hardware-based encryption and secure enclaves for sensitive data processing, (3) FlashSystem immutable snapshots protect against ransomware and data tampering, (4) Watson Studio AI processes data in secure environment with no data leakage, (5) Comprehensive access controls and audit logging - know who accessed what data when, (6) Compliance with GLBA, FFIEC, and state privacy laws. IBM has secured mortgage data for 100+ banks with zero breaches. We follow NIST cybersecurity framework and can pass any security audit. FlashSystem provides 99.9999% data durability with cyber-resilient architecture.',
+        responseChoices: [
+          { id: 'obj5-a', text: 'End-to-end encryption for all customer data (documents, financial info, personal data) with Power E1080 hardware-based encryption and secure enclaves', isCorrect: true, points: 4, feedback: 'Excellent - comprehensive encryption approach with hardware-level security.' },
+          { id: 'obj5-b', text: 'FlashSystem immutable snapshots protect against ransomware and data tampering with 99.9999% data durability', isCorrect: true, points: 3, feedback: 'Good - addressed ransomware protection and data integrity.' },
+          { id: 'obj5-c', text: 'Watson Studio processes data in secure environment with no leakage, comprehensive access controls and audit logging', isCorrect: true, points: 3, feedback: 'Good - explained AI security and audit capabilities.' },
+          { id: 'obj5-d', text: 'Track record: 100+ banks, zero breaches, GLBA/FFIEC/NIST compliant, cyber-resilient architecture', isCorrect: true, points: 3, feedback: 'Good - provided compelling security track record and compliance standards.' },
+          { id: 'obj5-e', text: 'Security is not a concern with cloud storage', isCorrect: false, points: 0, feedback: 'Wrong - mortgage data requires enterprise-grade security with encryption and compliance.' },
+          { id: 'obj5-f', text: 'Customer data can be stored without encryption', isCorrect: false, points: 0, feedback: 'Wrong - end-to-end encryption is mandatory for sensitive mortgage data.' }
+        ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Addressed security concerns comprehensively',
           'Explained end-to-end encryption',
@@ -6849,11 +7807,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'What is your current fraud loss rate, and how much are you losing annually to card fraud? What percentage of fraud is detected within 24 hours vs. real-time?',
         purpose: 'Quantify fraud losses and establish baseline for ROI calculation',
         category: 'pain-point',
-        idealResponse: 'Current fraud loss rate is 0.33% ($15M annually on $4.5B portfolio). Only 40% of fraud is detected within 24 hours due to batch processing. Real-time fraud detection could prevent 70% of fraud losses, saving $10.5M annually. This is our #1 pain point and board priority.',
-        alternateResponses: [
-          'We lose millions to fraud every year',
-          'Batch processing delays fraud detection by 24 hours'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Fraud loss rate 0.33% ($15M annually on $4.5B portfolio), only 40% detected within 24 hours due to batch processing', isCorrect: true, points: 4, feedback: 'Excellent - quantified fraud losses and identified batch processing as root cause.' },
+          { id: 'q1-b', text: 'Real-time fraud detection could prevent 70% of fraud losses, saving $10.5M annually - this is #1 pain point and board priority', isCorrect: true, points: 3, feedback: 'Good - identified ROI opportunity and executive urgency.' },
+          { id: 'q1-c', text: 'Batch processing causes 24-hour delays in fraud detection, fraudulent transactions approved before detection', isCorrect: true, points: 3, feedback: 'Good - understood technical limitation and business impact.' },
+          { id: 'q1-d', text: 'Major fraud incident cost $2.3M in Q4 2025, customer complaints about delayed fraud alerts increasing', isCorrect: true, points: 3, feedback: 'Good - provided recent example and customer impact evidence.' },
+          { id: 'q1-e', text: 'Fraud is not a significant problem', isCorrect: false, points: 0, feedback: 'Wrong - $15M annual fraud losses is a critical business problem.' },
+          { id: 'q1-f', text: 'Real-time fraud detection is not necessary', isCorrect: false, points: 0, feedback: 'Wrong - real-time detection could save $10.5M annually and is board priority.' }
         ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What types of fraud are most common?',
           'What is your false positive rate?',
@@ -6866,11 +7832,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'What modern card features are you unable to support with your current system? How is this impacting customer satisfaction and competitive position?',
         purpose: 'Identify feature gaps and competitive disadvantages',
         category: 'business',
-        idealResponse: 'We cannot support contactless payments, mobile wallet provisioning (Apple Pay, Google Pay), instant card issuance, real-time rewards, or dynamic spending limits. Customer satisfaction has declined to 3.2 stars. We are losing high-value customers to competitors offering these features. Market research shows 65% of customers want instant card issuance and real-time fraud alerts.',
-        alternateResponses: [
-          'We lack modern card features customers expect',
-          'Competitors have better card experiences'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Cannot support contactless payments, mobile wallets (Apple Pay, Google Pay), instant card issuance, real-time rewards, or dynamic spending limits', isCorrect: true, points: 4, feedback: 'Excellent - identified comprehensive list of missing modern card features.' },
+          { id: 'q2-b', text: 'Customer satisfaction declined to 3.2 stars, losing high-value customers to competitors with better card experiences', isCorrect: true, points: 3, feedback: 'Good - quantified customer satisfaction impact and competitive disadvantage.' },
+          { id: 'q2-c', text: 'Market research shows 65% of customers want instant card issuance and real-time fraud alerts', isCorrect: true, points: 3, feedback: 'Good - provided customer demand data to justify feature investment.' },
+          { id: 'q2-d', text: 'Lost 3 major co-brand partnerships due to lack of digital features, losing 15% of new card applications to competitors annually', isCorrect: true, points: 3, feedback: 'Good - quantified partnership and revenue impact of feature gaps.' },
+          { id: 'q2-e', text: 'Current features are sufficient for our customers', isCorrect: false, points: 0, feedback: 'Wrong - customer satisfaction at 3.2 stars and losing customers to competitors.' },
+          { id: 'q2-f', text: 'Modern card features are not important', isCorrect: false, points: 0, feedback: 'Wrong - 65% of customers demand these features and competitors are winning with them.' }
         ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'Which features are customers requesting most?',
           'How many customers have you lost to competitors?',
@@ -6883,11 +7857,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'What is your current operational cost per card account, and how does it compare to industry benchmarks? What are your largest cost drivers?',
         purpose: 'Establish cost baseline and identify automation opportunities',
         category: 'business',
-        idealResponse: 'Current operational cost is $6.50 per account annually vs. industry average of $3.20. Largest cost drivers are manual fraud review ($2.5M annually), batch processing overhead ($1.8M), and legacy system maintenance ($8M). We process 45M transactions annually with significant manual intervention. Automation could reduce costs by 50%.',
-        alternateResponses: [
-          'Our operational costs are too high',
-          'We have significant manual processes'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Operational cost $6.50 per account annually vs. industry average $3.20 - costs are 2x industry benchmark', isCorrect: true, points: 4, feedback: 'Excellent - quantified cost gap and established clear improvement opportunity.' },
+          { id: 'q3-b', text: 'Largest cost drivers: manual fraud review ($2.5M annually), batch processing overhead ($1.8M), legacy system maintenance ($8M)', isCorrect: true, points: 3, feedback: 'Good - identified specific cost drivers that automation can address.' },
+          { id: 'q3-c', text: 'Process 45M transactions annually with significant manual intervention, automation could reduce costs by 50%', isCorrect: true, points: 3, feedback: 'Good - quantified transaction volume and automation savings opportunity.' },
+          { id: 'q3-d', text: 'High operational costs ($8M annually) blocking ability to invest in innovation and customer experience improvements', isCorrect: true, points: 3, feedback: 'Good - connected operational costs to strategic limitations.' },
+          { id: 'q3-e', text: 'Operational costs are acceptable', isCorrect: false, points: 0, feedback: 'Wrong - costs are 2x industry average, representing $4M annual savings opportunity.' },
+          { id: 'q3-f', text: 'Manual processes are more reliable than automation', isCorrect: false, points: 0, feedback: 'Wrong - manual processes are expensive, slow, and error-prone compared to automation.' }
         ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'How many FTEs support card operations?',
           'What percentage of transactions require manual review?',
@@ -6900,11 +7882,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'What is your current card processing capacity, and what are your growth targets? Can your current system support your growth strategy?',
         purpose: 'Identify scalability constraints and growth enablement',
         category: 'technical',
-        idealResponse: 'Current system is maxed at 1.5M accounts and 50M transactions annually. Our strategic plan calls for growing to 3M accounts and 120M transactions within 3 years. Current system cannot scale beyond 1.5M accounts without major infrastructure investment. This is blocking our growth strategy and market expansion plans.',
-        alternateResponses: [
-          'Our system is at capacity',
-          'We cannot support our growth targets'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Current system maxed at 1.5M accounts and 50M transactions annually, currently at 1.2M accounts - near capacity', isCorrect: true, points: 4, feedback: 'Excellent - quantified current capacity and proximity to limits.' },
+          { id: 'q4-b', text: 'Strategic plan: grow to 3M accounts and 120M transactions within 3 years - 2.5x growth target', isCorrect: true, points: 3, feedback: 'Good - identified aggressive growth targets that require new infrastructure.' },
+          { id: 'q4-c', text: 'Current system cannot scale beyond 1.5M accounts without major infrastructure investment - blocking growth strategy', isCorrect: true, points: 3, feedback: 'Good - connected scalability constraint to strategic business impact.' },
+          { id: 'q4-d', text: 'Market expansion plans and new card products require scalable platform to support growth', isCorrect: true, points: 3, feedback: 'Good - understood that growth strategy depends on scalable infrastructure.' },
+          { id: 'q4-e', text: 'Current system can support unlimited growth', isCorrect: false, points: 0, feedback: 'Wrong - system is maxed at 1.5M accounts, blocking 3M account growth target.' },
+          { id: 'q4-f', text: 'Growth is not a priority', isCorrect: false, points: 0, feedback: 'Wrong - strategic plan calls for 2.5x growth within 3 years.' }
         ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What is your target account growth rate?',
           'What markets are you planning to expand into?',
@@ -6917,11 +7907,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'What is your current authorization response time, and how does batch processing impact fraud detection and customer experience?',
         purpose: 'Quantify real-time processing gap and impact',
         category: 'technical',
-        idealResponse: 'Current authorization response time is 2-3 seconds, which is acceptable. However, fraud detection runs in batch overnight, causing 24-hour delays. This means fraudulent transactions are approved and we only detect fraud the next day. Customers complain about delayed fraud alerts and slow dispute resolution. Real-time fraud detection would prevent fraud before authorization.',
-        alternateResponses: [
-          'Batch processing causes fraud detection delays',
-          'We detect fraud too late'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Authorization response time 2-3 seconds (acceptable), but fraud detection runs batch overnight causing 24-hour delays', isCorrect: true, points: 4, feedback: 'Excellent - distinguished authorization performance from fraud detection gap.' },
+          { id: 'q5-b', text: 'Fraudulent transactions are approved and only detected next day - customers complain about delayed fraud alerts', isCorrect: true, points: 3, feedback: 'Good - identified customer experience impact of batch fraud detection.' },
+          { id: 'q5-c', text: 'Real-time fraud detection would prevent fraud before authorization, eliminating 70% of fraud losses', isCorrect: true, points: 3, feedback: 'Good - understood business value of real-time fraud prevention.' },
+          { id: 'q5-d', text: 'Slow dispute resolution due to batch processing - takes 3-5 days vs. real-time resolution', isCorrect: true, points: 3, feedback: 'Good - identified additional customer experience problem from batch processing.' },
+          { id: 'q5-e', text: 'Batch processing is sufficient for fraud detection', isCorrect: false, points: 0, feedback: 'Wrong - 24-hour delays allow fraud to occur and frustrate customers.' },
+          { id: 'q5-f', text: 'Authorization response time is the only important metric', isCorrect: false, points: 0, feedback: 'Wrong - fraud detection timing is critical for preventing losses and customer satisfaction.' }
         ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'How many fraudulent transactions are approved daily?',
           'What is your average fraud detection time?',
@@ -6934,11 +7932,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'Who are the key stakeholders for this decision, and what are their primary concerns? Who has budget authority?',
         purpose: 'Map decision-making process and stakeholder concerns',
         category: 'stakeholder',
-        idealResponse: 'CIO Michael Torres owns the decision with strong support from Chief Risk Officer David Chen and VP of Card Services Lisa Anderson. CFO Jennifer Kim has budget authority and is focused on ROI. Board has mandated card modernization as top priority. Decision timeline is 3 months with 18-month implementation.',
-        alternateResponses: [
-          'CIO and Chief Risk Officer are champions',
-          'Board has mandated this initiative'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'CIO Michael Torres owns decision with strong support from Chief Risk Officer David Chen and VP of Card Services Lisa Anderson', isCorrect: true, points: 4, feedback: 'Excellent - identified decision owner and key champions.' },
+          { id: 'q6-b', text: 'CFO Jennifer Kim has budget authority, focused on ROI - requires 24-month payback and 300%+ three-year ROI', isCorrect: true, points: 3, feedback: 'Good - identified budget authority and ROI requirements.' },
+          { id: 'q6-c', text: 'Board has mandated card modernization as top priority, decision timeline 3 months with 18-month implementation', isCorrect: true, points: 3, feedback: 'Good - understood executive urgency and timeline constraints.' },
+          { id: 'q6-d', text: 'CIO priorities: real-time processing, fraud reduction, customer satisfaction; Chief Risk Officer priorities: fraud prevention, compliance, data security', isCorrect: true, points: 3, feedback: 'Good - mapped stakeholder priorities to solution requirements.' },
+          { id: 'q6-e', text: 'No clear decision owner identified', isCorrect: false, points: 0, feedback: 'Wrong - CIO Michael Torres owns the decision with CFO budget authority.' },
+          { id: 'q6-f', text: 'Stakeholder concerns are not important', isCorrect: false, points: 0, feedback: 'Wrong - understanding stakeholder priorities is critical for solution alignment.' }
         ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What are the CIO\'s top priorities?',
           'What is the CFO\'s ROI requirement?',
@@ -6951,11 +7957,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'What is your timeline for card processing modernization, and what are the key milestones? What is driving the timeline?',
         purpose: 'Understand urgency and timeline constraints',
         category: 'timeline',
-        idealResponse: 'Board presentation in 6 weeks, vendor selection in 3 months, implementation must complete within 18 months. Timeline is driven by vendor end-of-support, competitive pressure, and fraud losses. Board has mandated completion within 18 months. Delayed decision costs $1.25M monthly in fraud losses.',
-        alternateResponses: [
-          'We have 18 months to complete',
-          'Vendor support is ending soon'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: 'Board presentation in 6 weeks, vendor selection in 3 months, implementation must complete within 18 months - board mandated', isCorrect: true, points: 4, feedback: 'Excellent - identified specific milestones and executive mandate.' },
+          { id: 'q7-b', text: 'Timeline driven by vendor end-of-support (18 months), competitive pressure, and fraud losses - multiple urgency drivers', isCorrect: true, points: 3, feedback: 'Good - understood multiple factors creating timeline pressure.' },
+          { id: 'q7-c', text: 'Delayed decision costs $1.25M monthly in fraud losses - quantifiable cost of delay', isCorrect: true, points: 3, feedback: 'Good - quantified financial impact of timeline delays.' },
+          { id: 'q7-d', text: 'Vendor announcing end-of-support creates compliance and security risk if not addressed within 18 months', isCorrect: true, points: 3, feedback: 'Good - identified regulatory and security implications of timeline.' },
+          { id: 'q7-e', text: 'Timeline is flexible, no urgency', isCorrect: false, points: 0, feedback: 'Wrong - board has mandated 18-month completion with vendor end-of-support deadline.' },
+          { id: 'q7-f', text: 'Can implement in 6 months', isCorrect: false, points: 0, feedback: 'Unrealistic - card processing migration requires 18 months for phased approach with parallel run.' }
         ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What happens if timeline slips?',
           'Are there regulatory deadlines?',
@@ -6968,11 +7982,19 @@ export const bankingScenario014: TrainingScenario = {
         question: 'What is your budget for card processing modernization, and what is included? What is your expected ROI and payback period?',
         purpose: 'Qualify budget and ROI expectations',
         category: 'budget',
-        idealResponse: '$12-18M budget approved for complete card processing modernization including hardware, software, implementation, and training. CFO requires 24-month payback and 300%+ three-year ROI. Budget includes migration costs and parallel run period. Board has approved budget based on fraud reduction and operational cost savings.',
-        alternateResponses: [
-          'We have $12-18M approved',
-          'CFO requires strong ROI'
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: '$12-18M budget approved for complete modernization including hardware, software, implementation, and training', isCorrect: true, points: 4, feedback: 'Excellent - confirmed adequate budget with board approval.' },
+          { id: 'q8-b', text: 'CFO requires 24-month payback and 300%+ three-year ROI - achievable with fraud reduction and cost savings', isCorrect: true, points: 3, feedback: 'Good - understood ROI requirements and how to meet them.' },
+          { id: 'q8-c', text: 'Budget includes migration costs and parallel run period - comprehensive funding for risk mitigation', isCorrect: true, points: 3, feedback: 'Good - confirmed budget covers full implementation including risk mitigation.' },
+          { id: 'q8-d', text: 'Board approved budget based on fraud reduction ($10.5M annually) and operational cost savings ($4M annually)', isCorrect: true, points: 3, feedback: 'Good - understood business case drivers and executive buy-in.' },
+          { id: 'q8-e', text: 'Budget is unlimited', isCorrect: false, points: 0, feedback: 'Unrealistic - budget is $12-18M with specific ROI requirements.' },
+          { id: 'q8-f', text: 'ROI is not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO requires 24-month payback and 300%+ three-year ROI.' }
         ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
         followUpQuestions: [
           'What is included in the budget?',
           'What is the approval process?',
@@ -7078,6 +8100,17 @@ export const bankingScenario014: TrainingScenario = {
         difficulty: 'common',
         category: 'skills',
         customResponse: 'Resource constraints are a common concern. IBM provides comprehensive implementation and training support: (1) IBM Expert Labs handles the technical implementation - your team focuses on business requirements and testing, (2) Phased rollout minimizes operational impact - start with new accounts while legacy system continues, (3) Comprehensive training program for card services staff with hands-on workshops, (4) IBM provides 24/7 support during migration and first 6 months of operation, (5) Modern card processing system is actually EASIER to operate than legacy system - automated fraud detection, self-service customer tools, and streamlined operations. Most banks find staff productivity improves 40% after migration because they spend less time on manual fraud review and customer service. We can also provide temporary staff augmentation during migration if needed.',
+        responseChoices: [
+          { id: 'obj4-a', text: 'IBM Expert Labs handles technical implementation - your team focuses on business requirements and testing, not technical complexity', isCorrect: true, points: 4, feedback: 'Excellent - IBM takes on implementation burden, freeing up customer team.' },
+          { id: 'obj4-b', text: 'Phased rollout minimizes operational impact: start with new accounts while legacy system continues - no disruption', isCorrect: true, points: 3, feedback: 'Good - phased approach allows team to manage change gradually.' },
+          { id: 'obj4-c', text: 'Comprehensive training program with hands-on workshops, 24/7 support during migration and first 6 months', isCorrect: true, points: 3, feedback: 'Good - extensive training and support ensure team readiness.' },
+          { id: 'obj4-d', text: 'Modern system EASIER to operate: automated fraud detection, self-service tools - staff productivity improves 40%, temporary staff augmentation available', isCorrect: true, points: 3, feedback: 'Good - automation reduces operational burden and improves productivity.' },
+          { id: 'obj4-e', text: 'Team must handle all implementation themselves', isCorrect: false, points: 0, feedback: 'Wrong - IBM Expert Labs handles technical implementation.' },
+          { id: 'obj4-f', text: 'No training or support provided', isCorrect: false, points: 0, feedback: 'Wrong - comprehensive training program and 24/7 support included.' }
+        ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Acknowledged resource constraints and operational concerns',
           'Explained IBM implementation support and Expert Labs',

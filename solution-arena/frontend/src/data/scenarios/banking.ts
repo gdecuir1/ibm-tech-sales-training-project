@@ -120,6 +120,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'Can you quantify your current fraud losses and the business impact? What types of fraud are most costly?',
         purpose: 'Establish baseline and identify biggest pain points',
         category: 'pain-point',
+        // Multiple choice options
+        choices: [
+          { id: 'q1-a', text: 'What is the total annual dollar amount of fraud losses across all channels?', isCorrect: true, points: 4, feedback: 'Excellent - quantifying total losses establishes the business case' },
+          { id: 'q1-b', text: 'Which fraud types (credit card, ACH, wire) represent the largest losses?', isCorrect: true, points: 3, feedback: 'Great question - identifying fraud types helps prioritize solutions' },
+          { id: 'q1-c', text: 'What are the indirect costs like false positives and customer service?', isCorrect: true, points: 3, feedback: 'Important - indirect costs often exceed direct fraud losses' },
+          { id: 'q1-d', text: 'How has the board or executive team responded to these losses?', isCorrect: true, points: 3, feedback: 'Good - executive pressure creates urgency and budget' },
+          { id: 'q1-e', text: 'What fraud detection vendor do you currently use?', isCorrect: false, points: 0, feedback: 'Too tactical - focus on business impact first before discussing vendors' },
+          { id: 'q1-f', text: 'How many fraud analysts are on your team?', isCorrect: false, points: 0, feedback: 'Not relevant yet - quantify the problem before discussing team structure' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support (deprecated but kept for backward compatibility)
         idealResponse: '$15M annually in direct losses. Credit card fraud is 60%, ACH fraud 25%, wire fraud 15%. Plus $3M in false positive costs. Board is demanding improvement.',
         alternateResponses: [
           'Fraud is a major problem costing millions',
@@ -137,6 +150,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'What is your current fraud detection process? How long does it take from transaction to detection?',
         purpose: 'Understand current state and identify latency issues',
         category: 'technical',
+        // Multiple choice options
+        choices: [
+          { id: 'q2-a', text: 'How frequently does your fraud detection system run - real-time, hourly, or batch?', isCorrect: true, points: 4, feedback: 'Critical question - batch processing is the root cause of delayed detection' },
+          { id: 'q2-b', text: 'What is the average time from transaction to fraud detection?', isCorrect: true, points: 3, feedback: 'Excellent - quantifying latency shows the gap between current and needed state' },
+          { id: 'q2-c', text: 'What transaction volumes do you process daily?', isCorrect: true, points: 3, feedback: 'Important for sizing - helps understand scale requirements' },
+          { id: 'q2-d', text: 'By the time fraud is detected, what damage has typically occurred?', isCorrect: true, points: 3, feedback: 'Good - illustrates business impact of detection delays' },
+          { id: 'q2-e', text: 'What brand of servers do you use for fraud detection?', isCorrect: false, points: 0, feedback: 'Too tactical - focus on process and timing issues first' },
+          { id: 'q2-f', text: 'How many fraud detection rules do you have configured?', isCorrect: false, points: 0, feedback: 'Not relevant to latency problem - focus on detection speed' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'Batch-based system runs every 24 hours. By the time we detect fraud, accounts are already drained. We need real-time detection - milliseconds, not hours.',
         alternateResponses: [
           'Our system is too slow',
@@ -154,6 +180,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'What is your false positive rate? How does this impact your fraud team and customers?',
         purpose: 'Identify false positive pain and AI/ML opportunity',
         category: 'pain-point',
+        // Multiple choice options
+        choices: [
+          { id: 'q3-a', text: 'What percentage of fraud alerts turn out to be false positives?', isCorrect: true, points: 4, feedback: 'Excellent - quantifying false positive rate reveals AI/ML opportunity' },
+          { id: 'q3-b', text: 'How does the high false positive rate impact your fraud team\'s workload?', isCorrect: true, points: 3, feedback: 'Great question - shows operational pain and cost' },
+          { id: 'q3-c', text: 'What is the customer experience when legitimate transactions are blocked?', isCorrect: true, points: 3, feedback: 'Important - false positives hurt customer satisfaction and retention' },
+          { id: 'q3-d', text: 'What is the cost of investigating and resolving false positive alerts?', isCorrect: true, points: 3, feedback: 'Good - quantifies the hidden cost of false positives' },
+          { id: 'q3-e', text: 'What color are the fraud alert notifications in your system?', isCorrect: false, points: 0, feedback: 'Irrelevant detail - focus on business impact of false positives' },
+          { id: 'q3-f', text: 'What time of day do most fraud alerts occur?', isCorrect: false, points: 0, feedback: 'Not relevant to false positive problem - focus on rate and impact' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: '40% false positive rate. Fraud team is overwhelmed - can\'t investigate all alerts. Customers complain about legitimate transactions being blocked. We need AI/ML to reduce false positives.',
         alternateResponses: [
           'Too many false alerts',
@@ -171,6 +210,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'What are your regulatory requirements? Any recent examination findings or compliance concerns?',
         purpose: 'Identify compliance drivers and urgency',
         category: 'business',
+        // Multiple choice options
+        choices: [
+          { id: 'q4-a', text: 'Have you had any recent regulatory examinations with findings related to fraud controls?', isCorrect: true, points: 4, feedback: 'Critical - regulatory findings create urgency and mandate action' },
+          { id: 'q4-b', text: 'What is the timeline for addressing any regulatory findings or requirements?', isCorrect: true, points: 3, feedback: 'Excellent - timeline drives urgency and decision speed' },
+          { id: 'q4-c', text: 'What are the consequences if fraud controls are not improved?', isCorrect: true, points: 3, feedback: 'Important - quantifies risk of inaction (fines, enforcement)' },
+          { id: 'q4-d', text: 'How has the board or executive team responded to regulatory pressure?', isCorrect: true, points: 3, feedback: 'Good - board involvement signals priority and budget availability' },
+          { id: 'q4-e', text: 'Which regulatory agency oversees your bank?', isCorrect: false, points: 0, feedback: 'Too basic - focus on findings and requirements, not agency names' },
+          { id: 'q4-f', text: 'How often do you have regulatory examinations?', isCorrect: false, points: 0, feedback: 'Not relevant - focus on current findings and compliance gaps' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'OCC examination 6 months ago cited inadequate fraud controls. We must improve or face enforcement action. PCI-DSS and SOX compliance are also critical. Board is very concerned.',
         alternateResponses: [
           'Regulators are pushing us to improve',
@@ -188,6 +240,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'What is your current infrastructure? Any performance bottlenecks or capacity constraints?',
         purpose: 'Understand technical environment and identify infrastructure needs',
         category: 'technical',
+        // Multiple choice options
+        choices: [
+          { id: 'q5-a', text: 'What is your current server and storage infrastructure for fraud detection?', isCorrect: true, points: 3, feedback: 'Good - understanding current infrastructure identifies refresh opportunity' },
+          { id: 'q5-b', text: 'What performance bottlenecks prevent real-time fraud detection?', isCorrect: true, points: 4, feedback: 'Excellent - identifies technical gaps that IBM infrastructure solves' },
+          { id: 'q5-c', text: 'What transaction volumes and performance requirements do you need to support?', isCorrect: true, points: 3, feedback: 'Critical for sizing - helps scope the solution properly' },
+          { id: 'q5-d', text: 'When is your current hardware reaching end-of-life?', isCorrect: true, points: 3, feedback: 'Important - end-of-life creates urgency for infrastructure refresh' },
+          { id: 'q5-e', text: 'What operating system version are you running?', isCorrect: false, points: 0, feedback: 'Too detailed - focus on performance gaps and capacity constraints' },
+          { id: 'q5-f', text: 'How many network switches do you have in your data center?', isCorrect: false, points: 0, feedback: 'Irrelevant - focus on compute and storage bottlenecks' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: '20 x86 servers, aging NetApp storage. Cannot handle real-time analytics at 10K TPS. Storage IOPS is a bottleneck. Need high-performance infrastructure for AI/ML workloads.',
         alternateResponses: [
           'Our infrastructure is old and slow',
@@ -205,6 +270,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'What is your budget and timeline? Who needs to approve this investment?',
         purpose: 'Qualify opportunity and understand decision process',
         category: 'business',
+        // Multiple choice options
+        choices: [
+          { id: 'q6-a', text: 'What budget has been allocated for fraud detection improvement?', isCorrect: true, points: 4, feedback: 'Critical - qualifies the opportunity and ensures adequate funding' },
+          { id: 'q6-b', text: 'What is your timeline for selecting and implementing a solution?', isCorrect: true, points: 3, feedback: 'Important - helps align IBM\'s sales cycle and implementation plan' },
+          { id: 'q6-c', text: 'Who are the key decision makers and what approval process is required?', isCorrect: true, points: 3, feedback: 'Essential - identifies stakeholders and decision authority' },
+          { id: 'q6-d', text: 'What ROI or payback period does the CFO require?', isCorrect: true, points: 3, feedback: 'Good - understanding ROI requirements helps build business case' },
+          { id: 'q6-e', text: 'What is your fiscal year end date?', isCorrect: false, points: 0, feedback: 'Not relevant to qualifying the opportunity - focus on budget and timeline' },
+          { id: 'q6-f', text: 'How many people are involved in the procurement process?', isCorrect: false, points: 0, feedback: 'Too detailed - focus on decision makers and approval authority' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: '$3-5M budget approved. Need solution in 6-9 months. Board approval required. CIO, CRO, and CFO must all support. ROI is critical for CFO.',
         alternateResponses: [
           'We have budget allocated',
@@ -222,6 +300,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'Are you considering any competitors or alternative solutions? What are your evaluation criteria?',
         purpose: 'Understand competitive landscape and decision criteria',
         category: 'business',
+        // Multiple choice options
+        choices: [
+          { id: 'q7-a', text: 'What other vendors or solutions are you evaluating?', isCorrect: true, points: 4, feedback: 'Critical - understanding competition helps position IBM differentiators' },
+          { id: 'q7-b', text: 'What are your top evaluation criteria for selecting a fraud detection solution?', isCorrect: true, points: 3, feedback: 'Excellent - knowing criteria helps tailor the IBM value proposition' },
+          { id: 'q7-c', text: 'What are the strengths and weaknesses of each option you\'re considering?', isCorrect: true, points: 3, feedback: 'Important - reveals competitive gaps IBM can exploit' },
+          { id: 'q7-d', text: 'What would make IBM the preferred choice over competitors?', isCorrect: true, points: 3, feedback: 'Good - directly asks how to win and what matters most' },
+          { id: 'q7-e', text: 'How many vendor presentations have you attended?', isCorrect: false, points: 0, feedback: 'Not relevant - focus on evaluation criteria and competitive positioning' },
+          { id: 'q7-f', text: 'What is your preferred vendor payment terms?', isCorrect: false, points: 0, feedback: 'Too tactical - focus on solution fit and decision criteria first' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'Looking at SAS Fraud Management and FICO Falcon. Key criteria: real-time performance, AI/ML accuracy, false positive reduction, regulatory compliance, TCO. Open to best solution.',
         alternateResponses: [
           'We\'re evaluating several vendors',
@@ -239,6 +330,19 @@ export const bankingScenario001: TrainingScenario = {
         question: 'What are your team\'s skills and concerns about implementing a new fraud detection system?',
         purpose: 'Identify skills gaps and implementation concerns',
         category: 'stakeholder',
+        // Multiple choice options
+        choices: [
+          { id: 'q8-a', text: 'What are your team\'s current skills in AI/ML and fraud detection?', isCorrect: true, points: 3, feedback: 'Important - identifies skills gaps and training needs' },
+          { id: 'q8-b', text: 'What concerns does your team have about implementing new technology?', isCorrect: true, points: 4, feedback: 'Critical - understanding concerns helps address objections proactively' },
+          { id: 'q8-c', text: 'What level of training and professional services support would be helpful?', isCorrect: true, points: 3, feedback: 'Good - opens door to IBM services and de-risks implementation' },
+          { id: 'q8-d', text: 'What is your team\'s risk tolerance for implementation complexity?', isCorrect: true, points: 3, feedback: 'Important - helps tailor implementation approach (phased vs big bang)' },
+          { id: 'q8-e', text: 'How many people are on your fraud detection team?', isCorrect: false, points: 0, feedback: 'Too tactical - focus on skills and concerns, not team size' },
+          { id: 'q8-f', text: 'What certifications does your team have?', isCorrect: false, points: 0, feedback: 'Not relevant - focus on practical skills and implementation concerns' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        // Legacy free-text support
         idealResponse: 'Team has banking and fraud expertise but limited AI/ML skills. Concerned about integration complexity and learning curve. Need training and professional services support.',
         alternateResponses: [
           'Team is worried about new technology',
@@ -290,6 +394,18 @@ export const bankingScenario001: TrainingScenario = {
         difficulty: 'common',
         category: 'cost',
         bestResponseId: 'watson-fraud-objection-cost',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj1-a', text: 'Focus on TCO rather than acquisition cost - IBM delivers lower total cost through fraud reduction', isCorrect: true, points: 4, feedback: 'Excellent - shifts conversation from price to value and total cost of ownership' },
+          { id: 'obj1-b', text: 'Quantify fraud loss reduction - IBM can reduce losses by $10M+ annually (70% reduction)', isCorrect: true, points: 3, feedback: 'Great - demonstrates ROI through fraud prevention savings' },
+          { id: 'obj1-c', text: 'Highlight false positive savings - reducing from 40% to <5% saves $2M+ annually', isCorrect: true, points: 3, feedback: 'Important - shows operational cost savings beyond fraud reduction' },
+          { id: 'obj1-d', text: 'Calculate fast payback - 6-12 months ROI makes higher upfront cost worthwhile', isCorrect: true, points: 3, feedback: 'Good - demonstrates financial justification with quick return' },
+          { id: 'obj1-e', text: 'Offer a discount to match competitor pricing', isCorrect: false, points: 0, feedback: 'Wrong approach - competing on price undermines value and margins' },
+          { id: 'obj1-f', text: 'Suggest they choose the cheapest option if cost is their only concern', isCorrect: false, points: 0, feedback: 'Terrible response - gives up and doesn\'t address their real needs' }
+        ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Addressed TCO vs acquisition cost',
           'Quantified fraud loss reduction ($10M+ annually)',
@@ -311,6 +427,18 @@ export const bankingScenario001: TrainingScenario = {
         difficulty: 'common',
         category: 'technical',
         bestResponseId: 'watson-fraud-objection-accuracy',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj2-a', text: 'Explain Watson achieves >95% accuracy and dramatically reduces false positives from 40% to <5%', isCorrect: true, points: 4, feedback: 'Excellent - directly addresses accuracy concern with specific metrics' },
+          { id: 'obj2-b', text: 'Emphasize explainable AI capabilities for regulatory compliance and transparency', isCorrect: true, points: 3, feedback: 'Important - addresses regulatory concerns about AI decision-making' },
+          { id: 'obj2-c', text: 'Offer proof of concept to validate accuracy with their historical fraud data before commitment', isCorrect: true, points: 3, feedback: 'Great - de-risks decision by proving accuracy before full deployment' },
+          { id: 'obj2-d', text: 'Provide customer examples of banks using Watson with proven fraud reduction results', isCorrect: true, points: 3, feedback: 'Good - social proof from similar banks builds confidence' },
+          { id: 'obj2-e', text: 'Admit that AI/ML sometimes makes mistakes but it\'s better than nothing', isCorrect: false, points: 0, feedback: 'Weak response - undermines confidence in the solution' },
+          { id: 'obj2-f', text: 'Suggest they stick with their current rules-based system if they\'re worried about AI', isCorrect: false, points: 0, feedback: 'Terrible - gives up and doesn\'t solve their problem' }
+        ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         scoringCriteria: [
           'Explained Watson AI/ML accuracy (>95%)',
           'Mentioned false positive reduction (40% to <5%)',
@@ -331,6 +459,18 @@ export const bankingScenario001: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'common',
         category: 'skills',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj3-a', text: 'Explain Watson Studio provides user-friendly interface for fraud analysts without data science skills', isCorrect: true, points: 4, feedback: 'Excellent - addresses complexity concern by highlighting ease of use' },
+          { id: 'obj3-b', text: 'Offer comprehensive training and professional services to support implementation', isCorrect: true, points: 3, feedback: 'Important - shows IBM will provide support to bridge skills gap' },
+          { id: 'obj3-c', text: 'Mention IBM Consulting can handle initial implementation while training internal team', isCorrect: true, points: 3, feedback: 'Great - de-risks implementation with expert support' },
+          { id: 'obj3-d', text: 'Provide examples of banks with similar skill levels who successfully deployed Watson', isCorrect: true, points: 3, feedback: 'Good - social proof that skills gap is manageable' },
+          { id: 'obj3-e', text: 'Agree that AI/ML is very complex and requires PhD-level data scientists', isCorrect: false, points: 0, feedback: 'Wrong - reinforces their concern instead of addressing it' },
+          { id: 'obj3-f', text: 'Suggest they hire a team of data scientists before considering Watson', isCorrect: false, points: 0, feedback: 'Bad response - creates barrier instead of showing how IBM helps' }
+        ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'I understand that concern - AI/ML is new for many teams. The good news is that Watson Studio provides a user-friendly interface that fraud analysts can use without deep data science skills. IBM also offers comprehensive training and professional services to support implementation. Many banks have successfully deployed Watson with similar skill levels. We can include training for your team in the proposal, and IBM Consulting can handle the initial implementation. Once deployed, the system is largely automated. Would it help to see a demo of how fraud analysts use the system?',
         scoringCriteria: [
           'Acknowledged the concern',
@@ -352,6 +492,18 @@ export const bankingScenario001: TrainingScenario = {
         stakeholder: 'VP of IT Operations',
         difficulty: 'common',
         category: 'technical',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj4-a', text: 'Explain IBM has extensive experience integrating Watson with Fiserv and other core banking systems', isCorrect: true, points: 4, feedback: 'Excellent - directly addresses integration concern with relevant experience' },
+          { id: 'obj4-b', text: 'Describe Watson integration capabilities via APIs, message queues, and database connections', isCorrect: true, points: 3, feedback: 'Important - shows technical flexibility for integration' },
+          { id: 'obj4-c', text: 'Mention pre-built connectors for common banking systems to accelerate integration', isCorrect: true, points: 3, feedback: 'Great - reduces integration risk and timeline' },
+          { id: 'obj4-d', text: 'Offer technical assessment to map integration architecture and identify challenges upfront', isCorrect: true, points: 3, feedback: 'Good - proactive approach to de-risk integration' },
+          { id: 'obj4-e', text: 'Admit that integration is always challenging and may take longer than expected', isCorrect: false, points: 0, feedback: 'Weak response - reinforces concern instead of addressing it' },
+          { id: 'obj4-f', text: 'Suggest they replace Fiserv with a more modern core banking system', isCorrect: false, points: 0, feedback: 'Terrible - creates massive new problem instead of solving integration' }
+        ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'Great question - integration is critical. IBM has extensive experience integrating with Fiserv and other core banking systems. Watson can consume data from multiple sources via APIs, message queues, or database connections. We support real-time integration for transaction scoring and batch integration for model training. IBM has pre-built connectors for common banking systems. We can do a technical assessment to map out the integration architecture and identify any challenges. Many banks have successfully integrated Watson with Fiserv. Would you like to see reference architectures from similar implementations?',
         scoringCriteria: [
           'Acknowledged integration importance',
@@ -373,6 +525,18 @@ export const bankingScenario001: TrainingScenario = {
         stakeholder: 'CIO',
         difficulty: 'difficult',
         category: 'risk',
+        // Multiple choice options
+        responseChoices: [
+          { id: 'obj5-a', text: 'Propose phased approach with 60-day POC using historical data to validate before full deployment', isCorrect: true, points: 4, feedback: 'Excellent - de-risks decision by proving value before major commitment' },
+          { id: 'obj5-b', text: 'Mention IBM offers performance guarantees and success-based pricing options', isCorrect: true, points: 3, feedback: 'Important - shows IBM shares risk and is confident in results' },
+          { id: 'obj5-c', text: 'Provide examples of 200+ banks using Watson with 70%+ fraud reduction results', isCorrect: true, points: 3, feedback: 'Great - extensive social proof builds confidence in success' },
+          { id: 'obj5-d', text: 'Emphasize IBM Consulting involvement throughout to ensure successful implementation', isCorrect: true, points: 3, feedback: 'Good - shows IBM commitment to customer success' },
+          { id: 'obj5-e', text: 'Acknowledge that no solution is guaranteed and they should accept some risk', isCorrect: false, points: 0, feedback: 'Weak response - doesn\'t address their risk aversion' },
+          { id: 'obj5-f', text: 'Suggest they wait until competitors prove the technology works first', isCorrect: false, points: 0, feedback: 'Terrible - gives up and encourages delay while competitors gain advantage' }
+        ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
         customResponse: 'I completely understand - this is a critical investment and failure is not an option. That\'s why I recommend a phased approach with proof of concept first. We can start with a 60-day POC using your historical fraud data to validate accuracy and ROI before full deployment. IBM also offers performance guarantees and success-based pricing options. We have extensive experience with fraud detection - over 200 banks worldwide use Watson for fraud prevention. We can provide references from similar banks who achieved 70%+ fraud reduction. IBM Consulting will be involved throughout to ensure success. Would a POC help de-risk this decision?',
         scoringCriteria: [
           'Acknowledged the concern and risk',

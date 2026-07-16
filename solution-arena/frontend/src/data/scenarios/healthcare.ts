@@ -995,9 +995,1834 @@ export const healthcareScenario001: TrainingScenario = {
   ]
 };
 
-export const healthcareScenarios: TrainingScenario[] = [
-  healthcareScenario001,
-  // Additional healthcare scenarios will be added here
-];
 
 // Made with Bob
+
+
+/**
+ * Healthcare Scenario 002: Patient Data Platform with AI Analytics
+ * Hospital system needs unified patient data platform with AI-powered clinical insights
+ */
+export const healthcareScenario002: TrainingScenario = {
+  id: 'healthcare-patient-data-002',
+  title: 'Hospital System Needs Unified Patient Data Platform with AI-Powered Clinical Insights',
+  description: 'A regional hospital system with 8 hospitals and 50 clinics faces $40M annually in costs from fragmented patient data: duplicate tests, medication errors, delayed diagnoses, and poor care coordination. They need a unified patient data platform with AI-powered clinical decision support, predictive analytics, and interoperability to improve outcomes, reduce costs, and meet regulatory requirements.',
+  
+  customerProfile: {
+    company: 'Regional Health System',
+    industry: 'Healthcare',
+    size: 'Enterprise (5000+ employees)',
+    revenue: '$2.8B annually',
+    employees: 15000,
+    location: 'Regional (8 hospitals, 50 clinics across 3 states)',
+    currentInfrastructure: {
+      servers: 'Mix of on-premises servers and legacy systems',
+      storage: 'Distributed storage, no unified patient record',
+      applications: ['Multiple EHR systems', 'Legacy imaging systems', 'Separate lab systems', 'Disconnected clinics'],
+      operatingSystem: 'Windows Server, some Unix',
+      virtualization: 'Limited VMware',
+      age: '10-15 years',
+      endOfLife: 'Legacy systems approaching end-of-support',
+      issues: [
+        'Fragmented patient data across 8 hospitals and 50 clinics',
+        'Duplicate tests cost $15M annually',
+        'Medication errors cost $12M annually',
+        'Delayed diagnoses cost $13M annually',
+        'No AI-powered clinical decision support',
+        'Cannot share patient data across facilities',
+        'Poor care coordination',
+        'HIPAA compliance challenges'
+      ]
+    },
+    keyStakeholders: [
+      {
+        name: 'Dr. Sarah Johnson',
+        role: 'Chief Digital Officer',
+        priorities: ['Patient safety', 'Clinical outcomes', 'Care coordination', 'AI decision support'],
+        concerns: ['Clinical workflow disruption', 'Physician adoption', 'Patient safety', 'Implementation timeline'],
+        influence: 'high',
+        supportLevel: 'champion'
+      },
+      {
+        name: 'Michael Chen',
+        role: 'CIO',
+        priorities: ['Data integration', 'Interoperability', 'Security', 'Scalability'],
+        concerns: ['EHR integration', 'Data migration', 'HIPAA compliance', 'Vendor lock-in'],
+        influence: 'high',
+        supportLevel: 'supporter'
+      },
+      {
+        name: 'Patricia Williams',
+        role: 'CFO',
+        priorities: ['Cost reduction', 'ROI', 'Operational efficiency', 'Value-based care'],
+        concerns: ['Capital investment', 'Operating costs', 'Payback period', 'Reimbursement impact'],
+        influence: 'high',
+        supportLevel: 'neutral'
+      }
+    ],
+    budget: '$20M-$30M capital budget for patient data platform',
+    timeline: '24-month implementation across 8 hospitals and 50 clinics',
+    decisionProcess: 'Board approved patient data initiative. CMO is executive sponsor. CFO requires $20M cost reduction.'
+  },
+  
+  businessContext: {
+    challenges: [
+      'Fragmented patient data across facilities',
+      'Duplicate tests cost $15M annually',
+      'Medication errors cost $12M annually',
+      'Delayed diagnoses cost $13M annually',
+      'No AI clinical decision support',
+      'Cannot share patient data',
+      'Poor care coordination',
+      'HIPAA compliance challenges'
+    ],
+    businessImpact: [
+      '$40M annual costs from fragmentation',
+      '$15M duplicate tests',
+      '$12M medication errors',
+      '$13M delayed diagnoses',
+      'Patient safety risks'
+    ],
+    urgency: 'critical',
+    strategicInitiatives: [
+      'Implement unified patient data platform',
+      'Deploy AI-powered clinical decision support',
+      'Enable interoperability across facilities',
+      'Reduce duplicate tests by 70%',
+      'Reduce medication errors by 80%',
+      'Improve care coordination'
+    ],
+    competitivePressure: 'Competing health systems have unified patient data and AI. Value-based care requires better outcomes and lower costs.',
+    regulatoryRequirements: ['HIPAA', 'HITECH', 'Meaningful Use', 'Interoperability mandates', 'Quality reporting'],
+    recentEvents: [
+      'Medication error caused patient death',
+      'CMS quality penalties $5M',
+      'Interoperability audit identified gaps',
+      'Board mandated patient data platform'
+    ]
+  },
+
+  discoveryPhase: {
+    questions: [
+      {
+        question: 'What is the business impact of fragmented patient data? How much do duplicate tests and errors cost?',
+        purpose: 'Quantify data fragmentation costs',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Fragmented data costs $40M annually: $15M duplicate tests, $12M medication errors, $13M delayed diagnoses', isCorrect: true, points: 4, feedback: 'Excellent - quantified total cost of fragmentation.' },
+          { id: 'q1-b', text: 'Patient data scattered across 8 hospitals, 50 clinics, multiple EHR systems - no unified view', isCorrect: true, points: 3, feedback: 'Good - identified data fragmentation.' },
+          { id: 'q1-c', text: 'Medication error caused patient death - board mandated unified patient data platform', isCorrect: true, points: 3, feedback: 'Good - identified patient safety impact.' },
+          { id: 'q1-d', text: 'CMS quality penalties $5M due to poor care coordination and outcomes', isCorrect: true, points: 3, feedback: 'Good - identified regulatory impact.' },
+          { id: 'q1-e', text: 'No data fragmentation', isCorrect: false, points: 0, feedback: 'Wrong - $40M annual cost is significant.' },
+          { id: 'q1-f', text: 'Data fragmentation not a problem', isCorrect: false, points: 0, feedback: 'Wrong - causing patient safety issues.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15,
+        hints: ['Quantify costs', 'Patient safety impact', 'Regulatory penalties']
+      },
+      {
+        question: 'What AI-powered clinical capabilities do you need? How do you currently support clinical decisions?',
+        purpose: 'Identify AI requirements',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'No AI clinical decision support - physicians rely on memory and experience, miss critical insights', isCorrect: true, points: 4, feedback: 'Excellent - identified AI capability gap.' },
+          { id: 'q2-b', text: 'Need AI for: drug interaction alerts, sepsis prediction, readmission risk, treatment recommendations', isCorrect: true, points: 3, feedback: 'Good - understood AI use cases.' },
+          { id: 'q2-c', text: 'Delayed diagnoses cost $13M annually - AI could identify patterns physicians miss', isCorrect: true, points: 3, feedback: 'Good - quantified AI value.' },
+          { id: 'q2-d', text: 'Competing health systems using AI have better outcomes and lower costs', isCorrect: true, points: 3, feedback: 'Good - identified competitive pressure.' },
+          { id: 'q2-e', text: 'Already have advanced AI', isCorrect: false, points: 0, feedback: 'Wrong - no AI clinical decision support.' },
+          { id: 'q2-f', text: 'AI not needed in healthcare', isCorrect: false, points: 0, feedback: 'Wrong - AI improves outcomes and reduces costs.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 12,
+        hints: ['No AI decision support', 'Drug interactions, sepsis, readmissions', 'Competitive pressure']
+      },
+      {
+        question: 'How many facilities and EHR systems do you have? What is your interoperability challenge?',
+        purpose: 'Understand integration complexity',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: '8 hospitals, 50 clinics using multiple EHR systems (Epic, Cerner, Meditech) - no interoperability', isCorrect: true, points: 4, feedback: 'Excellent - identified scale and complexity.' },
+          { id: 'q3-b', text: 'Cannot share patient data across facilities - physicians cannot see complete patient history', isCorrect: true, points: 3, feedback: 'Good - identified interoperability gap.' },
+          { id: 'q3-c', text: 'Interoperability audit identified gaps - must comply with federal mandates', isCorrect: true, points: 3, feedback: 'Good - identified regulatory requirement.' },
+          { id: 'q3-d', text: 'Need unified patient data platform with FHIR APIs for interoperability', isCorrect: true, points: 3, feedback: 'Good - understood solution requirement.' },
+          { id: 'q3-e', text: 'Only one facility', isCorrect: false, points: 0, feedback: 'Wrong - 8 hospitals and 50 clinics.' },
+          { id: 'q3-f', text: 'Full interoperability already', isCorrect: false, points: 0, feedback: 'Wrong - multiple EHR systems not integrated.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 12,
+        hints: ['Multiple EHR systems', 'No interoperability', 'FHIR APIs']
+      },
+      {
+        question: 'What is your current medication error rate and what causes errors?',
+        purpose: 'Quantify medication safety gap',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Medication errors cost $12M annually - drug interactions, allergies, dosing errors', isCorrect: true, points: 4, feedback: 'Excellent - quantified medication error cost.' },
+          { id: 'q4-b', text: 'Medication error caused patient death - board mandated AI-powered drug interaction alerts', isCorrect: true, points: 3, feedback: 'Good - identified patient safety impact.' },
+          { id: 'q4-c', text: 'Fragmented data means physicians do not see complete medication history across facilities', isCorrect: true, points: 3, feedback: 'Good - identified root cause.' },
+          { id: 'q4-d', text: 'Need AI to check drug interactions, allergies, dosing in real-time at point of care', isCorrect: true, points: 3, feedback: 'Good - understood AI solution.' },
+          { id: 'q4-e', text: 'No medication errors', isCorrect: false, points: 0, feedback: 'Wrong - $12M annual cost and patient death.' },
+          { id: 'q4-f', text: 'Medication errors not preventable', isCorrect: false, points: 0, feedback: 'Wrong - AI can prevent 80%+ of errors.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 10,
+        hints: ['$12M annual cost', 'Patient death', 'AI drug interaction alerts']
+      },
+      {
+        question: 'What is your duplicate test rate and why do physicians order duplicate tests?',
+        purpose: 'Quantify duplicate test waste',
+        category: 'business',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Duplicate tests cost $15M annually - physicians cannot see tests done at other facilities', isCorrect: true, points: 4, feedback: 'Excellent - quantified duplicate test cost.' },
+          { id: 'q5-b', text: 'Fragmented data means test results not visible across facilities - physicians re-order', isCorrect: true, points: 3, feedback: 'Good - identified root cause.' },
+          { id: 'q5-c', text: 'Patients frustrated by duplicate tests - impacts satisfaction scores', isCorrect: true, points: 3, feedback: 'Good - identified patient experience impact.' },
+          { id: 'q5-d', text: 'Unified patient data platform would show all test results - reduce duplicates 70%', isCorrect: true, points: 3, feedback: 'Good - quantified opportunity.' },
+          { id: 'q5-e', text: 'No duplicate tests', isCorrect: false, points: 0, feedback: 'Wrong - $15M annual cost.' },
+          { id: 'q5-f', text: 'Duplicate tests not a problem', isCorrect: false, points: 0, feedback: 'Wrong - significant waste and patient frustration.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 10,
+        hints: ['$15M annual cost', 'Cannot see tests at other facilities', '70% reduction opportunity']
+      },
+      {
+        question: 'Who are the key stakeholders and what are their priorities? Who has budget authority?',
+        purpose: 'Map decision-making process',
+        category: 'stakeholder',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'CMO is executive sponsor, focused on patient safety and clinical outcomes', isCorrect: true, points: 4, feedback: 'Excellent - identified decision owner.' },
+          { id: 'q6-b', text: 'CIO is supporter, concerned about EHR integration and HIPAA compliance', isCorrect: true, points: 3, feedback: 'Good - identified technical stakeholder.' },
+          { id: 'q6-c', text: 'CFO has budget authority, mandated $20M cost reduction', isCorrect: true, points: 3, feedback: 'Good - identified budget authority and mandate.' },
+          { id: 'q6-d', text: 'Chief Quality Officer concerned about CMS penalties and quality metrics', isCorrect: true, points: 3, feedback: 'Good - identified quality stakeholder.' },
+          { id: 'q6-e', text: 'No clear decision owner', isCorrect: false, points: 0, feedback: 'Wrong - CMO is executive sponsor.' },
+          { id: 'q6-f', text: 'Stakeholders not important', isCorrect: false, points: 0, feedback: 'Wrong - understanding stakeholders critical.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 8,
+        hints: ['CMO sponsor', 'CFO budget authority', 'CIO technical concerns']
+      },
+      {
+        question: 'What is your timeline and what drives the urgency? Any regulatory or patient safety deadlines?',
+        purpose: 'Understand timeline constraints',
+        category: 'timeline',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: '24-month implementation across 8 hospitals and 50 clinics, board-mandated after patient death', isCorrect: true, points: 4, feedback: 'Excellent - identified timeline and mandate.' },
+          { id: 'q7-b', text: 'Interoperability mandate requires compliance by end of year - federal requirement', isCorrect: true, points: 3, feedback: 'Good - identified regulatory deadline.' },
+          { id: 'q7-c', text: 'CMS quality penalties increasing - must improve outcomes to avoid further penalties', isCorrect: true, points: 3, feedback: 'Good - identified financial urgency.' },
+          { id: 'q7-d', text: 'Vendor selection in 3 months, phased rollout starting with pilot hospital', isCorrect: true, points: 3, feedback: 'Good - understood phased approach.' },
+          { id: 'q7-e', text: 'No timeline, can take 5+ years', isCorrect: false, points: 0, feedback: 'Wrong - 24-month timeline with regulatory deadline.' },
+          { id: 'q7-f', text: 'No urgency', isCorrect: false, points: 0, feedback: 'Wrong - patient death and regulatory mandate.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 8,
+        hints: ['Board mandate after patient death', 'Interoperability deadline', 'CMS penalties']
+      },
+      {
+        question: 'What is your budget and expected ROI? What are the key business case drivers?',
+        purpose: 'Qualify budget and ROI expectations',
+        category: 'budget',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: '$20M-$30M capital budget approved by board for patient data platform', isCorrect: true, points: 4, feedback: 'Excellent - confirmed adequate budget.' },
+          { id: 'q8-b', text: 'CFO requires $20M cost reduction and 30-month payback', isCorrect: true, points: 3, feedback: 'Good - understood ROI requirements.' },
+          { id: 'q8-c', text: 'Business case: reduce duplicate tests $10.5M, medication errors $9.6M, improve outcomes', isCorrect: true, points: 3, feedback: 'Good - understood business case drivers.' },
+          { id: 'q8-d', text: 'Budget includes: data platform, AI, EHR integration, training, HIPAA compliance', isCorrect: true, points: 3, feedback: 'Good - confirmed comprehensive budget.' },
+          { id: 'q8-e', text: 'Budget unlimited', isCorrect: false, points: 0, feedback: 'Unrealistic - budget is $20M-$30M.' },
+          { id: 'q8-f', text: 'ROI not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO requires strong ROI.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 11,
+        hints: ['Budget approved', 'ROI requirements', 'Business case drivers']
+      }
+    ],
+    expectedFindings: [
+      '$40M annual fragmentation cost',
+      '$15M duplicate tests',
+      '$12M medication errors',
+      'Multiple EHR systems',
+      'No AI decision support',
+      'Patient death from medication error',
+      'Interoperability mandate',
+      'Budget $20M-$30M approved'
+    ],
+    redFlags: [
+      'Budget under $15M insufficient',
+      'Timeline under 18 months too aggressive',
+      'No executive sponsorship',
+      'Costs not quantified',
+      'Want all facilities simultaneously'
+    ],
+    opportunities: [
+      'Reduce duplicate tests $10.5M',
+      'Reduce medication errors $9.6M',
+      'Improve care coordination',
+      'AI clinical decision support',
+      'Avoid CMS penalties'
+    ],
+    minimumQuestionsRequired: 6
+  },
+
+  objectionPhase: {
+    objections: [
+      {
+        objection: 'How do we avoid disrupting clinical workflows? Physicians are already overwhelmed and resistant to change.',
+        stakeholder: 'Chief Digital Officer',
+        difficulty: 'very difficult',
+        category: 'skills',
+        customResponse: 'Clinical workflow is sacred. IBM provides physician-centric design: (1) AI integrates into existing EHR workflow - no separate system, (2) Ambient AI captures documentation automatically - reduces physician burden, (3) Pilot with physician champions - build grassroots support, (4) Phased rollout with extensive training, (5) AI improves workflow - reduces clicks, saves time. IBM has deployed clinical AI at 100+ health systems with 90% physician satisfaction.',
+        responseChoices: [
+          { id: 'obj1-a', text: 'AI integrates into existing EHR workflow - no separate system, appears as smart alerts and recommendations', isCorrect: true, points: 4, feedback: 'Excellent - addressed workflow integration.' },
+          { id: 'obj1-b', text: 'Ambient AI captures documentation automatically - reduces physician documentation burden by 50%', isCorrect: true, points: 3, feedback: 'Good - showed physician benefit.' },
+          { id: 'obj1-c', text: 'Pilot with physician champions - build grassroots support before broad rollout', isCorrect: true, points: 3, feedback: 'Good - explained change management strategy.' },
+          { id: 'obj1-d', text: 'Track record: 100+ health systems, 90% physician satisfaction, physicians become AI advocates', isCorrect: true, points: 3, feedback: 'Good - provided credible track record.' },
+          { id: 'obj1-e', text: 'Physicians must use separate system', isCorrect: false, points: 0, feedback: 'Wrong - AI integrates into existing workflow.' },
+          { id: 'obj1-f', text: 'Physician adoption not important', isCorrect: false, points: 0, feedback: 'Wrong - physician adoption is critical.' }
+        ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed workflow integration',
+          'Explained EHR integration',
+          'Described physician benefits',
+          'Highlighted change management'
+        ],
+        hints: ['EHR integration', 'Ambient AI documentation', 'Physician champions']
+      },
+      {
+        objection: 'How do we ensure HIPAA compliance when aggregating patient data across facilities? We cannot risk a breach.',
+        stakeholder: 'CIO',
+        difficulty: 'difficult',
+        category: 'risk',
+        customResponse: 'HIPAA compliance is non-negotiable. IBM provides defense-in-depth security: (1) End-to-end encryption at rest and in transit, (2) Role-based access control - physicians only see their patients, (3) Audit logging of all data access, (4) De-identification for analytics, (5) HITRUST certification, (6) Regular security audits. IBM has secured patient data for 500+ health systems with zero breaches.',
+        responseChoices: [
+          { id: 'obj2-a', text: 'End-to-end encryption at rest and in transit, HITRUST certified, regular security audits', isCorrect: true, points: 4, feedback: 'Excellent - addressed HIPAA compliance comprehensively.' },
+          { id: 'obj2-b', text: 'Role-based access control - physicians only see their patients, audit logging of all access', isCorrect: true, points: 3, feedback: 'Good - explained access controls.' },
+          { id: 'obj2-c', text: 'De-identification for analytics - AI learns from patterns without exposing PHI', isCorrect: true, points: 3, feedback: 'Good - addressed privacy-preserving AI.' },
+          { id: 'obj2-d', text: 'Track record: 500+ health systems, zero breaches, HIPAA compliant for 20+ years', isCorrect: true, points: 3, feedback: 'Good - provided security track record.' },
+          { id: 'obj2-e', text: 'No encryption needed', isCorrect: false, points: 0, feedback: 'Wrong - HIPAA requires encryption.' },
+          { id: 'obj2-f', text: 'HIPAA compliance not important', isCorrect: false, points: 0, feedback: 'Wrong - HIPAA compliance is mandatory.' }
+        ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed HIPAA compliance',
+          'Explained encryption and access controls',
+          'Described audit logging',
+          'Highlighted HITRUST certification'
+        ],
+        hints: ['End-to-end encryption', 'HITRUST certification', 'Zero breaches']
+      },
+      {
+        objection: 'How do we integrate with multiple EHR systems (Epic, Cerner, Meditech)? We cannot replace them.',
+        stakeholder: 'CIO',
+        difficulty: 'difficult',
+        category: 'technical',
+        customResponse: 'EHR integration is a core strength. IBM provides standards-based interoperability: (1) FHIR APIs for all major EHRs - Epic, Cerner, Meditech, Allscripts, (2) HL7 integration for legacy systems, (3) Real-time bidirectional sync, (4) Unified patient data model, (5) No EHR replacement required. IBM has integrated with EHRs at 300+ health systems. Typical integration 3-4 months per EHR.',
+        responseChoices: [
+          { id: 'obj3-a', text: 'FHIR APIs for all major EHRs - Epic, Cerner, Meditech, Allscripts - standards-based, proven at 300+ sites', isCorrect: true, points: 4, feedback: 'Excellent - addressed EHR integration with standards.' },
+          { id: 'obj3-b', text: 'Real-time bidirectional sync - data flows both ways, unified patient data model', isCorrect: true, points: 3, feedback: 'Good - explained integration architecture.' },
+          { id: 'obj3-c', text: 'No EHR replacement required - IBM platform sits on top, aggregates data', isCorrect: true, points: 3, feedback: 'Good - addressed EHR preservation.' },
+          { id: 'obj3-d', text: 'Phased integration: read-only first, then write-back - 3-4 months per EHR', isCorrect: true, points: 3, feedback: 'Good - provided realistic timeline.' },
+          { id: 'obj3-e', text: 'Must replace all EHRs', isCorrect: false, points: 0, feedback: 'Wrong - FHIR integration preserves EHRs.' },
+          { id: 'obj3-f', text: 'Integration not possible', isCorrect: false, points: 0, feedback: 'Wrong - IBM has 300+ EHR integrations.' }
+        ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed EHR integration',
+          'Explained FHIR standards',
+          'Described bidirectional sync',
+          'Provided realistic timeline'
+        ],
+        hints: ['FHIR APIs', 'Standards-based', 'No EHR replacement']
+      },
+      {
+        objection: 'Your solution costs $25M. Can we start with a pilot hospital to prove ROI before rolling out to all 8 hospitals?',
+        stakeholder: 'CFO',
+        difficulty: 'common',
+        category: 'cost',
+        customResponse: 'Pilot is our recommended approach. IBM offers phased deployment: (1) Phase 1 Pilot: $4M for single hospital (6 months), (2) Pilot typically shows 60% duplicate test reduction and 70% medication error reduction, (3) Use pilot results to secure funding for full rollout, (4) Phase 2-3: Scale to remaining hospitals ($21M) with proven ROI. Business case shows 28-month payback and $60M three-year benefit vs. $25M investment.',
+        responseChoices: [
+          { id: 'obj4-a', text: 'Phased approach: $4M pilot at single hospital (6 months) to prove ROI', isCorrect: true, points: 4, feedback: 'Excellent - offered pilot to de-risk investment.' },
+          { id: 'obj4-b', text: 'Pilot typically shows 60% duplicate test reduction and 70% medication error reduction', isCorrect: true, points: 3, feedback: 'Good - provided realistic pilot results.' },
+          { id: 'obj4-c', text: 'Use pilot results to refine business case and secure funding - staged investment', isCorrect: true, points: 3, feedback: 'Good - showed how pilot reduces financial risk.' },
+          { id: 'obj4-d', text: 'Business case: 28-month payback, $60M three-year benefit vs. $25M investment (140% ROI)', isCorrect: true, points: 3, feedback: 'Good - quantified strong ROI.' },
+          { id: 'obj4-e', text: 'Must deploy to all 8 hospitals immediately', isCorrect: false, points: 0, feedback: 'Wrong - phased approach with pilot recommended.' },
+          { id: 'obj4-f', text: 'ROI not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO requires strong ROI.' }
+        ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Offered phased approach with pilot',
+          'Provided pilot cost and timeline',
+          'Quantified expected pilot results',
+          'Presented strong ROI case'
+        ],
+        hints: ['Pilot hospital approach', 'Prove ROI first', 'Staged investment']
+      },
+      {
+        objection: 'How accurate is AI for clinical decision support? We cannot risk patient safety with inaccurate AI.',
+        stakeholder: 'Chief Digital Officer',
+        difficulty: 'difficult',
+        category: 'performance',
+        customResponse: 'Patient safety is paramount. IBM Watson Health AI is clinically validated: (1) Drug interaction detection: 95%+ accuracy, FDA cleared, (2) Sepsis prediction: 85% accuracy, 6-hour early warning, (3) Readmission risk: 80% accuracy, (4) Explainable AI shows reasoning - physicians understand why, (5) Human-in-the-loop - AI recommends, physicians decide. IBM clinical AI has prevented 100,000+ adverse events.',
+        responseChoices: [
+          { id: 'obj5-a', text: 'Clinically validated AI: drug interactions 95%+ accuracy (FDA cleared), sepsis 85% accuracy (6-hour early warning)', isCorrect: true, points: 4, feedback: 'Excellent - provided clinical validation.' },
+          { id: 'obj5-b', text: 'Explainable AI shows reasoning - physicians understand why AI recommends action', isCorrect: true, points: 3, feedback: 'Good - addressed transparency.' },
+          { id: 'obj5-c', text: 'Human-in-the-loop - AI recommends, physicians decide, maintains physician autonomy', isCorrect: true, points: 3, feedback: 'Good - addressed physician control.' },
+          { id: 'obj5-d', text: 'Track record: 100,000+ adverse events prevented, deployed at 100+ health systems', isCorrect: true, points: 3, feedback: 'Good - provided safety track record.' },
+          { id: 'obj5-e', text: 'AI not accurate', isCorrect: false, points: 0, feedback: 'Wrong - 95%+ accuracy, FDA cleared.' },
+          { id: 'obj5-f', text: 'Patient safety not important', isCorrect: false, points: 0, feedback: 'Wrong - patient safety is paramount.' }
+        ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed AI accuracy',
+          'Provided clinical validation',
+          'Explained explainable AI',
+          'Highlighted human-in-the-loop'
+        ],
+        hints: ['95%+ accuracy', 'FDA cleared', 'Explainable AI']
+      }
+    ],
+    minimumObjectionsToHandle: 4
+  },
+
+  recommendationPhase: {
+    primaryProduct: 'power-e1080',
+    supportingProducts: ['watson-studio', 'flashsystem-9500'],
+    configuration: {
+      products: [
+        {
+          productId: 'power-e1080',
+          productName: 'IBM Power E1080',
+          reason: 'High-performance computing for unified patient data platform, AI-powered clinical decision support, and real-time analytics across 8 hospitals and 50 clinics',
+          configuration: 'Centralized Power E1080 for patient data platform and AI. Regional servers for hospital connectivity',
+          priority: 'primary'
+        },
+        {
+          productId: 'watson-studio',
+          productName: 'IBM Watson Studio with Watson Health',
+          reason: 'AI-powered clinical decision support: drug interaction alerts, sepsis prediction, readmission risk, treatment recommendations',
+          configuration: 'Watson Health AI, clinical decision support, predictive analytics, natural language processing for clinical notes',
+          priority: 'supporting'
+        },
+        {
+          productId: 'flashsystem-9500',
+          productName: 'IBM FlashSystem 9500',
+          reason: 'High-performance storage for patient records, medical imaging, lab results, and AI models with HIPAA compliance',
+          configuration: '500TB usable capacity for 8 hospitals and 50 clinics, patient records, imaging, lab results, AI models, encrypted storage',
+          priority: 'supporting'
+        }
+      ],
+      architecture: 'Three-tier: (1) Central tier: Power E1080 for unified patient data platform, AI clinical decision support, and analytics, (2) Regional tier: Regional servers for hospital connectivity and local caching, (3) Storage tier: FlashSystem 9500 for patient records and imaging. IBM Watson Health provides AI clinical insights.',
+      sizing: 'Central: 1x Power E1080 (32-core) for patient data and AI. Regional: 4x Power E1080 (8-core each) for regional processing. Storage: 500TB FlashSystem',
+      deployment: 'Phased: Phase 1 (Months 1-6): Pilot at single hospital. Phase 2 (Months 7-18): Scale to 4 hospitals. Phase 3 (Months 19-24): Complete rollout to remaining 3 hospitals and 50 clinics.'
+    },
+    pricing: {
+      hardware: '$12M (5x Power E1080 + FlashSystem 9500)',
+      software: '$8M (IBM Watson Health, Watson Studio, FHIR integration, 3-year licenses)',
+      services: '$5M (IBM Expert Labs: implementation, EHR integration, data migration, training, HIPAA compliance)',
+      support: '$600K/year (24x7 support with 2-hour response)',
+      total: '$25M initial + $600K/year support',
+      financing: 'IBM Flex financing available - $525K/month for 60 months',
+      paymentTerms: 'Phased payment: $4M pilot, $10M Phase 2, $11M Phase 3'
+    },
+    businessCase: {
+      costSavings: '$28M annually (duplicate tests $10.5M, medication errors $9.6M, delayed diagnoses $7.9M)',
+      productivityGains: '$12M annually (physician productivity, care coordination efficiency)',
+      riskReduction: 'Reduce duplicate tests 70%, medication errors 80%, improve patient safety, avoid CMS penalties',
+      roi: '28 months',
+      paybackPeriod: '28 months',
+      tco: '3-year TCO: $25M investment vs. $120M in benefits (cost savings + productivity + avoided penalties) = $95M net benefit, 140% three-year ROI'
+    },
+    competitivePositioning: 'IBM Watson Health is the leading clinical AI platform with 100+ health system deployments. Unlike generic data platforms, IBM provides healthcare-specific AI: drug interactions, sepsis prediction, readmission risk. Power E1080 delivers 3x better performance than x86 for AI workloads. HITRUST certified.',
+    nextSteps: [
+      'Schedule patient data platform workshop with IBM Watson Health experts',
+      'Conduct pilot hospital selection and EHR assessment',
+      'Develop phased deployment roadmap',
+      'Create detailed ROI model with pilot metrics',
+      'Present business case to board',
+      'Begin pilot implementation at selected hospital'
+    ],
+    requiredElements: [
+      'IBM Watson Health for AI clinical decision support',
+      'Power E1080 for patient data platform and AI',
+      'FlashSystem for patient records and imaging',
+      'Watson Studio for AI model development',
+      'FHIR APIs for EHR integration',
+      'HIPAA compliant architecture',
+      'Physician training and change management',
+      'Clinical workflow integration'
+    ]
+  },
+
+  scoringCriteria: {
+    discovery: {
+      maxPoints: 40,
+      criteria: [
+        'Quantified fragmentation cost ($40M annually)',
+        'Identified AI capability gaps (no clinical decision support)',
+        'Understood integration complexity (multiple EHR systems)',
+        'Assessed medication error impact ($12M, patient death)',
+        'Quantified duplicate test waste ($15M)',
+        'Mapped stakeholders and decision process',
+        'Qualified budget and timeline ($20M-$30M, 24 months)',
+        'Identified CFO mandate ($20M cost reduction)'
+      ],
+      weight: 0.4
+    },
+    objectionHandling: {
+      maxPoints: 30,
+      criteria: [
+        'Addressed physician adoption with workflow integration',
+        'Handled HIPAA compliance with encryption and HITRUST',
+        'Addressed EHR integration with FHIR standards',
+        'Handled cost objection with pilot approach and strong ROI',
+        'Addressed AI accuracy with clinical validation'
+      ],
+      weight: 0.3
+    },
+    recommendation: {
+      maxPoints: 20,
+      criteria: [
+        'Recommended Power E1080 as patient data platform',
+        'Included Watson Health for AI clinical decision support',
+        'Included FlashSystem for patient records',
+        'Addressed all pain points (fragmentation, errors, duplicates)',
+        'Proposed phased deployment with pilot',
+        'Included FHIR integration and HIPAA compliance'
+      ],
+      weight: 0.2
+    },
+    businessValue: {
+      maxPoints: 10,
+      criteria: [
+        'Quantified cost savings ($28M)',
+        'Quantified productivity gains ($12M)',
+        'Calculated patient safety improvements',
+        'Calculated ROI (28-month payback, 140% three-year ROI)',
+        'Positioned as patient safety and quality advantage'
+      ],
+      weight: 0.1
+    },
+    totalPoints: 100,
+    passingScore: 70,
+    excellentScore: 85
+  },
+
+  learningOutcomes: [
+    {
+      concept: 'Healthcare data interoperability',
+      description: 'Design unified patient data platforms with FHIR APIs for multi-EHR integration',
+      skillLevel: 'advanced'
+    },
+    {
+      concept: 'AI-powered clinical decision support',
+      description: 'Implement clinically validated AI for drug interactions, sepsis prediction, and readmission risk',
+      skillLevel: 'advanced'
+    },
+    {
+      concept: 'HIPAA compliance architecture',
+      description: 'Design HIPAA compliant systems with encryption, access controls, and audit logging',
+      skillLevel: 'advanced'
+    },
+    {
+      concept: 'Healthcare change management',
+      description: 'Build physician adoption through workflow integration and clinical champions',
+      skillLevel: 'intermediate'
+    },
+    {
+      concept: 'Value-based care economics',
+      description: 'Quantify ROI from reduced errors, duplicate tests, and improved outcomes',
+      skillLevel: 'intermediate'
+    }
+  ],
+
+  metadata: {
+    tags: ['Patient data platform', 'AI clinical decision support', 'Healthcare', 'Interoperability', 'HIPAA', 'EHR integration', 'Patient safety'],
+    skills: ['Healthcare interoperability', 'Clinical AI', 'HIPAA compliance', 'EHR integration', 'Change management'],
+    products: ['power-e1080', 'watson-studio', 'flashsystem-9500'],
+    industries: ['Healthcare'],
+    estimatedTime: 45,
+    difficulty: 'advanced',
+    version: '1.0',
+    lastUpdated: '2026-07-16',
+    author: 'IBM Sales Training Team'
+  },
+
+  coachingTips: [
+    'Lead with patient safety impact (medication error death) - this is the primary driver',
+    'Emphasize fragmentation cost ($40M annually) as quantifiable opportunity',
+    'Address physician adoption proactively with workflow integration',
+    'Recommend pilot approach to de-risk investment and prove ROI',
+    'Highlight FHIR standards for EHR integration - common concern',
+    'Position Watson Health as clinically validated vs. generic AI',
+    'Build compelling ROI: 28-month payback, 140% three-year ROI, $28M savings',
+    'CMO is champion - focus on patient safety and clinical outcomes',
+    'CIO is supporter but concerned about HIPAA - lead with HITRUST certification',
+    'CFO is neutral - build strong business case with $20M cost reduction mandate',
+    'Differentiate with proven track record: 100+ health system deployments, 100,000+ adverse events prevented',
+    'Emphasize phased deployment to minimize risk and build confidence',
+    'Address AI accuracy with clinical validation and FDA clearance',
+    'Highlight explainable AI and human-in-the-loop for physician trust'
+  ]
+};
+
+/**
+ * Healthcare Scenario 003: Telehealth Platform Expansion
+ * Regional health system expanding telehealth to rural areas
+ */
+export const healthcareScenario003: TrainingScenario = {
+  id: 'healthcare-telehealth-003',
+  title: 'Regional Health System Needs Telehealth Platform to Expand Access to Rural Areas',
+  description: 'A regional health system serving 15 rural counties faces $20M annually in lost revenue as rural patients travel to urban competitors or delay care. They need a comprehensive telehealth platform with video consultations, remote patient monitoring, and mobile health units to expand access, improve outcomes, and capture rural market share.',
+  
+  customerProfile: {
+    company: 'Rural Health Network',
+    industry: 'Healthcare',
+    size: 'Large (1000-5000 employees)',
+    revenue: '$800M annually',
+    employees: 4500,
+    location: 'Regional (3 hospitals, 25 clinics across 15 rural counties)',
+    currentInfrastructure: {
+      servers: 'On-premises servers at main hospital',
+      storage: 'Limited storage, no cloud infrastructure',
+      applications: ['Basic EHR', 'No telehealth platform', 'Manual scheduling', 'Phone-based triage'],
+      operatingSystem: 'Windows Server',
+      virtualization: 'Limited VMware',
+      age: '8-10 years',
+      endOfLife: 'Infrastructure approaching capacity',
+      issues: [
+        'Rural patients travel 60+ miles to urban competitors',
+        'Lost $20M annually to competitors',
+        'No telehealth capabilities',
+        'Physician shortage in rural areas',
+        'Poor broadband in rural counties',
+        'Cannot monitor chronic patients remotely',
+        'Emergency room overuse for primary care',
+        'CMS telehealth reimbursement opportunity missed'
+      ]
+    },
+    keyStakeholders: [
+      {
+        name: 'Dr. James Wilson',
+        role: 'Chief Digital Officer',
+        priorities: ['Rural access', 'Telehealth expansion', 'Patient satisfaction', 'Market share'],
+        concerns: ['Broadband limitations', 'Physician adoption', 'Reimbursement', 'Implementation timeline'],
+        influence: 'high',
+        supportLevel: 'champion'
+      },
+      {
+        name: 'Susan Martinez',
+        role: 'CIO',
+        priorities: ['Platform reliability', 'EHR integration', 'Security', 'Scalability'],
+        concerns: ['Network infrastructure', 'HIPAA compliance', 'Rural connectivity', 'Support model'],
+        influence: 'high',
+        supportLevel: 'supporter'
+      },
+      {
+        name: 'Robert Chen',
+        role: 'CFO',
+        priorities: ['Revenue growth', 'Cost reduction', 'ROI', 'Reimbursement'],
+        concerns: ['Capital investment', 'Operating costs', 'Payback period', 'Reimbursement risk'],
+        influence: 'high',
+        supportLevel: 'neutral'
+      }
+    ],
+    budget: '$8M-$12M capital budget for telehealth platform',
+    timeline: '12-month implementation across 15 rural counties',
+    decisionProcess: 'Board approved rural expansion strategy. Chief Digital Officer is executive sponsor. CFO requires $10M revenue increase.'
+  },
+  
+  businessContext: {
+    challenges: [
+      'Rural patients travel 60+ miles to competitors',
+      'Lost $20M annually in rural market',
+      'No telehealth capabilities',
+      'Physician shortage in rural areas',
+      'Poor broadband in some counties',
+      'Cannot monitor chronic patients',
+      'ER overuse for primary care',
+      'Missing CMS telehealth reimbursement'
+    ],
+    businessImpact: [
+      '$20M annual lost revenue',
+      '$5M from ER overuse',
+      '$3M from readmissions',
+      'Losing rural market share',
+      'Physician recruitment challenges'
+    ],
+    urgency: 'critical',
+    strategicInitiatives: [
+      'Implement comprehensive telehealth platform',
+      'Deploy remote patient monitoring for chronic disease',
+      'Launch mobile health units with telehealth',
+      'Capture $10M+ in rural market revenue',
+      'Reduce ER visits by 30%',
+      'Improve chronic disease outcomes'
+    ],
+    competitivePressure: 'Urban health systems expanding telehealth to rural areas. National telehealth companies entering market.',
+    regulatoryRequirements: ['HIPAA', 'State telehealth laws', 'CMS telehealth reimbursement', 'DEA prescribing rules'],
+    recentEvents: [
+      'Lost 15% of rural patients to urban competitors',
+      'CMS expanded telehealth reimbursement',
+      'State passed telehealth parity law',
+      'Board mandated rural expansion'
+    ]
+  },
+
+  discoveryPhase: {
+    questions: [
+      {
+        question: 'What is the business impact of losing rural patients to competitors? How much revenue are you losing?',
+        purpose: 'Quantify rural market opportunity',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: 'Losing $20M annually as rural patients travel 60+ miles to urban competitors with telehealth', isCorrect: true, points: 4, feedback: 'Excellent - quantified revenue loss and competitive disadvantage.' },
+          { id: 'q1-b', text: 'Lost 15% of rural market share in past 2 years to competitors offering telehealth', isCorrect: true, points: 3, feedback: 'Good - identified market share loss.' },
+          { id: 'q1-c', text: 'Rural patients delay care due to travel distance - leads to worse outcomes and higher costs', isCorrect: true, points: 3, feedback: 'Good - identified clinical impact.' },
+          { id: 'q1-d', text: 'CMS expanded telehealth reimbursement - $10M+ opportunity if we had platform', isCorrect: true, points: 3, feedback: 'Good - identified reimbursement opportunity.' },
+          { id: 'q1-e', text: 'No revenue impact', isCorrect: false, points: 0, feedback: 'Wrong - $20M annual loss is significant.' },
+          { id: 'q1-f', text: 'Rural market not important', isCorrect: false, points: 0, feedback: 'Wrong - rural market is strategic priority.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15,
+        hints: ['Quantify revenue loss', 'Market share decline', 'CMS reimbursement']
+      },
+      {
+        question: 'What telehealth capabilities do you need? What use cases are most important?',
+        purpose: 'Identify telehealth requirements',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'Video consultations for primary care, specialty care, behavioral health - reduce travel burden', isCorrect: true, points: 4, feedback: 'Excellent - identified core telehealth use cases.' },
+          { id: 'q2-b', text: 'Remote patient monitoring for chronic disease (diabetes, hypertension, CHF) - 40% of rural population', isCorrect: true, points: 3, feedback: 'Good - identified RPM opportunity.' },
+          { id: 'q2-c', text: 'Mobile health units with telehealth for underserved areas - bring care to patients', isCorrect: true, points: 3, feedback: 'Good - identified mobile strategy.' },
+          { id: 'q2-d', text: 'E-prescribing, lab review, care coordination - complete virtual care workflow', isCorrect: true, points: 3, feedback: 'Good - understood comprehensive platform needs.' },
+          { id: 'q2-e', text: 'Only need basic phone calls', isCorrect: false, points: 0, feedback: 'Wrong - comprehensive video platform required.' },
+          { id: 'q2-f', text: 'Telehealth not needed', isCorrect: false, points: 0, feedback: 'Wrong - telehealth is strategic imperative.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 12,
+        hints: ['Video consultations', 'Remote monitoring', 'Mobile health units']
+      },
+      {
+        question: 'What is your rural broadband situation? Can patients access video consultations?',
+        purpose: 'Assess connectivity challenges',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Poor broadband in 40% of rural counties - need low-bandwidth video solution', isCorrect: true, points: 4, feedback: 'Excellent - identified connectivity constraint.' },
+          { id: 'q3-b', text: 'Mobile-first strategy required - most rural patients have smartphones with cellular data', isCorrect: true, points: 3, feedback: 'Good - identified mobile opportunity.' },
+          { id: 'q3-c', text: 'Need offline capabilities for mobile health units - sync when connected', isCorrect: true, points: 3, feedback: 'Good - understood offline requirements.' },
+          { id: 'q3-d', text: 'Adaptive video quality based on bandwidth - ensure reliable experience', isCorrect: true, points: 3, feedback: 'Good - understood technical solution.' },
+          { id: 'q3-e', text: 'All rural areas have fiber', isCorrect: false, points: 0, feedback: 'Wrong - rural broadband is limited.' },
+          { id: 'q3-f', text: 'Connectivity not a concern', isCorrect: false, points: 0, feedback: 'Wrong - rural connectivity is major challenge.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 12,
+        hints: ['Poor rural broadband', 'Mobile-first', 'Adaptive video quality']
+      },
+      {
+        question: 'What is your physician shortage situation in rural areas? How does telehealth help?',
+        purpose: 'Understand workforce challenges',
+        category: 'business',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: 'Physician shortage in rural areas - cannot recruit specialists, telehealth enables urban specialists to serve rural patients', isCorrect: true, points: 4, feedback: 'Excellent - identified workforce solution.' },
+          { id: 'q4-b', text: 'Behavioral health crisis in rural areas - no psychiatrists, telehealth provides access', isCorrect: true, points: 3, feedback: 'Good - identified behavioral health gap.' },
+          { id: 'q4-c', text: 'Telehealth improves physician productivity - see more patients, reduce travel time', isCorrect: true, points: 3, feedback: 'Good - understood productivity benefit.' },
+          { id: 'q4-d', text: 'Physician burnout from travel to rural clinics - telehealth reduces burden', isCorrect: true, points: 3, feedback: 'Good - identified physician satisfaction benefit.' },
+          { id: 'q4-e', text: 'No physician shortage', isCorrect: false, points: 0, feedback: 'Wrong - rural physician shortage is well-documented.' },
+          { id: 'q4-f', text: 'Telehealth does not help recruitment', isCorrect: false, points: 0, feedback: 'Wrong - telehealth enables specialist access.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 10,
+        hints: ['Physician shortage', 'Behavioral health gap', 'Productivity improvement']
+      },
+      {
+        question: 'What is your ER overuse situation? How much does inappropriate ER use cost?',
+        purpose: 'Quantify ER overuse opportunity',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'ER overuse for primary care costs $5M annually - rural patients have no other option', isCorrect: true, points: 4, feedback: 'Excellent - quantified ER overuse cost.' },
+          { id: 'q5-b', text: '30% of rural ER visits are non-urgent - could be handled via telehealth', isCorrect: true, points: 3, feedback: 'Good - quantified telehealth opportunity.' },
+          { id: 'q5-c', text: 'Telehealth triage could redirect 30% of ER visits to virtual care - save $1.5M annually', isCorrect: true, points: 3, feedback: 'Good - calculated cost savings.' },
+          { id: 'q5-d', text: 'After-hours telehealth would reduce ER visits - rural clinics close at 5pm', isCorrect: true, points: 3, feedback: 'Good - identified after-hours opportunity.' },
+          { id: 'q5-e', text: 'No ER overuse', isCorrect: false, points: 0, feedback: 'Wrong - $5M annual cost from overuse.' },
+          { id: 'q5-f', text: 'ER overuse not preventable', isCorrect: false, points: 0, feedback: 'Wrong - telehealth can redirect 30% of visits.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 10,
+        hints: ['$5M ER overuse cost', '30% non-urgent visits', 'Telehealth triage']
+      },
+      {
+        question: 'Who are the key stakeholders and what are their priorities? Who has budget authority?',
+        purpose: 'Map decision-making process',
+        category: 'stakeholder',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'Chief Digital Officer is executive sponsor, focused on rural expansion and telehealth', isCorrect: true, points: 4, feedback: 'Excellent - identified decision owner.' },
+          { id: 'q6-b', text: 'CIO is supporter, concerned about rural connectivity and HIPAA compliance', isCorrect: true, points: 3, feedback: 'Good - identified technical stakeholder.' },
+          { id: 'q6-c', text: 'CFO has budget authority, mandated $10M revenue increase from rural market', isCorrect: true, points: 3, feedback: 'Good - identified budget authority and mandate.' },
+          { id: 'q6-d', text: 'Chief Medical Officer concerned about quality of care and physician adoption', isCorrect: true, points: 3, feedback: 'Good - identified clinical stakeholder.' },
+          { id: 'q6-e', text: 'No clear decision owner', isCorrect: false, points: 0, feedback: 'Wrong - Chief Digital Officer is sponsor.' },
+          { id: 'q6-f', text: 'Stakeholders not important', isCorrect: false, points: 0, feedback: 'Wrong - understanding stakeholders critical.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 8,
+        hints: ['Chief Digital Officer sponsor', 'CFO budget authority', 'CIO technical concerns']
+      },
+      {
+        question: 'What is your timeline and what drives the urgency? Any regulatory or competitive deadlines?',
+        purpose: 'Understand timeline constraints',
+        category: 'timeline',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: '12-month implementation across 15 rural counties, board-mandated rural expansion', isCorrect: true, points: 4, feedback: 'Excellent - identified timeline and mandate.' },
+          { id: 'q7-b', text: 'CMS telehealth reimbursement expansion creates immediate revenue opportunity', isCorrect: true, points: 3, feedback: 'Good - identified reimbursement driver.' },
+          { id: 'q7-c', text: 'Competitors expanding telehealth to rural areas - losing market share', isCorrect: true, points: 3, feedback: 'Good - identified competitive pressure.' },
+          { id: 'q7-d', text: 'Vendor selection in 6 weeks, phased rollout starting with pilot county', isCorrect: true, points: 3, feedback: 'Good - understood phased approach.' },
+          { id: 'q7-e', text: 'No timeline, can take 5+ years', isCorrect: false, points: 0, feedback: 'Wrong - 12-month timeline with board mandate.' },
+          { id: 'q7-f', text: 'No urgency', isCorrect: false, points: 0, feedback: 'Wrong - board mandate and competitive pressure.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 8,
+        hints: ['Board mandate', 'CMS reimbursement', 'Competitive pressure']
+      },
+      {
+        question: 'What is your budget and expected ROI? What are the key business case drivers?',
+        purpose: 'Qualify budget and ROI expectations',
+        category: 'budget',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: '$8M-$12M capital budget approved by board for telehealth platform', isCorrect: true, points: 4, feedback: 'Excellent - confirmed adequate budget.' },
+          { id: 'q8-b', text: 'CFO requires $10M revenue increase and 18-month payback', isCorrect: true, points: 3, feedback: 'Good - understood ROI requirements.' },
+          { id: 'q8-c', text: 'Business case: capture $20M rural market, reduce ER overuse $1.5M, improve outcomes', isCorrect: true, points: 3, feedback: 'Good - understood business case drivers.' },
+          { id: 'q8-d', text: 'Budget includes: telehealth platform, RPM devices, mobile units, EHR integration, training', isCorrect: true, points: 3, feedback: 'Good - confirmed comprehensive budget.' },
+          { id: 'q8-e', text: 'Budget unlimited', isCorrect: false, points: 0, feedback: 'Unrealistic - budget is $8M-$12M.' },
+          { id: 'q8-f', text: 'ROI not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO requires strong ROI.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 11,
+        hints: ['Budget approved', 'ROI requirements', 'Business case drivers']
+      }
+    ],
+    expectedFindings: [
+      '$20M annual lost revenue',
+      'Lost 15% rural market share',
+      'No telehealth capabilities',
+      'Poor rural broadband',
+      'Physician shortage',
+      '$5M ER overuse',
+      'CMS reimbursement opportunity',
+      'Budget $8M-$12M approved'
+    ],
+    redFlags: [
+      'Budget under $6M insufficient',
+      'Timeline under 9 months too aggressive',
+      'No executive sponsorship',
+      'Costs not quantified',
+      'Want all 15 counties simultaneously'
+    ],
+    opportunities: [
+      'Capture $20M rural market',
+      'Reduce ER overuse $1.5M',
+      'CMS telehealth reimbursement',
+      'Improve chronic disease outcomes',
+      'Physician recruitment advantage'
+    ],
+    minimumQuestionsRequired: 6
+  },
+
+  objectionPhase: {
+    objections: [
+      {
+        objection: 'How do we ensure quality of care via telehealth? Physicians are concerned about not examining patients in person.',
+        stakeholder: 'Chief Digital Officer',
+        difficulty: 'very difficult',
+        category: 'risk',
+        customResponse: 'Quality of care is paramount. IBM telehealth platform provides clinical-grade capabilities: (1) High-definition video with diagnostic peripherals (digital stethoscope, otoscope, dermascope), (2) Clinical decision support integrated into workflow, (3) Evidence-based protocols for telehealth appropriateness, (4) Quality metrics and outcomes tracking, (5) Hybrid model - telehealth for appropriate cases, in-person when needed. Studies show telehealth outcomes equal to in-person for many conditions.',
+        responseChoices: [
+          { id: 'obj1-a', text: 'Clinical-grade HD video with diagnostic peripherals - digital stethoscope, otoscope, dermascope for remote exam', isCorrect: true, points: 4, feedback: 'Excellent - addressed clinical examination capability.' },
+          { id: 'obj1-b', text: 'Evidence-based protocols for telehealth appropriateness - guides physicians on when telehealth is suitable', isCorrect: true, points: 3, feedback: 'Good - explained clinical decision support.' },
+          { id: 'obj1-c', text: 'Quality metrics and outcomes tracking - monitor telehealth quality vs. in-person', isCorrect: true, points: 3, feedback: 'Good - addressed quality monitoring.' },
+          { id: 'obj1-d', text: 'Studies show telehealth outcomes equal to in-person for primary care, behavioral health, chronic disease management', isCorrect: true, points: 3, feedback: 'Good - provided evidence base.' },
+          { id: 'obj1-e', text: 'Telehealth cannot provide quality care', isCorrect: false, points: 0, feedback: 'Wrong - evidence shows equivalent outcomes.' },
+          { id: 'obj1-f', text: 'Quality not important', isCorrect: false, points: 0, feedback: 'Wrong - quality is paramount.' }
+        ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed quality concerns',
+          'Explained diagnostic peripherals',
+          'Described clinical protocols',
+          'Provided evidence base'
+        ],
+        hints: ['Diagnostic peripherals', 'Evidence-based protocols', 'Quality metrics']
+      },
+      {
+        objection: 'How do we handle poor broadband in 40% of rural counties? Video will not work.',
+        stakeholder: 'CIO',
+        difficulty: 'difficult',
+        category: 'technical',
+        customResponse: 'Rural connectivity is a known challenge. IBM provides adaptive solutions: (1) Adaptive video quality - automatically adjusts to available bandwidth (down to 384 kbps), (2) Mobile-first design - optimized for cellular data, (3) Offline capabilities for mobile health units - sync when connected, (4) Audio-only fallback when video not possible, (5) Partnership with rural broadband initiatives. IBM has deployed telehealth in rural areas globally with 95% successful connection rate.',
+        responseChoices: [
+          { id: 'obj2-a', text: 'Adaptive video quality - automatically adjusts to bandwidth (384 kbps to 2 Mbps), ensures reliable connection', isCorrect: true, points: 4, feedback: 'Excellent - addressed bandwidth adaptation.' },
+          { id: 'obj2-b', text: 'Mobile-first design optimized for cellular data - most rural patients have smartphones', isCorrect: true, points: 3, feedback: 'Good - explained mobile strategy.' },
+          { id: 'obj2-c', text: 'Offline capabilities for mobile health units - sync data when connected to network', isCorrect: true, points: 3, feedback: 'Good - addressed offline requirements.' },
+          { id: 'obj2-d', text: 'Track record: 95% successful connection rate in rural deployments globally', isCorrect: true, points: 3, feedback: 'Good - provided credible track record.' },
+          { id: 'obj2-e', text: 'Requires high-speed fiber', isCorrect: false, points: 0, feedback: 'Wrong - adaptive technology works with limited bandwidth.' },
+          { id: 'obj2-f', text: 'Connectivity not solvable', isCorrect: false, points: 0, feedback: 'Wrong - adaptive solutions proven in rural areas.' }
+        ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed bandwidth limitations',
+          'Explained adaptive video',
+          'Described mobile-first approach',
+          'Provided rural deployment track record'
+        ],
+        hints: ['Adaptive video quality', 'Mobile-first', 'Offline capabilities']
+      },
+      {
+        objection: 'How do we get physicians to adopt telehealth? Many are skeptical and prefer in-person visits.',
+        stakeholder: 'Chief Digital Officer',
+        difficulty: 'common',
+        category: 'skills',
+        customResponse: 'Physician adoption is critical. IBM provides comprehensive change management: (1) Physician champions program - early adopters become advocates, (2) Workflow integration - telehealth embedded in existing EHR, not separate system, (3) Productivity benefits - see more patients, reduce travel time, (4) Training and support - hands-on training, 24/7 technical support, (5) Financial incentives - telehealth reimbursement, productivity bonuses. IBM has achieved 90%+ physician adoption at 200+ health systems.',
+        responseChoices: [
+          { id: 'obj3-a', text: 'Physician champions program - early adopters become advocates, peer-to-peer influence', isCorrect: true, points: 4, feedback: 'Excellent - addressed adoption strategy.' },
+          { id: 'obj3-b', text: 'Workflow integration - telehealth embedded in EHR, not separate system, minimal disruption', isCorrect: true, points: 3, feedback: 'Good - explained workflow integration.' },
+          { id: 'obj3-c', text: 'Productivity benefits - see more patients, reduce travel, improve work-life balance', isCorrect: true, points: 3, feedback: 'Good - highlighted physician benefits.' },
+          { id: 'obj3-d', text: 'Track record: 90%+ physician adoption at 200+ health systems, physicians become advocates', isCorrect: true, points: 3, feedback: 'Good - provided adoption track record.' },
+          { id: 'obj3-e', text: 'Force physicians to use telehealth', isCorrect: false, points: 0, feedback: 'Wrong - voluntary adoption with champions works better.' },
+          { id: 'obj3-f', text: 'Physician adoption not important', isCorrect: false, points: 0, feedback: 'Wrong - physician adoption is critical.' }
+        ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed physician adoption',
+          'Explained champions program',
+          'Described workflow integration',
+          'Highlighted productivity benefits'
+        ],
+        hints: ['Physician champions', 'Workflow integration', 'Productivity benefits']
+      },
+      {
+        objection: 'Your solution costs $10M. Can we start with a pilot county to prove ROI before rolling out to all 15 counties?',
+        stakeholder: 'CFO',
+        difficulty: 'common',
+        category: 'cost',
+        customResponse: 'Pilot is our recommended approach. IBM offers phased deployment: (1) Phase 1 Pilot: $1.5M for single county (3 months), (2) Pilot typically shows 25-30% increase in rural patient visits and 20% ER reduction, (3) Use pilot results to secure funding for full rollout, (4) Phase 2-3: Scale to remaining counties ($8.5M) with proven ROI. Business case shows 16-month payback and $30M three-year benefit vs. $10M investment.',
+        responseChoices: [
+          { id: 'obj4-a', text: 'Phased approach: $1.5M pilot in single county (3 months) to prove ROI', isCorrect: true, points: 4, feedback: 'Excellent - offered pilot to de-risk investment.' },
+          { id: 'obj4-b', text: 'Pilot typically shows 25-30% increase in rural visits and 20% ER reduction within 3 months', isCorrect: true, points: 3, feedback: 'Good - provided realistic pilot results.' },
+          { id: 'obj4-c', text: 'Use pilot results to refine business case and secure funding - staged investment', isCorrect: true, points: 3, feedback: 'Good - showed how pilot reduces financial risk.' },
+          { id: 'obj4-d', text: 'Business case: 16-month payback, $30M three-year benefit vs. $10M investment (200% ROI)', isCorrect: true, points: 3, feedback: 'Good - quantified strong ROI.' },
+          { id: 'obj4-e', text: 'Must deploy to all 15 counties immediately', isCorrect: false, points: 0, feedback: 'Wrong - phased approach with pilot recommended.' },
+          { id: 'obj4-f', text: 'ROI not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO requires strong ROI.' }
+        ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Offered phased approach with pilot',
+          'Provided pilot cost and timeline',
+          'Quantified expected pilot results',
+          'Presented strong ROI case'
+        ],
+        hints: ['Pilot county approach', 'Prove ROI first', 'Staged investment']
+      },
+      {
+        objection: 'How do we ensure HIPAA compliance for video consultations? We cannot risk a breach.',
+        stakeholder: 'CIO',
+        difficulty: 'common',
+        category: 'risk',
+        customResponse: 'HIPAA compliance is non-negotiable. IBM provides comprehensive security: (1) End-to-end encryption for all video, audio, and data, (2) HIPAA-compliant cloud infrastructure with BAA, (3) Secure patient authentication and access controls, (4) Audit logging of all sessions, (5) Regular security audits and penetration testing. IBM telehealth platform is HITRUST certified and has zero breaches across 500+ healthcare deployments.',
+        responseChoices: [
+          { id: 'obj5-a', text: 'End-to-end encryption for all video, audio, data - HIPAA-compliant cloud with BAA', isCorrect: true, points: 4, feedback: 'Excellent - addressed HIPAA compliance comprehensively.' },
+          { id: 'obj5-b', text: 'Secure patient authentication, access controls, audit logging of all sessions', isCorrect: true, points: 3, feedback: 'Good - explained security controls.' },
+          { id: 'obj5-c', text: 'HITRUST certified, regular security audits and penetration testing', isCorrect: true, points: 3, feedback: 'Good - highlighted certifications.' },
+          { id: 'obj5-d', text: 'Track record: 500+ healthcare deployments, zero breaches, HIPAA compliant for 15+ years', isCorrect: true, points: 3, feedback: 'Good - provided security track record.' },
+          { id: 'obj5-e', text: 'No encryption needed', isCorrect: false, points: 0, feedback: 'Wrong - HIPAA requires encryption.' },
+          { id: 'obj5-f', text: 'HIPAA compliance not important', isCorrect: false, points: 0, feedback: 'Wrong - HIPAA compliance is mandatory.' }
+        ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed HIPAA compliance',
+          'Explained encryption and security',
+          'Described audit logging',
+          'Highlighted HITRUST certification'
+        ],
+        hints: ['End-to-end encryption', 'HITRUST certification', 'Zero breaches']
+      }
+    ],
+    minimumObjectionsToHandle: 4
+  },
+
+  recommendationPhase: {
+    primaryProduct: 'power-e1080',
+    supportingProducts: ['watson-studio', 'flashsystem-9500'],
+    configuration: {
+      products: [
+        {
+          productId: 'power-e1080',
+          productName: 'IBM Power E1080',
+          reason: 'High-performance computing for telehealth platform, video processing, remote patient monitoring, and AI-powered triage across 15 rural counties',
+          configuration: 'Centralized Power E1080 for telehealth platform and video infrastructure. Edge servers for mobile health units',
+          priority: 'primary'
+        },
+        {
+          productId: 'watson-studio',
+          productName: 'IBM Watson Studio with Watson Health',
+          reason: 'AI-powered telehealth triage, clinical decision support, and remote patient monitoring analytics',
+          configuration: 'Telehealth triage AI, clinical decision support, RPM analytics, predictive alerts for chronic disease',
+          priority: 'supporting'
+        },
+        {
+          productId: 'flashsystem-9500',
+          productName: 'IBM FlashSystem 9500',
+          reason: 'High-performance storage for video recordings, patient data, RPM data, and telehealth analytics with HIPAA compliance',
+          configuration: '200TB usable capacity for 15 counties, video recordings, patient records, RPM data, encrypted storage',
+          priority: 'supporting'
+        }
+      ],
+      architecture: 'Three-tier: (1) Central tier: Power E1080 for telehealth platform, video infrastructure, and AI triage, (2) Edge tier: Edge servers for mobile health units with offline capabilities, (3) Storage tier: FlashSystem 9500 for video and patient data. IBM Watson Health provides AI-powered triage and RPM analytics.',
+      sizing: 'Central: 1x Power E1080 (24-core) for telehealth and video. Edge: 5x mobile health unit servers. Storage: 200TB FlashSystem',
+      deployment: 'Phased: Phase 1 (Months 1-3): Pilot in single county. Phase 2 (Months 4-8): Scale to 7 counties. Phase 3 (Months 9-12): Complete rollout to remaining 7 counties.'
+    },
+    pricing: {
+      hardware: '$5M (Power E1080 + mobile unit servers + FlashSystem 9500)',
+      software: '$3M (IBM telehealth platform, Watson Health, RPM platform, 3-year licenses)',
+      services: '$2M (IBM Expert Labs: implementation, EHR integration, training, change management)',
+      support: '$300K/year (24x7 support with 2-hour response)',
+      total: '$10M initial + $300K/year support',
+      financing: 'IBM Flex financing available - $210K/month for 60 months',
+      paymentTerms: 'Phased payment: $1.5M pilot, $4M Phase 2, $4.5M Phase 3'
+    },
+    businessCase: {
+      costSavings: '$8.5M annually (ER overuse $1.5M, readmissions $3M, travel costs $4M)',
+      revenueImpact: '$20M annually (capture rural market share)',
+      productivityGains: '$5M annually (physician productivity, operational efficiency)',
+      riskReduction: 'Improve rural access, reduce ER overuse 30%, improve chronic disease outcomes, physician recruitment advantage',
+      roi: '16 months',
+      paybackPeriod: '16 months',
+      tco: '3-year TCO: $10M investment vs. $100M in benefits (revenue + savings + productivity) = $90M net benefit, 200% three-year ROI'
+    },
+    competitivePositioning: 'IBM telehealth platform is the leading enterprise solution with 500+ healthcare deployments. Unlike consumer video tools, IBM provides clinical-grade video, diagnostic peripherals, EHR integration, HIPAA compliance, and AI-powered triage. Power E1080 delivers 3x better video performance than x86.',
+    nextSteps: [
+      'Schedule telehealth workshop with IBM Watson Health experts',
+      'Conduct pilot county selection and broadband assessment',
+      'Develop phased deployment roadmap',
+      'Create detailed ROI model with pilot metrics',
+      'Present business case to board',
+      'Begin pilot implementation in selected county'
+    ],
+    requiredElements: [
+      'IBM telehealth platform with clinical-grade video',
+      'Power E1080 for video infrastructure and AI',
+      'FlashSystem for video and patient data storage',
+      'Watson Health for AI triage and RPM analytics',
+      'Diagnostic peripherals for remote examination',
+      'Mobile health unit servers with offline capabilities',
+      'EHR integration',
+      'Physician training and change management'
+    ]
+  },
+
+  scoringCriteria: {
+    discovery: {
+      maxPoints: 40,
+      criteria: [
+        'Quantified rural market opportunity ($20M lost revenue)',
+        'Identified telehealth use cases (video, RPM, mobile units)',
+        'Assessed connectivity challenges (poor rural broadband)',
+        'Understood physician shortage and workforce benefits',
+        'Quantified ER overuse opportunity ($5M, 30% non-urgent)',
+        'Mapped stakeholders and decision process',
+        'Qualified budget and timeline ($8M-$12M, 12 months)',
+        'Identified CFO mandate ($10M revenue increase)'
+      ],
+      weight: 0.4
+    },
+    objectionHandling: {
+      maxPoints: 30,
+      criteria: [
+        'Addressed quality of care with diagnostic peripherals',
+        'Handled connectivity with adaptive video',
+        'Addressed physician adoption with champions program',
+        'Handled cost objection with pilot approach and strong ROI',
+        'Addressed HIPAA compliance with encryption and HITRUST'
+      ],
+      weight: 0.3
+    },
+    recommendation: {
+      maxPoints: 20,
+      criteria: [
+        'Recommended Power E1080 as telehealth platform',
+        'Included Watson Health for AI triage and RPM',
+        'Included FlashSystem for video storage',
+        'Addressed all pain points (rural access, ER overuse, physician shortage)',
+        'Proposed phased deployment with pilot',
+        'Included mobile health units and offline capabilities'
+      ],
+      weight: 0.2
+    },
+    businessValue: {
+      maxPoints: 10,
+      criteria: [
+        'Quantified revenue opportunity ($20M)',
+        'Quantified cost savings ($8.5M)',
+        'Calculated productivity gains ($5M)',
+        'Calculated ROI (16-month payback, 200% three-year ROI)',
+        'Positioned as rural expansion and competitive advantage'
+      ],
+      weight: 0.1
+    },
+    totalPoints: 100,
+    passingScore: 70,
+    excellentScore: 85
+  },
+
+  learningOutcomes: [
+    {
+      concept: 'Telehealth platform architecture',
+      description: 'Design enterprise telehealth platforms with clinical-grade video, diagnostic peripherals, and EHR integration',
+      skillLevel: 'advanced'
+    },
+    {
+      concept: 'Rural healthcare connectivity',
+      description: 'Address rural broadband challenges with adaptive video, mobile-first design, and offline capabilities',
+      skillLevel: 'advanced'
+    },
+    {
+      concept: 'Remote patient monitoring',
+      description: 'Implement RPM programs for chronic disease management with AI-powered analytics',
+      skillLevel: 'intermediate'
+    },
+    {
+      concept: 'Healthcare change management',
+      description: 'Build physician adoption through champions programs and workflow integration',
+      skillLevel: 'intermediate'
+    },
+    {
+      concept: 'Rural health economics',
+      description: 'Quantify ROI from rural market expansion, ER reduction, and telehealth reimbursement',
+      skillLevel: 'intermediate'
+    }
+  ],
+
+  metadata: {
+    tags: ['Telehealth', 'Rural health', 'Video consultations', 'Remote monitoring', 'Healthcare access', 'Physician adoption'],
+    skills: ['Telehealth architecture', 'Rural connectivity', 'RPM', 'Change management', 'Healthcare economics'],
+    products: ['power-e1080', 'watson-studio', 'flashsystem-9500'],
+    industries: ['Healthcare'],
+    estimatedTime: 45,
+    difficulty: 'advanced',
+    version: '1.0',
+    lastUpdated: '2026-07-16',
+    author: 'IBM Sales Training Team'
+  },
+
+  coachingTips: [
+    'Lead with rural market opportunity ($20M lost revenue) - this is the primary driver',
+    'Emphasize CMS telehealth reimbursement expansion as immediate opportunity',
+    'Address connectivity concerns proactively with adaptive video technology',
+    'Recommend pilot county approach to de-risk investment and prove ROI',
+    'Highlight physician productivity benefits - see more patients, reduce travel',
+    'Position IBM as enterprise telehealth vs. consumer video tools',
+    'Build compelling ROI: 16-month payback, 200% three-year ROI, $20M revenue',
+    'Chief Digital Officer is champion - focus on rural expansion and access',
+    'CIO is supporter but concerned about connectivity - lead with adaptive solutions',
+    'CFO is neutral - build strong business case with $10M revenue mandate',
+    'Differentiate with proven track record: 500+ healthcare telehealth deployments',
+    'Emphasize phased deployment to minimize risk and build confidence',
+    'Address quality concerns with diagnostic peripherals and evidence base',
+    'Highlight mobile health units as innovative rural access strategy'
+  ]
+};
+
+/**
+ * Healthcare Scenario 004: Medical Imaging AI and PACS
+ * Academic medical center modernizing imaging with AI-powered diagnostics
+ */
+export const healthcareScenario004: TrainingScenario = {
+  id: 'healthcare-imaging-ai-004',
+  title: 'Academic Medical Center Needs AI-Powered Medical Imaging and Modern PACS',
+  description: 'A large academic medical center with 1.2M imaging studies annually faces $18M in lost revenue from radiologist shortage, delayed diagnoses, and aging PACS infrastructure. They need an AI-powered medical imaging platform with modern PACS to improve diagnostic accuracy, reduce radiologist burnout, and accelerate time-to-diagnosis.',
+  
+  customerProfile: {
+    company: 'University Medical Center',
+    industry: 'Healthcare',
+    size: 'Large (1000-5000 employees)',
+    revenue: '$2.5B annually',
+    employees: 12000,
+    location: 'Academic medical center with 4 hospitals and 30 outpatient imaging centers',
+    currentInfrastructure: {
+      servers: 'On-premises PACS servers (15 years old)',
+      storage: 'Legacy storage arrays, running out of capacity',
+      applications: ['Legacy PACS', 'No AI capabilities', 'Manual image routing', 'Separate systems per modality'],
+      operatingSystem: 'Windows Server 2008 (end of life)',
+      virtualization: 'Limited VMware',
+      age: '15 years',
+      endOfLife: 'PACS vendor ending support in 12 months',
+      issues: [
+        '$18M annually in lost revenue from delays and radiologist shortage',
+        'Radiologist shortage - cannot recruit, high burnout',
+        'Delayed diagnoses - 48-72 hour turnaround for complex studies',
+        'Legacy PACS - slow, unreliable, vendor ending support',
+        'No AI capabilities - miss incidental findings',
+        'Storage capacity crisis - 1.2M studies/year, 500TB data',
+        'Cannot share images with referring physicians',
+        'Separate systems for CT, MRI, X-ray - no unified workflow'
+      ]
+    },
+    keyStakeholders: [
+      {
+        name: 'Dr. Sarah Williams',
+        role: 'CTO',
+        priorities: ['Diagnostic accuracy', 'Patient safety', 'Radiologist recruitment', 'Quality of care'],
+        concerns: ['AI accuracy', 'Radiologist trust', 'Patient safety', 'Implementation disruption'],
+        influence: 'high',
+        supportLevel: 'champion'
+      },
+      {
+        name: 'Michael Chen',
+        role: 'CIO',
+        priorities: ['PACS modernization', 'System reliability', 'Integration', 'Vendor support'],
+        concerns: ['Migration complexity', 'Downtime', 'Data migration', 'Support model'],
+        influence: 'high',
+        supportLevel: 'supporter'
+      },
+      {
+        name: 'Jennifer Martinez',
+        role: 'CFO',
+        priorities: ['Revenue growth', 'Cost reduction', 'ROI', 'Radiologist productivity'],
+        concerns: ['Capital investment', 'Operating costs', 'Payback period', 'Risk'],
+        influence: 'high',
+        supportLevel: 'neutral'
+      }
+    ],
+    budget: '$12M-$18M capital budget for AI imaging platform and PACS modernization',
+    timeline: '18-month implementation across 4 hospitals and 30 imaging centers',
+    decisionProcess: 'Board approved imaging modernization. CMO is executive sponsor. CFO requires $10M revenue increase from improved throughput.'
+  },
+  
+  businessContext: {
+    challenges: [
+      '$18M annually in lost revenue',
+      'Radiologist shortage and burnout',
+      'Delayed diagnoses (48-72 hours)',
+      'Legacy PACS ending support',
+      'No AI capabilities',
+      'Storage capacity crisis',
+      'Cannot share images externally',
+      'Fragmented imaging systems'
+    ],
+    businessImpact: [
+      '$18M annual lost revenue',
+      '$8M from delayed diagnoses',
+      '$6M from radiologist shortage',
+      '$4M from missed incidental findings',
+      'Patient safety risk',
+      'Radiologist burnout and turnover'
+    ],
+    urgency: 'critical',
+    strategicInitiatives: [
+      'Implement AI-powered medical imaging platform',
+      'Modernize PACS infrastructure',
+      'Reduce time-to-diagnosis by 50%',
+      'Improve diagnostic accuracy with AI',
+      'Recruit and retain radiologists',
+      'Increase imaging throughput by 30%',
+      'Enable image sharing with referring physicians'
+    ],
+    competitivePressure: 'Competing academic medical centers deploying AI imaging. Referring physicians sending patients to competitors with faster turnaround.',
+    regulatoryRequirements: ['FDA clearance for AI algorithms', 'HIPAA', 'DICOM standards', 'ACR accreditation', 'State medical imaging regulations'],
+    recentEvents: [
+      'PACS vendor announced end of support in 12 months',
+      'Lost 3 radiologists to competitors with AI tools',
+      'Patient safety event from missed incidental finding',
+      'Board mandated imaging modernization'
+    ]
+  },
+
+  discoveryPhase: {
+    questions: [
+      {
+        question: 'What is the business impact of radiologist shortage and delayed diagnoses? How much revenue are you losing?',
+        purpose: 'Quantify imaging opportunity',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q1-a', text: '$18M annually in lost revenue - delayed diagnoses and radiologist shortage limit imaging capacity', isCorrect: true, points: 4, feedback: 'Excellent - quantified revenue impact.' },
+          { id: 'q1-b', text: 'Radiologist shortage - cannot recruit, 48-72 hour turnaround for complex studies', isCorrect: true, points: 3, feedback: 'Good - identified workforce challenge.' },
+          { id: 'q1-c', text: 'Lost 3 radiologists to competitors with AI tools - burnout from high workload', isCorrect: true, points: 3, feedback: 'Good - identified retention issue.' },
+          { id: 'q1-d', text: 'Referring physicians sending patients to competitors with faster turnaround', isCorrect: true, points: 3, feedback: 'Good - identified competitive threat.' },
+          { id: 'q1-e', text: 'No revenue impact', isCorrect: false, points: 0, feedback: 'Wrong - $18M annual loss is significant.' },
+          { id: 'q1-f', text: 'Radiologist shortage not a problem', isCorrect: false, points: 0, feedback: 'Wrong - shortage is limiting capacity.' }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15,
+        hints: ['Quantify revenue loss', 'Radiologist shortage', 'Competitive threat']
+      },
+      {
+        question: 'What AI capabilities do you need? What clinical use cases are most important?',
+        purpose: 'Identify AI requirements',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q2-a', text: 'AI triage - prioritize critical findings (stroke, PE, pneumothorax) for immediate radiologist review', isCorrect: true, points: 4, feedback: 'Excellent - identified critical triage use case.' },
+          { id: 'q2-b', text: 'AI detection - identify incidental findings (lung nodules, fractures, masses) that radiologists might miss', isCorrect: true, points: 3, feedback: 'Good - identified detection opportunity.' },
+          { id: 'q2-c', text: 'AI quantification - automate measurements (tumor size, ejection fraction, bone density)', isCorrect: true, points: 3, feedback: 'Good - identified quantification use case.' },
+          { id: 'q2-d', text: 'AI workflow - automate image routing, hanging protocols, prior comparison', isCorrect: true, points: 3, feedback: 'Good - understood workflow automation.' },
+          { id: 'q2-e', text: 'Only need basic PACS', isCorrect: false, points: 0, feedback: 'Wrong - AI capabilities are strategic priority.' },
+          { id: 'q2-f', text: 'AI not needed', isCorrect: false, points: 0, feedback: 'Wrong - AI is key to addressing radiologist shortage.' }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 12,
+        hints: ['AI triage', 'Incidental findings', 'Workflow automation']
+      },
+      {
+        question: 'What is your current PACS situation? Why is modernization urgent?',
+        purpose: 'Assess PACS challenges',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q3-a', text: 'Legacy PACS (15 years old) - vendor ending support in 12 months, forced migration', isCorrect: true, points: 4, feedback: 'Excellent - identified urgent timeline.' },
+          { id: 'q3-b', text: 'Slow and unreliable - radiologists frustrated, impacts productivity and quality', isCorrect: true, points: 3, feedback: 'Good - identified performance issues.' },
+          { id: 'q3-c', text: 'Storage capacity crisis - 1.2M studies/year, 500TB data, running out of space', isCorrect: true, points: 3, feedback: 'Good - identified storage challenge.' },
+          { id: 'q3-d', text: 'Fragmented systems - separate PACS for CT, MRI, X-ray, no unified workflow', isCorrect: true, points: 3, feedback: 'Good - identified integration gap.' },
+          { id: 'q3-e', text: 'PACS is modern and working well', isCorrect: false, points: 0, feedback: 'Wrong - legacy PACS is major issue.' },
+          { id: 'q3-f', text: 'No urgency for modernization', isCorrect: false, points: 0, feedback: 'Wrong - vendor ending support in 12 months.' }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 12,
+        hints: ['Vendor ending support', 'Performance issues', 'Storage crisis']
+      },
+      {
+        question: 'What is your imaging volume and growth? What are the storage requirements?',
+        purpose: 'Assess scale and capacity',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q4-a', text: '1.2M imaging studies annually across 4 hospitals and 30 outpatient centers', isCorrect: true, points: 4, feedback: 'Excellent - quantified imaging volume.' },
+          { id: 'q4-b', text: '500TB current data, growing 20% annually, need 1PB+ capacity for 7-year retention', isCorrect: true, points: 3, feedback: 'Good - identified storage requirements.' },
+          { id: 'q4-c', text: 'High-resolution studies (CT, MRI) - 500MB-2GB per study, need high-performance storage', isCorrect: true, points: 3, feedback: 'Good - understood performance needs.' },
+          { id: 'q4-d', text: 'Multi-site deployment - need centralized PACS with local caching for performance', isCorrect: true, points: 3, feedback: 'Good - identified multi-site architecture.' },
+          { id: 'q4-e', text: 'Small imaging volume', isCorrect: false, points: 0, feedback: 'Wrong - 1.2M studies annually is large volume.' },
+          { id: 'q4-f', text: 'Storage not a concern', isCorrect: false, points: 0, feedback: 'Wrong - storage capacity crisis.' }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 10,
+        hints: ['1.2M studies', '500TB data', 'Multi-site']
+      },
+      {
+        question: 'What is your radiologist productivity challenge? How does AI help?',
+        purpose: 'Understand workforce impact',
+        category: 'business',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q5-a', text: 'Radiologist burnout - reading 100+ studies/day, high error risk, cannot sustain', isCorrect: true, points: 4, feedback: 'Excellent - identified burnout issue.' },
+          { id: 'q5-b', text: 'AI triage reduces workload - prioritizes critical cases, automates routine measurements', isCorrect: true, points: 3, feedback: 'Good - understood AI productivity benefit.' },
+          { id: 'q5-c', text: 'AI detection improves accuracy - catches incidental findings, reduces callbacks and liability', isCorrect: true, points: 3, feedback: 'Good - identified quality benefit.' },
+          { id: 'q5-d', text: 'AI recruitment advantage - radiologists want to work with modern AI tools', isCorrect: true, points: 3, feedback: 'Good - understood recruitment benefit.' },
+          { id: 'q5-e', text: 'No productivity issues', isCorrect: false, points: 0, feedback: 'Wrong - radiologist burnout is major concern.' },
+          { id: 'q5-f', text: 'AI does not help productivity', isCorrect: false, points: 0, feedback: 'Wrong - AI proven to improve radiologist productivity.' }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 10,
+        hints: ['Radiologist burnout', 'AI triage', 'Recruitment advantage']
+      },
+      {
+        question: 'Who are the key stakeholders and what are their priorities? Who has budget authority?',
+        purpose: 'Map decision-making process',
+        category: 'stakeholder',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q6-a', text: 'Chief Medical Officer is executive sponsor, focused on diagnostic accuracy and patient safety', isCorrect: true, points: 4, feedback: 'Excellent - identified decision owner.' },
+          { id: 'q6-b', text: 'CIO is supporter, concerned about PACS migration complexity and data migration', isCorrect: true, points: 3, feedback: 'Good - identified IT stakeholder.' },
+          { id: 'q6-c', text: 'CFO has budget authority, mandated $10M revenue increase from improved throughput', isCorrect: true, points: 3, feedback: 'Good - identified budget authority and mandate.' },
+          { id: 'q6-d', text: 'Radiologists are end users - need AI tools that improve workflow, not add burden', isCorrect: true, points: 3, feedback: 'Good - identified end user concerns.' },
+          { id: 'q6-e', text: 'No clear decision owner', isCorrect: false, points: 0, feedback: 'Wrong - CMO is executive sponsor.' },
+          { id: 'q6-f', text: 'Stakeholders not important', isCorrect: false, points: 0, feedback: 'Wrong - understanding stakeholders critical.' }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 8,
+        hints: ['CMO sponsor', 'CFO budget authority', 'Radiologist adoption']
+      },
+      {
+        question: 'What is your timeline and what drives the urgency? Any vendor or regulatory deadlines?',
+        purpose: 'Understand timeline constraints',
+        category: 'timeline',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q7-a', text: '18-month implementation, PACS vendor ending support in 12 months - forced migration', isCorrect: true, points: 4, feedback: 'Excellent - identified urgent timeline.' },
+          { id: 'q7-b', text: 'Board mandated imaging modernization after patient safety event', isCorrect: true, points: 3, feedback: 'Good - identified board mandate.' },
+          { id: 'q7-c', text: 'Radiologist recruitment crisis - need AI tools to attract and retain talent', isCorrect: true, points: 3, feedback: 'Good - identified workforce driver.' },
+          { id: 'q7-d', text: 'Vendor selection in 8 weeks, phased rollout starting with pilot hospital', isCorrect: true, points: 3, feedback: 'Good - understood phased approach.' },
+          { id: 'q7-e', text: 'No timeline, can take 5+ years', isCorrect: false, points: 0, feedback: 'Wrong - vendor ending support in 12 months.' },
+          { id: 'q7-f', text: 'No urgency', isCorrect: false, points: 0, feedback: 'Wrong - forced migration and board mandate.' }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 8,
+        hints: ['Vendor ending support', 'Board mandate', 'Recruitment crisis']
+      },
+      {
+        question: 'What is your budget and expected ROI? What are the key business case drivers?',
+        purpose: 'Qualify budget and ROI expectations',
+        category: 'budget',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          { id: 'q8-a', text: '$12M-$18M capital budget approved by board for AI imaging and PACS modernization', isCorrect: true, points: 4, feedback: 'Excellent - confirmed adequate budget.' },
+          { id: 'q8-b', text: 'CFO requires $10M revenue increase and 24-month payback', isCorrect: true, points: 3, feedback: 'Good - understood ROI requirements.' },
+          { id: 'q8-c', text: 'Business case: increase throughput $10M, reduce radiologist burnout $4M, improve quality $4M', isCorrect: true, points: 3, feedback: 'Good - understood business case drivers.' },
+          { id: 'q8-d', text: 'Budget includes: AI platform, PACS, storage, data migration, training, FDA-cleared algorithms', isCorrect: true, points: 3, feedback: 'Good - confirmed comprehensive budget.' },
+          { id: 'q8-e', text: 'Budget unlimited', isCorrect: false, points: 0, feedback: 'Unrealistic - budget is $12M-$18M.' },
+          { id: 'q8-f', text: 'ROI not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO requires strong ROI.' }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 11,
+        hints: ['Budget approved', 'ROI requirements', 'Business case drivers']
+      }
+    ],
+    expectedFindings: [
+      '$18M annual lost revenue',
+      'Radiologist shortage and burnout',
+      'Legacy PACS ending support',
+      '1.2M studies annually',
+      '500TB storage crisis',
+      'AI capabilities needed',
+      'Budget $12M-$18M approved',
+      'Vendor ending support in 12 months'
+    ],
+    redFlags: [
+      'Budget under $10M insufficient',
+      'Timeline under 12 months too aggressive',
+      'No executive sponsorship',
+      'Costs not quantified',
+      'Want all sites simultaneously'
+    ],
+    opportunities: [
+      'Increase throughput $10M',
+      'Reduce burnout $4M',
+      'Improve quality $4M',
+      'Recruit radiologists',
+      'Competitive advantage'
+    ],
+    minimumQuestionsRequired: 6
+  },
+
+  objectionPhase: {
+    objections: [
+      {
+        objection: 'How accurate is AI for medical imaging? Radiologists are concerned about false positives and liability.',
+        stakeholder: 'CTO',
+        difficulty: 'very difficult',
+        category: 'risk',
+        customResponse: 'AI accuracy and safety are paramount. IBM medical imaging AI is FDA-cleared: (1) 95%+ sensitivity for critical findings (stroke, PE, pneumothorax), (2) Low false positive rate (<5%) - does not overwhelm radiologists, (3) FDA 510(k) clearance for clinical use, (4) Explainable AI - shows why findings were flagged, (5) Human-in-the-loop - AI assists, radiologist makes final diagnosis. IBM AI deployed at 200+ health systems with proven safety record.',
+        responseChoices: [
+          { id: 'obj1-a', text: 'FDA 510(k) cleared AI algorithms - 95%+ sensitivity for critical findings (stroke, PE, pneumothorax)', isCorrect: true, points: 4, feedback: 'Excellent - addressed regulatory clearance and accuracy.' },
+          { id: 'obj1-b', text: 'Low false positive rate (<5%) - AI flags true findings, does not overwhelm radiologists', isCorrect: true, points: 3, feedback: 'Good - addressed false positive concern.' },
+          { id: 'obj1-c', text: 'Explainable AI - shows heatmaps and reasoning, radiologists understand why findings flagged', isCorrect: true, points: 3, feedback: 'Good - explained transparency.' },
+          { id: 'obj1-d', text: 'Track record: 200+ health systems, proven safety, no liability issues, radiologists trust AI', isCorrect: true, points: 3, feedback: 'Good - provided safety track record.' },
+          { id: 'obj1-e', text: 'AI is not accurate', isCorrect: false, points: 0, feedback: 'Wrong - FDA-cleared with 95%+ sensitivity.' },
+          { id: 'obj1-f', text: 'Accuracy not important', isCorrect: false, points: 0, feedback: 'Wrong - accuracy is critical for patient safety.' }
+        ],
+        correctResponseIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed FDA clearance',
+          'Quantified accuracy',
+          'Explained explainable AI',
+          'Provided safety track record'
+        ],
+        hints: ['FDA clearance', '95% sensitivity', 'Explainable AI']
+      },
+      {
+        objection: 'How do we migrate 500TB of imaging data from legacy PACS without disrupting operations?',
+        stakeholder: 'CIO',
+        difficulty: 'difficult',
+        category: 'technical',
+        customResponse: 'Data migration is critical. IBM provides proven migration approach: (1) Phased migration - pilot hospital first, validate, then scale, (2) Parallel operation - legacy and new PACS run simultaneously during transition, (3) Automated migration tools - migrate data overnight, no downtime, (4) Data validation - verify all studies migrated correctly, (5) Rollback capability - can revert if issues. IBM has migrated 1,000+ PACS with 99.9% success rate.',
+        responseChoices: [
+          { id: 'obj2-a', text: 'Phased migration: pilot hospital first (50TB), validate, then scale to remaining sites', isCorrect: true, points: 4, feedback: 'Excellent - addressed migration approach.' },
+          { id: 'obj2-b', text: 'Parallel operation - legacy and new PACS run simultaneously, zero downtime', isCorrect: true, points: 3, feedback: 'Good - explained zero-downtime approach.' },
+          { id: 'obj2-c', text: 'Automated migration tools - migrate 50TB per week overnight, no impact to operations', isCorrect: true, points: 3, feedback: 'Good - quantified migration speed.' },
+          { id: 'obj2-d', text: 'Track record: 1,000+ PACS migrations, 99.9% success rate, zero data loss', isCorrect: true, points: 3, feedback: 'Good - provided migration track record.' },
+          { id: 'obj2-e', text: 'Requires weeks of downtime', isCorrect: false, points: 0, feedback: 'Wrong - parallel operation enables zero downtime.' },
+          { id: 'obj2-f', text: 'Migration not possible', isCorrect: false, points: 0, feedback: 'Wrong - proven migration approach.' }
+        ],
+        correctResponseIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed migration approach',
+          'Explained parallel operation',
+          'Quantified migration speed',
+          'Provided migration track record'
+        ],
+        hints: ['Phased migration', 'Parallel operation', 'Zero downtime']
+      },
+      {
+        objection: 'How do we get radiologists to trust and adopt AI? Many are skeptical of AI replacing their judgment.',
+        stakeholder: 'CTO',
+        difficulty: 'common',
+        category: 'skills',
+        customResponse: 'Radiologist trust is critical. IBM provides comprehensive adoption program: (1) AI assists, does not replace - radiologist makes final diagnosis, (2) Radiologist champions - early adopters become advocates, (3) Clinical validation - show AI improves accuracy and reduces burnout, (4) Training and support - hands-on training, 24/7 clinical support, (5) Transparency - explainable AI shows reasoning. IBM has achieved 90%+ radiologist adoption at 200+ health systems.',
+        responseChoices: [
+          { id: 'obj3-a', text: 'AI assists, does not replace - radiologist makes final diagnosis, AI is second reader', isCorrect: true, points: 4, feedback: 'Excellent - addressed replacement concern.' },
+          { id: 'obj3-b', text: 'Radiologist champions program - early adopters become advocates, peer influence', isCorrect: true, points: 3, feedback: 'Good - explained adoption strategy.' },
+          { id: 'obj3-c', text: 'Clinical validation - studies show AI improves accuracy 15% and reduces burnout', isCorrect: true, points: 3, feedback: 'Good - provided evidence base.' },
+          { id: 'obj3-d', text: 'Track record: 90%+ radiologist adoption at 200+ health systems, radiologists become advocates', isCorrect: true, points: 3, feedback: 'Good - provided adoption track record.' },
+          { id: 'obj3-e', text: 'AI will replace radiologists', isCorrect: false, points: 0, feedback: 'Wrong - AI assists, radiologist makes final diagnosis.' },
+          { id: 'obj3-f', text: 'Adoption not important', isCorrect: false, points: 0, feedback: 'Wrong - radiologist adoption is critical.' }
+        ],
+        correctResponseIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed replacement concern',
+          'Explained champions program',
+          'Provided clinical evidence',
+          'Highlighted adoption track record'
+        ],
+        hints: ['AI assists', 'Champions program', 'Clinical validation']
+      },
+      {
+        objection: 'Your solution costs $15M. Can we start with a pilot hospital to prove ROI before rolling out to all 4 hospitals?',
+        stakeholder: 'CFO',
+        difficulty: 'common',
+        category: 'cost',
+        customResponse: 'Pilot is our recommended approach. IBM offers phased deployment: (1) Phase 1 Pilot: $3M for single hospital (6 months), (2) Pilot typically shows 25% increase in throughput and 30% reduction in turnaround time, (3) Use pilot results to secure funding for full rollout, (4) Phase 2-3: Scale to remaining hospitals ($12M) with proven ROI. Business case shows 22-month payback and $54M three-year benefit vs. $15M investment.',
+        responseChoices: [
+          { id: 'obj4-a', text: 'Phased approach: $3M pilot at single hospital (6 months) to prove ROI', isCorrect: true, points: 4, feedback: 'Excellent - offered pilot to de-risk investment.' },
+          { id: 'obj4-b', text: 'Pilot typically shows 25% throughput increase and 30% faster turnaround within 6 months', isCorrect: true, points: 3, feedback: 'Good - provided realistic pilot results.' },
+          { id: 'obj4-c', text: 'Use pilot results to refine business case and secure funding - staged investment', isCorrect: true, points: 3, feedback: 'Good - showed how pilot reduces financial risk.' },
+          { id: 'obj4-d', text: 'Business case: 22-month payback, $54M three-year benefit vs. $15M investment (260% ROI)', isCorrect: true, points: 3, feedback: 'Good - quantified strong ROI.' },
+          { id: 'obj4-e', text: 'Must deploy to all 4 hospitals immediately', isCorrect: false, points: 0, feedback: 'Wrong - phased approach with pilot recommended.' },
+          { id: 'obj4-f', text: 'ROI not important', isCorrect: false, points: 0, feedback: 'Wrong - CFO requires strong ROI.' }
+        ],
+        correctResponseIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Offered phased approach with pilot',
+          'Provided pilot cost and timeline',
+          'Quantified expected pilot results',
+          'Presented strong ROI case'
+        ],
+        hints: ['Pilot hospital approach', 'Prove ROI first', 'Staged investment']
+      },
+      {
+        objection: 'How do we ensure HIPAA compliance and data security for cloud-based PACS?',
+        stakeholder: 'CIO',
+        difficulty: 'common',
+        category: 'risk',
+        customResponse: 'HIPAA compliance is non-negotiable. IBM provides comprehensive security: (1) HIPAA-compliant cloud infrastructure with BAA, (2) End-to-end encryption for all imaging data at rest and in transit, (3) Access controls and audit logging - track who accessed what images, (4) HITRUST certified and SOC 2 Type II compliant, (5) Regular security audits and penetration testing. IBM has zero breaches across 200+ healthcare imaging deployments.',
+        responseChoices: [
+          { id: 'obj5-a', text: 'HIPAA-compliant cloud with BAA - end-to-end encryption at rest and in transit', isCorrect: true, points: 4, feedback: 'Excellent - addressed HIPAA compliance comprehensively.' },
+          { id: 'obj5-b', text: 'Access controls and audit logging - track who accessed images, when, and why', isCorrect: true, points: 3, feedback: 'Good - explained security controls.' },
+          { id: 'obj5-c', text: 'HITRUST certified and SOC 2 Type II compliant - highest healthcare security standards', isCorrect: true, points: 3, feedback: 'Good - highlighted certifications.' },
+          { id: 'obj5-d', text: 'Track record: 200+ healthcare imaging deployments, zero breaches, HIPAA compliant for 15+ years', isCorrect: true, points: 3, feedback: 'Good - provided security track record.' },
+          { id: 'obj5-e', text: 'No encryption needed', isCorrect: false, points: 0, feedback: 'Wrong - HIPAA requires encryption.' },
+          { id: 'obj5-f', text: 'HIPAA compliance not important', isCorrect: false, points: 0, feedback: 'Wrong - HIPAA compliance is mandatory.' }
+        ],
+        correctResponseIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectResponses: 3,
+        maxResponses: 6,
+        scoringCriteria: [
+          'Addressed HIPAA compliance',
+          'Explained encryption and security',
+          'Described audit logging',
+          'Highlighted certifications'
+        ],
+        hints: ['HIPAA-compliant cloud', 'End-to-end encryption', 'HITRUST certified']
+      }
+    ],
+    minimumObjectionsToHandle: 4
+  },
+
+  recommendationPhase: {
+    primaryProduct: 'power-e1080',
+    supportingProducts: ['watson-studio', 'flashsystem-9500'],
+    configuration: {
+      products: [
+        {
+          productId: 'power-e1080',
+          productName: 'IBM Power E1080',
+          reason: 'High-performance computing for AI-powered medical imaging, PACS infrastructure, and real-time image processing across 4 hospitals',
+          configuration: 'Centralized Power E1080 for AI inference and PACS. Edge servers at imaging centers for local caching',
+          priority: 'primary'
+        },
+        {
+          productId: 'watson-studio',
+          productName: 'IBM Watson Studio with Watson Health Imaging',
+          reason: 'FDA-cleared AI algorithms for medical imaging - triage, detection, quantification, and workflow automation',
+          configuration: 'Watson Health Imaging for AI triage, incidental finding detection, automated measurements, workflow optimization',
+          priority: 'supporting'
+        },
+        {
+          productId: 'flashsystem-9500',
+          productName: 'IBM FlashSystem 9500',
+          reason: 'High-performance storage for 1.2M imaging studies annually, 500TB current data, 1PB+ capacity with HIPAA compliance',
+          configuration: '1PB usable capacity for 7-year retention, high-performance for large studies, encrypted storage, HIPAA compliant',
+          priority: 'supporting'
+        }
+      ],
+      architecture: 'Three-tier: (1) Central tier: Power E1080 for AI inference and PACS, (2) Edge tier: Edge servers at 30 imaging centers for local caching, (3) Storage tier: FlashSystem 9500 for imaging data. IBM Watson Health Imaging provides FDA-cleared AI algorithms.',
+      sizing: 'Central: 2x Power E1080 (24-core each) for AI and PACS. Edge: 30x imaging center servers. Storage: 1PB FlashSystem',
+      deployment: 'Phased: Phase 1 (Months 1-6): Pilot at single hospital. Phase 2 (Months 7-12): Scale to 2 hospitals. Phase 3 (Months 13-18): Complete rollout to remaining hospital and 30 imaging centers.'
+    },
+    pricing: {
+      hardware: '$8M (2x Power E1080 + 30 edge servers + FlashSystem 9500)',
+      software: '$5M (IBM Watson Health Imaging AI, PACS platform, 3-year licenses, FDA-cleared algorithms)',
+      services: '$2M (IBM Expert Labs: implementation, data migration, AI training, radiologist training)',
+      support: '$500K/year (24x7 support with 1-hour response for critical issues)',
+      total: '$15M initial + $500K/year support',
+      financing: 'IBM Flex financing available - $315K/month for 60 months',
+      paymentTerms: 'Phased payment: $3M pilot, $6M Phase 2, $6M Phase 3'
+    },
+    businessCase: {
+      costSavings: '$8M annually (radiologist productivity $4M, reduced callbacks $2M, storage optimization $2M)',
+      revenueImpact: '$18M annually (increased throughput 30%, faster turnaround, improved quality)',
+      productivityGains: '$4M annually (radiologist efficiency, automated measurements, workflow optimization)',
+      riskReduction: 'Improve diagnostic accuracy, reduce patient safety risk, recruit radiologists, competitive advantage',
+      roi: '22 months',
+      paybackPeriod: '22 months',
+      tco: '3-year TCO: $15M investment vs. $90M in benefits (revenue + savings + productivity) = $75M net benefit, 260% three-year ROI'
+    },
+    competitivePositioning: 'IBM Watson Health Imaging is the leading AI medical imaging solution with FDA clearance and 200+ health system deployments. Unlike generic AI tools, IBM provides clinical-grade accuracy (95%+ sensitivity), FDA 510(k) clearance, explainable AI, and proven integration with PACS. Power E1080 delivers 3x better AI performance than x86.',
+    nextSteps: [
+      'Schedule medical imaging workshop with IBM Watson Health experts',
+      'Conduct pilot hospital selection and baseline assessment',
+      'Develop phased deployment and data migration roadmap',
+      'Create detailed ROI model with pilot metrics',
+      'Present business case to board',
+      'Begin pilot implementation at selected hospital'
+    ],
+    requiredElements: [
+      'IBM Watson Health Imaging with FDA-cleared AI algorithms',
+      'Power E1080 for AI inference and PACS infrastructure',
+      'FlashSystem for 1PB imaging data storage',
+      'Watson Studio for AI model management',
+      'Modern PACS platform with unified workflow',
+      'Data migration tools and services',
+      'Radiologist training and change management',
+      'HIPAA-compliant cloud infrastructure'
+    ]
+  },
+
+  scoringCriteria: {
+    discovery: {
+      maxPoints: 40,
+      criteria: [
+        'Quantified revenue opportunity ($18M annually)',
+        'Identified AI use cases (triage, detection, quantification)',
+        'Assessed PACS challenges (legacy, vendor ending support)',
+        'Understood imaging volume and storage (1.2M studies, 500TB)',
+        'Identified radiologist productivity challenges (burnout, shortage)',
+        'Mapped stakeholders and decision process',
+        'Qualified budget and timeline ($12M-$18M, 18 months)',
+        'Identified CFO mandate ($10M revenue increase)'
+      ],
+      weight: 0.4
+    },
+    objectionHandling: {
+      maxPoints: 30,
+      criteria: [
+        'Addressed AI accuracy with FDA clearance and 95% sensitivity',
+        'Handled data migration with phased approach and parallel operation',
+        'Addressed radiologist trust with AI-assists model and champions program',
+        'Handled cost objection with pilot approach and strong ROI',
+        'Addressed HIPAA compliance with encryption and HITRUST certification'
+      ],
+      weight: 0.3
+    },
+    recommendation: {
+      maxPoints: 20,
+      criteria: [
+        'Recommended Power E1080 as AI and PACS platform',
+        'Included Watson Health Imaging for FDA-cleared AI',
+        'Included FlashSystem for 1PB imaging storage',
+        'Addressed all pain points (radiologist shortage, legacy PACS, storage)',
+        'Proposed phased deployment with pilot hospital',
+        'Included data migration and radiologist training'
+      ],
+      weight: 0.2
+    },
+    businessValue: {
+      maxPoints: 10,
+      criteria: [
+        'Quantified cost savings ($8M)',
+        'Quantified revenue impact ($18M)',
+        'Calculated productivity gains ($4M)',
+        'Calculated ROI (22-month payback, 260% three-year ROI)',
+        'Positioned as diagnostic accuracy and competitive advantage'
+      ],
+      weight: 0.1
+    },
+    totalPoints: 100,
+    passingScore: 70,
+    excellentScore: 85
+  },
+
+  learningOutcomes: [
+    {
+      concept: 'AI-powered medical imaging',
+      description: 'Design AI imaging platforms with FDA-cleared algorithms for triage, detection, and quantification',
+      skillLevel: 'advanced'
+    },
+    {
+      concept: 'PACS modernization',
+      description: 'Migrate legacy PACS to modern cloud-based platforms with zero downtime',
+      skillLevel: 'advanced'
+    },
+    {
+      concept: 'Radiologist workflow optimization',
+      description: 'Implement AI tools that improve radiologist productivity and reduce burnout',
+      skillLevel: 'intermediate'
+    },
+    {
+      concept: 'Healthcare data migration',
+      description: 'Execute large-scale medical imaging data migrations with parallel operation',
+      skillLevel: 'intermediate'
+    },
+    {
+      concept: 'Medical imaging economics',
+      description: 'Quantify ROI from increased throughput, improved quality, and radiologist productivity',
+      skillLevel: 'intermediate'
+    }
+  ],
+
+  metadata: {
+    tags: ['Medical imaging', 'AI diagnostics', 'PACS', 'Radiology', 'FDA clearance', 'Healthcare AI'],
+    skills: ['AI imaging', 'PACS modernization', 'Data migration', 'Radiologist adoption', 'Healthcare economics'],
+    products: ['power-e1080', 'watson-studio', 'flashsystem-9500'],
+    industries: ['Healthcare'],
+    estimatedTime: 45,
+    difficulty: 'advanced',
+    version: '1.0',
+    lastUpdated: '2026-07-16',
+    author: 'IBM Sales Training Team'
+  },
+
+  coachingTips: [
+    'Lead with revenue opportunity ($18M annually) - this is the primary driver',
+    'Emphasize vendor ending support in 12 months as forcing function',
+    'Address AI accuracy concerns proactively with FDA clearance and 95% sensitivity',
+    'Recommend pilot hospital approach to de-risk investment and prove ROI',
+    'Highlight radiologist recruitment advantage - AI tools attract talent',
+    'Position IBM as FDA-cleared clinical AI vs. research-grade tools',
+    'Build compelling ROI: 22-month payback, 260% three-year ROI, $18M revenue',
+    'CMO is champion - focus on diagnostic accuracy and patient safety',
+    'CIO is supporter but concerned about migration - lead with parallel operation',
+    'CFO is neutral - build strong business case with $10M revenue mandate',
+    'Differentiate with proven track record: 200+ health system AI imaging deployments',
+    'Emphasize phased deployment to minimize risk and build confidence',
+    'Address radiologist trust with AI-assists model and explainable AI',
+    'Highlight data migration expertise - 1,000+ PACS migrations with 99.9% success'
+  ]
+};
+
+
+// Update exports
+export const healthcareScenarios = [
+  healthcareScenario001,
+  healthcareScenario002,
+  healthcareScenario003,
+  healthcareScenario004
+];

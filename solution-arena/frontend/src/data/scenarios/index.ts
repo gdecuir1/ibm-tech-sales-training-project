@@ -4,7 +4,7 @@
 import { TrainingScenario } from '../../types/scenarios';
 
 // Healthcare Scenarios
-import { healthcareScenario001 } from './healthcare';
+import { healthcareScenarios } from './healthcare';
 
 // Banking Scenarios - Core
 import { bankingScenario001 } from './banking';
@@ -12,17 +12,29 @@ import { bankingScenario001 } from './banking';
 // Banking Scenarios - Additional (scenarios 002-009)
 import { bankingAdditionalScenarios } from './banking-additional';
 
+// Manufacturing Scenarios
+import { manufacturingScenarios } from './manufacturing';
+
+// Retail Scenarios
+import { retailScenarios } from './retail';
+
 /**
  * All available training scenarios
  * Organized by industry and difficulty
  */
 export const allScenarios: TrainingScenario[] = [
-  // Healthcare (1 scenario)
-  healthcareScenario001,
+  // Healthcare (4 scenarios)
+  ...healthcareScenarios,
   
-  // Banking (9 scenarios total)
+  // Banking (10 scenarios total)
   bankingScenario001,
   ...bankingAdditionalScenarios,
+  
+  // Manufacturing (4 scenarios)
+  ...manufacturingScenarios,
+  
+  // Retail (3 scenarios)
+  ...retailScenarios,
 ];
 
 /**
