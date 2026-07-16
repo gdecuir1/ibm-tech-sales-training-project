@@ -244,12 +244,8 @@ export default function ScenarioExecutionPage() {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         <PageHeader
           title="Objection Handling"
-          subtitle={scenario.title}
-          breadcrumbs={[
-            { label: 'Scenarios', path: '/scenarios' },
-            { label: scenario.title, path: `/scenarios/${scenarioId}` },
-            { label: 'Objections' }
-          ]}
+          description={scenario.title}
+          showBack={true}
         />
 
         <div className="max-w-4xl mx-auto px-4 py-8">
@@ -416,12 +412,8 @@ export default function ScenarioExecutionPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <PageHeader
         title="Discovery Phase"
-        subtitle={scenario.title}
-        breadcrumbs={[
-          { label: 'Scenarios', path: '/scenarios' },
-          { label: scenario.title, path: `/scenarios/${scenarioId}` },
-          { label: 'Discovery' }
-        ]}
+        description={scenario.title}
+        showBack={true}
       />
 
       <div className="max-w-4xl mx-auto px-4 py-8">
