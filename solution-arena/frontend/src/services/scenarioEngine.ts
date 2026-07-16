@@ -652,5 +652,55 @@ export function submitRecommendation(
   
   return result;
 }
+/**
+ * Score a multiple choice answer
+ * Calculates points based on selected choices and provides feedback
+ */
+export function scoreMultipleChoiceAnswer(question: any, selectedChoiceIds: string[]) {
+  if (!question.choices || question.choices.length === 0) {
+    throw new Error('Question does not have multiple choice options');
+  }
+
+  let totalPoints = 0;
+  const feedback: string[] = [];
+  const correctChoices = question.choices.filter((c: any) => c.isCorrect);
+  const selectedChoices = question.choices.filter((c: any) => selectedChoiceIds.includes(c.id));
+
+  // Calculate points from selected choices
+  selectedChoices.forEach((choice: any) => {
+    totalPoints += choice.points || 0;
+    if (choice.feedback) {
+      feedback.push(`${choice.text}: ${choice.feedback}`);
+    }
+  });
+
+  // Check if minimum correct choices were selected
+  const minRequired = question.minCorrectChoices || 1;
+  const correctSelected = selectedChoices.filter((c: any) => c.isCorrect).length;
+  
+  if (correctSelected < minRequired) {
+    feedback.push(`You selected ${correctSelected} correct choice(s), but ${minRequired} were required for full credit.`);
+  }
+
+  // Provide feedback on missed correct choices
+  const missedCorrect = correctChoices.filter((c: any) => !selectedChoiceIds.includes(c.id));
+  if (missedCorrect.length > 0 && missedCorrect.length <= 2) {
+    feedback.push(`Consider also: ${missedCorrect.map((c: any) => c.text.substring(0, 50) + '...').join(', ')}`);
+  }
+
+  // Calculate score as percentage (0-1)
+  const maxPossiblePoints = correctChoices.reduce((sum: number, c: any) => sum + (c.points || 0), 0);
+  const score = maxPossiblePoints > 0 ? totalPoints / maxPossiblePoints : 0;
+
+  return {
+    score: Math.max(0, Math.min(1, score)), // Clamp between 0 and 1
+    points: totalPoints,
+    maxPoints: maxPossiblePoints,
+    feedback: feedback.join(' '),
+    correctCount: correctSelected,
+    totalCorrect: correctChoices.length
+  };
+}
+
 
 // Made with Bob

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getScenarioById } from '../data/scenarios/index';
-import { startScenarioSession, submitDiscoveryAnswer } from '../services/scenarioEngine';
+import { startScenarioSession, submitDiscoveryAnswer, scoreMultipleChoiceAnswer } from '../services/scenarioEngine';
 import PageHeader from '../components/Primitives/PageHeader';
 
 /**
@@ -23,10 +23,12 @@ export default function ScenarioExecutionPage() {
   const [currentPhase, setCurrentPhase] = useState('discovery');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
+  const [selectedChoices, setSelectedChoices] = useState([]); // For multiple choice
   const [answers, setAnswers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showHint, setShowHint] = useState(false);
+  const [validationError, setValidationError] = useState('');
 
   // Load scenario and start session
   useEffect(() => {
@@ -53,27 +55,72 @@ export default function ScenarioExecutionPage() {
     }
   }, [scenarioId]);
 
+  // Handle multiple choice toggle
+  const handleChoiceToggle = (choiceId) => {
+    const currentQuestion = getCurrentQuestion();
+    const maxChoices = currentQuestion.maxChoices || 999;
+    
+    setSelectedChoices(prev => {
+      if (prev.includes(choiceId)) {
+        // Deselect
+        return prev.filter(id => id !== choiceId);
+      } else {
+        // Select (if under max)
+        if (prev.length < maxChoices) {
+          return [...prev, choiceId];
+        } else {
+          setValidationError(`You can select up to ${maxChoices} choices`);
+          return prev;
+        }
+      }
+    });
+    setValidationError('');
+  };
+
   // Handle answer submission
   const handleSubmitAnswer = () => {
-    if (!userAnswer.trim()) {
-      alert('Please enter an answer before submitting.');
-      return;
+    const currentQuestion = getCurrentQuestion();
+    const isMultipleChoice = currentQuestion.choices && currentQuestion.choices.length > 0;
+
+    // Validation
+    if (isMultipleChoice) {
+      const minRequired = currentQuestion.minCorrectChoices || 1;
+      if (selectedChoices.length < minRequired) {
+        setValidationError(`Please select at least ${minRequired} choice(s)`);
+        return;
+      }
+    } else {
+      if (!userAnswer.trim()) {
+        setValidationError('Please enter an answer before submitting.');
+        return;
+      }
     }
 
-    const currentQuestion = scenario.discoveryPhase.questions[currentQuestionIndex];
-    
-    // Submit answer to engine
-    const result = submitDiscoveryAnswer(
-      session.sessionId,
-      currentQuestion.id,
-      userAnswer
-    );
+    let result;
+    let answerText;
+
+    if (isMultipleChoice) {
+      // Score multiple choice answer
+      result = scoreMultipleChoiceAnswer(currentQuestion, selectedChoices);
+      answerText = selectedChoices
+        .map(id => currentQuestion.choices.find(c => c.id === id)?.text || id)
+        .join('; ');
+    } else {
+      // Score free-text answer
+      result = submitDiscoveryAnswer(
+        session.sessionId,
+        currentQuestionIndex,
+        userAnswer
+      );
+      answerText = userAnswer;
+    }
 
     // Store answer
     const newAnswer = {
-      questionId: currentQuestion.id,
-      question: currentQuestion.question,
-      userAnswer: userAnswer,
+      questionId: currentQuestionIndex,
+      question: currentQuestion.question || currentQuestion.objection,
+      userAnswer: answerText,
+      selectedChoices: isMultipleChoice ? selectedChoices : null,
       score: result.score,
       feedback: result.feedback,
       timestamp: new Date().toISOString()
@@ -82,16 +129,31 @@ export default function ScenarioExecutionPage() {
     setAnswers([...answers, newAnswer]);
 
     // Move to next question or phase
-    if (currentQuestionIndex < scenario.discoveryPhase.questions.length - 1) {
+    const totalQuestions = currentPhase === 'discovery'
+      ? scenario.discoveryPhase.questions.length
+      : scenario.objectionPhase.objections.length;
+
+    if (currentQuestionIndex < totalQuestions - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setUserAnswer('');
+      setSelectedChoices([]);
       setShowHint(false);
+      setValidationError('');
     } else {
-      // Discovery phase complete, move to objections
-      setCurrentPhase('objections');
-      setCurrentQuestionIndex(0);
-      setUserAnswer('');
-      setShowHint(false);
+      if (currentPhase === 'discovery') {
+        // Discovery phase complete, move to objections
+        setCurrentPhase('objections');
+        setCurrentQuestionIndex(0);
+        setUserAnswer('');
+        setSelectedChoices([]);
+        setShowHint(false);
+        setValidationError('');
+      } else {
+        // All phases complete - navigate to results
+        // TODO: Navigate to results page with answers
+        alert('Scenario complete! Results page coming soon.');
+        navigate('/scenarios');
+      }
     }
   };
 
@@ -232,21 +294,68 @@ export default function ScenarioExecutionPage() {
               </p>
             </div>
 
-            {/* Answer Input */}
+            {/* Answer Input - Multiple Choice or Free Text */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-slate-700 mb-2">
-                Your Response
-              </label>
-              <textarea
-                value={userAnswer}
-                onChange={(e) => setUserAnswer(e.target.value)}
-                placeholder="How would you address this objection? Focus on value, evidence, and addressing the root concern..."
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                rows={6}
-              />
-              <p className="text-sm text-slate-500 mt-2">
-                Tip: Use the LAER framework - Listen, Acknowledge, Explore, Respond
-              </p>
+              {currentQuestion.responseChoices && currentQuestion.responseChoices.length > 0 ? (
+                <>
+                  <label className="block text-sm font-medium text-slate-700 mb-3">
+                    Select Your Response{currentQuestion.minCorrectChoices && currentQuestion.minCorrectChoices > 1 ? 's' : ''}
+                    {currentQuestion.minCorrectChoices && (
+                      <span className="text-slate-500 ml-2">
+                        (Select at least {currentQuestion.minCorrectChoices})
+                      </span>
+                    )}
+                  </label>
+                  
+                  {validationError && (
+                    <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+                      {validationError}
+                    </div>
+                  )}
+                  
+                  <div className="space-y-3">
+                    {currentQuestion.responseChoices.map((choice) => (
+                      <label
+                        key={choice.id}
+                        className={`flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                          selectedChoices.includes(choice.id)
+                            ? 'border-blue-500 bg-blue-50'
+                            : 'border-slate-200 hover:border-slate-300 bg-white'
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={selectedChoices.includes(choice.id)}
+                          onChange={() => handleChoiceToggle(choice.id)}
+                          className="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500"
+                        />
+                        <span className="flex-1 text-slate-700">{choice.text}</span>
+                      </label>
+                    ))}
+                  </div>
+                  
+                  <p className="text-sm text-slate-500 mt-3">
+                    Selected: {selectedChoices.length}
+                    {currentQuestion.maxChoices && ` / ${currentQuestion.maxChoices} max`}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Your Response
+                  </label>
+                  <textarea
+                    value={userAnswer}
+                    onChange={(e) => setUserAnswer(e.target.value)}
+                    placeholder="How would you address this objection? Focus on value, evidence, and addressing the root concern..."
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    rows={6}
+                  />
+                  <p className="text-sm text-slate-500 mt-2">
+                    Tip: Use the LAER framework - Listen, Acknowledge, Explore, Respond
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Hint Section */}
@@ -357,21 +466,68 @@ export default function ScenarioExecutionPage() {
             </span>
           </div>
 
-          {/* Answer Input */}
+          {/* Answer Input - Multiple Choice or Free Text */}
           <div className="mb-6">
-            <label className="block text-sm font-medium text-slate-700 mb-2">
-              Your Answer
-            </label>
-            <textarea
-              value={userAnswer}
-              onChange={(e) => setUserAnswer(e.target.value)}
-              placeholder="Enter your discovery question or response here..."
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-              rows={6}
-            />
-            <p className="text-sm text-slate-500 mt-2">
-              Focus on understanding the customer's needs, challenges, and goals.
-            </p>
+            {currentQuestion.choices && currentQuestion.choices.length > 0 ? (
+              <>
+                <label className="block text-sm font-medium text-slate-700 mb-3">
+                  Select Your Answer{currentQuestion.minCorrectChoices && currentQuestion.minCorrectChoices > 1 ? 's' : ''}
+                  {currentQuestion.minCorrectChoices && (
+                    <span className="text-slate-500 ml-2">
+                      (Select at least {currentQuestion.minCorrectChoices})
+                    </span>
+                  )}
+                </label>
+                
+                {validationError && (
+                  <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+                    {validationError}
+                  </div>
+                )}
+                
+                <div className="space-y-3">
+                  {currentQuestion.choices.map((choice) => (
+                    <label
+                      key={choice.id}
+                      className={`flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                        selectedChoices.includes(choice.id)
+                          ? 'border-blue-500 bg-blue-50'
+                          : 'border-slate-200 hover:border-slate-300 bg-white'
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedChoices.includes(choice.id)}
+                        onChange={() => handleChoiceToggle(choice.id)}
+                        className="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500"
+                      />
+                      <span className="flex-1 text-slate-700">{choice.text}</span>
+                    </label>
+                  ))}
+                </div>
+                
+                <p className="text-sm text-slate-500 mt-3">
+                  Selected: {selectedChoices.length}
+                  {currentQuestion.maxChoices && ` / ${currentQuestion.maxChoices} max`}
+                </p>
+              </>
+            ) : (
+              <>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Your Answer
+                </label>
+                <textarea
+                  value={userAnswer}
+                  onChange={(e) => setUserAnswer(e.target.value)}
+                  placeholder="Enter your discovery question or response here..."
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  rows={6}
+                />
+                <p className="text-sm text-slate-500 mt-2">
+                  Focus on understanding the customer's needs, challenges, and goals.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Hint Section */}

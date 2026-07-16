@@ -6727,102 +6727,113 @@ export const bankingScenario013: TrainingScenario = {
 };
 // Banking Scenario 014: Credit Card Processing Modernization
 export const bankingScenario014: TrainingScenario = {
-  id: 'banking-014',
-  title: 'Credit Card Processing Modernization',
-  description: 'Modernize legacy credit card processing infrastructure with real-time fraud detection and high-performance transaction processing using IBM Power Systems and AI.',
+  id: 'banking-card-processing-014',
+  title: 'Regional Bank Needs Modern Credit Card Processing with Real-Time Fraud Detection',
+  description: 'A regional bank with 1.2M credit card accounts is losing $15M annually to fraud due to batch-only fraud detection. Their 25-year-old mainframe card processing system cannot support modern card features like contactless payments, mobile wallets, or instant issuance. They need to modernize card processing infrastructure to reduce fraud losses, improve customer satisfaction, and compete with digital-first card programs.',
   
   customerProfile: {
     company: 'Summit Regional Bank',
-    industry: 'Banking',
+    industry: 'Financial Services',
     size: 'Large (1000-5000 employees)',
-    revenue: '$3.2B',
+    revenue: '$3.2B annually',
     employees: 2800,
     location: 'Regional (8 states)',
     currentInfrastructure: {
-      servers: 'Legacy mainframe card processing system',
-      storage: 'Oracle database',
-      applications: ['COBOL card processing', 'Batch authorization system', 'Legacy fraud detection'],
+      servers: 'Legacy mainframe card processing system (25+ years old)',
+      storage: 'Oracle database on aging SAN storage',
+      applications: ['COBOL card processing', 'Batch authorization system', 'Legacy fraud detection (batch-only)', 'Card management system'],
+      operatingSystem: 'z/OS mainframe',
+      virtualization: 'None - bare metal mainframe',
       age: '25+ years',
       endOfLife: 'Vendor support ending in 18 months',
       issues: [
         'Batch processing causes 24-hour delays for fraud detection',
-        'Cannot support modern card features: contactless, mobile wallets',
-        'System maxed at 1.5M accounts, cannot scale',
+        'Cannot support modern card features: contactless, mobile wallets, instant issuance',
+        'System maxed at 1.5M accounts, cannot scale beyond current 1.2M',
         'High maintenance costs: $8M annually',
-        'Integration challenges with fintech partners'
+        'Integration challenges with fintech partners and digital wallets',
+        '$15M annual fraud losses due to delayed fraud detection',
+        'Customer satisfaction declining (3.2/5 stars)',
+        'Cannot compete with digital-first card programs'
       ]
     },
     keyStakeholders: [
       {
         name: 'Michael Torres',
         role: 'CIO',
-        priorities: ['Real-time processing', 'Fraud reduction', 'Customer satisfaction'],
-        concerns: ['Migration risk', 'System downtime', 'Integration complexity'],
+        priorities: ['Real-time processing', 'Fraud reduction', 'Customer satisfaction', 'System modernization'],
+        concerns: ['Migration risk', 'System downtime', 'Integration complexity', 'Cost'],
         influence: 'high',
         supportLevel: 'champion'
       },
       {
         name: 'Jennifer Kim',
         role: 'CFO',
-        priorities: ['Cost reduction', 'ROI', 'Fraud loss prevention'],
-        concerns: ['Capital investment', 'Operating costs', 'Payback period'],
+        priorities: ['Cost reduction', 'ROI', 'Fraud loss prevention', 'Operational efficiency'],
+        concerns: ['Capital investment', 'Operating costs', 'Payback period', 'Business disruption'],
         influence: 'high',
         supportLevel: 'supporter'
       },
       {
         name: 'David Chen',
         role: 'Chief Risk Officer',
-        priorities: ['Fraud prevention', 'Regulatory compliance', 'Risk mitigation'],
-        concerns: ['Data security', 'Compliance requirements', 'Fraud detection accuracy'],
+        priorities: ['Fraud prevention', 'Regulatory compliance', 'Risk mitigation', 'Data security'],
+        concerns: ['False positive rates', 'Compliance requirements', 'Fraud detection accuracy', 'PCI-DSS compliance'],
         influence: 'high',
         supportLevel: 'supporter'
+      },
+      {
+        name: 'Lisa Anderson',
+        role: 'VP of IT Operations',
+        priorities: ['Customer satisfaction', 'Modern card features', 'Competitive positioning'],
+        concerns: ['Customer experience during migration', 'Staff training', 'Service level maintenance'],
+        influence: 'medium',
+        supportLevel: 'champion'
       }
     ],
-    budget: '$45M capital budget, $12M annual operating budget',
+    budget: '$12M-$18M capital budget approved',
     timeline: '18-month implementation (vendor support ending)',
-    decisionProcess: 'Board approval required for capital investment over $25M'
+    decisionProcess: 'Board approval required for capital investment over $10M. CIO and Chief Risk Officer are champions. CFO needs strong ROI case.'
   },
   
   businessContext: {
     challenges: [
-      'Legacy mainframe card processing system (25+ years old)',
-      '$15M annual fraud losses due to batch-only fraud detection',
-      'Cannot support contactless, mobile wallets, or instant issuance',
-      'Batch processing causes 24-hour delays in fraud alerts',
-      'Vendor announcing end-of-support in 18 months',
-      'Customer satisfaction declining (3.2/5 stars)',
-      'Unable to compete with digital-first card programs',
-      'System cannot scale beyond current 1.2M card accounts'
+      'Legacy mainframe card processing system (25+ years old) approaching end-of-life',
+      '$15M annual fraud losses due to batch-only fraud detection (24-hour delays)',
+      'Cannot support contactless payments, mobile wallets (Apple Pay, Google Pay), or instant card issuance',
+      'Batch processing causes 24-hour delays in fraud alerts - customers frustrated',
+      'Vendor announcing end-of-support in 18 months - compliance and security risk',
+      'Customer satisfaction declining (3.2/5 stars) due to poor card experience',
+      'Unable to compete with digital-first card programs (Chime, Apple Card)',
+      'System cannot scale beyond 1.2M card accounts - blocking growth strategy',
+      'High operational costs ($8M annually) for legacy system maintenance',
+      'Cannot integrate with fintechs or launch innovative card products'
     ],
     businessImpact: [
-      '$15M annual fraud losses',
-      'Customer satisfaction at 3.2/5 stars (declining)',
-      'Losing market share to digital-first competitors',
-      'Cannot support modern card features (contactless, mobile wallets)',
-      '24-hour fraud detection delays causing customer frustration',
-      'Limited to 1.2M card accounts with no growth path',
-      'High operational costs due to legacy system maintenance',
-      'Vendor end-of-support creating compliance and security risks'
+      '$15M annual fraud losses (0.33% fraud rate on $4.5B card portfolio)',
+      'Customer satisfaction at 3.2/5 stars and declining',
+      'Losing market share to digital-first competitors with superior card experience',
+      'Cannot support modern card features - competitive disadvantage',
+      '24-hour fraud detection delays causing customer frustration and churn',
+      'Limited to 1.2M card accounts with no growth path (system maxed at 1.5M)',
+      'High operational costs ($8M annually) due to legacy system maintenance',
+      'Vendor end-of-support creating compliance and security risks',
+      'Lost 3 major co-brand partnerships due to lack of digital features',
+      'Cannot launch innovative card products to compete with fintechs'
     ],
     urgency: 'critical',
     strategicInitiatives: [
       'Modernize card processing to support real-time authorization and fraud detection',
       'Reduce fraud losses by 70% through AI-powered real-time fraud detection',
       'Enable modern card features: contactless, mobile wallets, instant issuance',
-      'Improve customer satisfaction to 4.5+ stars through better card experience',
+      'Improve customer satisfaction from 3.2 to 4.5+ stars',
       'Reduce operational costs by 50% through automation and efficiency',
       'Scale to support 3M accounts to enable growth strategy',
       'Launch innovative card products to compete with fintechs and neobanks',
       'Achieve real-time dispute resolution and customer service'
     ],
     competitivePressure: 'Digital-first banks and fintechs offering instant card issuance, real-time fraud alerts, dynamic rewards, and superior mobile experiences. Summit losing 15% of new card applications to competitors annually.',
-    regulatoryRequirements: [
-      'PCI DSS 4.0 compliance for card data security',
-      'Real-time fraud monitoring requirements',
-      'Consumer protection regulations for fraud liability',
-      'Data residency and privacy requirements',
-      'Audit trail and transaction logging requirements'
-    ],
+    regulatoryRequirements: ['PCI DSS 4.0 compliance', 'Real-time fraud monitoring', 'Consumer protection regulations', 'Data residency and privacy', 'Audit trail requirements'],
     recentEvents: [
       'Vendor announced end-of-support for legacy card processing system (18 months)',
       'Major fraud incident cost $2.3M in Q4 2025',
@@ -6831,441 +6842,455 @@ export const bankingScenario014: TrainingScenario = {
       'Board mandated card processing modernization initiative'
     ]
   },
-
-  situation: {
-    background: 'Summit Regional Bank is a $3.2B regional bank with 1.2M credit card accounts and $4.5B card portfolio. The bank\'s legacy card processing system is 25+ years old, running on aging mainframe infrastructure with batch processing that causes 24-hour delays. The bank is losing $15M annually to card fraud due to delayed fraud detection, and customer satisfaction has declined to 3.2 stars. Competitors are offering instant card issuance, real-time fraud alerts, and dynamic rewards programs that Summit cannot match. The bank\'s strategic plan calls for growing to 3M card accounts, but the current system is maxed out at 1.5M accounts. The CEO has made card modernization a top priority, with a mandate to reduce fraud losses by 70%, improve customer satisfaction to 4.5+ stars, and enable modern card features within 18 months.',
-    immediateNeed: 'The bank needs to modernize its credit card processing infrastructure to support real-time authorization, fraud detection, and modern card features while reducing operational costs and fraud losses.',
-    stakeholders: [
+  
+  discoveryPhase: {
+    questions: [
       {
-        name: 'Michael Torres',
-        role: 'CIO',
-        goals: ['Modernize card processing infrastructure', 'Eliminate legacy mainframe dependencies', 'Enable real-time processing and fraud detection'],
-        concerns: ['System reliability and uptime', 'Migration complexity and risk', 'Integration with existing banking systems'],
-        influence: 'high',
-        technicalBackground: 'strong'
+        question: 'What is your current fraud loss rate, and how much are you losing annually to card fraud? What percentage of fraud is detected within 24 hours vs. real-time?',
+        purpose: 'Quantify fraud losses and establish baseline for ROI calculation',
+        category: 'pain-point',
+        idealResponse: 'Current fraud loss rate is 0.33% ($15M annually on $4.5B portfolio). Only 40% of fraud is detected within 24 hours due to batch processing. Real-time fraud detection could prevent 70% of fraud losses, saving $10.5M annually. This is our #1 pain point and board priority.',
+        alternateResponses: [
+          'We lose millions to fraud every year',
+          'Batch processing delays fraud detection by 24 hours'
+        ],
+        followUpQuestions: [
+          'What types of fraud are most common?',
+          'What is your false positive rate?',
+          'How long does dispute resolution take?'
+        ],
+        scoringWeight: 15,
+        hints: ['Fraud losses are quantifiable and significant', 'Real-time detection proven to reduce fraud by 70%', 'This is measurable ROI']
       },
       {
-        name: 'Jennifer Kim',
-        role: 'Chief Digital Officer',
-        goals: ['Launch innovative card products', 'Enable mobile wallet and contactless payments', 'Improve customer experience and satisfaction'],
-        concerns: ['Time to market for new features', 'Customer adoption of new card features', 'Competitive differentiation'],
-        influence: 'high',
-        technicalBackground: 'moderate'
+        question: 'What modern card features are you unable to support with your current system? How is this impacting customer satisfaction and competitive position?',
+        purpose: 'Identify feature gaps and competitive disadvantages',
+        category: 'business',
+        idealResponse: 'We cannot support contactless payments, mobile wallet provisioning (Apple Pay, Google Pay), instant card issuance, real-time rewards, or dynamic spending limits. Customer satisfaction has declined to 3.2 stars. We are losing high-value customers to competitors offering these features. Market research shows 65% of customers want instant card issuance and real-time fraud alerts.',
+        alternateResponses: [
+          'We lack modern card features customers expect',
+          'Competitors have better card experiences'
+        ],
+        followUpQuestions: [
+          'Which features are customers requesting most?',
+          'How many customers have you lost to competitors?',
+          'What is the revenue impact of customer attrition?'
+        ],
+        scoringWeight: 12,
+        hints: ['Feature gaps driving customer attrition', 'Modern features are table stakes', 'Quantify customer loss']
       },
       {
-        name: 'Robert Chen',
-        role: 'Chief Risk Officer',
-        goals: ['Reduce fraud losses by 70%', 'Ensure regulatory compliance', 'Implement real-time fraud monitoring'],
-        concerns: ['False positive rates blocking legitimate transactions', 'Regulatory compliance for real-time monitoring', 'Data security and PCI-DSS compliance'],
-        influence: 'high',
-        technicalBackground: 'moderate'
+        question: 'What is your current operational cost per card account, and how does it compare to industry benchmarks? What are your largest cost drivers?',
+        purpose: 'Establish cost baseline and identify automation opportunities',
+        category: 'business',
+        idealResponse: 'Current operational cost is $6.50 per account annually vs. industry average of $3.20. Largest cost drivers are manual fraud review ($2.5M annually), batch processing overhead ($1.8M), and legacy system maintenance ($8M). We process 45M transactions annually with significant manual intervention. Automation could reduce costs by 50%.',
+        alternateResponses: [
+          'Our operational costs are too high',
+          'We have significant manual processes'
+        ],
+        followUpQuestions: [
+          'How many FTEs support card operations?',
+          'What percentage of transactions require manual review?',
+          'What is your system maintenance cost?'
+        ],
+        scoringWeight: 12,
+        hints: ['Operational costs are 2x industry average', 'Automation drives significant savings', 'Quantify manual processes']
       },
       {
-        name: 'David Martinez',
-        role: 'CFO',
-        goals: ['Reduce operational costs by 50%', 'Achieve positive ROI within 24 months', 'Reduce fraud losses'],
-        concerns: ['Total cost of ownership', 'Business disruption during migration', 'Payback period and ROI'],
-        influence: 'high',
-        technicalBackground: 'low'
+        question: 'What is your current card processing capacity, and what are your growth targets? Can your current system support your growth strategy?',
+        purpose: 'Identify scalability constraints and growth enablement',
+        category: 'technical',
+        idealResponse: 'Current system is maxed at 1.5M accounts and 50M transactions annually. Our strategic plan calls for growing to 3M accounts and 120M transactions within 3 years. Current system cannot scale beyond 1.5M accounts without major infrastructure investment. This is blocking our growth strategy and market expansion plans.',
+        alternateResponses: [
+          'Our system is at capacity',
+          'We cannot support our growth targets'
+        ],
+        followUpQuestions: [
+          'What is your target account growth rate?',
+          'What markets are you planning to expand into?',
+          'What is the cost of scaling current system?'
+        ],
+        scoringWeight: 10,
+        hints: ['Scalability blocking growth strategy', 'Current system at capacity', 'Growth targets are aggressive']
       },
       {
-        name: 'Lisa Anderson',
-        role: 'VP of Card Services',
-        goals: ['Improve customer satisfaction to 4.5+ stars', 'Launch instant card issuance', 'Enable real-time rewards and offers'],
-        concerns: ['Customer experience during migration', 'Staff training and change management', 'Service level maintenance'],
-        influence: 'medium',
-        technicalBackground: 'low'
+        question: 'What is your current authorization response time, and how does batch processing impact fraud detection and customer experience?',
+        purpose: 'Quantify real-time processing gap and impact',
+        category: 'technical',
+        idealResponse: 'Current authorization response time is 2-3 seconds, which is acceptable. However, fraud detection runs in batch overnight, causing 24-hour delays. This means fraudulent transactions are approved and we only detect fraud the next day. Customers complain about delayed fraud alerts and slow dispute resolution. Real-time fraud detection would prevent fraud before authorization.',
+        alternateResponses: [
+          'Batch processing causes fraud detection delays',
+          'We detect fraud too late'
+        ],
+        followUpQuestions: [
+          'How many fraudulent transactions are approved daily?',
+          'What is your average fraud detection time?',
+          'How long does dispute resolution take?'
+        ],
+        scoringWeight: 10,
+        hints: ['Batch processing causes 24-hour delays', 'Real-time detection prevents fraud at authorization', 'Customer experience suffers']
+      },
+      {
+        question: 'Who are the key stakeholders for this decision, and what are their primary concerns? Who has budget authority?',
+        purpose: 'Map decision-making process and stakeholder concerns',
+        category: 'stakeholder',
+        idealResponse: 'CIO Michael Torres owns the decision with strong support from Chief Risk Officer David Chen and VP of Card Services Lisa Anderson. CFO Jennifer Kim has budget authority and is focused on ROI. Board has mandated card modernization as top priority. Decision timeline is 3 months with 18-month implementation.',
+        alternateResponses: [
+          'CIO and Chief Risk Officer are champions',
+          'Board has mandated this initiative'
+        ],
+        followUpQuestions: [
+          'What are the CIO\'s top priorities?',
+          'What is the CFO\'s ROI requirement?',
+          'Who are the potential blockers?'
+        ],
+        scoringWeight: 8,
+        hints: ['CIO and Chief Risk Officer are champions', 'CFO controls budget', 'Board mandate creates urgency']
+      },
+      {
+        question: 'What is your timeline for card processing modernization, and what are the key milestones? What is driving the timeline?',
+        purpose: 'Understand urgency and timeline constraints',
+        category: 'timeline',
+        idealResponse: 'Board presentation in 6 weeks, vendor selection in 3 months, implementation must complete within 18 months. Timeline is driven by vendor end-of-support, competitive pressure, and fraud losses. Board has mandated completion within 18 months. Delayed decision costs $1.25M monthly in fraud losses.',
+        alternateResponses: [
+          'We have 18 months to complete',
+          'Vendor support is ending soon'
+        ],
+        followUpQuestions: [
+          'What happens if timeline slips?',
+          'Are there regulatory deadlines?',
+          'What is the cost of delay?'
+        ],
+        scoringWeight: 8,
+        hints: ['Timeline is aggressive and board-mandated', 'Delay has quantifiable cost', 'Vendor end-of-support creates urgency']
+      },
+      {
+        question: 'What is your budget for card processing modernization, and what is included? What is your expected ROI and payback period?',
+        purpose: 'Qualify budget and ROI expectations',
+        category: 'budget',
+        idealResponse: '$12-18M budget approved for complete card processing modernization including hardware, software, implementation, and training. CFO requires 24-month payback and 300%+ three-year ROI. Budget includes migration costs and parallel run period. Board has approved budget based on fraud reduction and operational cost savings.',
+        alternateResponses: [
+          'We have $12-18M approved',
+          'CFO requires strong ROI'
+        ],
+        followUpQuestions: [
+          'What is included in the budget?',
+          'What is the approval process?',
+          'Are there additional funds for innovation?'
+        ],
+        scoringWeight: 8,
+        hints: ['Budget is approved and adequate', 'ROI expectations are achievable', 'Focus on fraud reduction']
       }
     ],
-    competitivePressure: 'High - Fintechs and neobanks offering instant card issuance, real-time fraud alerts, dynamic rewards, and superior mobile experiences. Traditional competitors have modernized card processing and are gaining market share.',
-    timeline: 'Board presentation in 6 weeks, decision in 3 months, implementation must complete within 18 months',
-    budget: '$12-18M approved for card processing modernization'
-  },
-
-  challenge: {
-    primaryObjective: 'Position IBM Power E1080, FlashSystem 9500, and Watson Studio as the optimal solution for modernizing Summit Regional Bank\'s credit card processing infrastructure to enable real-time authorization, AI-powered fraud detection, and modern card features while reducing costs and fraud losses.',
-    successCriteria: [
-      'Demonstrate how IBM solution enables real-time card authorization and fraud detection',
-      'Prove 70% reduction in fraud losses through AI-powered fraud detection',
-      'Show how solution supports modern card features: contactless, mobile wallets, instant issuance',
-      'Build compelling business case with 24-month payback and 380% three-year ROI',
-      'Address migration complexity and risk mitigation strategies',
-      'Differentiate from cloud-only solutions and legacy mainframe vendors',
-      'Secure commitment to move forward with IBM solution'
+    expectedFindings: [
+      '$15M annual fraud losses due to batch-only fraud detection',
+      'Cannot support modern card features (contactless, mobile wallets, instant issuance)',
+      'Customer satisfaction declining (3.2/5 stars)',
+      'System at capacity (1.2M accounts, maxed at 1.5M)',
+      'High operational costs ($8M annually, $6.50 per account)',
+      'Vendor end-of-support in 18 months',
+      'Board mandate for modernization',
+      'Budget approved ($12-18M) - qualified opportunity'
     ],
-    keyDecisionFactors: [
-      'Real-time processing capability for authorization and fraud detection',
-      'AI/ML fraud detection accuracy and false positive rates',
-      'Support for modern card features and fintech integrations',
-      'Migration complexity and business continuity during transition',
-      'Total cost of ownership and ROI',
-      'Scalability to support 3M+ accounts',
-      'PCI-DSS compliance and data security',
-      'Vendor stability and long-term support'
+    redFlags: [
+      'If budget is under $10M - not enough for complete modernization',
+      'If timeline is less than 12 months - too aggressive for card processing',
+      'If no executive sponsorship - will struggle with change management',
+      'If fraud losses are not quantified - may not be real pain',
+      'If they want to keep mainframe - not true modernization'
+    ],
+    opportunities: [
+      'Fraud reduction: $10.5M annually (reduce losses by 70%)',
+      'Operational cost savings: $4M annually (reduce from $8M to $4M)',
+      'Customer retention: $5M annually (improve satisfaction, reduce churn)',
+      'Revenue growth: $8M annually from new card accounts and features',
+      'Scalability: Support 3M accounts (2.5x growth capacity)',
+      'Modern features: Contactless, mobile wallets, instant issuance',
+      'Real-time fraud detection: <100ms fraud scoring',
+      'Customer satisfaction: 3.2 to 4.5+ stars'
+    ],
+    minimumQuestionsRequired: 5
+  },
+  
+  objectionPhase: {
+    minimumObjectionsToHandle: 3,
+    objections: [
+      {
+        objection: 'We are concerned about the complexity and risk of migrating 1.2M active card accounts from our legacy system. What if something goes wrong and we cannot process card transactions?',
+        stakeholder: 'CIO',
+        difficulty: 'very difficult',
+        category: 'risk',
+        customResponse: 'Migration risk is a valid concern for mission-critical card processing. IBM has a proven migration approach that eliminates risk: (1) Phased migration starting with new accounts (no migration risk), then gradually migrating existing accounts in small batches, (2) Parallel run capability - legacy system continues processing while new system validates in parallel, (3) Automated migration tools with validation and reconciliation, (4) Rollback capability at every phase if issues arise, (5) IBM Expert Labs has migrated 200+ card processing systems with 99.5% success rate. We recommend 18-month timeline with 6-month parallel run to ensure zero business disruption. Most banks find the new system is MORE reliable than legacy.',
+        scoringCriteria: [
+          'Acknowledged migration risk and complexity',
+          'Presented phased migration approach with parallel run',
+          'Emphasized IBM track record (200+ migrations, 99.5% success)',
+          'Offered rollback capability and risk mitigation',
+          'Provided realistic timeline with adequate testing'
+        ],
+        hints: [
+          'Migration risk is #1 concern for card processing',
+          'Phased approach with parallel run eliminates risk',
+          'IBM has proven track record'
+        ]
+      },
+      {
+        objection: 'Your solution costs $15M, which is significantly more than cloud-based card processing platforms that cost $3-5M. Why should we pay 3x more for on-premises infrastructure?',
+        stakeholder: 'CFO',
+        difficulty: 'difficult',
+        category: 'cost',
+        customResponse: 'Let\'s look at total cost of ownership over 5 years, not just initial cost. Cloud platforms charge per-transaction fees that add up quickly: at 45M transactions annually, you will pay $2.7M per year in transaction fees ($0.06 per transaction), totaling $13.5M over 5 years. IBM solution has zero per-transaction fees. Additionally, cloud platforms charge for data egress, API calls, and storage - adding another $1.5M annually. Total cloud TCO is $21M over 5 years vs. $15M for IBM solution. IBM solution also provides superior performance (sub-100ms vs. 300ms cloud latency), better security (dedicated infrastructure vs. multi-tenant), and data sovereignty. The business case shows 24-month payback and 380% three-year ROI through fraud reduction and operational cost savings.',
+        scoringCriteria: [
+          'Compared total cost of ownership, not just initial cost',
+          'Quantified cloud transaction fees and hidden costs',
+          'Showed IBM solution is lower TCO over 5 years',
+          'Emphasized performance, security, and data sovereignty advantages',
+          'Presented strong ROI (24-month payback, 380% three-year ROI)'
+        ],
+        hints: [
+          'Cloud platforms have hidden per-transaction fees',
+          'TCO analysis shows IBM is lower cost over 5 years',
+          'Performance and security advantages justify investment'
+        ]
+      },
+      {
+        objection: 'We are concerned about false positives blocking legitimate customer transactions. If your AI fraud detection is too aggressive, we will frustrate customers and lose sales.',
+        stakeholder: 'Chief Risk Officer',
+        difficulty: 'difficult',
+        category: 'risk',
+        customResponse: 'Balancing fraud detection with customer experience is critical. Watson AI is designed to minimize false positives while maximizing fraud detection: (1) Machine learning models are trained on YOUR historical transaction data to understand normal customer behavior, (2) Behavioral analytics detect anomalies based on individual customer patterns, not generic rules, (3) Graduated response - suspicious transactions trigger additional authentication (SMS code, biometric), not immediate blocking, (4) Real-time learning - AI adapts to customer behavior changes (travel, large purchases), (5) Industry benchmarks show Watson achieves <1% false positive rate while detecting 95% of fraud. We can tune sensitivity based on your risk tolerance. Most banks find customer satisfaction IMPROVES because legitimate transactions are approved faster and fraud is prevented before it impacts customers.',
+        scoringCriteria: [
+          'Acknowledged false positive concern and customer impact',
+          'Explained how Watson AI minimizes false positives',
+          'Described graduated response approach',
+          'Provided industry benchmarks (<1% false positive rate)',
+          'Emphasized customer experience improvement'
+        ],
+        hints: [
+          'False positives are major concern for card issuers',
+          'Watson AI uses behavioral analytics, not generic rules',
+          'Graduated response balances security and experience'
+        ]
+      },
+      {
+        objection: 'Our card services team is already overwhelmed with current operations. How will we manage the implementation and training for a new card processing system?',
+        stakeholder: 'VP of IT Operations',
+        difficulty: 'common',
+        category: 'skills',
+        customResponse: 'Resource constraints are a common concern. IBM provides comprehensive implementation and training support: (1) IBM Expert Labs handles the technical implementation - your team focuses on business requirements and testing, (2) Phased rollout minimizes operational impact - start with new accounts while legacy system continues, (3) Comprehensive training program for card services staff with hands-on workshops, (4) IBM provides 24/7 support during migration and first 6 months of operation, (5) Modern card processing system is actually EASIER to operate than legacy system - automated fraud detection, self-service customer tools, and streamlined operations. Most banks find staff productivity improves 40% after migration because they spend less time on manual fraud review and customer service. We can also provide temporary staff augmentation during migration if needed.',
+        scoringCriteria: [
+          'Acknowledged resource constraints and operational concerns',
+          'Explained IBM implementation support and Expert Labs',
+          'Described phased approach to minimize operational impact',
+          'Emphasized training and 24/7 support',
+          'Showed how automation improves staff productivity'
+        ],
+        hints: [
+          'Resource constraints are common for card operations teams',
+          'IBM Expert Labs handles technical implementation',
+          'Automation reduces operational burden'
+        ]
+      }
+    ],
+    bonusObjections: [
+      {
+        objection: 'We have heard that AI fraud detection can be biased and discriminate against certain customer demographics. How do you ensure fair lending and avoid regulatory issues?',
+        stakeholder: 'Chief Risk Officer',
+        difficulty: 'difficult',
+        category: 'risk',
+        customResponse: 'Fair lending and non-discrimination are absolutely critical for card processing. IBM Watson AI is designed for fairness and regulatory compliance: (1) Fraud detection models are trained on transaction behavior, not demographic data - no access to race, gender, age, or other protected characteristics, (2) Explainable AI provides detailed reasoning for every fraud decision that auditors can review, (3) Bias testing and fairness metrics are built into model development and monitoring, (4) Comprehensive audit trail for every fraud decision stored on FlashSystem with immutable snapshots, (5) IBM provides fairness assessment tools and ongoing monitoring for bias. Watson AI has been deployed at 50+ banks with zero fair lending violations. We can also provide third-party fairness audits if required by regulators.',
+        scoringCriteria: [
+          'Acknowledged fair lending concerns and regulatory requirements',
+          'Explained how Watson AI avoids demographic bias',
+          'Described explainable AI and audit trail capabilities',
+          'Provided IBM track record (zero violations)',
+          'Offered fairness assessment and third-party audits'
+        ],
+        hints: [
+          'Fair lending is critical regulatory requirement',
+          'Watson AI uses transaction behavior, not demographics',
+          'Explainable AI provides transparency'
+        ]
+      }
     ]
   },
-
-  discoveryQuestions: [
-    {
-      question: 'What is your current fraud loss rate, and what percentage of fraud is detected within 24 hours vs. real-time? How much are you losing annually to card fraud?',
-      purpose: 'Quantify fraud losses and establish baseline for ROI calculation. Real-time fraud detection is critical value driver.',
-      category: 'pain-point',
-      idealResponse: 'Current fraud loss rate is 0.33% ($15M annually on $4.5B portfolio). Only 40% of fraud is detected within 24 hours due to batch processing. Real-time fraud detection could prevent 70% of fraud losses, saving $10.5M annually. This is our #1 pain point.',
-      followUpQuestions: [
-        'What types of fraud are most common?',
-        'What is your false positive rate?',
-        'How long does dispute resolution take?'
+  
+  recommendationPhase: {
+    primaryProduct: 'power-e1080',
+    supportingProducts: ['flashsystem-9500', 'watson-studio'],
+    configuration: {
+      products: [
+        {
+          productId: 'power-e1080',
+          productName: 'IBM Power E1080',
+          reason: 'High-performance, reliable infrastructure for real-time card processing with sub-second authorization response times, 99.999% uptime, and ability to scale to 5M+ accounts and 200M+ transactions annually.',
+          configuration: '2x Power E1080, 32-core each, 2TB RAM total, Red Hat Enterprise Linux, PowerVM virtualization, live partition mobility',
+          priority: 'primary'
+        },
+        {
+          productId: 'flashsystem-9500',
+          productName: 'IBM FlashSystem 9500',
+          reason: 'Ultra-low latency storage for real-time card transaction processing, fraud detection, and customer data access. Cyber Vault protects against ransomware. Immutable snapshots provide audit trail for regulatory compliance.',
+          configuration: 'FlashSystem 9500, 300TB effective capacity, NVMe performance, Cyber Vault, SafeguardedCopy, encryption at rest',
+          priority: 'supporting'
+        },
+        {
+          productId: 'watson-studio',
+          productName: 'IBM Watson Studio',
+          reason: 'AI-powered fraud detection that analyzes every transaction in real-time, reducing fraud losses by 70% while minimizing false positives. Machine learning models continuously improve fraud detection accuracy.',
+          configuration: 'Watson Studio on Power E1080, real-time fraud scoring (<50ms), behavioral analytics, network analysis, explainable AI',
+          priority: 'supporting'
+        }
       ],
-      scoringWeight: 15,
-      hints: ['Fraud losses are quantifiable and significant', 'Real-time detection is proven to reduce fraud by 70%', 'This is measurable ROI']
+      architecture: 'Power E1080 as card processing platform running modern card management software with real-time authorization and fraud detection. FlashSystem 9500 provides ultra-low latency storage for transaction data, customer profiles, and fraud models. Watson Studio AI analyzes every transaction in real-time, scoring fraud risk and blocking suspicious transactions before authorization.',
+      sizing: 'Sized for 1.2M current accounts with growth capacity to 3M accounts and 120M transactions annually. Supports 10K concurrent authorizations with <100ms response time.',
+      deployment: 'Phased approach: Phase 1 (Months 1-3): Infrastructure deployment and testing. Phase 2 (Months 4-6): Card management software installation, Watson AI model training. Phase 3 (Months 7-9): Pilot with 50K new card accounts. Phase 4 (Months 10-15): Phased migration of existing 1.2M accounts, parallel run. Phase 5 (Months 16-18): Complete migration, decommission legacy system, launch modern card features.'
+    },
+    pricing: {
+      hardware: '$8M (2x Power E1080 + FlashSystem 9500)',
+      software: '$4M (Card management software, Watson Studio, 3-year license)',
+      services: '$2.5M (IBM Expert Labs: implementation, migration, training)',
+      support: '$500K/year (24x7 support with 2-hour response)',
+      total: '$14.5M initial + $500K/year support',
+      financing: 'IBM Flex financing available - $310K/month for 60 months',
+      paymentTerms: 'Net 30, or financing options available'
+    },
+    businessCase: {
+      costSavings: '$14.5M annually (fraud reduction $10.5M, operational cost savings $4M)',
+      productivityGains: '$2M annually (automated fraud detection, reduced manual review)',
+      riskReduction: 'Eliminate vendor end-of-support risk, improve PCI-DSS compliance, reduce fraud losses by 70%',
+      roi: '24 months',
+      paybackPeriod: '24 months',
+      tco: '3-year TCO: $16M investment vs. $49.5M in benefits (fraud reduction + cost savings + revenue growth) = $33.5M net benefit, 380% three-year ROI'
+    },
+    competitivePositioning: 'IBM Power E1080 provides enterprise-grade reliability and performance for mission-critical card processing. Watson AI fraud detection is proven to reduce fraud losses by 70% while maintaining <1% false positive rate. Unlike cloud platforms with per-transaction fees, IBM solution has zero transaction fees and lower 5-year TCO. FlashSystem provides ransomware protection and immutable audit trails for compliance.',
+    nextSteps: [
+      'Schedule technical deep-dive on Power E1080 card processing architecture',
+      'Provide detailed ROI analysis with fraud reduction modeling',
+      'Arrange reference call with similar regional bank (card processing customer)',
+      'Conduct Watson AI fraud detection demo with your transaction data',
+      'Develop phased migration plan with parallel run strategy',
+      'Present to Board with CIO, CFO, and Chief Risk Officer'
+    ],
+    requiredElements: [
+      'Must include Power E1080 for card processing infrastructure',
+      'Must include Watson Studio for real-time fraud detection',
+      'Must include FlashSystem 9500 for storage performance and security',
+      'Must include phased migration with parallel run',
+      'Must address fraud reduction (70% target)',
+      'Must support modern card features (contactless, mobile wallets)',
+      'Must include IBM Expert Labs services for implementation'
+    ]
+  },
+  
+  scoringCriteria: {
+    discovery: {
+      maxPoints: 40,
+      criteria: [
+        'Quantified fraud losses and business impact ($15M annually)',
+        'Identified modern card feature gaps and competitive disadvantages',
+        'Uncovered operational cost problems ($8M annually, $6.50 per account)',
+        'Identified scalability constraints (1.2M accounts, maxed at 1.5M)',
+        'Understood real-time processing gap (24-hour fraud detection delays)',
+        'Mapped stakeholders and decision process',
+        'Qualified budget and timeline ($12-18M, 18 months)',
+        'Assessed migration concerns and risk tolerance'
+      ],
+      weight: 0.4
+    },
+    objectionHandling: {
+      maxPoints: 30,
+      criteria: [
+        'Addressed migration risk with phased approach and parallel run',
+        'Handled cost objection with TCO analysis (5-year comparison)',
+        'Addressed false positive concerns with Watson AI capabilities',
+        'Handled resource concerns with IBM services and automation benefits',
+        'Addressed fair lending with explainable AI and compliance features',
+        'Used customer examples and data to support responses'
+      ],
+      weight: 0.3
+    },
+    recommendation: {
+      maxPoints: 20,
+      criteria: [
+        'Recommended Power E1080 as primary card processing platform',
+        'Included Watson Studio for real-time fraud detection',
+        'Included FlashSystem 9500 for storage performance and security',
+        'Addressed all pain points (fraud, features, costs, scalability)',
+        'Proposed phased migration with parallel run',
+        'Included modern card features (contactless, mobile wallets)'
+      ],
+      weight: 0.2
+    },
+    businessValue: {
+      maxPoints: 10,
+      criteria: [
+        'Quantified fraud reduction value ($10.5M annually)',
+        'Quantified operational cost savings ($4M annually)',
+        'Calculated ROI (24-month payback, 380% three-year ROI)',
+        'Articulated customer satisfaction improvement (3.2 to 4.5+ stars)',
+        'Positioned as strategic competitive advantage'
+      ],
+      weight: 0.1
+    },
+    totalPoints: 100,
+    passingScore: 70,
+    excellentScore: 90
+  },
+  
+  learningOutcomes: [
+    {
+      concept: 'Card Processing Modernization',
+      description: 'How to position modern card processing infrastructure vs. legacy mainframe systems and quantify fraud reduction value',
+      skillLevel: 'advanced'
     },
     {
-      question: 'What modern card features are you unable to support with your current system? How is this impacting customer satisfaction and competitive position?',
-      purpose: 'Identify feature gaps and competitive disadvantages. Modern card features drive customer satisfaction and retention.',
-      category: 'business',
-      idealResponse: 'We cannot support contactless payments, mobile wallet provisioning (Apple Pay, Google Pay), instant card issuance, real-time rewards, or dynamic spending limits. Customer satisfaction has declined to 3.2 stars, and we are losing high-value customers to competitors offering these features. Market research shows 65% of customers want instant card issuance and real-time fraud alerts.',
-      followUpQuestions: [
-        'Which features are customers requesting most?',
-        'How many customers have you lost to competitors?',
-        'What is the revenue impact of customer attrition?'
-      ],
-      scoringWeight: 12,
-      hints: ['Feature gaps are driving customer attrition', 'Modern features are table stakes for card programs', 'Quantify customer loss and revenue impact']
+      concept: 'Real-Time Fraud Detection',
+      description: 'Understanding AI-powered fraud detection and how to address false positive concerns while demonstrating fraud reduction benefits',
+      skillLevel: 'advanced'
     },
     {
-      question: 'What is your current operational cost per card account, and how does it compare to industry benchmarks? What are your largest cost drivers?',
-      purpose: 'Establish cost baseline and identify automation opportunities. Operational efficiency is key ROI driver.',
-      category: 'business',
-      idealResponse: 'Current operational cost is $6.50 per account annually vs. industry average of $3.20. Largest cost drivers are manual fraud review ($2.5M annually), batch processing overhead ($1.8M), and legacy system maintenance ($8M). We process 45M transactions annually with significant manual intervention. Automation could reduce costs by 50%.',
-      followUpQuestions: [
-        'How many FTEs support card operations?',
-        'What percentage of transactions require manual review?',
-        'What is your system maintenance cost?'
-      ],
-      scoringWeight: 12,
-      hints: ['Operational costs are 2x industry average', 'Automation drives significant cost savings', 'Quantify manual processes and FTE costs']
+      concept: 'TCO Analysis for Card Processing',
+      description: 'How to compare on-premises vs. cloud card processing using total cost of ownership including transaction fees',
+      skillLevel: 'intermediate'
     },
     {
-      question: 'What is your current card processing capacity, and what are your growth targets? Can your current system support your growth strategy?',
-      purpose: 'Identify scalability constraints and growth enablement. Scalability is critical for business strategy.',
-      category: 'technical',
-      idealResponse: 'Current system is maxed at 1.5M accounts and 50M transactions annually. Our strategic plan calls for growing to 3M accounts and 120M transactions within 3 years. Current system cannot scale beyond 1.5M accounts without major infrastructure investment. This is blocking our growth strategy and market expansion plans.',
-      followUpQuestions: [
-        'What is your target account growth rate?',
-        'What markets are you planning to expand into?',
-        'What is the cost of scaling current system?'
-      ],
-      scoringWeight: 10,
-      hints: ['Scalability is blocking growth strategy', 'Current system is at capacity', 'Growth targets are aggressive and time-sensitive']
+      concept: 'Migration Risk Management',
+      description: 'How to address migration concerns for mission-critical card processing with phased approach and parallel run strategy',
+      skillLevel: 'advanced'
     },
     {
-      question: 'What is your current authorization response time, and how does batch processing impact fraud detection and customer experience?',
-      purpose: 'Quantify real-time processing gap and impact. Real-time processing is fundamental requirement.',
-      category: 'technical',
-      idealResponse: 'Current authorization response time is 2-3 seconds, which is acceptable. However, fraud detection runs in batch overnight, causing 24-hour delays. This means fraudulent transactions are approved and we only detect fraud the next day. Customers complain about delayed fraud alerts and slow dispute resolution. Real-time fraud detection would prevent fraud before authorization.',
-      followUpQuestions: [
-        'How many fraudulent transactions are approved daily?',
-        'What is your average fraud detection time?',
-        'How long does dispute resolution take?'
-      ],
-      scoringWeight: 10,
-      hints: ['Batch processing causes 24-hour fraud detection delays', 'Real-time fraud detection prevents fraud at authorization', 'Customer experience suffers from delayed alerts']
-    },
-    {
-      question: 'Who are the key stakeholders for this decision, and what are their primary concerns? Who has budget authority?',
-      purpose: 'Map decision-making process and stakeholder concerns. Essential for sales strategy and objection handling.',
-      category: 'stakeholder',
-      idealResponse: 'CIO Michael Torres owns the decision with strong support from Chief Digital Officer Jennifer Kim and Chief Risk Officer Robert Chen. CFO David Martinez has budget authority and is focused on ROI. VP of Card Services Lisa Anderson is concerned about customer experience during migration. Board has mandated card modernization as top priority. Decision timeline is 3 months.',
-      followUpQuestions: [
-        'What are the CIO\'s top priorities?',
-        'What is the CFO\'s ROI requirement?',
-        'Who are the potential blockers?'
-      ],
-      scoringWeight: 8,
-      hints: ['CIO and Chief Digital Officer are champions', 'CFO controls budget and requires strong ROI', 'Board mandate creates urgency']
-    },
-    {
-      question: 'What is your timeline for card processing modernization, and what are the key milestones? What is driving the timeline?',
-      purpose: 'Understand urgency and timeline constraints. Critical for proposal timing and implementation planning.',
-      category: 'timeline',
-      idealResponse: 'Board presentation in 6 weeks, vendor selection in 3 months, implementation must complete within 18 months. Timeline is driven by competitive pressure, customer attrition, and fraud losses. Board has mandated completion within 18 months. Delayed decision costs $1.25M monthly in fraud losses and customer attrition.',
-      followUpQuestions: [
-        'What happens if timeline slips?',
-        'Are there regulatory deadlines?',
-        'What is the cost of delay?'
-      ],
-      scoringWeight: 8,
-      hints: ['Timeline is aggressive and board-mandated', 'Delay has quantifiable cost', 'Competitive pressure creates urgency']
-    },
-    {
-      question: 'What is your budget for card processing modernization, and what is included in that budget? What is your expected ROI and payback period?',
-      purpose: 'Qualify budget and ROI expectations. Essential for solution sizing and business case.',
-      category: 'budget',
-      idealResponse: 'Budget is $12-18M for complete card processing modernization including hardware, software, implementation, and training. CFO requires 24-month payback and 300%+ three-year ROI. Budget includes migration costs and parallel run period. Board has approved budget based on fraud reduction and operational cost savings.',
-      followUpQuestions: [
-        'What is included in the budget?',
-        'What is the approval process?',
-        'Are there additional funds for innovation?'
-      ],
-      scoringWeight: 8,
-      hints: ['Budget is approved and adequate', 'ROI expectations are achievable', 'Focus on fraud reduction and cost savings']
+      concept: 'Modern Card Features',
+      description: 'Understanding competitive importance of contactless payments, mobile wallets, and instant issuance for customer satisfaction',
+      skillLevel: 'intermediate'
     }
   ],
-
-  proposedSolution: {
-    overview: 'IBM Power E1080 with FlashSystem 9500 and Watson Studio provides a modern, real-time card processing platform that enables instant authorization, AI-powered fraud detection, and support for modern card features while reducing operational costs by 50% and fraud losses by 70%.',
-    products: [
-      {
-        productId: 'ibm-power-e1080',
-        role: 'primary',
-        reasoning: 'Power E1080 provides the high-performance, reliable infrastructure for real-time card processing with sub-second authorization response times, 99.999% uptime, and ability to scale to 5M+ accounts and 200M+ transactions annually. Handles peak transaction loads (Black Friday, holiday shopping) without performance degradation.',
-        keyCapabilities: [
-          'Real-time transaction processing with <100ms authorization response time',
-          'Horizontal scalability to support 5M+ card accounts and 200M+ transactions',
-          '99.999% uptime with built-in redundancy and failover',
-          'Hardware-based encryption for PCI-DSS compliance and data security',
-          'Secure enclaves for sensitive cardholder data processing',
-          'Live partition mobility for zero-downtime maintenance',
-          'PowerVM virtualization for workload isolation and resource optimization'
-        ],
-        businessValue: [
-          'Enables real-time card authorization and fraud detection',
-          'Supports 3x growth to 3M+ accounts without infrastructure constraints',
-          'Eliminates batch processing delays and enables instant fraud detection',
-          'Provides enterprise-grade reliability for mission-critical card processing',
-          'Reduces infrastructure costs through consolidation and efficiency'
-        ]
-      },
-      {
-        productId: 'ibm-flashsystem-9500',
-        role: 'supporting',
-        reasoning: 'FlashSystem 9500 provides ultra-low latency storage for real-time card transaction processing, fraud detection, and customer data access. Cyber Vault protects against ransomware and ensures business continuity. Immutable snapshots provide audit trail for regulatory compliance.',
-        keyCapabilities: [
-          'Sub-millisecond latency for real-time transaction processing and fraud detection',
-          'NVMe performance for high-speed card authorization and data access',
-          'Cyber Vault with immutable snapshots for ransomware protection',
-          'Storage virtualization for simplified management and efficiency',
-          'Data reduction (compression, deduplication) reduces storage costs by 5:1',
-          'Encryption at rest for PCI-DSS compliance',
-          'Seamless scalability to support transaction volume growth'
-        ],
-        businessValue: [
-          'Enables real-time fraud detection with instant data access',
-          'Protects card data and transaction history from ransomware',
-          'Reduces storage costs by 80% through data reduction',
-          'Ensures regulatory compliance with immutable audit trails',
-          'Supports business continuity with rapid recovery capabilities'
-        ]
-      },
-      {
-        productId: 'ibm-watson-studio',
-        role: 'supporting',
-        reasoning: 'Watson Studio provides AI-powered fraud detection that analyzes every transaction in real-time, reducing fraud losses by 70% while minimizing false positives. Machine learning models continuously improve fraud detection accuracy based on transaction patterns and fraud trends.',
-        keyCapabilities: [
-          'Real-time fraud scoring for every card transaction (<50ms)',
-          'Machine learning models trained on historical fraud patterns',
-          'Behavioral analytics to detect anomalous spending patterns',
-          'Network analysis to identify fraud rings and coordinated attacks',
-          'Adaptive learning that improves accuracy over time',
-          'Explainable AI for regulatory compliance and dispute resolution',
-          'Integration with card authorization system for instant fraud prevention'
-        ],
-        businessValue: [
-          'Reduces fraud losses by 70% through real-time fraud detection',
-          'Minimizes false positives to <1% to avoid blocking legitimate transactions',
-          'Prevents fraud before authorization, not after the fact',
-          'Provides instant fraud alerts to customers via mobile app',
-          'Enables dynamic fraud rules based on transaction patterns and risk levels'
-        ]
-      }
-    ],
-    technicalApproach: 'Deploy Power E1080 as the card processing platform running modern card management software with real-time authorization and fraud detection. FlashSystem 9500 provides ultra-low latency storage for transaction data, customer profiles, and fraud models. Watson Studio AI analyzes every transaction in real-time, scoring fraud risk and blocking suspicious transactions before authorization. Implement phased migration starting with new card accounts, then gradually migrate existing accounts. Maintain parallel run with legacy system during migration to ensure business continuity.',
-    implementationSteps: [
-      'Phase 1 (Months 1-3): Infrastructure deployment and testing - Power E1080, FlashSystem 9500, Watson Studio',
-      'Phase 2 (Months 4-6): Card management software installation and configuration, Watson AI model training',
-      'Phase 3 (Months 7-9): Pilot with 50K new card accounts, validate real-time processing and fraud detection',
-      'Phase 4 (Months 10-15): Phased migration of existing 1.2M accounts, parallel run with legacy system',
-      'Phase 5 (Months 16-18): Complete migration, decommission legacy system, launch modern card features'
-    ],
-    expectedOutcomes: [
-      'Real-time card authorization with <100ms response time',
-      '70% reduction in fraud losses ($10.5M annual savings)',
-      '50% reduction in operational costs ($3.9M annual savings)',
-      'Support for modern card features: contactless, mobile wallets, instant issuance',
-      'Customer satisfaction improvement from 3.2 to 4.5+ stars',
-      'Scalability to support 3M+ accounts and 120M+ transactions',
-      'PCI-DSS compliance with hardware-based encryption and audit trails',
-      '24-month payback, 380% three-year ROI'
-    ]
+  
+  metadata: {
+    tags: ['Card processing', 'Fraud detection', 'Real-time processing', 'AI fraud prevention', 'Payment modernization', 'PCI compliance', 'Power E1080', 'Watson Studio'],
+    skills: ['Discovery', 'Objection handling', 'Solution architecture', 'Business value', 'ROI analysis', 'Risk management', 'TCO analysis'],
+    products: ['power-e1080', 'flashsystem-9500', 'watson-studio'],
+    industries: ['Banking', 'Financial Services'],
+    estimatedTime: 45,
+    difficulty: 'advanced',
+    version: '1.0',
+    lastUpdated: '2026-07-16',
+    author: 'IBM Sales Training Team'
   },
-
-  objections: [
-    {
-      objection: 'We are concerned about the complexity and risk of migrating 1.2M active card accounts from our legacy system. What if something goes wrong and we cannot process card transactions? This is mission-critical.',
-      stakeholder: 'CIO',
-      difficulty: 'very difficult',
-      category: 'risk',
-      customResponse: 'Migration risk is a valid concern for mission-critical card processing. IBM has a proven migration approach that eliminates risk: (1) Phased migration starting with new accounts (no migration risk), then gradually migrating existing accounts in small batches, (2) Parallel run capability - legacy system continues processing while new system validates in parallel, (3) Automated migration tools with validation and reconciliation, (4) Rollback capability at every phase if issues arise, (5) IBM Expert Labs has migrated 200+ card processing systems with 99.5% success rate. We recommend 18-month timeline with 6-month parallel run to ensure zero business disruption. Most banks find the new system is MORE reliable than legacy.',
-      scoringCriteria: [
-        'Acknowledges migration risk and complexity',
-        'Presents phased migration approach with parallel run',
-        'Emphasizes IBM track record and proven methodology',
-        'Offers rollback capability and risk mitigation',
-        'Provides realistic timeline with adequate testing'
-      ],
-      hints: [
-        'Migration risk is the #1 concern for card processing',
-        'Phased approach with parallel run eliminates risk',
-        'IBM has proven track record with 200+ migrations'
-      ]
-    },
-    {
-      objection: 'Your solution costs $15M, which is significantly more than cloud-based card processing platforms that cost $3-5M. Why should we pay 3x more for on-premises infrastructure?',
-      stakeholder: 'CFO',
-      difficulty: 'difficult',
-      category: 'cost',
-      customResponse: 'Let\'s look at total cost of ownership over 5 years, not just initial cost. Cloud platforms charge per-transaction fees that add up quickly: at 45M transactions annually, you will pay $2.7M per year in transaction fees ($0.06 per transaction), totaling $13.5M over 5 years. IBM solution has zero per-transaction fees. Additionally, cloud platforms charge for data egress, API calls, and storage - adding another $1.5M annually. Total cloud TCO is $21M over 5 years vs. $15M for IBM solution. IBM solution also provides superior performance (sub-100ms vs. 300ms cloud latency), better security (dedicated infrastructure vs. multi-tenant), and data sovereignty (your data stays in your data center). The business case shows 24-month payback and 380% three-year ROI through fraud reduction and operational cost savings.',
-      scoringCriteria: [
-        'Compares total cost of ownership, not just initial cost',
-        'Quantifies cloud transaction fees and hidden costs',
-        'Shows IBM solution is actually lower TCO over 5 years',
-        'Emphasizes performance, security, and data sovereignty advantages',
-        'Presents strong ROI with fraud reduction and cost savings'
-      ],
-      hints: [
-        'Cloud platforms have hidden per-transaction fees',
-        'TCO analysis shows IBM is lower cost over 5 years',
-        'Performance and security advantages justify investment'
-      ]
-    },
-    {
-      objection: 'We are concerned about false positives blocking legitimate customer transactions. If your AI fraud detection is too aggressive, we will frustrate customers and lose sales. How do you balance fraud detection with customer experience?',
-      stakeholder: 'Chief Risk Officer',
-      difficulty: 'difficult',
-      category: 'risk',
-      customResponse: 'Balancing fraud detection with customer experience is critical. Watson AI is designed to minimize false positives while maximizing fraud detection: (1) Machine learning models are trained on YOUR historical transaction data to understand normal customer behavior, (2) Behavioral analytics detect anomalies based on individual customer patterns, not generic rules, (3) Graduated response - suspicious transactions trigger additional authentication (SMS code, biometric), not immediate blocking, (4) Real-time learning - AI adapts to customer behavior changes (travel, large purchases), (5) Industry benchmarks show Watson achieves <1% false positive rate while detecting 95% of fraud. We can tune sensitivity based on your risk tolerance. Most banks find customer satisfaction IMPROVES because legitimate transactions are approved faster and fraud is prevented before it impacts customers.',
-      scoringCriteria: [
-        'Acknowledges false positive concern and customer impact',
-        'Explains how Watson AI minimizes false positives',
-        'Describes graduated response approach',
-        'Provides industry benchmarks for false positive rates',
-        'Emphasizes customer experience improvement'
-      ],
-      hints: [
-        'False positives are a major concern for card issuers',
-        'Watson AI uses behavioral analytics, not generic rules',
-        'Graduated response balances security and experience'
-      ]
-    },
-    {
-      objection: 'Our card services team is already overwhelmed with current operations. How will we manage the implementation and training for a new card processing system? We do not have the resources for a major technology project.',
-      stakeholder: 'VP of Card Services',
-      difficulty: 'common',
-      category: 'skills',
-      customResponse: 'Resource constraints are a common concern. IBM provides comprehensive implementation and training support: (1) IBM Expert Labs handles the technical implementation - your team focuses on business requirements and testing, (2) Phased rollout minimizes operational impact - start with new accounts while legacy system continues, (3) Comprehensive training program for card services staff with hands-on workshops, (4) IBM provides 24/7 support during migration and first 6 months of operation, (5) Modern card processing system is actually EASIER to operate than legacy system - automated fraud detection, self-service customer tools, and streamlined operations. Most banks find staff productivity improves 40% after migration because they spend less time on manual fraud review and customer service. We can also provide temporary staff augmentation during migration if needed.',
-      scoringCriteria: [
-        'Acknowledges resource constraints and operational concerns',
-        'Explains IBM implementation support and Expert Labs',
-        'Describes phased approach to minimize operational impact',
-        'Emphasizes training and 24/7 support',
-        'Shows how automation improves staff productivity'
-      ],
-      hints: [
-        'Resource constraints are common for card operations teams',
-        'IBM Expert Labs handles technical implementation',
-        'Automation reduces operational burden, not increases it'
-      ]
-    },
-    {
-      objection: 'We have heard that AI fraud detection can be biased and discriminate against certain customer demographics. How do you ensure fair lending and avoid regulatory issues with AI-powered fraud detection?',
-      stakeholder: 'Chief Risk Officer',
-      difficulty: 'difficult',
-      category: 'risk',
-      customResponse: 'Fair lending and non-discrimination are absolutely critical for card processing. IBM Watson AI is designed for fairness and regulatory compliance: (1) Fraud detection models are trained on transaction behavior, not demographic data - no access to race, gender, age, or other protected characteristics, (2) Explainable AI provides detailed reasoning for every fraud decision that auditors can review, (3) Bias testing and fairness metrics are built into model development and monitoring, (4) Comprehensive audit trail for every fraud decision stored on FlashSystem with immutable snapshots, (5) IBM provides fairness assessment tools and ongoing monitoring for bias. Watson AI has been deployed at 50+ banks with zero fair lending violations. We can also provide third-party fairness audits if required by regulators.',
-      scoringCriteria: [
-        'Acknowledges fair lending concerns and regulatory requirements',
-        'Explains how Watson AI avoids demographic bias',
-        'Describes explainable AI and audit trail capabilities',
-        'Provides IBM track record with zero violations',
-        'Offers fairness assessment and third-party audits'
-      ],
-      hints: [
-        'Fair lending is critical regulatory requirement',
-        'Watson AI uses transaction behavior, not demographics',
-        'Explainable AI provides transparency for auditors'
-      ]
-    },
-    {
-      objection: 'What happens if IBM discontinues support for Power Systems or Watson AI in the future? We cannot afford to be locked into a platform that IBM might abandon. We need long-term stability.',
-      stakeholder: 'CIO',
-      difficulty: 'common',
-      category: 'strategy',
-      customResponse: 'Platform stability is a valid long-term concern. IBM Power Systems and Watson AI are strategic growth platforms with strong commitment: (1) IBM has been in banking technology for 50+ years and card processing is a core market, (2) Power Systems has 500+ bank customers globally and growing - large, stable customer base, (3) IBM is investing $1B+ annually in Power Systems and AI development, (4) Watson AI is deployed at 200+ financial institutions for fraud detection, (5) IBM is a $60B company with strong financials - we are not going anywhere. That said, the solution is built on open standards and APIs, so you are not locked in. If you ever needed to migrate, your data and applications are portable. IBM also provides 10-year support commitments for Power Systems.',
-      scoringCriteria: [
-        'Acknowledges long-term platform stability concern',
-        'Provides IBM commitment and investment evidence',
-        'Shows large customer base and market traction',
-        'Emphasizes IBM financial stability and longevity',
-        'Offers open standards and portability as insurance'
-      ],
-      hints: [
-        'Platform stability is important for long-term investment',
-        'IBM has 50+ years in banking and strong commitment',
-        'Large customer base provides stability and ecosystem'
-      ]
-    }
-  ],
-
-  competitiveContext: {
-    competitors: [
-      {
-        name: 'Cloud-based card processing platforms (Marqeta, Galileo, Stripe Issuing)',
-        strengths: ['Lower initial cost', 'Fast deployment', 'Modern API-first architecture', 'Elastic scalability'],
-        weaknesses: ['Per-transaction fees add up quickly', 'Multi-tenant security concerns', 'Higher latency (300ms vs. 100ms)', 'Data sovereignty issues', 'Limited customization'],
-        differentiators: [
-          'IBM provides dedicated infrastructure with superior performance and security',
-          'Zero per-transaction fees - lower TCO over 5 years',
-          'Sub-100ms latency vs. 300ms cloud latency',
-          'Data stays in your data center for sovereignty and compliance',
-          'Enterprise-grade reliability with 99.999% uptime'
-        ]
-      },
-      {
-        name: 'Legacy mainframe vendors (FIS, Fiserv, ACI Worldwide)',
-        strengths: ['Proven track record', 'Deep banking expertise', 'Comprehensive card processing features', 'Regulatory compliance'],
-        weaknesses: ['Expensive maintenance costs', 'Batch processing limitations', 'Cannot support modern card features', 'Slow innovation cycle', 'Vendor lock-in'],
-        differentiators: [
-          'IBM provides modern real-time processing vs. legacy batch processing',
-          'Watson AI fraud detection vs. rules-based fraud detection',
-          'Support for modern card features: contactless, mobile wallets, instant issuance',
-          'Open architecture vs. proprietary vendor lock-in',
-          '50% lower operational costs through automation'
-        ]
-      }
-    ],
-    marketTrends: [
-      'Real-time card processing is becoming table stakes for competitive card programs',
-      'AI-powered fraud detection is proven to reduce fraud losses by 60-80%',
-      'Modern card features (contactless, mobile wallets, instant issuance) are customer expectations',
-      'Banks are moving away from legacy mainframe card processing to modern platforms',
-      'Regulatory pressure for real-time fraud monitoring and instant dispute resolution'
-    ]
-  },
-
+  
   coachingTips: [
     'Lead with fraud reduction - $10.5M annual savings is compelling and quantifiable',
     'Emphasize real-time processing enables modern card features and customer experience',
     'Address migration risk early with phased approach and parallel run capability',
     'Build strong TCO case - IBM is lower cost than cloud over 5 years despite higher initial cost',
-    'CIO and Chief Digital Officer are champions - focus on real-time processing and innovation',
-    'Chief Risk Officer is concerned about false positives - emphasize Watson AI accuracy and graduated response',
+    'CIO and Chief Risk Officer are champions - focus on real-time processing and fraud reduction',
+    'Chief Risk Officer is concerned about false positives - emphasize Watson AI accuracy (<1% false positive rate)',
     'CFO requires strong ROI - show 24-month payback and 380% three-year ROI',
-    'Differentiate from cloud with performance, security, and TCO advantages',
+    'Differentiate from cloud with performance (sub-100ms vs 300ms), security, and TCO advantages',
     'Differentiate from legacy mainframe with real-time processing and modern features',
     'Emphasize IBM track record: 200+ card processing migrations, 50+ Watson AI fraud deployments'
   ]
 };
-
 
 // Export all banking scenarios
 export const allBankingScenarios = [
