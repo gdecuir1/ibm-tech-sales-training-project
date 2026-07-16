@@ -146,7 +146,7 @@ export default function ScenarioExecutionPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
         <div className="text-center max-w-md mx-auto p-8">
-          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <div className="text-red-500 text-6xl mb-4 font-mono font-bold">!</div>
           <h2 className="text-2xl font-bold text-slate-900 mb-2">Scenario Not Found</h2>
           <p className="text-slate-600 mb-6">{error || 'The requested scenario could not be loaded.'}</p>
           <button
@@ -213,7 +213,7 @@ export default function ScenarioExecutionPage() {
           <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
             <div className="flex items-start gap-4 mb-6">
               <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-2xl">⚠️</span>
+                <span className="text-2xl font-mono font-bold text-orange-600">!</span>
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -253,7 +253,7 @@ export default function ScenarioExecutionPage() {
             {showHint && (
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">💡</span>
+                  <span className="text-2xl font-mono font-bold text-blue-600">i</span>
                   <div>
                     <h4 className="font-semibold text-blue-900 mb-1">Hint</h4>
                     <p className="text-sm text-blue-800">{currentQuestion.hint}</p>
@@ -338,7 +338,7 @@ export default function ScenarioExecutionPage() {
         <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
           <div className="flex items-start gap-4 mb-6">
             <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-              <span className="text-2xl">🎯</span>
+              <span className="text-2xl font-mono font-bold text-blue-600">?</span>
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -378,7 +378,7 @@ export default function ScenarioExecutionPage() {
           {showHint && (
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
               <div className="flex items-start gap-3">
-                <span className="text-2xl">💡</span>
+                <span className="text-2xl font-mono font-bold text-blue-600">i</span>
                 <div>
                   <h4 className="font-semibold text-blue-900 mb-1">Hint</h4>
                   <p className="text-sm text-blue-800">{currentQuestion.hint}</p>

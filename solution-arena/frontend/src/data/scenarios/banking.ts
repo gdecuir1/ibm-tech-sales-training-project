@@ -623,9 +623,12 @@ export const bankingScenario001: TrainingScenario = {
   ]
 };
 
+// Import additional banking scenarios
+import { bankingAdditionalScenarios } from './banking-additional';
+
 export const bankingScenarios: TrainingScenario[] = [
   bankingScenario001,
-  // Additional banking scenarios will be added here
+  ...bankingAdditionalScenarios,
 ];
 
 // Made with Bob

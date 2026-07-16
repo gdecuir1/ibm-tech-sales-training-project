@@ -162,7 +162,7 @@ export default function ScenarioResultsPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-semibold text-slate-700">Discovery</h3>
-              <span className="text-2xl">🎯</span>
+              <span className="text-2xl font-mono font-bold text-blue-600">01</span>
             </div>
             <div className="text-3xl font-bold text-blue-600 mb-1">
               {Math.round(result.phaseScores.discovery)}%
@@ -179,7 +179,7 @@ export default function ScenarioResultsPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-semibold text-slate-700">Objections</h3>
-              <span className="text-2xl">⚠️</span>
+              <span className="text-2xl font-mono font-bold text-orange-600">02</span>
             </div>
             <div className="text-3xl font-bold text-orange-600 mb-1">
               {Math.round(result.phaseScores.objections)}%
@@ -196,7 +196,7 @@ export default function ScenarioResultsPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-semibold text-slate-700">Recommendation</h3>
-              <span className="text-2xl">💡</span>
+              <span className="text-2xl font-mono font-bold text-purple-600">03</span>
             </div>
             <div className="text-3xl font-bold text-purple-600 mb-1">
               {Math.round(result.phaseScores.recommendation)}%
@@ -213,7 +213,7 @@ export default function ScenarioResultsPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-semibold text-slate-700">Business Value</h3>
-              <span className="text-2xl">💰</span>
+              <span className="text-2xl font-mono font-bold text-green-600">04</span>
             </div>
             <div className="text-3xl font-bold text-green-600 mb-1">
               {Math.round(result.phaseScores.businessValue)}%
@@ -231,14 +231,13 @@ export default function ScenarioResultsPage() {
         {/* Key Strengths & Areas for Improvement */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <span className="text-2xl">✨</span>
+            <h3 className="text-xl font-bold text-slate-900 mb-4">
               Key Strengths
             </h3>
             <ul className="space-y-3">
               {result.feedback.strengths.map((strength, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="text-green-500 mt-1">✓</span>
+                  <span className="text-green-500 mt-1 font-bold">•</span>
                   <span className="text-slate-700">{strength}</span>
                 </li>
               ))}
@@ -246,8 +245,7 @@ export default function ScenarioResultsPage() {
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <span className="text-2xl">📈</span>
+            <h3 className="text-xl font-bold text-slate-900 mb-4">
               Areas for Improvement
             </h3>
             <ul className="space-y-3">
@@ -331,7 +329,7 @@ export default function ScenarioResultsPage() {
           <h3 className="text-2xl font-bold text-slate-900 mb-4">What's Next?</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="text-4xl mb-3">🔄</div>
+              <div className="text-4xl mb-3 font-mono font-bold text-blue-600">↻</div>
               <h4 className="font-bold text-slate-900 mb-2">Try Again</h4>
               <p className="text-sm text-slate-600 mb-4">
                 Practice makes perfect. Retry this scenario to improve your score.
@@ -345,7 +343,7 @@ export default function ScenarioResultsPage() {
             </div>
 
             <div className="text-center">
-              <div className="text-4xl mb-3">📚</div>
+              <div className="text-4xl mb-3 font-mono font-bold text-indigo-600">≡</div>
               <h4 className="font-bold text-slate-900 mb-2">More Scenarios</h4>
               <p className="text-sm text-slate-600 mb-4">
                 Explore other scenarios to broaden your skills.
@@ -359,7 +357,7 @@ export default function ScenarioResultsPage() {
             </div>
 
             <div className="text-center">
-              <div className="text-4xl mb-3">📊</div>
+              <div className="text-4xl mb-3 font-mono font-bold text-purple-600">▦</div>
               <h4 className="font-bold text-slate-900 mb-2">View Dashboard</h4>
               <p className="text-sm text-slate-600 mb-4">
                 Track your progress and see your overall performance.
@@ -382,7 +380,7 @@ export default function ScenarioResultsPage() {
           </p>
           <button
             onClick={() => {
-              const text = `I scored ${Math.round(result.totalScore)}% on "${scenario.title}" in IBM Tech Sales Training! 🎯`;
+              const text = `I scored ${Math.round(result.totalScore)}% on "${scenario.title}" in IBM Tech Sales Training!`;
               if (navigator.share) {
                 navigator.share({ text });
               } else {
@@ -392,7 +390,7 @@ export default function ScenarioResultsPage() {
             }}
             className="text-blue-600 hover:text-blue-700 text-sm"
           >
-            Share Your Score 🎉
+            Share Your Score
           </button>
         </div>
       </div>

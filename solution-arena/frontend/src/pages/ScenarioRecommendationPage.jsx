@@ -123,7 +123,7 @@ export default function ScenarioRecommendationPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
         <div className="text-center max-w-md mx-auto p-8">
-          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <div className="text-red-500 text-6xl mb-4 font-mono font-bold">!</div>
           <h2 className="text-2xl font-bold text-slate-900 mb-2">Scenario Not Found</h2>
           <p className="text-slate-600 mb-6">{error || 'The requested scenario could not be loaded.'}</p>
           <button
@@ -159,11 +159,11 @@ export default function ScenarioRecommendationPage() {
         {/* Instructions */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
           <div className="flex items-start gap-3">
-            <span className="text-3xl">🎯</span>
+            <span className="text-3xl font-mono font-bold text-blue-600">→</span>
             <div>
               <h3 className="font-bold text-blue-900 mb-2">Your Mission</h3>
               <p className="text-blue-800 mb-2">
-                Based on your discovery and objection handling, select the best IBM products 
+                Based on your discovery and objection handling, select the best IBM products
                 and craft a compelling recommendation that addresses the customer's needs.
               </p>
               <ul className="text-sm text-blue-700 space-y-1">
@@ -353,7 +353,7 @@ export default function ScenarioRecommendationPage() {
                     <ul className="space-y-2">
                       {product.keyFeatures.slice(0, 5).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <span className="text-green-500 mt-1">✓</span>
+                          <span className="text-green-500 mt-1 font-bold">•</span>
                           <span className="text-sm text-slate-700">{feature}</span>
                         </li>
                       ))}

@@ -32,14 +32,14 @@ const ProductDetailPage = () => {
   }
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: '📋' },
-    { id: 'customers', label: 'Ideal Customers', icon: '👥' },
-    { id: 'painpoints', label: 'Pain Points', icon: '⚠️' },
-    { id: 'usecases', label: 'Use Cases', icon: '💼' },
-    { id: 'discovery', label: 'Discovery Questions', icon: '❓' },
-    { id: 'objections', label: 'Objection Handling', icon: '🛡️' },
-    { id: 'competitive', label: 'Competitive Intel', icon: '⚔️' },
-    { id: 'specs', label: 'Technical Specs', icon: '⚙️' },
+    { id: 'overview', label: 'Overview', icon: 'OV' },
+    { id: 'customers', label: 'Ideal Customers', icon: 'IC' },
+    { id: 'painpoints', label: 'Pain Points', icon: 'PP' },
+    { id: 'usecases', label: 'Use Cases', icon: 'UC' },
+    { id: 'discovery', label: 'Discovery Questions', icon: 'DQ' },
+    { id: 'objections', label: 'Objection Handling', icon: 'OH' },
+    { id: 'competitive', label: 'Competitive Intel', icon: 'CI' },
+    { id: 'specs', label: 'Technical Specs', icon: 'TS' },
   ];
 
   const categoryColors = {
@@ -83,7 +83,7 @@ const ProductDetailPage = () => {
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {product.competitiveDifferentiators.slice(0, 6).map((diff, idx) => (
                     <li key={idx} className="text-sm text-gray-600 flex items-start">
-                      <span className="text-green-500 mr-2 mt-0.5">✓</span>
+                      <span className="text-green-500 mr-2 mt-0.5 font-bold">•</span>
                       <span>{diff}</span>
                     </li>
                   ))}
@@ -141,7 +141,7 @@ const ProductDetailPage = () => {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>
+                <span className="mr-2 font-mono font-bold text-ibm-blue-60">{tab.icon}</span>
                 {tab.label}
               </button>
             ))}
@@ -162,7 +162,7 @@ const ProductDetailPage = () => {
               <ul className="space-y-2">
                 {product.whenToRecommend.map((item, idx) => (
                   <li key={idx} className="flex items-start text-sm text-gray-700">
-                    <span className="text-green-500 mr-2 mt-0.5">✓</span>
+                    <span className="text-green-500 mr-2 mt-0.5 font-bold">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -172,7 +172,7 @@ const ProductDetailPage = () => {
               <ul className="space-y-2">
                 {product.whenNotToRecommend.map((item, idx) => (
                   <li key={idx} className="flex items-start text-sm text-gray-700">
-                    <span className="text-red-500 mr-2 mt-0.5">✗</span>
+                    <span className="text-red-500 mr-2 mt-0.5 font-bold">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -185,7 +185,7 @@ const ProductDetailPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {product.businessBenefits.map((benefit, idx) => (
                   <div key={idx} className="flex items-start">
-                    <span className="text-blue-500 mr-2 mt-0.5">💼</span>
+                    <span className="text-blue-500 mr-2 mt-0.5 font-bold">•</span>
                     <span className="text-sm text-gray-700">{benefit}</span>
                   </div>
                 ))}
@@ -198,7 +198,7 @@ const ProductDetailPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {product.technicalBenefits.map((benefit, idx) => (
                   <div key={idx} className="flex items-start">
-                    <span className="text-purple-500 mr-2 mt-0.5">⚙️</span>
+                    <span className="text-purple-500 mr-2 mt-0.5 font-bold">•</span>
                     <span className="text-sm text-gray-700">{benefit}</span>
                   </div>
                 ))}
@@ -312,7 +312,7 @@ const ProductDetailPage = () => {
                   <ul className="space-y-1">
                     {useCase.benefits.map((benefit, i) => (
                       <li key={i} className="text-sm text-gray-600 flex items-start">
-                        <span className="text-green-500 mr-2">✓</span>
+                        <span className="text-green-500 mr-2 font-bold">•</span>
                         <span>{benefit}</span>
                       </li>
                     ))}
@@ -419,7 +419,7 @@ const ProductDetailPage = () => {
                           <ul className="space-y-1">
                             {response.supportingData.map((data, i) => (
                               <li key={i} className="text-sm text-gray-600 flex items-start">
-                                <span className="text-blue-500 mr-2">📊</span>
+                                <span className="text-blue-500 mr-2 font-bold">•</span>
                                 <span>{data}</span>
                               </li>
                             ))}
@@ -475,7 +475,7 @@ const ProductDetailPage = () => {
                     <ul className="space-y-1">
                       {comp.weaknesses.map((weakness, i) => (
                         <li key={i} className="text-sm text-gray-600 flex items-start">
-                          <span className="text-green-500 mr-2">✓</span>
+                          <span className="text-green-500 mr-2 font-bold">•</span>
                           <span>{weakness}</span>
                         </li>
                       ))}
@@ -496,7 +496,7 @@ const ProductDetailPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {product.competitiveAdvantages.map((adv, idx) => (
                   <div key={idx} className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-0.5">✓</span>
+                    <span className="text-green-500 mr-2 mt-0.5 font-bold">•</span>
                     <span className="text-sm text-gray-700">{adv}</span>
                   </div>
                 ))}

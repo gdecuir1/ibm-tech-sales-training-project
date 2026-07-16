@@ -37,7 +37,7 @@ jobs:
         run: npm install
 
       - name: Build frontend
-        run: npm run build -- --base=/ibm-tech-sales-training-project/
+        run: npm run build
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5

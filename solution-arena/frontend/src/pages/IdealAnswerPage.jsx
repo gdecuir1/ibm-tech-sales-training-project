@@ -81,7 +81,7 @@ I'd be happy to arrange a proof-of-concept or connect you with similar ${current
           borderRadius: '8px',
           marginBottom: '1.5rem'
         }}>
-          <strong style={{ color: '#0043ce' }}>📚 Learning Opportunity</strong>
+          <strong style={{ color: '#0043ce' }}>Learning Opportunity</strong>
           <p style={{ color: '#0043ce', marginTop: '0.5rem', marginBottom: 0 }}>
             Study this ideal answer to understand how to effectively position IBM solutions 
             and handle objections in similar scenarios.

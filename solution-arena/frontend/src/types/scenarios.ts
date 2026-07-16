@@ -18,6 +18,11 @@ export type StakeholderRole =
   | 'CTO'
   | 'CFO'
   | 'Chief Risk Officer'
+  | 'Chief Marketing Officer'
+  | 'Chief Data Officer'
+  | 'Chief Digital Officer'
+  | 'Chief Information Security Officer'
+  | 'Head of Trade Finance'
   | 'IT Director'
   | 'VP of IT Operations'
   | 'Infrastructure Manager'
@@ -73,10 +78,24 @@ export interface BusinessContext {
   recentEvents?: string[];
 }
 
+export interface AnswerChoice {
+  id: string;
+  text: string;
+  isCorrect: boolean;
+  points: number;
+  feedback?: string;
+}
+
 export interface DiscoveryQuestion {
   question: string;
   purpose: string;
   category: 'pain-point' | 'technical' | 'business' | 'stakeholder' | 'timeline' | 'budget';
+  // Multiple choice support
+  choices?: AnswerChoice[];
+  correctChoiceIds?: string[]; // For multiple select questions
+  minCorrectChoices?: number; // Minimum correct choices to select
+  maxChoices?: number; // Maximum choices user can select
+  // Legacy free-text support (deprecated)
   idealResponse: string;
   alternateResponses?: string[];
   followUpQuestions?: string[];
@@ -97,6 +116,12 @@ export interface ScenarioObjection {
   stakeholder: StakeholderRole;
   difficulty: 'easy' | 'common' | 'difficult' | 'very difficult';
   category: 'cost' | 'strategy' | 'skills' | 'risk' | 'competition' | 'timing' | 'performance' | 'technical';
+  // Multiple choice support
+  responseChoices?: AnswerChoice[];
+  correctResponseIds?: string[]; // For multiple select responses
+  minCorrectResponses?: number; // Minimum correct responses to select
+  maxResponses?: number; // Maximum responses user can select
+  // Legacy free-text support (deprecated)
   bestResponseId?: string; // Reference to product objection response
   customResponse?: string;
   scoringCriteria: string[];

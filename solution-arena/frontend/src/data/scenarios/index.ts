@@ -6,8 +6,11 @@ import { TrainingScenario } from '../../types/scenarios';
 // Healthcare Scenarios
 import { healthcareScenario001 } from './healthcare';
 
-// Banking Scenarios
+// Banking Scenarios - Core
 import { bankingScenario001 } from './banking';
+
+// Banking Scenarios - Additional (scenarios 002-009)
+import { bankingAdditionalScenarios } from './banking-additional';
 
 /**
  * All available training scenarios
@@ -17,8 +20,9 @@ export const allScenarios: TrainingScenario[] = [
   // Healthcare (1 scenario)
   healthcareScenario001,
   
-  // Banking (1 scenario)
+  // Banking (9 scenarios total)
   bankingScenario001,
+  ...bankingAdditionalScenarios,
 ];
 
 /**

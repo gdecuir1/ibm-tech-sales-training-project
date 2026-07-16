@@ -396,21 +396,21 @@ export default function ScenarioLibraryPage() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <div className="text-3xl mb-3">🎯</div>
+              <div className="text-3xl mb-3 font-mono font-bold text-ibm-blue-60">01</div>
               <h4 className="font-semibold text-ibm-gray-100 mb-2">Discovery phase</h4>
               <p className="text-sm text-ibm-gray-70 leading-relaxed">
                 Ask questions to understand the customer's business challenges, technical environment, and strategic goals.
               </p>
             </div>
             <div>
-              <div className="text-3xl mb-3">💬</div>
+              <div className="text-3xl mb-3 font-mono font-bold text-ibm-blue-60">02</div>
               <h4 className="font-semibold text-ibm-gray-100 mb-2">Objection handling</h4>
               <p className="text-sm text-ibm-gray-70 leading-relaxed">
                 Address stakeholder concerns with data-driven responses that acknowledge their perspective and build confidence.
               </p>
             </div>
             <div>
-              <div className="text-3xl mb-3">🎁</div>
+              <div className="text-3xl mb-3 font-mono font-bold text-ibm-blue-60">03</div>
               <h4 className="font-semibold text-ibm-gray-100 mb-2">Recommendation</h4>
               <p className="text-sm text-ibm-gray-70 leading-relaxed">
                 Propose the right IBM solutions with clear business value, ROI, and a compelling business case.

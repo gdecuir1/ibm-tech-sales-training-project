@@ -48,7 +48,7 @@ function LeaderboardWidget() {
               </div>
               <div className="text-right">
                 <div className="text-sm font-bold">{user.score}%</div>
-                <div className="text-xs text-gray-400">{user.streak}🔥</div>
+                <div className="text-xs text-gray-400">{user.streak} day streak</div>
               </div>
             </motion.div>
           );

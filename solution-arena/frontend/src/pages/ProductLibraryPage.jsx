@@ -58,13 +58,13 @@ const ProductLibraryPage = () => {
 
   // Category icons
   const categoryIcons = {
-    'Hardware': '💻',
-    'Storage': '💾',
-    'Cloud': '☁️',
-    'Software': '📦',
-    'Services': '🤝',
-    'AI': '🤖',
-    'Security': '🔒'
+    'Hardware': 'HW',
+    'Storage': 'ST',
+    'Cloud': 'CL',
+    'Software': 'SW',
+    'Services': 'SV',
+    'AI': 'AI',
+    'Security': 'SC'
   };
 
   // Category colors
@@ -210,7 +210,7 @@ const ProductLibraryPage = () => {
                   {/* Category Badge */}
                   <div className="flex items-center justify-between mb-4">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white ${categoryColors[product.category] || 'bg-gray-500'}`}>
-                      <span className="mr-1">{categoryIcons[product.category] || '📦'}</span>
+                      <span className="mr-1 font-mono font-bold">{categoryIcons[product.category] || 'SW'}</span>
                       {product.category}
                     </span>
                   </div>
@@ -236,7 +236,7 @@ const ProductLibraryPage = () => {
                     <ul className="space-y-1">
                       {product.competitiveDifferentiators.slice(0, 3).map((diff, idx) => (
                         <li key={idx} className="text-xs text-ibm-gray-70 flex items-start">
-                          <span className="text-ibm-green mr-1">✓</span>
+                          <span className="text-ibm-green mr-1 font-bold">•</span>
                           <span className="line-clamp-1">{diff}</span>
                         </li>
                       ))}
@@ -310,7 +310,7 @@ const ProductLibraryPage = () => {
                   onClick={() => setSelectedCategory(category)}
                   className="panel hover:shadow-lg transition-shadow duration-200 p-6 text-center"
                 >
-                  <div className="text-4xl mb-2">{categoryIcons[category] || '📦'}</div>
+                  <div className="text-4xl font-mono font-bold text-ibm-blue-60 mb-2">{categoryIcons[category] || 'SW'}</div>
                   <div className="font-semibold text-ibm-gray-100">{category}</div>
                   <div className="text-sm text-ibm-gray-70"><span className="font-mono">{count}</span> products</div>
                 </button>

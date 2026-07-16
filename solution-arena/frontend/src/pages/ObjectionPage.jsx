@@ -133,14 +133,14 @@ function ObjectionPage({
             ))}
           </div>
 
-          <div style={{ 
+          <div style={{
             padding: '1rem',
             background: '#d0e2ff',
             borderRadius: '8px',
             marginBottom: '1.5rem'
           }}>
-            <strong style={{ color: '#0043ce' }}>💡 Tips for handling objections:</strong>
-            <ul style={{ 
+            <strong style={{ color: '#0043ce' }}>Tips for handling objections:</strong>
+            <ul style={{
               marginTop: '0.5rem',
               marginBottom: 0,
               color: '#0043ce',
