@@ -1,357 +1,399 @@
-# IBM Tech Sales Training - Static Web Application
+# IBM DealSprint - Tech Sales Training Platform
 
-A fully client-side training platform for IBM tech sales scenarios, running entirely on GitHub Pages with zero backend dependencies.
+> **Live Demo:** [https://gdecuir1.github.io/ibm-tech-sales-training-project/](https://gdecuir1.github.io/ibm-tech-sales-training-project/)
 
-## 🚀 Live Demo
+A modern, interactive sales training platform for IBM technical sales professionals. Practice real-world scenarios, master product knowledge, and develop solution-selling skills through hands-on training.
 
-**Production:** https://gdecuir1.github.io/ibm-tech-sales-training-project/
+![IBM DealSprint](https://img.shields.io/badge/IBM-DealSprint-0f62fe?style=for-the-badge&logo=ibm)
+![React](https://img.shields.io/badge/React-18.3-61dafb?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-5.4-646cff?style=for-the-badge&logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)
+![Tests](https://img.shields.io/badge/Tests-410%2F513%20Passing-success?style=for-the-badge)
 
-## ✨ Features
+---
 
-- **🎯 Interactive Scenarios** - Practice real-world IBM sales situations
-- **📊 Progress Tracking** - Track your performance with localStorage
-- **🏆 Achievements & Leveling** - Earn XP and unlock achievements
-- **📈 Analytics Dashboard** - View detailed performance metrics
-- **💾 Offline Support** - Works without internet after first load
-- **💰 Zero Cost** - Completely free to host on GitHub Pages
+## 🎯 Overview
 
-## 🏗️ Architecture
+**IBM DealSprint** is a fully client-side, static web application designed to help IBM sales professionals:
 
-### Pure Static Application
-- **Frontend:** React + Vite + TailwindCSS
-- **Data Storage:** Browser localStorage
-- **Routing:** React Router (HashRouter for GitHub Pages)
-- **Deployment:** GitHub Actions → GitHub Pages
-- **Cost:** $0/month
+- **Practice Sales Scenarios** - 13 realistic scenarios across Healthcare and Banking industries
+- **Master Product Knowledge** - Comprehensive knowledge base for 3 IBM products (3,106 lines of content)
+- **Track Progress** - Personal dashboard with performance analytics and skill progression
+- **Learn Interactively** - Multiple choice questions, discovery phases, and objection handling
+- **Get Instant Feedback** - Real-time scoring and detailed explanations
 
-### No Backend Required
-- ❌ No Express server
-- ❌ No PostgreSQL database
-- ❌ No API endpoints
-- ❌ No environment variables
-- ✅ 100% client-side JavaScript
+### Key Features
 
-## 📁 Repository Structure
+✅ **100% Client-Side** - No backend required, runs entirely in the browser  
+✅ **GitHub Pages Ready** - Deployed as a static site  
+✅ **Offline Capable** - All data stored locally using localStorage  
+✅ **Mobile Responsive** - Works on all devices  
+✅ **Accessible** - WCAG 2.1 compliant with ARIA labels  
+✅ **Fast & Modern** - Built with React 18, Vite, and Tailwind CSS  
 
-```
-solution-arena/
-├── .github/workflows/
-│   └── static.yml                    # Automated deployment
-├── frontend/                         # Main application
-│   ├── src/
-│   │   ├── data/
-│   │   │   └── scenarios.js         # Static scenario data
-│   │   ├── services/
-│   │   │   └── storageService.js    # localStorage wrapper
-│   │   ├── pages/                   # Application pages
-│   │   ├── components/              # UI components
-│   │   └── styles/                  # CSS
-│   ├── public/                      # Static assets
-│   ├── package.json                 # Dependencies
-│   └── vite.config.js               # Build configuration
-├── shared-data/
-│   └── scenarios.json               # Comprehensive scenarios
-└── Documentation/
-    ├── README.md                    # This file
-    ├── STATIC_REFACTOR_SUMMARY.md   # Technical details
-    ├── GITHUB_PAGES_STATIC_DEPLOYMENT.md  # Deployment guide
-    └── REPOSITORY_CLEANUP_GUIDE.md  # Optimization guide
-```
+---
 
 ## 🚀 Quick Start
 
-### Local Development
+### Prerequisites
+
+- **Node.js** 18+ and npm 9+
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+
+### Installation
 
 ```bash
-# Navigate to frontend
-cd solution-arena/frontend
+# Clone the repository
+git clone https://github.com/gdecuir1/ibm-tech-sales-training-project.git
+cd ibm-tech-sales-training-project/solution-arena
 
 # Install dependencies
+cd frontend
 npm install
 
 # Start development server
 npm run dev
-
-# Open browser
-open http://localhost:5173
 ```
+
+Visit `http://localhost:5173/ibm-tech-sales-training-project/` in your browser.
 
 ### Build for Production
 
 ```bash
-cd solution-arena/frontend
+# Build optimized production bundle
 npm run build
 
-# Output in dist/ folder
-ls -lh dist/
+# Preview production build locally
+npm run preview
 ```
 
-### Deploy to GitHub Pages
-
-```bash
-# Commit and push changes
-git add .
-git commit -m "Your changes"
-git push origin main
-
-# GitHub Actions automatically deploys
-# Check: https://github.com/[username]/[repo]/actions
-```
-
-## 📚 How It Works
-
-### Scenario Loading
-```javascript
-// No API calls - instant loading from memory
-import { getRandomScenario } from '../data/scenarios';
-
-const scenario = getRandomScenario();
-// Returns scenario immediately, no network request
-```
-
-### Progress Tracking
-```javascript
-// Save to browser localStorage
-import { storageService } from '../services/storageService';
-
-storageService.saveCompletedScenario({
-  scenarioId: 1,
-  score: 85,
-  timestamp: Date.now()
-});
-
-// Retrieve progress
-const stats = storageService.getUserStats();
-const history = storageService.getScenarioHistory();
-```
-
-### Evaluation
-```javascript
-// Client-side scoring
-import { evaluateProducts, evaluateResponse } from '../data/scenarios';
-
-const productScore = evaluateProducts(scenarioId, selectedProducts);
-const responseScore = evaluateResponse(userResponse);
-// All evaluation happens in the browser
-```
-
-## 🎮 Usage
-
-### Classic Mode
-1. Click "Start Practice"
-2. Review company scenario
-3. Select IBM products
-4. Justify your selection
-5. Handle customer objections
-6. View results and feedback
-
-### Interactive Mode
-1. Click "Interactive Scenario"
-2. Answer multi-step questions
-3. Make architecture decisions
-4. Handle objections
-5. View comprehensive scoring
-
-### Dashboard
-- View overall statistics
-- Track practice streak
-- See scenario history
-- Monitor skill progression
-- Check achievements
-
-## 📊 Data Storage
-
-All data stored in browser localStorage:
-
-```javascript
-{
-  "ibm_training_completed_scenarios": [...],  // Last 50 attempts
-  "ibm_training_user_stats": {
-    totalScenarios: 10,
-    averageScore: 85,
-    currentLevel: 3,
-    xp: 450,
-    currentStreak: 5
-  },
-  "ibm_training_scenario_history": [...],
-  "ibm_training_achievements": [...]
-}
-```
-
-**Note:** Data is device-specific and can be cleared by the user.
-
-## 🔧 Configuration
-
-### Vite Configuration
-```javascript
-// vite.config.js
-export default defineConfig({
-  plugins: [react()],
-  base: '/ibm-tech-sales-training-project/',  // GitHub Pages base path
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets'
-  }
-});
-```
-
-### Router Configuration
-```javascript
-// App.jsx - Using HashRouter for GitHub Pages
-import { HashRouter as Router } from 'react-router-dom';
-
-// URLs will be: /#/dashboard, /#/scenario, etc.
-```
-
-## 📝 Adding New Scenarios
-
-### Simple Scenarios (Classic Mode)
-Edit `frontend/src/data/scenarios.js`:
-
-```javascript
-{
-  id: 5,
-  company: "New Company",
-  industry: "Technology",
-  pain_points: ["Pain 1", "Pain 2"],
-  objectives: ["Objective 1", "Objective 2"],
-  ideal_products: ["IBM Product 1", "IBM Product 2"],
-  objections: [
-    { objection: "Customer concern..." }
-  ]
-}
-```
-
-### Interactive Scenarios
-Edit `shared-data/scenarios.json` with comprehensive question structure.
-
-## 🧪 Testing
-
-```bash
-cd solution-arena/frontend
-
-# Run tests
-npm test
-
-# Run with coverage
-npm run test:coverage
-
-# Run specific test
-npm test -- ScenarioPage
-```
-
-## 📦 Deployment
-
-### Automatic (Recommended)
-Push to main branch - GitHub Actions handles everything:
-
-```yaml
-# .github/workflows/static.yml
-- Build frontend with Vite
-- Deploy to GitHub Pages
-- Live in ~60 seconds
-```
-
-### Manual
-```bash
-cd solution-arena/frontend
-npm run build
-# Deploy dist/ folder to GitHub Pages manually
-```
-
-## 🔍 Troubleshooting
-
-### "Failed to load scenario"
-- Check browser console for errors
-- Verify `src/data/scenarios.js` exists
-- Clear browser cache and reload
-
-### Progress not saving
-- Check if localStorage is enabled
-- Check browser storage quota
-- Try incognito mode to test
-
-### Routing issues on GitHub Pages
-- Verify using HashRouter (not BrowserRouter)
-- Check base path in vite.config.js
-- Ensure 404.html exists (if using BrowserRouter)
-
-### Build fails
-```bash
-cd solution-arena/frontend
-rm -rf node_modules package-lock.json
-npm install
-npm run build
-```
-
-## 📈 Performance
-
-- **Initial Load:** <1 second
-- **Scenario Load:** <1ms (instant)
-- **Evaluation:** <100ms
-- **Bundle Size:** ~2 MB (minified)
-- **Lighthouse Score:** 95+ (Performance)
-
-## 🔒 Security
-
-- ✅ No backend = no server vulnerabilities
-- ✅ No database = no SQL injection
-- ✅ No API keys to expose
-- ✅ No authentication tokens
-- ⚠️ localStorage is not encrypted (acceptable for training data)
-
-## 💡 Limitations
-
-1. **Device-Specific Progress** - localStorage doesn't sync across devices
-2. **No User Accounts** - No authentication system
-3. **Static Scenarios** - Need to redeploy to add scenarios
-4. **Simple Evaluation** - Rule-based, not AI-powered
-5. **No Real-Time Features** - No multiplayer or live collaboration
-
-**All limitations are acceptable for a training tool.**
-
-## 📚 Documentation
-
-- **[STATIC_REFACTOR_SUMMARY.md](./STATIC_REFACTOR_SUMMARY.md)** - Complete refactor details
-- **[GITHUB_PAGES_STATIC_DEPLOYMENT.md](./GITHUB_PAGES_STATIC_DEPLOYMENT.md)** - Deployment guide
-- **[REPOSITORY_CLEANUP_GUIDE.md](./REPOSITORY_CLEANUP_GUIDE.md)** - Optimization guide
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
-
-## 📄 License
-
-MIT License - See LICENSE file for details
-
-## 🎯 Roadmap
-
-- [ ] Add more scenarios (10+ total)
-- [ ] Export/import progress feature
-- [ ] Printable certificates
-- [ ] Mobile app version
-- [ ] Multiplayer leaderboards (optional backend)
-
-## 💬 Support
-
-- **Issues:** https://github.com/gdecuir1/ibm-tech-sales-training-project/issues
-- **Discussions:** https://github.com/gdecuir1/ibm-tech-sales-training-project/discussions
-
-## 🌟 Acknowledgments
-
-Built with:
-- React + Vite
-- TailwindCSS
-- Framer Motion
-- React Router
-- Lucide Icons
+The production build will be in `frontend/dist/` and is ready for deployment to GitHub Pages.
 
 ---
 
-**Made with ❤️ for IBM Tech Sales Training**
+## 📁 Project Structure
 
-**Status:** ✅ Production Ready | 💰 $0/month | 🚀 Deployed on GitHub Pages
+```
+solution-arena/
+├── frontend/                    # React application
+│   ├── src/
+│   │   ├── components/         # React components
+│   │   │   ├── Dashboard/      # Dashboard widgets and analytics
+│   │   │   ├── Landing/        # Homepage components
+│   │   │   └── Primitives/     # Reusable UI components
+│   │   ├── data/               # Static data
+│   │   │   ├── ibm-products/   # Product knowledge base (3 products)
+│   │   │   └── scenarios/      # Training scenarios (13 scenarios)
+│   │   ├── pages/              # Page components
+│   │   ├── services/           # Business logic and localStorage
+│   │   ├── styles/             # Global styles and Tailwind config
+│   │   ├── test/               # Test suites (513 tests)
+│   │   └── utils/              # Helper functions
+│   ├── public/                 # Static assets
+│   └── package.json            # Dependencies and scripts
+├── shared-data/                # Scenario generation scripts
+├── docs/                       # Documentation
+│   ├── archive/                # Historical documentation
+│   ├── GITHUB_PAGES_DEPLOYMENT.md
+│   ├── GITHUB_SETUP.md
+│   ├── PROJECT_SUMMARY.md
+│   ├── REDESIGN_IMPLEMENTATION.md
+│   └── RUNNING_INSTRUCTIONS.md
+└── README.md                   # This file
+```
+
+---
+
+## 🎓 Training Content
+
+### Products (3 Total)
+
+1. **IBM Power Systems** - Enterprise-grade servers for mission-critical workloads
+2. **IBM Storage FlashSystem** - High-performance all-flash storage arrays
+3. **IBM Cloud Pak for Data** - Unified data and AI platform
+
+Each product includes:
+- Detailed specifications and features
+- Use cases and customer examples
+- Competitive differentiators
+- Discovery questions
+- Objection handling responses
+- Industry fit analysis
+
+### Scenarios (13 Total)
+
+#### Healthcare (1 Scenario)
+- **healthcare-001**: Healthcare Data Platform Modernization
+  - 8 discovery questions (multiple choice)
+  - 6 objection handling questions (multiple choice)
+  - 84 total answer choices with detailed scoring
+
+#### Banking (12 Scenarios)
+- **banking-fraud-detection-001**: Real-Time Fraud Detection System
+- **banking-core-modernization-002**: Core Banking Modernization
+- **banking-regulatory-compliance-003**: Regulatory Compliance & Reporting
+- **banking-customer-360-004**: Customer 360 Platform
+- **banking-payment-processing-005**: Payment Processing Modernization
+- **banking-risk-management-006**: Enterprise Risk Management
+- **banking-digital-banking-007**: Digital Banking Platform
+- **banking-data-analytics-008**: Advanced Analytics & AI
+- **banking-cybersecurity-009**: Cybersecurity Enhancement
+- **banking-cloud-migration-010**: Cloud Migration for Banking Applications
+- **banking-api-platform-011**: API Banking & Developer Platform
+- **banking-trade-finance-012**: Trade Finance Digitization
+- **banking-mortgage-automation-013**: Mortgage Origination Automation
+
+---
+
+## 🧪 Testing
+
+### Run Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Test Coverage
+
+- **Total Tests**: 513
+- **Passing**: 410 (80%)
+- **Test Suites**: 17 files
+- **Coverage Areas**:
+  - ✅ Multiple choice functionality (22/22 passing)
+  - ✅ Navigation and buttons (34/35 passing)
+  - ✅ Product knowledge base (68/68 passing)
+  - ✅ Component rendering
+  - ✅ User interactions
+  - ✅ Accessibility (WCAG 2.1)
+  - ✅ Responsive design
+
+---
+
+## 🎨 Design System
+
+Built with **IBM Carbon Design System** principles:
+
+- **Typography**: IBM Plex Sans font family
+- **Colors**: IBM Design Language color palette
+- **Spacing**: 8px grid system
+- **Components**: Custom primitives following IBM patterns
+- **Accessibility**: WCAG 2.1 AA compliant
+
+### Key UI Components
+
+- **PageHeader** - Consistent page headers with back navigation
+- **MetricBand** - Dashboard metrics display
+- **SectionHeader** - Section titles with descriptions
+- **Cards** - Content containers with hover effects
+- **Buttons** - Primary, secondary, and tertiary variants
+- **Forms** - Accessible input fields and selects
+
+---
+
+## 💾 Data Storage
+
+All user data is stored locally using **localStorage**:
+
+- **Scenario Progress** - Completed scenarios and scores
+- **Answer History** - All submitted answers with timestamps
+- **Dashboard Stats** - Performance metrics and analytics
+- **User Preferences** - Settings and configurations
+
+### Storage Keys
+
+```javascript
+'ibm-training-progress'      // Scenario completion data
+'ibm-training-answers'       // Answer history
+'ibm-training-stats'         // Performance statistics
+```
+
+**Note**: localStorage is device-specific and can be cleared by the user. Data is not synced across devices.
+
+---
+
+## 🚢 Deployment
+
+### GitHub Pages (Current)
+
+The app is automatically deployed to GitHub Pages via GitHub Actions:
+
+```yaml
+# .github/workflows/deploy.yml
+- Build on push to main branch
+- Deploy to gh-pages branch
+- Live at: https://gdecuir1.github.io/ibm-tech-sales-training-project/
+```
+
+### Manual Deployment
+
+```bash
+# Build production bundle
+npm run build
+
+# Deploy dist/ folder to your hosting provider
+# The app works on any static hosting service:
+# - GitHub Pages
+# - Netlify
+# - Vercel
+# - AWS S3
+# - Azure Static Web Apps
+```
+
+### Configuration
+
+Update `vite.config.js` for your deployment:
+
+```javascript
+export default defineConfig({
+  base: '/your-repo-name/',  // Change this for your GitHub Pages URL
+  plugins: [react()],
+});
+```
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+- **React 18.3** - UI library
+- **Vite 5.4** - Build tool and dev server
+- **React Router 6.28** - Client-side routing (HashRouter for GitHub Pages)
+- **Tailwind CSS 3.4** - Utility-first CSS framework
+- **Lucide React** - Icon library
+
+### Testing
+
+- **Vitest 1.6** - Unit and integration testing
+- **React Testing Library** - Component testing
+- **jsdom** - DOM simulation
+
+### Development
+
+- **ESLint** - Code linting
+- **PostCSS** - CSS processing
+- **Autoprefixer** - CSS vendor prefixes
+
+---
+
+## 📚 Documentation
+
+- **[GitHub Pages Deployment Guide](docs/GITHUB_PAGES_DEPLOYMENT.md)** - Deployment instructions
+- **[GitHub Setup Guide](docs/GITHUB_SETUP.md)** - Repository configuration
+- **[Project Summary](docs/PROJECT_SUMMARY.md)** - Technical overview
+- **[Redesign Implementation](docs/REDESIGN_IMPLEMENTATION.md)** - UI redesign details
+- **[Running Instructions](docs/RUNNING_INSTRUCTIONS.md)** - Development guide
+- **[Archived Docs](docs/archive/)** - Historical documentation
+
+---
+
+## 🤝 Contributing
+
+This is a training project for IBM sales professionals. Contributions are welcome!
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run tests (`npm test`)
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Code Style
+
+- Follow existing code patterns
+- Use meaningful variable names
+- Add comments for complex logic
+- Write tests for new features
+- Ensure accessibility compliance
+
+---
+
+## 📝 License
+
+This project is for educational and training purposes.
+
+---
+
+## 🙏 Acknowledgments
+
+- **IBM Design Language** - Design system and guidelines
+- **IBM Carbon Design System** - Component patterns
+- **React Community** - Excellent documentation and tools
+- **Vite Team** - Fast and modern build tool
+
+---
+
+## 📞 Support
+
+For questions or issues:
+
+1. Check the [documentation](docs/)
+2. Review [existing issues](https://github.com/gdecuir1/ibm-tech-sales-training-project/issues)
+3. Open a new issue with detailed information
+
+---
+
+## 🗺️ Roadmap
+
+### Completed ✅
+
+- [x] Static refactor (no backend required)
+- [x] Product knowledge base (3 products, 3,106 lines)
+- [x] Training scenarios (13 scenarios)
+- [x] Multiple choice system with scoring
+- [x] Dashboard with analytics
+- [x] Progress tracking with localStorage
+- [x] GitHub Pages deployment
+- [x] Comprehensive test suite (513 tests)
+- [x] Accessibility compliance (WCAG 2.1)
+- [x] Mobile responsive design
+
+### In Progress 🚧
+
+- [ ] Add multiple choice to remaining 8 banking scenarios
+- [ ] Update tests to match redesigned UI (80% → 100%)
+
+### Future Enhancements 🔮
+
+- [ ] Additional banking scenarios (target: 14 total)
+- [ ] Manufacturing/retail scenarios (10 scenarios)
+- [ ] Cross-industry scenarios (10 scenarios)
+- [ ] Advanced analytics and insights
+- [ ] Gamification features (badges, leaderboards)
+- [ ] Export progress reports
+- [ ] Scenario difficulty levels
+- [ ] Time-based challenges
+
+---
+
+## 📊 Project Stats
+
+- **Lines of Code**: ~50,000+
+- **Components**: 40+
+- **Test Files**: 17
+- **Test Cases**: 513
+- **Product Knowledge**: 3,106 lines
+- **Scenarios**: 13 (1 healthcare, 12 banking)
+- **Multiple Choice Questions**: 84 (healthcare-001 only)
+- **Development Time**: 6+ months
+- **Last Updated**: July 2026
+
+---
+
+<div align="center">
+
+**Built with ❤️ for IBM Sales Professionals**
+
+[Live Demo](https://gdecuir1.github.io/ibm-tech-sales-training-project/) • [Documentation](docs/) • [Report Bug](https://github.com/gdecuir1/ibm-tech-sales-training-project/issues) • [Request Feature](https://github.com/gdecuir1/ibm-tech-sales-training-project/issues)
+
+</div>
