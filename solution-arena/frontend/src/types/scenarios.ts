@@ -22,9 +22,38 @@ export type StakeholderRole =
   | 'Chief Data Officer'
   | 'Chief Digital Officer'
   | 'Chief Information Security Officer'
+  | 'Chief Human Resources Officer'
+  | 'Chief Medical Officer'
+  | 'Chief Nursing Officer'
+  | 'Chief Quality Officer'
+  | 'Chief Experience Officer'
   | 'Head of Trade Finance'
   | 'IT Director'
   | 'VP of IT Operations'
+  | 'VP of Store Operations'
+  | 'VP of Manufacturing Operations'
+  | 'VP of Supply Chain'
+  | 'VP of Human Resources'
+  | 'VP of Operations'
+  | 'VP of Sales'
+  | 'VP of Marketing'
+  | 'VP of Customer Experience'
+  | 'VP of Product Development'
+  | 'VP of Quality Assurance'
+  | 'VP of Regulatory Affairs'
+  | 'VP of Clinical Operations'
+  | 'VP of Patient Safety'
+  | 'VP of Revenue Cycle'
+  | 'VP of Ambulatory Services'
+  | 'VP of Population Health'
+  | 'VP of Clinical Trials'
+  | 'VP of Pharmacy'
+  | 'VP of Real Estate'
+  | 'VP of Loss Prevention'
+  | 'VP of Store Planning'
+  | 'VP of Merchandising'
+  | 'VP of E-commerce'
+  | 'VP of Pricing'
   | 'Infrastructure Manager'
   | 'Application Owner'
   | 'Database Administrator'
@@ -32,7 +61,17 @@ export type StakeholderRole =
   | 'Cloud Architect'
   | 'Security Officer'
   | 'Procurement Manager'
-  | 'Business Unit Leader';
+  | 'Business Unit Leader'
+  | 'Director of Maintenance'
+  | 'Director of Training and Development'
+  | 'Director of Warehouse Operations'
+  | 'Director of Patient Financial Services'
+  | 'Director of Quality Assurance'
+  | 'Chief Safety Officer'
+  | 'Chief Analytics Officer'
+  | 'Chief Research Officer'
+  | 'Chief Pharmacy Officer'
+  | 'Chief Engineering Officer';
 
 export interface Stakeholder {
   name: string;
@@ -87,9 +126,10 @@ export interface AnswerChoice {
 }
 
 export interface DiscoveryQuestion {
+  id?: string; // Optional ID for tracking
   question: string;
   purpose: string;
-  category: 'pain-point' | 'technical' | 'business' | 'stakeholder' | 'timeline' | 'budget';
+  category: 'pain-point' | 'technical' | 'business' | 'business-value' | 'stakeholder' | 'timeline' | 'budget' | 'risk';
   // Multiple choice support
   choices?: AnswerChoice[];
   correctChoiceIds?: string[]; // For multiple select questions
@@ -104,33 +144,45 @@ export interface DiscoveryQuestion {
 }
 
 export interface DiscoveryPhase {
+  description?: string; // Optional description of the phase
   questions: DiscoveryQuestion[];
-  expectedFindings: string[];
+  expectedFindings?: string[]; // Made optional
   redFlags?: string[];
   opportunities?: string[];
-  minimumQuestionsRequired: number;
+  minimumQuestionsRequired?: number; // Made optional
 }
 
 export interface ScenarioObjection {
+  id?: string; // Optional ID for tracking
   objection: string;
   stakeholder: StakeholderRole;
-  difficulty: 'easy' | 'common' | 'difficult' | 'very difficult';
+  difficulty?: 'easy' | 'common' | 'difficult' | 'very difficult'; // Made optional
+  severity?: 'low' | 'medium' | 'high'; // Alternative to difficulty
   category: 'cost' | 'strategy' | 'skills' | 'risk' | 'competition' | 'timing' | 'performance' | 'technical';
+  context?: string; // Optional context for the objection
   // Multiple choice support
   responseChoices?: AnswerChoice[];
-  correctResponseIds?: string[]; // For multiple select responses
+  correctResponseIds?: string[]; // For multiple select responses (alias for correctChoiceIds)
+  correctChoiceIds?: string[]; // Alternative name for correctResponseIds
   minCorrectResponses?: number; // Minimum correct responses to select
+  minCorrectChoices?: number; // Alternative name
   maxResponses?: number; // Maximum responses user can select
+  maxChoices?: number; // Alternative name
   // Legacy free-text support (deprecated)
+  idealResponse?: string; // Ideal response text
+  alternateResponses?: string[]; // Alternative responses
   bestResponseId?: string; // Reference to product objection response
   customResponse?: string;
-  scoringCriteria: string[];
+  scoringCriteria?: string[]; // Made optional
+  scoringWeight?: number; // Optional scoring weight
   hints?: string[];
+  coachingTips?: string[]; // Optional coaching tips
 }
 
 export interface ObjectionPhase {
+  description?: string; // Optional description of the phase
   objections: ScenarioObjection[];
-  minimumObjectionsToHandle: number;
+  minimumObjectionsToHandle?: number; // Made optional
   bonusObjections?: ScenarioObjection[]; // Optional advanced objections
 }
 
@@ -155,8 +207,10 @@ export interface PricingBreakdown {
   services?: string;
   support?: string;
   total: string;
+  annual?: string; // Annual costs
   financing?: string;
   paymentTerms?: string;
+  [key: string]: string | undefined; // Allow additional pricing fields
 }
 
 export interface BusinessCase {
@@ -164,20 +218,31 @@ export interface BusinessCase {
   revenueImpact?: string;
   productivityGains?: string;
   riskReduction?: string;
-  roi: string;
-  paybackPeriod: string;
+  roi?: string; // Made optional
+  paybackPeriod?: string; // Made optional
   tco?: string;
+  costs?: string | { initial?: string; annual?: string; threeYear?: string; [key: string]: string | undefined }; // Total costs - can be string or object
+  investment?: string; // Investment amount
+  benefits?: string[]; // List of benefits
+  timeline?: string; // Implementation timeline
+  expectedROI?: string; // Expected ROI
+  risks?: string[]; // Risks
+  mitigationStrategies?: string[]; // Risk mitigation strategies
+  [key: string]: any; // Allow additional business case fields with any type
 }
 
 export interface RecommendationPhase {
-  primaryProduct: string; // Product ID
+  primaryProduct?: string; // Product ID - made optional
+  products?: string[]; // Alternative: list of product names
   supportingProducts?: string[]; // Product IDs
-  configuration: SolutionConfiguration;
-  pricing: PricingBreakdown;
-  businessCase: BusinessCase;
+  solution?: string; // Solution description
+  configuration?: SolutionConfiguration; // Made optional
+  pricing?: PricingBreakdown; // Made optional
+  businessCase?: BusinessCase; // Made optional
   competitivePositioning?: string;
-  nextSteps: string[];
-  requiredElements: string[]; // What must be included in recommendation
+  nextSteps?: string[]; // Made optional
+  requiredElements?: string[]; // What must be included in recommendation - made optional
+  [key: string]: any; // Allow additional fields
 }
 
 export interface ScoringCategory {
@@ -187,13 +252,29 @@ export interface ScoringCategory {
 }
 
 export interface ScoringCriteria {
-  discovery: ScoringCategory;
-  objectionHandling: ScoringCategory;
-  recommendation: ScoringCategory;
-  businessValue: ScoringCategory;
-  totalPoints: number;
-  passingScore: number;
-  excellentScore: number;
+  discovery?: ScoringCategory; // Made optional
+  objectionHandling?: ScoringCategory; // Made optional
+  recommendation?: ScoringCategory; // Made optional
+  businessValue?: ScoringCategory; // Made optional
+  discoveryWeight?: number; // Alternative simple weight
+  objectionWeight?: number; // Alternative simple weight
+  recommendationWeight?: number; // Alternative simple weight
+  categories?: { // Alternative structure
+    discovery?: { weight: number; description: string };
+    objectionHandling?: { weight: number; description: string };
+    recommendation?: { weight: number; description: string };
+    [key: string]: any;
+  };
+  totalPoints?: number; // Made optional
+  passingScore?: number; // Made optional
+  excellentScore?: number; // Made optional
+  rubric?: { // Alternative rubric structure
+    discovery?: string;
+    objectionHandling?: string;
+    recommendation?: string;
+    [key: string]: string | undefined;
+  };
+  [key: string]: any; // Allow additional fields
 }
 
 export interface ScenarioOutcome {
@@ -210,23 +291,25 @@ export interface ScenarioOutcome {
 }
 
 export interface LearningOutcome {
-  concept: string;
-  description: string;
-  skillLevel: 'beginner' | 'intermediate' | 'advanced';
+  concept?: string;
+  description?: string;
+  skillLevel?: 'beginner' | 'intermediate' | 'advanced';
+  [key: string]: any; // Allow string values for simple learning outcomes
 }
 
 export interface ScenarioMetadata {
-  tags: string[];
-  skills: string[];
-  products: string[];
-  industries: Industry[];
-  estimatedTime: number; // minutes
+  tags?: string[]; // Made optional
+  skills?: string[]; // Made optional
+  products?: string[]; // Made optional
+  industries?: Industry[]; // Made optional
+  estimatedTime?: number; // minutes - made optional
   prerequisites?: string[];
   relatedScenarios?: string[];
-  difficulty: ScenarioDifficulty;
-  version: string;
-  lastUpdated: string;
+  difficulty?: ScenarioDifficulty; // Made optional
+  version?: string; // Made optional
+  lastUpdated?: string; // Made optional
   author?: string;
+  [key: string]: any; // Allow additional fields
 }
 
 export interface UserProgress {
@@ -318,16 +401,20 @@ export interface TrainingScenario {
   
   // Evaluation
   scoringCriteria: ScoringCriteria;
-  learningOutcomes: LearningOutcome[];
+  learningOutcomes?: LearningOutcome[] | string[]; // Made optional, can be simple strings
+  learningObjectives?: string[]; // Alternative simple format
   
   // Metadata
-  metadata: ScenarioMetadata;
+  metadata?: ScenarioMetadata; // Made optional
   
   // Optional coaching
   coachingTips?: string[];
   commonMistakes?: string[];
   bestPractices?: string[];
   expertInsights?: string[];
+  
+  // Allow additional fields
+  [key: string]: any;
 }
 
 // Scenario collection types

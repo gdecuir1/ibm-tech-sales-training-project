@@ -1823,6 +1823,929 @@ export const retailScenario003: TrainingScenario = {
   ]
 };
 
+/**
+ * Retail Scenario 004: Workforce Management and Scheduling
+ * Retail chain needs intelligent workforce management to optimize labor costs and improve employee satisfaction
+ */
+export const retailScenario004: TrainingScenario = {
+  id: 'retail-workforce-004',
+  title: 'Retail Chain Needs Intelligent Workforce Management to Optimize Labor Costs and Employee Engagement',
+  description: 'A national retail chain with 500 stores and 25,000 employees faces $150M in annual labor costs with 60% employee turnover. Manual scheduling processes take 20 hours per week per store, and poor staffing alignment with customer traffic results in lost sales and overtime costs. They need an intelligent workforce management system with AI-powered scheduling, labor optimization, and employee engagement tools.',
+  
+  customerProfile: {
+    company: 'ValueMart Retail',
+    industry: 'Retail',
+    size: 'Enterprise (25,000+ employees)',
+    revenue: '$3.2B annually',
+    employees: 25000,
+    location: 'National (500 stores across 45 states)',
+    currentInfrastructure: {
+      servers: 'On-premises servers with legacy HR systems',
+      storage: 'Distributed storage, manual scheduling spreadsheets',
+      applications: ['Legacy HRIS', 'Manual scheduling', 'Paper timesheets', 'Disconnected POS'],
+      operatingSystem: 'Windows Server',
+      virtualization: 'Limited VMware',
+      age: '10-12 years',
+      endOfLife: 'Legacy HRIS approaching end-of-support',
+      issues: [
+        '$150M annual labor costs with poor optimization',
+        '60% employee turnover costing $45M annually',
+        'Manual scheduling takes 20 hours per week per store',
+        'Poor staffing alignment with customer traffic patterns',
+        '$25M annual overtime costs from inefficient scheduling',
+        'Labor law compliance violations costing $2M in fines',
+        'Low employee engagement and satisfaction',
+        'Cannot forecast labor needs accurately'
+      ]
+    },
+    keyStakeholders: [
+      {
+        name: 'Sarah Martinez',
+        role: 'Chief Human Resources Officer',
+        priorities: ['Employee retention', 'Labor cost optimization', 'Compliance', 'Employee engagement'],
+        concerns: ['Implementation complexity', 'Employee adoption', 'Union relations', 'System integration'],
+        influence: 'high',
+        supportLevel: 'champion'
+      },
+      {
+        name: 'Michael Chen',
+        role: 'VP of Store Operations',
+        priorities: ['Customer service', 'Store productivity', 'Staffing optimization', 'Sales performance'],
+        concerns: ['Store manager adoption', 'Scheduling flexibility', 'Peak season readiness', 'Training requirements'],
+        influence: 'high',
+        supportLevel: 'supporter'
+      },
+      {
+        name: 'Jennifer Williams',
+        role: 'CFO',
+        priorities: ['Labor cost reduction', 'ROI', 'Operational efficiency', 'Compliance risk'],
+        concerns: ['Capital investment', 'Payback period', 'Operating costs', 'Business disruption'],
+        influence: 'high',
+        supportLevel: 'neutral'
+      },
+      {
+        name: 'David Thompson',
+        role: 'CIO',
+        priorities: ['System integration', 'Data security', 'Scalability', 'Mobile capabilities'],
+        concerns: ['Legacy system integration', 'Data migration', 'Security compliance', 'Vendor support'],
+        influence: 'medium',
+        supportLevel: 'supporter'
+      }
+    ],
+    budget: '$8M-$12M for workforce management transformation',
+    timeline: '12-month implementation across 500 stores',
+    decisionProcess: 'Board approved labor optimization initiative. CHRO is executive sponsor. CFO requires 15% labor cost reduction.'
+  },
+  
+  businessContext: {
+    challenges: [
+      '$150M annual labor costs with poor optimization',
+      '60% employee turnover costing $45M annually',
+      'Manual scheduling takes 20 hours per week per store',
+      'Poor staffing alignment with customer traffic',
+      '$25M annual overtime costs',
+      'Labor law compliance violations',
+      'Low employee engagement scores (45%)',
+      'Cannot forecast labor needs accurately'
+    ],
+    businessImpact: [
+      '$70M annual opportunity from labor optimization',
+      '$45M costs from employee turnover',
+      '$25M wasted on unnecessary overtime',
+      '$2M annual compliance fines',
+      '$15M lost sales from understaffing during peak times',
+      '10,000 hours per week wasted on manual scheduling'
+    ],
+    urgency: 'high',
+    strategicInitiatives: [
+      'Implement AI-powered workforce management system',
+      'Reduce labor costs by 15% ($22.5M annually)',
+      'Improve employee retention to 70% (reduce turnover by 10%)',
+      'Automate scheduling to save 10,000 hours per week',
+      'Align staffing with customer traffic patterns',
+      'Ensure labor law compliance across all locations',
+      'Improve employee engagement scores to 75%'
+    ],
+    competitivePressure: 'Competitors using advanced workforce management are achieving better customer service with lower labor costs. Losing talent to retailers with better scheduling flexibility.',
+    regulatoryRequirements: ['FLSA compliance', 'State labor laws', 'Break requirements', 'Overtime regulations', 'Predictive scheduling laws']
+  },
+  
+  discoveryPhase: {
+    description: 'Understand workforce management challenges, labor optimization opportunities, and employee engagement needs',
+    questions: [
+      {
+        id: 'retail-workforce-004-q1',
+        question: 'What are your biggest challenges with workforce management and scheduling today?',
+        purpose: 'Understand current pain points and quantify the business impact',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q1-a',
+            text: 'Explore the $150M labor cost structure, $45M turnover costs, and $25M overtime expenses to quantify optimization opportunities',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent! Quantifying the financial impact establishes the business case and helps prioritize solutions. This demonstrates strong business acumen.'
+          },
+          {
+            id: 'q1-b',
+            text: 'Understand the 20 hours per week per store spent on manual scheduling and the impact on store manager productivity',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good approach. Understanding the time burden helps quantify the operational efficiency opportunity and manager pain points.'
+          },
+          {
+            id: 'q1-c',
+            text: 'Investigate the 60% turnover rate, root causes, and correlation with scheduling practices and employee satisfaction',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong focus on retention. Understanding turnover drivers helps design solutions that improve employee engagement and reduce costs.'
+          },
+          {
+            id: 'q1-d',
+            text: 'Assess the $2M in compliance fines and labor law violations to understand regulatory risk and compliance gaps',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Important compliance focus. Understanding regulatory risks helps prioritize compliance features and avoid future penalties.'
+          },
+          {
+            id: 'q1-e',
+            text: 'Jump directly to discussing workforce management software features without understanding their specific challenges',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too solution-focused too early. You need to understand their specific challenges and quantify the business impact before discussing solutions.'
+          },
+          {
+            id: 'q1-f',
+            text: 'Focus only on technology capabilities without connecting to business outcomes like labor cost reduction or retention improvement',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Missing the business context. Always connect technology capabilities to specific business outcomes and financial impact.'
+          }
+        ],
+        correctChoiceIds: ['q1-a', 'q1-b', 'q1-c', 'q1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15
+      },
+      {
+        id: 'retail-workforce-004-q2',
+        question: 'How do you currently handle scheduling and what are the biggest inefficiencies?',
+        purpose: 'Understand current scheduling processes and automation opportunities',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q2-a',
+            text: 'Map the manual scheduling process, understand how managers create schedules, and identify automation opportunities',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent process mapping. Understanding the current workflow helps design an automated solution that fits their needs and maximizes efficiency gains.'
+          },
+          {
+            id: 'q2-b',
+            text: 'Understand how they forecast labor needs, align staffing with customer traffic, and handle schedule changes',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good focus on forecasting and optimization. Understanding their planning process helps design AI-powered scheduling that improves staffing alignment.'
+          },
+          {
+            id: 'q2-c',
+            text: 'Explore how employees request time off, swap shifts, and communicate availability, and identify friction points',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong employee experience focus. Understanding employee scheduling needs helps design self-service features that improve satisfaction and reduce manager burden.'
+          },
+          {
+            id: 'q2-d',
+            text: 'Assess how they handle labor law compliance, break requirements, and overtime rules across different states',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Important compliance focus. Understanding their compliance challenges helps design automated rules that prevent violations and reduce risk.'
+          },
+          {
+            id: 'q2-e',
+            text: 'Assume all stores have the same scheduling challenges without understanding location-specific differences',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too generic. Different stores may have unique challenges based on size, location, labor market, and local regulations. Always understand variations.'
+          },
+          {
+            id: 'q2-f',
+            text: 'Focus only on automating the current manual process without exploring opportunities to optimize scheduling logic',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Missing optimization opportunity. Automation should not just replicate manual processes but use AI to optimize staffing, reduce costs, and improve service.'
+          }
+        ],
+        correctChoiceIds: ['q2-a', 'q2-b', 'q2-c', 'q2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15
+      },
+      {
+        id: 'retail-workforce-004-q3',
+        question: 'What is driving your 60% employee turnover rate and how does scheduling impact retention?',
+        purpose: 'Understand retention challenges and the role of scheduling in employee satisfaction',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q3-a',
+            text: 'Investigate the correlation between scheduling practices (inconsistent hours, last-minute changes, poor work-life balance) and turnover',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent analysis. Understanding how scheduling impacts retention helps design solutions that improve employee satisfaction and reduce turnover costs.'
+          },
+          {
+            id: 'q3-b',
+            text: 'Explore employee feedback on scheduling flexibility, shift preferences, and work-life balance concerns',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good employee-centric approach. Understanding employee needs helps design scheduling features that improve satisfaction and engagement.'
+          },
+          {
+            id: 'q3-c',
+            text: 'Assess the $45M annual turnover cost breakdown (recruiting, training, productivity loss) to quantify the retention opportunity',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong financial focus. Quantifying turnover costs helps build the business case for investing in employee engagement and retention solutions.'
+          },
+          {
+            id: 'q3-d',
+            text: 'Understand how competitors are using scheduling flexibility and employee self-service to attract and retain talent',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good competitive intelligence. Understanding market practices helps position your solution as a competitive advantage for talent retention.'
+          },
+          {
+            id: 'q3-e',
+            text: 'Assume turnover is just a retail industry problem without investigating their specific retention challenges',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too dismissive. While retail has high turnover, understanding their specific challenges helps design targeted solutions that improve retention.'
+          },
+          {
+            id: 'q3-f',
+            text: 'Focus only on compensation and benefits without exploring how scheduling practices impact employee satisfaction',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Missing a key driver. Research shows scheduling flexibility and predictability are major factors in retail employee satisfaction and retention.'
+          }
+        ],
+        correctChoiceIds: ['q3-a', 'q3-b', 'q3-c', 'q3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15
+      },
+      {
+        id: 'retail-workforce-004-q4',
+        question: 'How do you align staffing levels with customer traffic patterns and what are the gaps?',
+        purpose: 'Understand demand forecasting and staffing optimization needs',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q4-a',
+            text: 'Explore how they forecast customer traffic, analyze historical patterns, and adjust staffing levels accordingly',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent forecasting focus. Understanding their demand planning process helps design AI-powered forecasting that improves staffing accuracy and reduces costs.'
+          },
+          {
+            id: 'q4-b',
+            text: 'Assess the $15M lost sales from understaffing during peak times and the impact on customer experience',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong business impact focus. Quantifying lost sales from poor staffing helps justify investment in optimization and forecasting capabilities.'
+          },
+          {
+            id: 'q4-c',
+            text: 'Understand how they handle seasonal variations, promotional events, and unexpected traffic spikes',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good focus on variability. Understanding how they handle demand fluctuations helps design flexible scheduling that adapts to changing conditions.'
+          },
+          {
+            id: 'q4-d',
+            text: 'Investigate how they measure and optimize labor productivity, sales per labor hour, and service level metrics',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Important metrics focus. Understanding their KPIs helps design analytics that measure and optimize workforce performance.'
+          },
+          {
+            id: 'q4-e',
+            text: 'Recommend fixed staffing levels without understanding their traffic patterns and demand variability',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too rigid. Retail traffic varies significantly by time, day, season, and location. Staffing must be flexible and data-driven.'
+          },
+          {
+            id: 'q4-f',
+            text: 'Focus only on reducing labor costs without considering the impact on customer service and sales',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Unbalanced approach. Labor optimization must balance cost reduction with customer service quality and sales performance.'
+          }
+        ],
+        correctChoiceIds: ['q4-a', 'q4-b', 'q4-c', 'q4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15
+      },
+      {
+        id: 'retail-workforce-004-q5',
+        question: 'What labor law compliance challenges are you facing and what are the risks?',
+        purpose: 'Understand regulatory compliance requirements and risk exposure',
+        category: 'pain-point',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q5-a',
+            text: 'Assess the $2M in annual compliance fines, understand the violations (overtime, breaks, predictive scheduling), and identify root causes',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent risk assessment. Understanding compliance violations helps design automated rules that prevent future penalties and reduce regulatory risk.'
+          },
+          {
+            id: 'q5-b',
+            text: 'Explore the complexity of managing different labor laws across 45 states (break requirements, overtime rules, minor restrictions)',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good focus on complexity. Understanding multi-state compliance challenges helps design a system that automates compliance across jurisdictions.'
+          },
+          {
+            id: 'q5-c',
+            text: 'Understand how they currently track and enforce compliance, and identify gaps in their manual processes',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong process focus. Understanding current compliance tracking helps design automated monitoring and enforcement that reduces violations.'
+          },
+          {
+            id: 'q5-d',
+            text: 'Assess emerging regulations like predictive scheduling laws and their impact on scheduling practices and costs',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Forward-thinking approach. Understanding emerging regulations helps design a system that adapts to changing compliance requirements.'
+          },
+          {
+            id: 'q5-e',
+            text: 'Assume labor law compliance is the same across all states without understanding jurisdiction-specific requirements',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Dangerous assumption. Labor laws vary significantly by state and locality. Always understand jurisdiction-specific requirements.'
+          },
+          {
+            id: 'q5-f',
+            text: 'Treat compliance as a checkbox feature without understanding the financial and reputational risks of violations',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Underestimating risk. Compliance violations can result in significant fines, lawsuits, and reputational damage. Always emphasize risk mitigation.'
+          }
+        ],
+        correctChoiceIds: ['q5-a', 'q5-b', 'q5-c', 'q5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15
+      },
+      {
+        id: 'retail-workforce-004-q6',
+        question: 'How do you measure employee engagement and what role does scheduling play?',
+        purpose: 'Understand employee satisfaction drivers and engagement metrics',
+        category: 'business-value',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q6-a',
+            text: 'Explore the 45% employee engagement score, understand the drivers, and assess how scheduling impacts satisfaction',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent engagement focus. Understanding satisfaction drivers helps design scheduling features that improve employee experience and retention.'
+          },
+          {
+            id: 'q6-b',
+            text: 'Investigate employee feedback on scheduling predictability, flexibility, work-life balance, and shift preferences',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good employee-centric approach. Understanding scheduling preferences helps design self-service features that improve satisfaction.'
+          },
+          {
+            id: 'q6-c',
+            text: 'Assess the correlation between engagement scores, turnover rates, and customer satisfaction metrics',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong analytical approach. Understanding the engagement-retention-performance connection helps build the business case for employee experience investments.'
+          },
+          {
+            id: 'q6-d',
+            text: 'Explore how competitors are using scheduling flexibility and mobile tools to improve employee engagement',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good competitive intelligence. Understanding market practices helps position your solution as a competitive advantage for talent attraction and retention.'
+          },
+          {
+            id: 'q6-e',
+            text: 'Assume employee engagement is not important for retail workers without understanding its impact on performance',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Dangerous assumption. Research shows engaged retail employees deliver better customer service, have lower turnover, and drive higher sales.'
+          },
+          {
+            id: 'q6-f',
+            text: 'Focus only on operational efficiency without considering employee experience and satisfaction',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Unbalanced approach. Workforce management must balance operational efficiency with employee experience to achieve sustainable results.'
+          }
+        ],
+        correctChoiceIds: ['q6-a', 'q6-b', 'q6-c', 'q6-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15
+      },
+      {
+        id: 'retail-workforce-004-q7',
+        question: 'What are your integration requirements with existing HR, payroll, and POS systems?',
+        purpose: 'Understand technical integration needs and data flow requirements',
+        category: 'technical',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q7-a',
+            text: 'Map the data flow between workforce management, HRIS, payroll, time & attendance, and POS systems',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent integration planning. Understanding data flows helps design seamless integrations that eliminate manual data entry and ensure accuracy.'
+          },
+          {
+            id: 'q7-b',
+            text: 'Understand their legacy HRIS capabilities, limitations, and integration options (APIs, file transfers, manual)',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good technical assessment. Understanding legacy system capabilities helps design realistic integration approaches that work with their infrastructure.'
+          },
+          {
+            id: 'q7-c',
+            text: 'Explore how they currently sync employee data, schedules, time punches, and payroll information across systems',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong process focus. Understanding current data sync processes helps identify automation opportunities and reduce manual effort.'
+          },
+          {
+            id: 'q7-d',
+            text: 'Assess their mobile requirements for employees and managers to access schedules, request time off, and communicate',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Important mobile focus. Understanding mobile needs helps design user-friendly apps that improve adoption and employee satisfaction.'
+          },
+          {
+            id: 'q7-e',
+            text: 'Recommend replacing all their existing systems without understanding integration requirements and constraints',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too disruptive and expensive. Most organizations prefer to integrate with existing systems rather than replace everything. Always explore integration first.'
+          },
+          {
+            id: 'q7-f',
+            text: 'Assume integration is simple without understanding their legacy systems, data quality, and technical constraints',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Underestimating complexity. Legacy system integration can be challenging. Always assess technical feasibility and plan for data migration and testing.'
+          }
+        ],
+        correctChoiceIds: ['q7-a', 'q7-b', 'q7-c', 'q7-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 15
+      },
+      {
+        id: 'retail-workforce-004-q8',
+        question: 'What are your goals for this workforce management initiative and how will you measure success?',
+        purpose: 'Understand success criteria and establish measurable outcomes',
+        category: 'business-value',
+        idealResponse: '',
+        alternateResponses: [],
+        choices: [
+          {
+            id: 'q8-a',
+            text: 'Establish specific targets: 15% labor cost reduction ($22.5M), 10% turnover reduction, 75% engagement score, zero compliance violations',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent goal setting. Specific, measurable targets help design the solution, track progress, and demonstrate ROI. This shows strong business partnership.'
+          },
+          {
+            id: 'q8-b',
+            text: 'Understand their timeline expectations, phased rollout approach, and success criteria for each phase',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good implementation planning. Understanding phasing helps design a rollout strategy that minimizes risk and builds momentum.'
+          },
+          {
+            id: 'q8-c',
+            text: 'Explore how they will measure ROI, track adoption, and monitor key metrics like labor productivity and employee satisfaction',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong measurement focus. Understanding their metrics helps design analytics and dashboards that track progress and demonstrate value.'
+          },
+          {
+            id: 'q8-d',
+            text: 'Assess stakeholder alignment on goals, priorities, and success criteria to ensure unified vision',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Important alignment focus. Understanding stakeholder priorities helps address concerns and build consensus around the initiative.'
+          },
+          {
+            id: 'q8-e',
+            text: 'Propose generic goals without understanding their specific business priorities and constraints',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too generic. Goals must be specific to their business context, priorities, and constraints. Always customize based on their situation.'
+          },
+          {
+            id: 'q8-f',
+            text: 'Focus only on technology implementation without defining business outcomes and success metrics',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Missing the business focus. Technology is a means to an end. Always define business outcomes and how you will measure success.'
+          }
+        ],
+        correctChoiceIds: ['q8-a', 'q8-b', 'q8-c', 'q8-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 10
+      }
+    ]
+  },
+  
+  objectionPhase: {
+    description: 'Address concerns about workforce management implementation, costs, and change management',
+    objections: [
+      {
+        id: 'retail-workforce-004-obj1',
+        objection: 'Workforce management systems are expensive and the ROI is unclear. How can we justify the investment?',
+        category: 'cost',
+        severity: 'high',
+        stakeholder: 'CFO',
+        context: 'CFO is concerned about the capital investment and wants clear ROI justification',
+        idealResponse: '',
+        alternateResponses: [],
+        responseChoices: [
+          {
+            id: 'obj1-a',
+            text: 'Present detailed ROI analysis: $22.5M labor cost savings, $13.5M turnover reduction, $2M compliance savings = $38M annual benefit vs. $10M investment = 3.8x ROI, 3-month payback',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent financial justification. Detailed ROI with specific savings and payback period addresses cost concerns and demonstrates strong business value.'
+          },
+          {
+            id: 'obj1-b',
+            text: 'Highlight the $70M annual opportunity from labor optimization and the cost of inaction (continued waste, fines, turnover)',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good opportunity framing. Emphasizing the cost of inaction helps justify investment and creates urgency.'
+          },
+          {
+            id: 'obj1-c',
+            text: 'Propose phased implementation starting with high-ROI stores to prove value before full rollout',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Smart risk mitigation. Phased approach reduces upfront investment and allows you to prove ROI before scaling.'
+          },
+          {
+            id: 'obj1-d',
+            text: 'Share case studies of similar retailers achieving 15-20% labor cost reduction and 30-40% turnover improvement',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good social proof. Relevant case studies help build confidence in the ROI and demonstrate proven results.'
+          },
+          {
+            id: 'obj1-e',
+            text: 'Dismiss cost concerns by saying "you have to spend money to make money" without providing specific ROI analysis',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too dismissive. CFOs need detailed financial justification with specific savings, costs, and payback period. Always provide concrete ROI analysis.'
+          },
+          {
+            id: 'obj1-f',
+            text: 'Focus only on technology features without connecting to financial outcomes and business value',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Missing the business case. Always connect technology capabilities to specific financial outcomes and ROI that matter to the CFO.'
+          }
+        ],
+        correctChoiceIds: ['obj1-a', 'obj1-b', 'obj1-c', 'obj1-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 20
+      },
+      {
+        id: 'retail-workforce-004-obj2',
+        objection: 'Our store managers are used to creating schedules manually. They will resist automated scheduling.',
+        category: 'skills',
+        severity: 'high',
+        stakeholder: 'VP of Store Operations',
+        context: 'VP is concerned about store manager adoption and resistance to change',
+        idealResponse: '',
+        alternateResponses: [],
+        responseChoices: [
+          {
+            id: 'obj2-a',
+            text: 'Emphasize that AI-powered scheduling saves managers 20 hours per week, giving them more time for customer service and team development',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent benefit framing. Showing how automation helps managers focus on higher-value activities addresses resistance and builds support.'
+          },
+          {
+            id: 'obj2-b',
+            text: 'Highlight that managers retain control and can override AI recommendations, but get better starting point and optimization suggestions',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good balance of automation and control. Emphasizing manager control while providing AI assistance reduces resistance and builds confidence.'
+          },
+          {
+            id: 'obj2-c',
+            text: 'Propose comprehensive training program, pilot stores, and manager champions to drive adoption and share best practices',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong change management approach. Structured training and champions help drive adoption and address concerns through peer support.'
+          },
+          {
+            id: 'obj2-d',
+            text: 'Share success stories from pilot stores where managers embraced the system and achieved better results with less effort',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good social proof. Real examples from peers help overcome resistance and demonstrate practical benefits.'
+          },
+          {
+            id: 'obj2-e',
+            text: 'Tell managers they have no choice and must use the new system whether they like it or not',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Terrible change management. Forcing adoption without addressing concerns creates resistance and sabotage. Always engage and support users.'
+          },
+          {
+            id: 'obj2-f',
+            text: 'Assume managers will automatically adopt the system without planning for training, support, and change management',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Underestimating change management. User adoption requires structured training, support, and communication. Always plan for change management.'
+          }
+        ],
+        correctChoiceIds: ['obj2-a', 'obj2-b', 'obj2-c', 'obj2-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 20
+      },
+      {
+        id: 'retail-workforce-004-obj3',
+        objection: 'How will this integrate with our legacy HRIS and payroll systems? Integration is always a nightmare.',
+        category: 'technical',
+        severity: 'medium',
+        stakeholder: 'CIO',
+        context: 'CIO is concerned about integration complexity and technical risks',
+        idealResponse: '',
+        alternateResponses: [],
+        responseChoices: [
+          {
+            id: 'obj3-a',
+            text: 'Explain IBM App Connect provides pre-built connectors for major HRIS/payroll systems and can handle custom integrations for legacy systems',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent technical solution. Specific integration capabilities with both standard and custom options address concerns and demonstrate feasibility.'
+          },
+          {
+            id: 'obj3-b',
+            text: 'Propose phased integration approach: start with file-based transfers, then move to real-time APIs as systems are modernized',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Smart pragmatic approach. Phased integration reduces risk and allows for system modernization over time.'
+          },
+          {
+            id: 'obj3-c',
+            text: 'Highlight IBM professional services experience integrating with legacy systems and provide similar customer references',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good credibility building. Demonstrating experience with similar integrations reduces perceived risk and builds confidence.'
+          },
+          {
+            id: 'obj3-d',
+            text: 'Offer integration assessment and proof of concept to validate technical feasibility before full commitment',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong risk mitigation. POC validates integration feasibility and reduces technical uncertainty before major investment.'
+          },
+          {
+            id: 'obj3-e',
+            text: 'Claim integration is simple and will work perfectly without understanding their specific legacy systems',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Overpromising. Legacy system integration can be complex. Always assess specific systems and plan for challenges.'
+          },
+          {
+            id: 'obj3-f',
+            text: 'Recommend replacing all legacy systems immediately without considering cost, risk, and business disruption',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too disruptive and expensive. Most organizations prefer to integrate with existing systems. Always explore integration before replacement.'
+          }
+        ],
+        correctChoiceIds: ['obj3-a', 'obj3-b', 'obj3-c', 'obj3-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 20
+      },
+      {
+        id: 'retail-workforce-004-obj4',
+        objection: 'We have union contracts that specify scheduling rules. Will this system comply with union agreements?',
+        category: 'risk',
+        severity: 'high',
+        stakeholder: 'Chief Human Resources Officer',
+        context: 'CHRO is concerned about union relations and contract compliance',
+        idealResponse: '',
+        alternateResponses: [],
+        responseChoices: [
+          {
+            id: 'obj4-a',
+            text: 'Explain the system can be configured with union contract rules (seniority, shift bidding, overtime distribution) to ensure compliance',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent compliance focus. Demonstrating configurable rules that enforce union contracts addresses concerns and shows flexibility.'
+          },
+          {
+            id: 'obj4-b',
+            text: 'Propose involving union representatives in system design and testing to ensure it meets contract requirements and builds trust',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Smart stakeholder management. Involving unions early builds trust and ensures the system meets their requirements.'
+          },
+          {
+            id: 'obj4-c',
+            text: 'Highlight how automated compliance reduces grievances and disputes by consistently applying contract rules',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good benefit framing. Showing how automation improves compliance and reduces disputes appeals to both management and unions.'
+          },
+          {
+            id: 'obj4-d',
+            text: 'Share examples of unionized retailers successfully implementing workforce management while maintaining union relationships',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Strong social proof. Relevant examples demonstrate that workforce management can work in union environments.'
+          },
+          {
+            id: 'obj4-e',
+            text: 'Dismiss union concerns and say the system will override union contracts to optimize scheduling',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Dangerous approach. Violating union contracts creates legal risk and labor disputes. Always respect and comply with union agreements.'
+          },
+          {
+            id: 'obj4-f',
+            text: 'Assume union contracts are not important without understanding their impact on scheduling and labor relations',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Underestimating risk. Union contracts are legally binding and violations can result in grievances, strikes, and legal action. Always understand and comply.'
+          }
+        ],
+        correctChoiceIds: ['obj4-a', 'obj4-b', 'obj4-c', 'obj4-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 20
+      },
+      {
+        id: 'retail-workforce-004-obj5',
+        objection: 'We are heading into holiday season. We cannot disrupt operations during our busiest time of year.',
+        category: 'timing',
+        severity: 'medium',
+        stakeholder: 'VP of Store Operations',
+        context: 'VP is concerned about implementation timing and operational disruption',
+        idealResponse: '',
+        alternateResponses: [],
+        responseChoices: [
+          {
+            id: 'obj5-a',
+            text: 'Propose post-holiday implementation timeline: planning and pilot in Q1, rollout in Q2-Q3, ready for next holiday season',
+            isCorrect: true,
+            points: 4,
+            feedback: 'Excellent timing strategy. Respecting their busy season while planning for future peak periods shows business understanding and reduces risk.'
+          },
+          {
+            id: 'obj5-b',
+            text: 'Highlight the urgency: without better workforce management, they will face the same challenges next holiday season',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good urgency framing. Emphasizing the cost of delay helps justify starting planning now to be ready for next peak season.'
+          },
+          {
+            id: 'obj5-c',
+            text: 'Propose using holiday season to baseline current performance and identify improvement opportunities for next year',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Smart approach. Using current season as baseline helps quantify improvement opportunities and builds the business case.'
+          },
+          {
+            id: 'obj5-d',
+            text: 'Suggest starting with non-peak stores or regions to prove value without disrupting critical holiday operations',
+            isCorrect: true,
+            points: 3,
+            feedback: 'Good risk mitigation. Phased approach allows you to prove value in lower-risk environments before peak season.'
+          },
+          {
+            id: 'obj5-e',
+            text: 'Insist on immediate implementation regardless of holiday season impact because the system is important',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Tone deaf. Disrupting operations during peak season creates risk and resistance. Always respect their business cycles and timing constraints.'
+          },
+          {
+            id: 'obj5-f',
+            text: 'Accept the delay without creating urgency or proposing alternative approaches to move forward',
+            isCorrect: false,
+            points: 0,
+            feedback: 'Too passive. While respecting timing constraints, you should propose alternative approaches to maintain momentum and prepare for future implementation.'
+          }
+        ],
+        correctChoiceIds: ['obj5-a', 'obj5-b', 'obj5-c', 'obj5-d'],
+        minCorrectChoices: 3,
+        maxChoices: 6,
+        scoringWeight: 20
+      }
+    ]
+  },
+  
+  recommendationPhase: {
+    products: ['IBM Watson Orchestrate', 'IBM Cloud Pak for Data', 'IBM App Connect'],
+    solution: 'Implement IBM Watson Orchestrate for AI-powered workforce management with intelligent scheduling, labor optimization, and employee self-service. Integrate with IBM Cloud Pak for Data for workforce analytics and IBM App Connect for seamless integration with existing HRIS and payroll systems.',
+    businessCase: {
+      investment: '$8M-$12M over 12 months',
+      expectedROI: '380% ROI with 3-month payback period',
+      benefits: [
+        '$22.5M annual labor cost savings (15% reduction)',
+        '$13.5M annual turnover cost reduction (30% improvement)',
+        '$2M annual compliance savings (zero violations)',
+        '10,000 hours per week saved on manual scheduling',
+        '$15M recovered sales from better staffing alignment',
+        'Improved employee engagement from 45% to 75%'
+      ],
+      timeline: '12-month implementation across 500 stores',
+      risks: ['Store manager adoption', 'Legacy system integration', 'Union relations', 'Peak season timing'],
+      mitigationStrategies: [
+        'Comprehensive training and change management program',
+        'Phased rollout with pilot stores and champions',
+        'Integration assessment and proof of concept',
+        'Union involvement in design and testing',
+        'Post-holiday implementation timeline'
+      ]
+    }
+  },
+  
+  scoringCriteria: {
+    passingScore: 70,
+    categories: {
+      discovery: {
+        weight: 40,
+        description: 'Understanding workforce management challenges, labor optimization opportunities, and employee engagement needs'
+      },
+      objectionHandling: {
+        weight: 40,
+        description: 'Addressing cost concerns, change management, integration challenges, union compliance, and timing constraints'
+      },
+      recommendation: {
+        weight: 20,
+        description: 'Proposing comprehensive workforce management solution with clear ROI and implementation approach'
+      }
+    }
+  },
+  
+  learningObjectives: [
+    'Quantify labor optimization opportunities and build financial business case',
+    'Understand the connection between scheduling practices and employee retention',
+    'Design AI-powered scheduling that balances cost optimization with service quality',
+    'Address change management and user adoption challenges',
+    'Navigate union relations and contract compliance requirements',
+    'Plan phased implementation that respects business cycles and timing constraints'
+  ],
+  
+  coachingTips: [
+    'Always quantify the financial impact of labor inefficiency and turnover',
+    'Connect scheduling practices to employee satisfaction and retention',
+    'Balance labor cost optimization with customer service quality',
+    'Address change management early - user adoption is critical',
+    'Respect union contracts and involve unions in the process',
+    'Plan implementation timing around business cycles and peak seasons',
+    'Emphasize the time savings for store managers, not just cost reduction',
+    'Highlight compliance automation to reduce regulatory risk'
+  ]
+};
+
+
 
 // Update exports
 export const retailScenarios = [

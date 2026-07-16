@@ -158,21 +158,23 @@ export function scoreDiscoveryPhase(
     }
   });
   
-  // Check for expected findings
+  // Check for expected findings (if provided)
   const expectedFindings = scenario.discoveryPhase.expectedFindings;
-  const allAnswersText = answers.map(a => a.answer.toLowerCase()).join(' ');
-  const foundFindings = expectedFindings.filter(finding =>
-    allAnswersText.includes(finding.toLowerCase().substring(0, 20))
-  );
-  
-  if (foundFindings.length < expectedFindings.length * 0.6) {
-    improvements.push('Did not uncover all key business drivers and pain points');
-    feedback.push(`Key findings to explore: ${expectedFindings.slice(0, 3).join(', ')}`);
-  } else {
-    strengths.push('Successfully identified key business drivers and pain points');
+  if (expectedFindings && expectedFindings.length > 0) {
+    const allAnswersText = answers.map(a => a.answer.toLowerCase()).join(' ');
+    const foundFindings = expectedFindings.filter(finding =>
+      allAnswersText.includes(finding.toLowerCase().substring(0, 20))
+    );
+    
+    if (foundFindings.length < expectedFindings.length * 0.6) {
+      improvements.push('Did not uncover all key business drivers and pain points');
+      feedback.push(`Key findings to explore: ${expectedFindings.slice(0, 3).join(', ')}`);
+    } else {
+      strengths.push('Successfully identified key business drivers and pain points');
+    }
   }
   
-  const percentage = (totalPoints / discovery.maxPoints) * 100;
+  const percentage = discovery?.maxPoints ? (totalPoints / discovery.maxPoints) * 100 : 0;
   
   return {
     phase: 'discovery',
