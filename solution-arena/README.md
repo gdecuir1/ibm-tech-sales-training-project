@@ -6,6 +6,8 @@ A modern, interactive sales training platform for IBM technical sales profession
 
 ![IBM DealSprint](https://img.shields.io/badge/IBM-DealSprint-0f62fe?style=for-the-badge&logo=ibm)
 ![React](https://img.shields.io/badge/React-18.3-61dafb?style=for-the-badge&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue?style=for-the-badge&logo=postgresql)
 ![Vite](https://img.shields.io/badge/Vite-5.4-646cff?style=for-the-badge&logo=vite)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)
 ![Tests](https://img.shields.io/badge/Tests-410%2F513%20Passing-success?style=for-the-badge)
@@ -14,7 +16,7 @@ A modern, interactive sales training platform for IBM technical sales profession
 
 ## 🎯 Overview
 
-**IBM DealSprint** is a fully client-side, static web application designed to help IBM sales professionals:
+**IBM DealSprint** is a full-stack sales training platform designed to help IBM sales professionals:
 
 - **Practice Sales Scenarios** - 13 realistic scenarios across Healthcare and Banking industries
 - **Master Product Knowledge** - Comprehensive knowledge base for 3 IBM products (3,106 lines of content)
@@ -24,12 +26,13 @@ A modern, interactive sales training platform for IBM technical sales profession
 
 ### Key Features
 
-✅ **100% Client-Side** - No backend required, runs entirely in the browser  
-✅ **GitHub Pages Ready** - Deployed as a static site  
-✅ **Offline Capable** - All data stored locally using localStorage  
-✅ **Mobile Responsive** - Works on all devices  
-✅ **Accessible** - WCAG 2.1 compliant with ARIA labels  
-✅ **Fast & Modern** - Built with React 18, Vite, and Tailwind CSS  
+✅ **Full-Stack Architecture** - React frontend + Node.js/Express backend + PostgreSQL database
+✅ **Dual Deployment** - Static GitHub Pages OR full backend with database
+✅ **Persistent Data** - PostgreSQL database for user progress and analytics
+✅ **RESTful API** - Complete API for scenarios, products, and progress tracking
+✅ **Mobile Responsive** - Works on all devices
+✅ **Accessible** - WCAG 2.1 compliant with ARIA labels
+✅ **Fast & Modern** - Built with React 18, Vite, and Tailwind CSS
 
 ---
 
@@ -75,6 +78,24 @@ The production build will be in `frontend/dist/` and is ready for deployment to 
 
 ```
 solution-arena/
+├── backend/                     # Node.js/Express API server
+│   ├── config/                 # Configuration files
+│   │   └── database.js         # PostgreSQL connection pool
+│   ├── routes/                 # API endpoints
+│   │   ├── scenarios.js        # Scenario CRUD operations
+│   │   ├── products.js         # Product catalog API
+│   │   └── progress.js         # User progress tracking
+│   ├── middleware/             # Custom middleware (future)
+│   ├── server.js               # Express server setup
+│   ├── package.json            # Backend dependencies
+│   ├── .env.example            # Environment template
+│   └── README.md               # Backend documentation
+│
+├── database/                    # PostgreSQL database
+│   ├── schema.sql              # Database schema (8 tables)
+│   ├── seed.js                 # Data seeding script
+│   └── README.md               # Database documentation
+│
 ├── frontend/                    # React application
 │   ├── src/
 │   │   ├── components/         # React components
@@ -85,13 +106,19 @@ solution-arena/
 │   │   │   ├── ibm-products/   # Product knowledge base (3 products)
 │   │   │   └── scenarios/      # Training scenarios (13 scenarios)
 │   │   ├── pages/              # Page components
-│   │   ├── services/           # Business logic and localStorage
+│   │   ├── services/           # Business logic and API calls
 │   │   ├── styles/             # Global styles and Tailwind config
 │   │   ├── test/               # Test suites (513 tests)
 │   │   └── utils/              # Helper functions
 │   ├── public/                 # Static assets
-│   └── package.json            # Dependencies and scripts
-├── shared-data/                # Scenario generation scripts
+│   └── package.json            # Frontend dependencies
+│
+├── shared-data/                # Shared data files
+│   ├── scenarios.json          # Scenario definitions
+│   ├── products.json           # Product catalog
+│   ├── objections.json         # Customer objections
+│   └── generateScenarios.js    # Scenario generator
+│
 ├── docs/                       # Documentation
 │   ├── archive/                # Historical documentation
 │   ├── GITHUB_PAGES_DEPLOYMENT.md
@@ -99,6 +126,8 @@ solution-arena/
 │   ├── PROJECT_SUMMARY.md
 │   ├── REDESIGN_IMPLEMENTATION.md
 │   └── RUNNING_INSTRUCTIONS.md
+│
+├── DATABASE_SETUP_GUIDE.md     # Database setup instructions
 └── README.md                   # This file
 ```
 
@@ -199,14 +228,15 @@ Built with **IBM Carbon Design System** principles:
 
 ## 💾 Data Storage
 
+### Two Deployment Options
+
+#### Option 1: Static Deployment (GitHub Pages)
 All user data is stored locally using **localStorage**:
 
 - **Scenario Progress** - Completed scenarios and scores
 - **Answer History** - All submitted answers with timestamps
 - **Dashboard Stats** - Performance metrics and analytics
 - **User Preferences** - Settings and configurations
-
-### Storage Keys
 
 ```javascript
 'ibm-training-progress'      // Scenario completion data
@@ -215,6 +245,16 @@ All user data is stored locally using **localStorage**:
 ```
 
 **Note**: localStorage is device-specific and can be cleared by the user. Data is not synced across devices.
+
+#### Option 2: Full Backend (PostgreSQL)
+User data is stored in PostgreSQL database:
+
+- **8 Database Tables** - users, products, scenarios, scenario_questions, objections, user_progress, scenario_attempts, user_achievements
+- **Persistent Storage** - Data survives browser clears and syncs across devices
+- **Advanced Analytics** - Detailed progress tracking and performance metrics
+- **Multi-user Support** - User authentication and profiles
+
+See [DATABASE_SETUP_GUIDE.md](DATABASE_SETUP_GUIDE.md) for setup instructions.
 
 ---
 
@@ -285,11 +325,17 @@ export default defineConfig({
 
 ## 📚 Documentation
 
-- **[GitHub Pages Deployment Guide](docs/GITHUB_PAGES_DEPLOYMENT.md)** - Deployment instructions
+### Setup & Deployment
+- **[Database Setup Guide](../DATABASE_SETUP_GUIDE.md)** - PostgreSQL database setup (NEW!)
+- **[Backend API Documentation](backend/README.md)** - Complete API reference (NEW!)
+- **[Database Schema Documentation](database/README.md)** - Database details (NEW!)
+- **[GitHub Pages Deployment Guide](docs/GITHUB_PAGES_DEPLOYMENT.md)** - Static deployment
 - **[GitHub Setup Guide](docs/GITHUB_SETUP.md)** - Repository configuration
+- **[Running Instructions](docs/RUNNING_INSTRUCTIONS.md)** - Development guide
+
+### Technical Documentation
 - **[Project Summary](docs/PROJECT_SUMMARY.md)** - Technical overview
 - **[Redesign Implementation](docs/REDESIGN_IMPLEMENTATION.md)** - UI redesign details
-- **[Running Instructions](docs/RUNNING_INSTRUCTIONS.md)** - Development guide
 - **[Archived Docs](docs/archive/)** - Historical documentation
 
 ---
