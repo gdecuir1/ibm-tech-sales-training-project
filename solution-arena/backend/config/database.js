@@ -1,16 +1,31 @@
 // Database connection configuration
 const { Pool } = require('pg');
 
-// Create connection pool
+// Validate DATABASE_URL is present
+if (!process.env.DATABASE_URL) {
+  console.error('ERROR: DATABASE_URL environment variable is not set.');
+  console.error('Please set DATABASE_URL to your PostgreSQL connection string.');
+  console.error('Example: postgresql://username:password@host:port/database');
+  process.exit(1);
+}
+
+// Parse and clean DATABASE_URL (remove sslmode parameter if present)
+let connectionString = process.env.DATABASE_URL;
+if (connectionString.includes('sslmode=')) {
+  const url = new URL(connectionString);
+  url.searchParams.delete('sslmode');
+  connectionString = url.toString();
+}
+
+// Create connection pool using DATABASE_URL
 const pool = new Pool({
-  host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'dealsprint',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'postgres',
+  connectionString: connectionString,
   max: 20, // Maximum number of clients in the pool
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
+  ssl: {
+    rejectUnauthorized: false // Required for IBM Cloud PostgreSQL self-signed certificates
+  }
 });
 
 // Test database connection

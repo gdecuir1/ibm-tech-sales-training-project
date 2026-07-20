@@ -96,11 +96,7 @@ nano .env  # or use your preferred editor
 
 Update these values in `.env`:
 ```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=dealsprint
-DB_USER=postgres
-DB_PASSWORD=YOUR_SECURE_PASSWORD_HERE
+DATABASE_URL=postgresql://postgres:YOUR_SECURE_PASSWORD_HERE@localhost:5432/dealsprint
 PORT=3001
 NODE_ENV=development
 FRONTEND_URL=http://localhost:5173

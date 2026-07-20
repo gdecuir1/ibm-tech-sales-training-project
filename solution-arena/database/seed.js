@@ -5,13 +5,28 @@ const { Pool } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
+// Validate DATABASE_URL is present
+if (!process.env.DATABASE_URL) {
+  console.error('ERROR: DATABASE_URL environment variable is not set.');
+  console.error('Please set DATABASE_URL to your PostgreSQL connection string.');
+  console.error('Example: postgresql://username:password@host:port/database');
+  process.exit(1);
+}
+
+// Parse and clean DATABASE_URL (remove sslmode parameter if present)
+let connectionString = process.env.DATABASE_URL;
+if (connectionString.includes('sslmode=')) {
+  const url = new URL(connectionString);
+  url.searchParams.delete('sslmode');
+  connectionString = url.toString();
+}
+
 // Database connection configuration
 const pool = new Pool({
-  host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'dealsprint',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD,
+  connectionString: connectionString,
+  ssl: {
+    rejectUnauthorized: false // Required for IBM Cloud PostgreSQL self-signed certificates
+  }
 });
 
 // Load JSON data files
