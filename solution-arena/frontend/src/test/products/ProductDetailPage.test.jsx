@@ -27,6 +27,11 @@ const mockProduct = {
     'Built-in security features',
     'Unmatched reliability',
   ],
+  whenToRecommend: [
+    'Customer needs mission-critical reliability',
+    'High-performance database workloads',
+    'AI and analytics requirements',
+  ],
   useCases: [
     {
       useCase: 'Mission-critical applications',
@@ -104,6 +109,20 @@ vi.mock('../../data/ibm-products', () => ({
     if (id === 'test-product-1') return mockProduct;
     return null;
   }),
+  getCrossSellProducts: vi.fn(() => [
+    {
+      id: 'power-e1050',
+      name: 'IBM Power E1050',
+      category: 'Hardware',
+      description: 'Mid-range enterprise server',
+    },
+    {
+      id: 'flashsystem-9500',
+      name: 'IBM FlashSystem 9500',
+      category: 'Storage',
+      description: 'All-flash storage array',
+    },
+  ]),
   getRelatedProducts: vi.fn(() => [
     {
       id: 'power-e1050',
@@ -118,6 +137,7 @@ vi.mock('../../data/ibm-products', () => ({
       description: 'All-flash storage array',
     },
   ]),
+  getUseCasesByIndustry: vi.fn(() => []),
 }));
 
 describe('ProductDetailPage', () => {
