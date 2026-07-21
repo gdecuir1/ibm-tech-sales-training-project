@@ -80,7 +80,8 @@ export default function ScenarioExecutionPage() {
   // Handle answer submission
   const handleSubmitAnswer = () => {
     const currentQuestion = getCurrentQuestion();
-    const isMultipleChoice = currentQuestion.choices && currentQuestion.choices.length > 0;
+    const choiceOptions = currentQuestion.choices || currentQuestion.responseChoices || [];
+    const isMultipleChoice = choiceOptions.length > 0;
 
     // Validation
     if (isMultipleChoice) {
@@ -101,9 +102,12 @@ export default function ScenarioExecutionPage() {
 
     if (isMultipleChoice) {
       // Score multiple choice answer
-      result = scoreMultipleChoiceAnswer(currentQuestion, selectedChoices);
+      result = scoreMultipleChoiceAnswer(
+        { ...currentQuestion, choices: choiceOptions },
+        selectedChoices
+      );
       answerText = selectedChoices
-        .map(id => currentQuestion.choices.find(c => c.id === id)?.text || id)
+        .map(id => choiceOptions.find(c => c.id === id)?.text || id)
         .join('; ');
     } else {
       // Score free-text answer
@@ -117,7 +121,7 @@ export default function ScenarioExecutionPage() {
 
     // Store answer
     const newAnswer = {
-      questionId: currentQuestionIndex,
+      questionId: currentQuestion.id ?? currentQuestionIndex,
       question: currentQuestion.question || currentQuestion.objection,
       userAnswer: answerText,
       selectedChoices: isMultipleChoice ? selectedChoices : null,
@@ -371,7 +375,11 @@ export default function ScenarioExecutionPage() {
             <div className="flex gap-3">
               <button
                 onClick={handleSubmitAnswer}
-                disabled={!userAnswer.trim()}
+                disabled={
+                  currentQuestion.responseChoices && currentQuestion.responseChoices.length > 0
+                    ? selectedChoices.length === 0
+                    : !userAnswer.trim()
+                }
                 className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors font-medium"
               >
                 Submit Response
@@ -539,7 +547,11 @@ export default function ScenarioExecutionPage() {
           <div className="flex gap-3">
             <button
               onClick={handleSubmitAnswer}
-              disabled={!userAnswer.trim()}
+              disabled={
+                currentQuestion.choices && currentQuestion.choices.length > 0
+                  ? selectedChoices.length === 0
+                  : !userAnswer.trim()
+              }
               className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors font-medium"
             >
               Submit Answer
